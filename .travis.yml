@@ -1,5 +1,7 @@
 language: java
 
+cache: bundler
+
 jdk: openjdk11
 
 after_success:
