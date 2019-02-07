@@ -1,15 +1,6 @@
 language: java
 
-jdk: oraclejdk11
+jdk: openjdk11
 
 after_success:
-  - mvn clean package jacoco:report coveralls:report
-#
-#addons:
-#  sonarcloud:
-#    organization: "stackroute"
-#    token:
-#      secure: "0.............="
-#
-#script:
-#  - sonar-scanner
+ - mvn clean coveralls:report
