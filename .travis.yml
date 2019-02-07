@@ -1,7 +1,9 @@
 language: java
 
-cache: bundler
-
+cache:
+   directories:
+    - /home/travis/.rvm/
+     
 jdk: openjdk11
 
 after_success:
