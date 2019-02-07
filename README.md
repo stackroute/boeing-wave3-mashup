@@ -1,4 +1,3 @@
-
 [![Build Status](https://travis-ci.org/stackroute/boeing-wave4-knowledgehub.svg?branch=v1.0.0)](https://travis-ci.org/stackroute/boeing-wave4-knowledgehub)
 
 [![Coverage Status](https://coveralls.io/repos/github/stackroute/boeing-wave4-knowledgehub/badge.svg?branch=v1.0.0)](https://coveralls.io/github/stackroute/boeing-wave4-knowledgehub?branch=v1.0.0)
