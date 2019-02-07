@@ -1,8 +1,8 @@
 language: java
 
 cache:
-   directories:
-    - /home/travis/.rvm/
+ directories:
+ - "$HOME/.m2/repository"
      
 jdk: openjdk11
 
