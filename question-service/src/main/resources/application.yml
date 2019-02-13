@@ -1,13 +1,13 @@
-#server:
-#    port: 8022
-#spring:
-#    data:
-#        mongodb:
-#            database: ques
-#            host: localhost
-#            port: 27017
-#server:
-#  port: 8098    #default port where the service will be started
+server:
+    port: 8022
+spring:
+    data:
+        mongodb:
+            database: mashup
+            host: localhost
+            port: 27017
+    application:
+        name: question-service   #current service name to be used by the eureka server
 
 eureka:         #tells about the Eureka server details and its refresh time
     instance:
@@ -20,10 +20,6 @@ eureka:         #tells about the Eureka server details and its refresh time
             enabled: true
         lease:
             duration: 5
-
-spring:
-    application:
-        name: question-service   #current service name to be used by the eureka server
 
 management:
     security:
