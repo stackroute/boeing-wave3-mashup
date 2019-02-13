@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @EnableDiscoveryClient
 @EnableZuulProxy
 @SpringBootApplication
