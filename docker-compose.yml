@@ -1,38 +1,223 @@
-version: "2"
+version: "2.1"
 services:
 
   apigateway:
-    image: zuul-service
-    build: zuul-gatewayservice/
-    restart: always
-    network_mode: host
-    depends_on:
-    - eurekaserver
-    ports:
-    - 8092:8092
-    expose:
-    - 8092
+     image: zuul-service
+     build: zuul-gatewayservice/
+     restart: always
+     network_mode: host
+     depends_on:
+     - eurekaserver
+     ports:
+     - 8092:8092
+     expose:
+     - 8092
+     healthcheck:
+       test: "exit 0"
 
   eurekaserver:
-    image: eureka-servcie:latest
-    build: eureka-server/
-    restart: always
-    network_mode: host
-    ports:
-    - 9091:9091
-    expose:
-    - 9091
+     image: eureka-service:latest
+     build: eureka-server/
+     restart: always
+     network_mode: host
+     ports:
+     - 8093:8093
+     expose:
+     - 8093
+     healthcheck:
+       test: "exit 0"
 
   configserver:
-      image: config-servcie:latest
-      build: config-server/
-      restart: always
-      network_mode: host
-      ports:
-      - 8888:8888
-      expose:
-      - 8888
+     image: config-service:latest
+     build: config-server/
+     restart: always
+     network_mode: host
+     ports:
+     - 8888:8888
+     expose:
+     - 8888
+     healthcheck:
+       test: "exit 0"
 
+  mongo:
+     image: mongo:3.4-jessie
+     ports:
+     - 27017:27017
+     container_name: mongo_docker
+     network_mode: host
+     hostname: localhost
+     restart: always
+     volumes:
+     - ~/Desktop/db:/data/db
+     healthcheck:
+       test: "exit 0"
 
+  neo4j:
+    image: neo4j:latest
+    ports:
+    - 7474:7474
+    - 7687:7687
+    container_name: neo4j_docker
+    network_mode: host
+    hostname: localhost
+    restart: always
+    volumes:
+    - ~/Desktop/neo4j:/data/db
+    healthcheck:
+      test: "exit 0"
 
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: springbootdb
+      MYSQL_PASSWORD: root
+      MYSQL_USER: root
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+    healthcheck:
+      test: "exit 0"
 
+  kafka:
+     image: landoop/fast-data-dev:latest
+     ports:
+     - 2181:2181
+     - 3030:3030
+     - 9092:9092
+     - 8081:8081
+     - 8082:8082
+     - 8083:8083
+     container_name: kafka_docker
+     network_mode: host
+     hostname: localhost
+     restart: always
+     volumes:
+     - ~/Desktop/DockerKafka:/data/kafka
+     healthcheck:
+       test: "exit 0"
+     expose:
+     - 9092
+     - 2181
+     - 3030
+     - 8081
+     - 8082
+     - 8083
+
+  registration-service:
+     image: registration-service
+     build: ./registration-service/
+     container_name: reg_docker
+     restart: always
+     network_mode: host
+     hostname: localhost
+     depends_on:
+      mongo:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      configserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+     ports:
+     - 8020:8020
+     healthcheck:
+      test: "exit 0"
+
+  authentication-service:
+    image: authentication-service
+    build: ./authentication-service/
+    container_name: auth_docker
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      mysql:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      configserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+    - 8021:8021
+    healthcheck:
+      test: "exit 0"
+
+  question-service:
+     image: question-service
+     build: ./question-service/
+     container_name: qp_docker
+     restart: always
+     network_mode: host
+     hostname: localhost
+     depends_on:
+      mongo:
+       condition: service_healthy
+      apigateway:
+       condition: service_healthy
+      eurekaserver:
+       condition: service_healthy
+      configserver:
+       condition: service_healthy
+      kafka:
+       condition: service_healthy
+     ports:
+     - 8022:8022
+     healthcheck:
+      test: "exit 0"
+
+  recommendation-service:
+     image: recommendation-service
+     build: ./recommendation-service/
+     container_name: rs_docker
+     restart: always
+     network_mode: host
+     hostname: localhost
+     depends_on:
+       neo4j:
+        condition: service_healthy
+       apigateway:
+        condition: service_healthy
+       eurekaserver:
+        condition: service_healthy
+       configserver:
+        condition: service_healthy
+       kafka:
+        condition: service_healthy
+     ports:
+     - 8023:8023
+     healthcheck:
+      test: "exit 0"
+
+  userprofile-service:
+    image: userprofile-service
+    build: ./userprofile-service/
+    container_name: up_docker
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      mongo:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      configserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+    - 8024:8024
+    healthcheck:
+      test: "exit 0"
