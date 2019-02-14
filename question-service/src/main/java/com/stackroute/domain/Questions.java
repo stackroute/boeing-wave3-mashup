@@ -8,8 +8,8 @@ import org.springframework.data.annotation.Id;
 @Data
 @Document(collection="questions")
 //@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+//@NoArgsConstructor
+//@Builder
 public class Questions{
     @Id
     public int questionId;
@@ -19,6 +19,63 @@ public class Questions{
     private String  questionDescription;
     @Field
     private String  inputFormat;
+
+    public String getQuestionTitle() {
+        return questionTitle;
+    }
+
+    public void setQuestionTitle(String questionTitle) {
+        this.questionTitle = questionTitle;
+    }
+
+    public String getQuestionDescription() {
+        return questionDescription;
+    }
+
+    public void setQuestionDescription(String questionDescription) {
+        this.questionDescription = questionDescription;
+    }
+
+    public String getInputFormat() {
+        return inputFormat;
+    }
+
+    public void setInputFormat(String inputFormat) {
+        this.inputFormat = inputFormat;
+    }
+
+    public String getOutputFormat() {
+        return outputFormat;
+    }
+
+    public void setOutputFormat(String outputFormat) {
+        this.outputFormat = outputFormat;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getGitUrl() {
+        return gitUrl;
+    }
+
+    public void setGitUrl(String gitUrl) {
+        this.gitUrl = gitUrl;
+    }
+
     @Field
     private String outputFormat;
     @Field
@@ -36,6 +93,9 @@ public class Questions{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Questions() {
     }
 
     public Questions(int questionId, String questionTitle, String questionDescription, String inputFormat, String outputFormat, String difficulty, String tags, String gitUrl, String username) {
