@@ -20,7 +20,7 @@
         <jaxb.version>2.3.0</jaxb.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+        <java.version>10</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
@@ -30,6 +30,10 @@
         <module>zuul-gatewayservice</module>
         <module>config-server</module>
         <module>eventbrite-service</module>
+        <module>recommendation-service</module>
+        <module>registration-service</module>
+        <module>question-service</module>
+        <module>authentication-service</module>
     </modules>
     <dependencies>
         <dependency>
@@ -63,21 +67,22 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
         </dependency>
+
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <!--<dependencyManagement>-->
+        <!--<dependencies>-->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.cloud</groupId>-->
+                <!--<artifactId>spring-cloud-dependencies</artifactId>-->
+                <!--<version>${spring-cloud.version}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
+        <!--</dependencies>-->
+    <!--</dependencyManagement>-->
 
-    <build>
+     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
