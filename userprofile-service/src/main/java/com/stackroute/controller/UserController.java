@@ -41,45 +41,45 @@ public class UserController {
             return new ResponseEntity<UserProfile>(userProfileService.saveUserProfile(userProfile), HttpStatus.OK);
     }
 
-    @GetMapping(value = "userprofile/{id}")
-    public ResponseEntity<?> getUserProfile(@PathVariable("id") int id) throws UserProfileNotFoundException {
-        return new ResponseEntity<UserProfile>(userProfileService.getUser(id), HttpStatus.OK);
+    @GetMapping(value = "userprofile/{username}")
+    public ResponseEntity<?> getUserProfile(@PathVariable("username") String userName) throws UserProfileNotFoundException {
+        return new ResponseEntity<UserProfile>(userProfileService.getUser(userName), HttpStatus.OK);
     }
 
     @ApiOperation(value = "List of interest")
-    @GetMapping(value = "interests/{id}")
-    public ResponseEntity<?> getInterests(@PathVariable("id") int id) throws Exception{
-            List<String> user = userProfileService.getInterests(id);
+    @GetMapping(value = "interests/{username}")
+    public ResponseEntity<?> getInterests(@PathVariable("userName") String userName) throws Exception{
+            List<String> user = userProfileService.getInterests(userName);
             return new ResponseEntity<List<String>>(user, HttpStatus.OK);
     }
 
     @ApiOperation(value = "List of interest")
-    @PostMapping(value = "interests/{id}")
-    public ResponseEntity<?> editInterests(@PathVariable("id") int id, @RequestBody List<String> newInterests) throws Exception{
-        List<String> interests = userProfileService.editInterests(id, newInterests);
+    @PostMapping(value = "interests/{username}")
+    public ResponseEntity<?> editInterests(@PathVariable("username") String userName, @RequestBody List<String> newInterests) throws Exception{
+        List<String> interests = userProfileService.editInterests(userName, newInterests);
         return new ResponseEntity<List<String>>(interests, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Delete a user")
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping(value = "{username}")
     public ResponseEntity<?> deleteUserProfile( @ApiParam(value = "UserProfile with Id will be deleted from database " +
-            "table", required = true)@PathVariable("id") String id) throws UserProfileNotFoundException {
-            return new ResponseEntity<Boolean>(userProfileService.deleteUser(Integer.parseInt(id)), HttpStatus.OK);
+            "table", required = true)@PathVariable("userName") String userName) throws UserProfileNotFoundException {
+            return new ResponseEntity<Boolean>(userProfileService.deleteUser(userName), HttpStatus.OK);
     }
 
-    @PostMapping(value = "password/{id}")
-    public ResponseEntity<?> changePassword(@PathVariable("id") int id, @RequestBody String newPassword) throws UserProfileNotFoundException {
-        return new ResponseEntity<UserProfile>(userProfileService.changePassword(id, newPassword), HttpStatus.OK);
+    @PostMapping(value = "password/{username}")
+    public ResponseEntity<?> changePassword(@PathVariable("username") String userName, @RequestBody String newPassword) throws UserProfileNotFoundException {
+        return new ResponseEntity<UserProfile>(userProfileService.changePassword(userName, newPassword), HttpStatus.OK);
     }
 
-    @PostMapping(value = "questionattempted/{id}")
-    public ResponseEntity<UserProfile> updateQuestionAttempted(@PathVariable("id") int id, @RequestBody Question question) {
-        return new ResponseEntity<UserProfile>(userProfileService.updateQuestionAttempted(id, question), HttpStatus.OK);
+    @PostMapping(value = "questionattempted/{username}")
+    public ResponseEntity<UserProfile> updateQuestionAttempted(@PathVariable("username") String userName, @RequestBody Question question) {
+        return new ResponseEntity<UserProfile>(userProfileService.updateQuestionAttempted(userName, question), HttpStatus.OK);
     }
 
-    @PostMapping(value = "questionposted/{id}")
-    public ResponseEntity<UserProfile> updateQuestionPosted(@PathVariable("id") int id, @RequestBody Question question) {
-        return new ResponseEntity<UserProfile>(userProfileService.updateQuestionPosted(id, question), HttpStatus.OK);
+    @PostMapping(value = "questionposted/{username}")
+    public ResponseEntity<UserProfile> updateQuestionPosted(@PathVariable("username") String userName, @RequestBody Question question) {
+        return new ResponseEntity<UserProfile>(userProfileService.updateQuestionPosted(userName, question), HttpStatus.OK);
     }
 
     @GetMapping(value = "hi")

@@ -28,18 +28,18 @@ public class UserDBProfileServiceImpl implements UserProfileService {
 
     @Override
     public UserProfile saveUserProfile(UserProfile userProfile) throws UserProfileAlreadyExistException {
-        if (userProfileRepository.existsById(userProfile.getId())) {
-            throw new UserProfileAlreadyExistException("UserProfile already exist with id" + userProfile.getId());
+        if (userProfileRepository.existsById(userProfile.getUserName())) {
+            throw new UserProfileAlreadyExistException("UserProfile already exist with id" + userProfile.getUserName());
         }
         return userProfileRepository.save(userProfile);
     }
 
     @Override
-    public UserProfile getUser(int id) throws UserProfileNotFoundException {
-        if (!userProfileRepository.existsById(id)) {
-            throw new UserProfileNotFoundException("UserProfile with " + id + " doesnot exist");
+    public UserProfile getUser(String userName) throws UserProfileNotFoundException {
+        if (!userProfileRepository.existsById(userName)) {
+            throw new UserProfileNotFoundException("UserProfile with " + userName + " doesnot exist");
         }
-        Optional<UserProfile> tempUser = userProfileRepository.findById(id);
+        Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         if (tempUser.isPresent()) {
             return tempUser.get();
         }
@@ -47,20 +47,20 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     }
 
     @Override
-    public Boolean deleteUser(int id) throws UserProfileNotFoundException {
-        if (!userProfileRepository.existsById(id)) {
-            throw new UserProfileNotFoundException("UserProfile with " + id + " doesnot exist");
+    public Boolean deleteUser(String userName) throws UserProfileNotFoundException {
+        if (!userProfileRepository.existsById(userName)) {
+            throw new UserProfileNotFoundException("UserProfile with " + userName + " doesnot exist");
         }
-        userProfileRepository.deleteById(id);
+        userProfileRepository.deleteById(userName);
         return true;
     }
 
     @Override
-    public UserProfile changePassword(int id, String newPassword) throws UserProfileNotFoundException {
-        if (!userProfileRepository.existsById(id)) {
-            throw new UserProfileNotFoundException("UserProfile with " + id + " doesnot exist");
+    public UserProfile changePassword(String userName, String newPassword) throws UserProfileNotFoundException {
+        if (!userProfileRepository.existsById(userName)) {
+            throw new UserProfileNotFoundException("UserProfile with " + userName + " doesnot exist");
         }
-        Optional<UserProfile> tempUser = userProfileRepository.findById(id);
+        Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         if (tempUser.isPresent()) {
             tempUser.get().setPassword(newPassword);
             return userProfileRepository.save(tempUser.get());
@@ -69,29 +69,29 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     }
 
     @Override
-    public List<String> getInterests(int id) {
-        Optional<UserProfile> tempUser = userProfileRepository.findById(id);
+    public List<String> getInterests(String userName) {
+        Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         return tempUser.get().getInterests();
     }
 
     @Override
-    public List<String> editInterests(int id, List<String> newInterests) {
-        Optional<UserProfile> tempUser = userProfileRepository.findById(id);
+    public List<String> editInterests(String userName, List<String> newInterests) {
+        Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         tempUser.get().setInterests(newInterests);
         userProfileRepository.save(tempUser.get());
         return tempUser.get().getInterests();
     }
 
     @Override
-    public UserProfile updateQuestionAttempted(int id, Question questionAttempted) {
-        Optional<UserProfile> temp = userProfileRepository.findById(id);
+    public UserProfile updateQuestionAttempted(String userName, Question questionAttempted) {
+        Optional<UserProfile> temp = userProfileRepository.findById(userName);
         temp.get().getAttemptedQuestion().add(questionAttempted);
         return userProfileRepository.save(temp.get());
     }
 
     @Override
-    public UserProfile updateQuestionPosted(int id, Question questionPosted) {
-        Optional<UserProfile> temp = userProfileRepository.findById(id);
+    public UserProfile updateQuestionPosted(String userName, Question questionPosted) {
+        Optional<UserProfile> temp = userProfileRepository.findById(userName);
         temp.get().getPostedQuestion().add(questionPosted);
         return userProfileRepository.save(temp.get());
     }
