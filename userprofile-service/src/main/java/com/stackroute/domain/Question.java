@@ -12,9 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder    //need to be discussed
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Builder    //need to be discussed
 @ApiModel(description = "All details about the Question. ")
 public class Question {
     @Id
@@ -26,4 +26,26 @@ public class Question {
 //    @Field
 //    @ApiModelProperty(notes = "The firstName of user")
 //    private String submissionType;
+
+    public Question() {}
+    public Question(int questionId, String questionTitle) {
+        this.questionId = questionId;
+        this.questionTitle = questionTitle;
+    }
+
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
+
+    public String getQuestionTitle() {
+        return questionTitle;
+    }
+
+    public void setQuestionTitle(String questionTitle) {
+        this.questionTitle = questionTitle;
+    }
 }

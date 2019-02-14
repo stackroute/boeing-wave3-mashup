@@ -50,7 +50,7 @@ public class UserProfileDBServiceTest {
         questionPosted.add(question);
         question = new Question(2, "q2");
         questionPosted.add(question);
-        userProfile = new UserProfile(1, "ujj", "ujj", "yati","1234567890", "u@gmail.com", interests, questionAttempted, questionPosted);
+        userProfile = new UserProfile("ujj", "ujj", "yati","1234567890", "u@gmail.com", interests, questionAttempted, questionPosted);
     }
     @Test
     public void saveUserProfile() throws UserProfileAlreadyExistException {
@@ -64,10 +64,10 @@ public class UserProfileDBServiceTest {
     public void getUserProfile() throws UserProfileAlreadyExistException, UserProfileNotFoundException{
         when(userProfileRepository.save(userProfile)).thenReturn(userProfile);
         userDBProfileService.saveUserProfile(userProfile);
-        when(userProfileRepository.existsById(1)).thenReturn(true);
+        when(userProfileRepository.existsById("ujj")).thenReturn(true);
         Optional<UserProfile> optional = Optional.of(userProfile);
-        when(userProfileRepository.findById(1)).thenReturn(optional);
-        UserProfile actual = userDBProfileService.getUser(1);
+        when(userProfileRepository.findById("ujj")).thenReturn(optional);
+        UserProfile actual = userDBProfileService.getUser("ujj");
         assertEquals(userProfile.toString(), actual.toString());
     }
 
@@ -75,10 +75,10 @@ public class UserProfileDBServiceTest {
     public void changePassword() throws UserProfileAlreadyExistException, UserProfileNotFoundException {
         when(userProfileRepository.save(userProfile)).thenReturn(userProfile);
         userDBProfileService.saveUserProfile(userProfile);
-        when(userProfileRepository.existsById(1)).thenReturn(true);
+        when(userProfileRepository.existsById("ujj")).thenReturn(true);
         Optional<UserProfile> optional = Optional.of(userProfile);
-        when(userProfileRepository.findById(1)).thenReturn(optional);
-        UserProfile actual = userDBProfileService.changePassword(1,"newpassword");
+        when(userProfileRepository.findById("ujj")).thenReturn(optional);
+        UserProfile actual = userDBProfileService.changePassword("ujj","newpassword");
         userProfile.setPassword("newpassword");
         assertEquals(userProfile.toString(), actual.toString());
     }
@@ -97,8 +97,8 @@ public class UserProfileDBServiceTest {
         when(userProfileRepository.save(userProfile)).thenReturn(userProfile);
         userDBProfileService.saveUserProfile(userProfile);
         Optional<UserProfile> optional = Optional.of(userProfile);
-        when(userProfileRepository.findById(1)).thenReturn(optional);
-        List<String> actual = userDBProfileService.getInterests(1);
+        when(userProfileRepository.findById("ujj")).thenReturn(optional);
+        List<String> actual = userDBProfileService.getInterests("ujj");
         assertArrayEquals(actual.toArray(), interests.toArray());
     }
 
@@ -107,9 +107,9 @@ public class UserProfileDBServiceTest {
         when(userProfileRepository.save(userProfile)).thenReturn(userProfile);
         userDBProfileService.saveUserProfile(userProfile);
         Optional<UserProfile> optional = Optional.of(userProfile);
-        when(userProfileRepository.findById(1)).thenReturn(optional);
+        when(userProfileRepository.findById("ujj")).thenReturn(optional);
         interests.add("i4");
-        List<String> actual = userDBProfileService.editInterests(1,interests);
+        List<String> actual = userDBProfileService.editInterests("ujj",interests);
         List<String> expected = new ArrayList<>();
         expected.add("i1");
         expected.add("i2");
@@ -123,9 +123,9 @@ public class UserProfileDBServiceTest {
         when(userProfileRepository.save(userProfile)).thenReturn(userProfile);
         userDBProfileService.saveUserProfile(userProfile);
         Optional<UserProfile> optional = Optional.of(userProfile);
-        when(userProfileRepository.findById(1)).thenReturn(optional);
+        when(userProfileRepository.findById("ujj")).thenReturn(optional);
         Question question = new Question(3, "q3");
-        UserProfile actual = userDBProfileService.updateQuestionAttempted(1,question);
+        UserProfile actual = userDBProfileService.updateQuestionAttempted("ujj",question);
         assertEquals(userProfile.toString(), actual.toString());
         assertArrayEquals(userProfile.getAttemptedQuestion().toArray(), actual.getAttemptedQuestion().toArray());
     }
@@ -135,9 +135,9 @@ public class UserProfileDBServiceTest {
         when(userProfileRepository.save(userProfile)).thenReturn(userProfile);
         userDBProfileService.saveUserProfile(userProfile);
         Optional<UserProfile> optional = Optional.of(userProfile);
-        when(userProfileRepository.findById(1)).thenReturn(optional);
+        when(userProfileRepository.findById("ujj")).thenReturn(optional);
         Question question = new Question(3, "q3");
-        UserProfile actual = userDBProfileService.updateQuestionPosted(1,question);
+        UserProfile actual = userDBProfileService.updateQuestionPosted("ujj",question);
         assertArrayEquals(userProfile.getAttemptedQuestion().toArray(), actual.getAttemptedQuestion().toArray());
     }
 

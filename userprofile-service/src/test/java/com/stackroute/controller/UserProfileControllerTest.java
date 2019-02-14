@@ -52,7 +52,7 @@ public class UserProfileControllerTest {
         questionPosted.add(question);
         question = new Question(2, "q2");
         questionPosted.add(question);
-        userProfile = new UserProfile(1, "ujj", "ujj", "yati","1234567890", "u@gmail.com", interests,questionAttempted, questionPosted);
+        userProfile = new UserProfile("ujj", "ujj", "yati","1234567890", "u@gmail.com", interests,questionAttempted, questionPosted);
     }
 
     @Test
@@ -68,46 +68,46 @@ public class UserProfileControllerTest {
 
     @Test
     public void getUserProfile() throws Exception {
-        when(userDBProfileService.getUser(1)).thenReturn(userProfile);
+        when(userDBProfileService.getUser("ujj")).thenReturn(userProfile);
         mockMvc.perform(get("/api/v1/userprofile/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).getUser(1);
+        verify(userDBProfileService, times(1)).getUser("ujj");
         verifyNoMoreInteractions(userDBProfileService);
     }
 
     @Test
     public void getInterests() throws Exception {
-        when(userDBProfileService.getInterests(1)).thenReturn(interests);
+        when(userDBProfileService.getInterests("ujj")).thenReturn(interests);
         mockMvc.perform(get("/api/v1/interests/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).getInterests(1);
+        verify(userDBProfileService, times(1)).getInterests("ujj");
         verifyNoMoreInteractions(userDBProfileService);
     }
 
     @Test
     public void editInterests() throws Exception {
         interests.add("i4");
-        when(userDBProfileService.editInterests(1, interests)).thenReturn(interests);
+        when(userDBProfileService.editInterests("ujj", interests)).thenReturn(interests);
         mockMvc.perform(post("/api/v1/interests/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON).content(jsonToString(interests)))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).editInterests(1, interests);
+        verify(userDBProfileService, times(1)).editInterests("ujj", interests);
         verifyNoMoreInteractions(userDBProfileService);
     }
 
     @Test
     public void deleteUserProfile() throws Exception {
-        when(userDBProfileService.deleteUser(1)).thenReturn(true);
+        when(userDBProfileService.deleteUser("ujj")).thenReturn(true);
         mockMvc.perform(delete("/api/v1/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).deleteUser(1);
+        verify(userDBProfileService, times(1)).deleteUser("ujj");
         verifyNoMoreInteractions(userDBProfileService);
     }
 
@@ -115,12 +115,12 @@ public class UserProfileControllerTest {
     public void updateQuestionAttempted() throws Exception {
         Question question = new Question(3, "q3");
         questionAttempted.add(question);
-        when(userDBProfileService.updateQuestionAttempted(1, question)).thenReturn(userProfile);
+        when(userDBProfileService.updateQuestionAttempted("ujj", question)).thenReturn(userProfile);
         mockMvc.perform(post("/api/v1/questionattempted/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON).content(jsonToString(question)))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).updateQuestionAttempted(1, question);
+        verify(userDBProfileService, times(1)).updateQuestionAttempted("ujj", question);
         verifyNoMoreInteractions(userDBProfileService);
     }
 
@@ -128,12 +128,12 @@ public class UserProfileControllerTest {
     public void updateQuestionPosted() throws Exception {
         Question question = new Question(3, "q3");
         questionAttempted.add(question);
-        when(userDBProfileService.updateQuestionPosted(1, question)).thenReturn(userProfile);
+        when(userDBProfileService.updateQuestionPosted("ujj", question)).thenReturn(userProfile);
         mockMvc.perform(post("/api/v1/questionposted/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON).content(jsonToString(question)))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).updateQuestionPosted(1, question);
+        verify(userDBProfileService, times(1)).updateQuestionPosted("ujj", question);
         verifyNoMoreInteractions(userDBProfileService);
     }
 
