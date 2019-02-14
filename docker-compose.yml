@@ -27,17 +27,17 @@ services:
      healthcheck:
        test: "exit 0"
 
-  configserver:
-     image: config-service:latest
-     build: config-server/
-     restart: always
-     network_mode: host
-     ports:
-     - 8888:8888
-     expose:
-     - 8888
-     healthcheck:
-       test: "exit 0"
+#  configserver:
+#     image: config-service:latest
+#     build: config-server/
+#     restart: always
+#     network_mode: host
+#     ports:
+#     - 8888:8888
+#     expose:
+#     - 8888
+#     healthcheck:
+#       test: "exit 0"
 
   mongo:
      image: mongo:3.4-jessie
@@ -48,7 +48,7 @@ services:
      hostname: localhost
      restart: always
      volumes:
-     - ~/Desktop/db:/data/db
+     - ~/Desktop/DockerMongo:/data/db
      healthcheck:
        test: "exit 0"
 
@@ -84,30 +84,59 @@ services:
     healthcheck:
       test: "exit 0"
 
+#  kafka:
+#     image: landoop/fast-data-dev:latest
+#     ports:
+#     - 2181:2181
+#     - 3030:3030
+#     - 9092:9092
+#     - 8081:8081
+#     - 8082:8082
+#     - 8083:8083
+#     container_name: kafka_docker
+#     network_mode: host
+#     hostname: localhost
+#     restart: always
+#     volumes:
+#     - ~/Desktop/DockerKafka:/data/kafka
+#     healthcheck:
+#       test: "exit 0"
+#     expose:
+#     - 9092
+#     - 2181
+#     - 3030
+#     - 8081
+#     - 8082
+#     - 8083
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 2181:2181
+    restart: always
+    healthcheck:
+      test: "exit 0"
+
   kafka:
-     image: landoop/fast-data-dev:latest
-     ports:
-     - 2181:2181
-     - 3030:3030
+    image: wurstmeister/kafka
+    container_name: kafka
+    network_mode: "host"
+    hostname: localhost
+    ports:
      - 9092:9092
-     - 8081:8081
-     - 8082:8082
-     - 8083:8083
-     container_name: kafka_docker
-     network_mode: host
-     hostname: localhost
-     restart: always
-     volumes:
-     - ~/Desktop/DockerKafka:/data/kafka
-     healthcheck:
-       test: "exit 0"
-     expose:
-     - 9092
-     - 2181
-     - 3030
-     - 8081
-     - 8082
-     - 8083
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://Ip-add:9092
+      KAFKA_LISTENERS: PLAINTEXT://Ip-add:9092
+      KAFKA_CREATE_TOPICS: "topic-1, topic-2, so on"
+    restart: always
+    healthcheck:
+      test: "exit 0"
 
   registration-service:
      image: registration-service
@@ -123,8 +152,8 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
-      configserver:
-        condition: service_healthy
+#      configserver:
+#        condition: service_healthy
       kafka:
         condition: service_healthy
      ports:
@@ -146,8 +175,8 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
-      configserver:
-        condition: service_healthy
+#      configserver:
+#        condition: service_healthy
       kafka:
         condition: service_healthy
     ports:
@@ -169,8 +198,8 @@ services:
        condition: service_healthy
       eurekaserver:
        condition: service_healthy
-      configserver:
-       condition: service_healthy
+#      configserver:
+#       condition: service_healthy
       kafka:
        condition: service_healthy
      ports:
@@ -192,8 +221,8 @@ services:
         condition: service_healthy
        eurekaserver:
         condition: service_healthy
-       configserver:
-        condition: service_healthy
+#       configserver:
+#        condition: service_healthy
        kafka:
         condition: service_healthy
      ports:
@@ -215,8 +244,8 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
-      configserver:
-        condition: service_healthy
+#      configserver:
+#        condition: service_healthy
       kafka:
         condition: service_healthy
     ports:
