@@ -198,26 +198,3 @@ services:
      - 8023:8023
      healthcheck:
       test: "exit 0"
-
-  userprofile-service:
-    image: userprofile-service
-    build: ./userprofile-service/
-    container_name: up_docker
-    restart: always
-    network_mode: host
-    hostname: localhost
-    depends_on:
-      mongo:
-        condition: service_healthy
-      apigateway:
-        condition: service_healthy
-      eurekaserver:
-        condition: service_healthy
-      configserver:
-        condition: service_healthy
-      kafka:
-        condition: service_healthy
-    ports:
-    - 8024:8024
-    healthcheck:
-      test: "exit 0"
