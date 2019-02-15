@@ -204,3 +204,20 @@ services:
       - 8024:8024
     healthcheck:
       test: "exit 0"
+
+  execution-engine:
+    image: execution-engine
+    build: ./execution-engine/
+    container_name: exec_docker
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    ports:
+      - 8025:8025
+    healthcheck:
+      test: "exit 0"

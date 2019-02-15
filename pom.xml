@@ -35,6 +35,7 @@
         <module>question-service</module>
         <module>authentication-service</module>
         <module>userprofile-service</module>
+        <module>execution-engine</module>
     </modules>
     <dependencies>
         <dependency>
