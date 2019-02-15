@@ -12,9 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Builder    //need to be discussed
 @ApiModel(description = "All details about the Question. ")
 public class Question {
     @Id
@@ -23,9 +20,6 @@ public class Question {
     @Field
     @ApiModelProperty(notes = "The questionTitle of track")
     private String questionTitle;
-//    @Field
-//    @ApiModelProperty(notes = "The firstName of user")
-//    private String submissionType;
 
     public Question() {}
     public Question(int questionId, String questionTitle) {
