@@ -25,6 +25,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
+         
     <modules>
         <module>eureka-server</module>
         <module>zuul-gatewayservice</module>
