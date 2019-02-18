@@ -1,0 +1,241 @@
+<!-- <h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name*</label>
+    <input
+      type="text"
+      formControlName="firstName"
+      Placeholder="Mandatory"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+    />
+    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name*</label>
+    <input
+      type="text"
+      formControlName="lastName"
+      Placeholder="Mandatory"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+    />
+    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="emailId">Email Id*</label>
+    <input
+      type="text"
+      formControlName="emailId"
+      Placeholder="Mandatory"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }"
+    />
+    <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+      <div *ngIf="f.emailId.errors.required">Email Id is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender*</label>
+    <input
+      type="text"
+      formControlName="gender"
+      Placeholder="Mandatory"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+    />
+    <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+      <div *ngIf="f.gender.errors.required">Gender is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input
+      type="text"
+      formControlName="age"
+      Placeholder="Optional"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.age.errors }"
+    />
+    <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+      <div *ngIf="f.age.errors.required">Age is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="collegeName">College Name</label>
+    <input
+      type="text"
+      formControlName="collegeName"
+      Placeholder="Optional"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.collegeName.errors }"
+    />
+    <div *ngIf="submitted && f.collegeName.errors" class="invalid-feedback">
+      <div *ngIf="f.collegeName.errors.required">collegeName is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="discipline">Discipline</label>
+    <input
+      type="text"
+      formControlName="discipline"
+      Placeholder="Optional"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.discipline.errors }"
+    />
+    <div *ngIf="submitted && f.discipline.errors" class="invalid-feedback">
+      <div *ngIf="f.discipline.errors.required">Discipline is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="course">Course</label>
+    <input
+      type="text"
+      formControlName="course"
+      Placeholder="Optional"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.course.errors }"
+    />
+    <div *ngIf="submitted && f.course.errors" class="invalid-feedback">
+      <div *ngIf="f.course.errors.required">Course is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="currentCompany">Current Company</label>
+    <input
+      type="text"
+      formControlName="currentCompany"
+      Placeholder="Optional"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.currentCompany.errors }"
+    />
+    <div *ngIf="submitted && f.currentCompany.errors" class="invalid-feedback">
+      <div *ngIf="f.currentCompany.errors.required">
+        currentCompany is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="username">Username*</label>
+    <input
+      type="text"
+      formControlName="username"
+      class="form-control"
+      Placeholder="Mandatory"
+      [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+    />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password*</label>
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      Placeholder="Mandatory"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+    />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.minlength">
+        Password must be at least 6 characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">Register</button>
+    <img
+      *ngIf="loading"
+      class="pl-3"
+      src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+    />
+    <a routerLink="/login" class="btn btn-link">Cancel</a>
+  </div>
+</form> -->
+<h2 style="text-align:center" style="color: #7373e5">Registration</h2>
+<mat-horizontal-stepper labelPosition="bottom" #stepper >
+  <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel style="color: pink">Please provide details</ng-template>
+          <mat-form-field>
+              <input matInput placeholder="First name" formControlName="firstName" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Last name" formControlName="lastName" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Email Id" formControlName="emailId" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" formControlName="password" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Interests" formControlName="interest" required>
+          </mat-form-field>
+          <br>
+          <div>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" optional>
+      <form [formGroup]="secondFormGroup" (ngSubmit)="onSubmit()">
+          <ng-template matStepLabel>Fill out optional stuffs</ng-template>
+          <mat-form-field>
+              <input matInput placeholder="Gender" formControlName="gender">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Age" formControlName="age">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="College Name" formControlName="college">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Discipline" formControlName="discipline">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Course" formControlName="course">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Current Company" formControlName="company">
+          </mat-form-field>
+          <br>
+          <div>
+              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+      </form>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div>
+          <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+          <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+          <button mat-raised-button color="primary" routerLink="/auth/login">Done</button>
+      </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license -->
