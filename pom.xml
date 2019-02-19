@@ -36,6 +36,7 @@
         <module>authentication-service</module>
         <module>userprofile-service</module>
         <module>execution-engine</module>
+        <module>submission-service</module>
     </modules>
     <dependencies>
         <dependency>
