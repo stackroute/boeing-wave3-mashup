@@ -32,7 +32,7 @@ public class QuestionServiceImpl implements QuestionService {
 
         int mm=0;
            if(k.isEmpty()){
-               return "Tests p  assed";
+               return "Tests passed";
            }
                else
         if(k.contains("COMPILATION ERROR")){
