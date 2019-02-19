@@ -4,6 +4,7 @@ import { QuestioExeEngineService } from '../services/questio-exe-engine.service'
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { autocomplete } from './autocomplete';
+import { CodeExectionService } from '../code-exection.service';
 
 
 
@@ -17,7 +18,7 @@ import { autocomplete } from './autocomplete';
 
 })
 export class EditComponent implements OnInit {
-
+  fetchedCode = '';
   // wesocket
   title = 'grokonez';
   description = 'Angular-WebSocket Demo';
@@ -27,9 +28,7 @@ export class EditComponent implements OnInit {
   disabled = true;
   // name: string;
   code = `public class Employee {
-    public  String addEmployeeEmailId(String emailId){
-
-        return null;
+    template
     }
 }
 `;
@@ -67,7 +66,7 @@ export class EditComponent implements OnInit {
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
     console.log(line);
   }
-  constructor(public quesservice: QuestioExeEngineService) {
+  constructor(public quesservice: QuestioExeEngineService, public codeservice: CodeExectionService) {
   }
   ngOnInit() {
     console.log(this.code);
@@ -80,7 +79,8 @@ export class EditComponent implements OnInit {
         this.questionout = data['Output'];
         console.log(data);
       });
-  }
+
+      }
   // tslint:disable-next-line:member-ordering
   options = {
     theme: 'vs-dark'

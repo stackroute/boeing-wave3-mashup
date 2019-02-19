@@ -1,4 +1,3 @@
 #!/usDatan/env bash
-localFolder="/home/user/Desktop/FinalMashupProduct/boeing-wave3-mashup/execution-engine/src/main/fetchedFromGit"
-git clone "$params[@]" "$localFolder"
-params=
+localFolder="/home/user/Desktop/boeing-wave3-mashup/execution-engine/fetchedGitRepo"
+git clone "" "$localFolder"

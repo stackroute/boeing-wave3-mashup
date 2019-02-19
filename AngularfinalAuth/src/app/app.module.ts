@@ -71,6 +71,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { UserprofileServiceService } from './services/userprofile-service.service';
 import { RecommendComponent } from './recommend/recommend.component';
 import { RouterModule } from '@angular/router';
+import { TemplateFetchComponent } from './template-fetch/template-fetch.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -122,6 +123,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     SavequestionComponent,
     UserprofileComponent,
     RecommendComponent,
+    TemplateFetchComponent,
   ],
   imports: [
     BrowserModule,
