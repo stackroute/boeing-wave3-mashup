@@ -7,7 +7,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class QuestioExeEngineService {
-  private url = './assets/question.json';
+  // private url = './assets/question.json';
+  private url = 'http://localhost:8080/api/v1/fetch';
 
   constructor(private _http: HttpClient) { }
 

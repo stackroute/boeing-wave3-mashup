@@ -7,6 +7,7 @@ import { QuestioExeEngineService } from '../questio-exe-engine.service';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { autocomplete } from './autocomplete';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 
 
@@ -44,6 +45,7 @@ export class EditComponent implements OnInit {
   quesstatement: string;
   questioninputs: string;
   questionout: string;
+  uname: string;
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
 
@@ -82,12 +84,13 @@ export class EditComponent implements OnInit {
 
 
   }
-  constructor(public quesservice: QuestioExeEngineService) {
+  constructor(private token: TokenStorageService, public quesservice: QuestioExeEngineService) {
 
 
   }
 
   ngOnInit() {
+    this.uname = this.token.getUsername();
     console.log(this.code);
     this.connect();
     this.quesservice.findques().subscribe(
