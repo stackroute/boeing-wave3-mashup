@@ -1,0 +1,20 @@
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+
+.fa {
+    font-size: 30px;
+   text-align: center;
+   text-decoration: none;
+   margin: 5px 2px;
+}
+
+.content{
+        align-content: center;
+        padding-right: 500px;
+        /* padding-top: 50px; */
+   }
+.navbar-nav{
+     padding-right: 50px;
+   }
