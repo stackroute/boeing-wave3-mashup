@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
-
+//This controller only brings files from git url and saves to local folder
 
 @RestController
 @RequestMapping(value="api/v1/")
@@ -16,6 +16,7 @@ import java.io.IOException;
 public class FetchController {
     @Autowired
     public FetchService fetchService;
+
     public void setFetchService(FetchService fetchservice) {
         this.fetchService = fetchservice;
     }
@@ -23,5 +24,6 @@ public class FetchController {
     public void getFiles() throws IOException {
         fetchService.fetchFilesAndSave();
     }
+
 }
 

@@ -14,10 +14,10 @@ public class FetchServiceImpl implements FetchService {
 //
 //            Process procScript = Runtime.getRuntime().exec(cmdScript);
 
-
+//        Process procBuildScript = new ProcessBuilder("path/to/myScript.sh", "myArg1 myArg2").start();
         Process p;
         try {
-            String[] cmd = {"sh", "/home/user/code-executor-engine/src/main/java/com/stackroute/codeexecutorengine/script/fetch.sh"};
+            String[] cmd = {"sh", "/home/user/Desktop/FinalMashupProduct/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh"};
             p = Runtime.getRuntime().exec(cmd);
             System.out.println("Process is:"+p);
             p.waitFor();
@@ -38,3 +38,4 @@ public class FetchServiceImpl implements FetchService {
     }
 
 }
+

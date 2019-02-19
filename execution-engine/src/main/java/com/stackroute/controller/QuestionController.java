@@ -1,4 +1,5 @@
 package com.stackroute.controller;
+import com.stackroute.service.FileWriterService;
 import com.stackroute.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,8 @@ public class QuestionController {
     public QuestionService getQuestionService() {
         return questionService;
     }
+    @Autowired
+    public FileWriterService fileWriterService;
 
     public void setQuestionService(QuestionService questionService) {
         this.questionService = questionService;
@@ -27,6 +30,13 @@ public class QuestionController {
         responseEntity=new ResponseEntity<String>(code1, HttpStatus.CREATED);
         return responseEntity;
     }
-
-
+//        In future we have to listen it from kafka via questionPopulator
+    @RequestMapping (value="post",method = RequestMethod.POST)
+    public ResponseEntity<String> PostAgitURL(@RequestBody String giturl){
+            ResponseEntity responseEntity;
+            questionService.setGitURL(giturl);
+            responseEntity=new ResponseEntity(HttpStatus.ACCEPTED);
+//        repository="https://github.com/aroranamita09/ArrayListOperation.git"
+        return responseEntity;
+    }
 }

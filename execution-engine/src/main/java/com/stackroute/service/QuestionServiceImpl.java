@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
+    public String giturl;
     public String getfilename(String code)
     {
         return code.substring(code.indexOf("class")+6,code.indexOf("{")).trim()+".java";
@@ -265,5 +266,14 @@ public class QuestionServiceImpl implements QuestionService {
        return  null;
 
     }
+    @Override
+    public String setGitURL(String giturl){
+    this.giturl=giturl;
+    return giturl;
+    }
+    @Override
+    public String getGitUrl(){
+        return this.giturl;
 
+    }
 }
