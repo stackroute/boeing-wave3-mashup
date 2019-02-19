@@ -32,10 +32,9 @@ public class QuestionController {
 
         System.out.println(question);
 
-        kafkaTemplate.send("QuestionMessage",question);
-        
         try {
             Questions question1 = questionService.saveQuestion(question);
+            kafkaTemplate.send("QuestionMessage",question1);
             return new ResponseEntity<String>("Successfully saved", HttpStatus.OK);
         }
         catch(QuestionAlreadyExistsException ex){
