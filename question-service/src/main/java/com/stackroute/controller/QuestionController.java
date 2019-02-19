@@ -29,18 +29,19 @@ public class QuestionController {
 
     @PostMapping("question")
     public ResponseEntity<?> saveQuestions(@RequestBody Questions question) {
-             System.out.println(question);
-            try {
-                Questions question1 = questionService.saveQuestion(question);
-//                String user = question.getUsername();
-                kafkaTemplate.send("QuestionMessage",question1);
-                return new ResponseEntity<Questions>(question1, HttpStatus.OK);
-            }
-            catch(QuestionAlreadyExistsException ex){
-                return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
-            }
-            catch (Exception exception) {
-                return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-            }
+
+        System.out.println(question);
+
+        try {
+            Questions question1 = questionService.saveQuestion(question);
+            kafkaTemplate.send("QuestionMessage",question1);
+            return new ResponseEntity<String>("Successfully saved", HttpStatus.OK);
+        }
+        catch(QuestionAlreadyExistsException ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        }
+        catch (Exception exception) {
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
