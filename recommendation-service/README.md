@@ -1,12 +1,22 @@
-# Spring Boot with SpringData Neo4J
-Users rate different movies (like IMDB). Hence Users will have RATED relationship on Movies.
+# Recommendation Service - Spring Boot with SpringData Neo4J
+Recommends questions to user based on various rules.
 
 ## Version used
 - Spring Boot - 1.5.14.RELEASE
 - Neo4J Bolt Driver - 2.1.1
 
 ## REST endpoint
-- `/rest/neo4j/user` - returns all users and their relationships (movies)
+- `/rest/neo4j/users` - returns all users nodes
+- `/rest/neo4j/questions` - returns all questions nodes
+- `/rest/neo4j/user` - creates user node
+- `/rest/neo4j/question` - creates question node
+- `/rest/neo4j/userupdate` - update user node
+- `/rest/neo4j/questionupdate` - update question node
+- `/rest/neo4j/userdelete` - delete user node
+- `/rest/neo4j/questiondelete` - delete question node
+- `/rest/neo4j/relationship/{emailId}/{questionId}` - adds relationship between user and question
+- `/rest/neo4j/attempted` - returns recommendation based on attempted questions
+- `/rest/neo4j/interest` - returns recommendation based on user interest
 
 ## Neo4J 
 - Docker command to bring up Neo4J server
@@ -19,28 +29,34 @@ http://localhost:7474/browser
 ```
 
 ## Cypher Queries for Neo4J
-- Creation of Movie and User nodes:
+- Creation of Question and User nodes:
 
 ```
-CREATE (Inception:Movie {title: 'Inception', director: 'Christopher Nolan'})
-CREATE (DarkKnight:Movie {title: 'The Dark Knight', director: 'Christopher Nolan'})
-CREATE (Peter:User {name: 'Peter N', age: 30})
-CREATE (Sam:User {name: 'Sam Sheldon', age: 20})
-CREATE (Ryan:User {name: 'Ryan A', age: 35})
+CREATE(user:User{id:{id},emailId:{emailId},interests:{interests}})
+CREATE(question:Question{questionId:{questionId},questionTitle:{questionTitle},difficulty:{difficulty},tags:{tags}})
 
-CREATE
-(Inception)-[:RATED {rating: 9}]->(Peter),
-(Inception)-[:RATED {rating: 8}]->(Sam),
-(DarkKnight)-[:RATED {rating: 9}]->(Sam),
-(DarkKnight)-[:RATED {rating: 8}]->(Peter)
+```
 
+- Updating nodes
+
+```
+MATCH (n:User{emailId:{emailId}}) SET n.name={name} SET n.interests={interests}
+MATCH (q:Question{questionId:{questionId}}) SET q.questionTitle={questionTitle} SET q.difficulty={difficulty} SET q.tags={tags}
 ;
 ```
+- deleting nodes
+
+```
+MATCH (n:User{emailId:{emailId}}) DELETE n
+MATCH (q:Question{questionId:{questionId}}) DELETE q
+
+```
+
+
+
 - Adding new relationship
 
 ```
-MATCH (DarkKnight:Movie {title: 'The Dark Knight'}), (Ryan:User)
-CREATE
-(DarkKnight)-[:RATED {rating: 8}]->(Ryan)
+MATCH (user:User{emailId:{emailId}}), (question:Question{questionId:{questionId}}) CREATE (user)-[:ATTEMPTED]->(question)
 ;
 ```
