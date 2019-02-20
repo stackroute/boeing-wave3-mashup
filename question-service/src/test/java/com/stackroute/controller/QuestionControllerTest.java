@@ -63,6 +63,16 @@ public class QuestionControllerTest {
         verifyNoMoreInteractions(questionService);
     }
 
+    @Test
+    public void testGetQuestion() throws Exception{
+
+    }
+
+    @Test
+    public void testGetQuestions() throws Exception{
+
+    }
+
     private static String jsonToString(final Object obj) throws JsonProcessingException {
         String result;
         try {

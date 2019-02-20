@@ -46,4 +46,16 @@ public class QuestionController {
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    /*get question object by Id*/
+    @GetMapping("question/{questionId}")
+    public ResponseEntity<?> getQuestion(){
+        return null;
+    }
+
+    /*get question objects by tags*/
+    @GetMapping("questions/{tag}")
+    public ResponseEntity<?> getQuestions(){
+        return null;
+    }
 }

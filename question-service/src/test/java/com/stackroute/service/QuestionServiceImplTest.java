@@ -1,6 +1,7 @@
 package com.stackroute.service;
 import com.stackroute.domain.Questions;
 import com.stackroute.exceptions.QuestionAlreadyExistsException;
+import com.stackroute.exceptions.QuestionNotPresentException;
 import com.stackroute.repository.QuestionRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,4 +50,15 @@ public class QuestionServiceImplTest {
         assertEquals(questions,question);
         verify(questionRepository, times(1)).save(question);
     }
+
+    @Test
+    public void testGetQuestion() throws QuestionNotPresentException {
+
+    }
+
+    @Test
+    public void testGetQuestions() throws QuestionNotPresentException {
+
+    }
+
 }
