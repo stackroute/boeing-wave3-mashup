@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-
+/*class to add seed data on start of application*/
 @Component
 public class ApplicationListner implements ApplicationListener<ApplicationReadyEvent>  {
 
@@ -30,13 +30,14 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
         seedData();
      }
 
+    /*method to push seed data */
     public void seedData(){
-      //  counterRepository.delete(new Counters("questionId",3));
-        counterRepository.deleteAll();
+        counterRepository.delete(new Counters("questionId",3));
+//        counterRepository.deleteAll();
         counterRepository.save(new Counters("questionId",3));
-        questionRepository.deleteAll();
-     //   questionRepository.delete(new Questions(0,"Awesome" ,"Question1","input format","output Format","Beginner","java","url","abc"));
-       // questionRepository.delete(new Questions(1,"Awesome1" ,"Question2","input format","output Format","Intermediate","java","url","def"));
+//        questionRepository.deleteAll();
+        questionRepository.delete(new Questions(0,"Awesome" ,"Question1","input format","output Format","Beginner","java","url","abc"));
+        questionRepository.delete(new Questions(1,"Awesome1" ,"Question2","input format","output Format","Intermediate","java","url","def"));
         questionRepository.save(new Questions(0,"Awesome" ,"Question1","input format","output Format","Beginner","java","url","abc"));
         questionRepository.save(new Questions(1,"Awesome1" ,"Question2","input format","output Format","Intermediate","java","url","def"));
     }

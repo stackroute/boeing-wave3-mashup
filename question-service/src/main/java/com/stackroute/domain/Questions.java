@@ -10,6 +10,7 @@ import org.springframework.data.annotation.Id;
 //@AllArgsConstructor
 //@NoArgsConstructor
 //@Builder
+/*Question entity class for storing question information*/
 public class Questions{
     @Id
     public int questionId;
@@ -19,6 +20,16 @@ public class Questions{
     private String  questionDescription;
     @Field
     private String  inputFormat;
+    @Field
+    private String outputFormat;
+    @Field
+    private String difficulty;
+    @Field
+    private String tags;
+    @Field
+    private String gitUrl;
+    @Field
+    private String username;
 
     public String getQuestionTitle() {
         return questionTitle;
@@ -76,16 +87,6 @@ public class Questions{
         this.gitUrl = gitUrl;
     }
 
-    @Field
-    private String outputFormat;
-    @Field
-    private String difficulty;
-    @Field
-    private String tags;
-    @Field
-    private String gitUrl;
-    @Field
-    private String username;
 
     public String getUsername() {
         return username;

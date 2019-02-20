@@ -7,33 +7,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.*;
 
 
 
 //Main controller
+/*Controller class*/
 @CrossOrigin("*")
 @RestController
 @RequestMapping("api/v1/")
 public class QuestionController {
 
     private QuestionService questionService;
-    KafkaTemplate<String, Questions> kafkaTemplate;
-
 
     @Autowired
-    public QuestionController(QuestionService questionService,KafkaTemplate<String, Questions> kafkaTemplate) {
+    public QuestionController(QuestionService questionService) {
         this.questionService = questionService;
-        this.kafkaTemplate=kafkaTemplate;
     }
 
-  //  @Autowired
+    @Autowired
+    KafkaTemplate<String, Questions> kafkaTemplate;
+
+    /*post method for saving question*/
     @PostMapping("question")
     public ResponseEntity<?> saveQuestions(@RequestBody Questions question) {
 
-        System.out.println(question);
+        //System.out.println(question);
 
         try {
             Questions question1 = questionService.saveQuestion(question);
@@ -42,6 +41,9 @@ public class QuestionController {
         }
         catch(QuestionAlreadyExistsException ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        }
+        catch (Exception exception) {
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

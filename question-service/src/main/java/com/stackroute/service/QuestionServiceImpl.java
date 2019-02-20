@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 
+/*Question Service Implementation class*/
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private QuestionRepository questionRepository;
 
+    /*save method to save questions*/
     @Override
     public Questions saveQuestion(Questions question) throws QuestionAlreadyExistsException{
         BasicDBObject document = new BasicDBObject();
@@ -25,10 +27,12 @@ public class QuestionServiceImpl implements QuestionService {
         if(questionRepository.existsById((int)(question.getQuestionId()))) {
             throw new QuestionAlreadyExistsException("This Question already exists");
         }
+        //save call of repository
         Questions question1 = questionRepository.save(question);
         return question1;
     }
 
+    /*method for incrementing sequence value*/
     public static Object getNextSequence(String name){
         MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
         DB db = mongoClient.getDB("mashup");
