@@ -16,9 +16,4 @@ public class TestRestAPIs {
 
 		return ">>> User Contents!";
 	}
-
-	public String adminAccess() {
-
-		return ">>> Admin Contents";
-	}
 }
