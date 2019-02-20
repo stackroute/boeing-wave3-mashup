@@ -4,11 +4,14 @@ import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.stackroute.domain.Questions;
 import com.stackroute.exceptions.QuestionAlreadyExistsException;
+import com.stackroute.exceptions.QuestionNotPresentException;
 import com.stackroute.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
+
+import java.util.ArrayList;
 
 /*Question Service Implementation class*/
 @Service
@@ -43,4 +46,17 @@ public class QuestionServiceImpl implements QuestionService {
         DBObject obj =  collection.findAndModify(find, update);
         return obj.get("seq");
     }
+
+    /*method to get question by questionId*/
+    @Override
+    public Questions getQuestionById() throws QuestionNotPresentException {
+        return null;
+    }
+
+    /*method to get questions by tag*/
+    @Override
+    public ArrayList<Questions> getQuestionByTag() throws QuestionNotPresentException {
+        return null;
+    }
+
 }
