@@ -34,7 +34,7 @@ public class QuestionController {
     }
 //        In future we have to listen it from kafka via questionPopulator
     @RequestMapping (value="post",method = RequestMethod.POST)
-    public ResponseEntity<String> PostAgitURL(@RequestBody String giturl) throws IOException {
+    public ResponseEntity<String> PostAgitURL(@RequestBody String giturl) throws IOException,InterruptedException {
             ResponseEntity responseEntity;
             questionService.setGitURL(giturl);
             fetchService.fetchFilesAndSave();
