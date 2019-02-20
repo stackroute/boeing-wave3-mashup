@@ -13,8 +13,8 @@ public interface QuestionService {
     Questions saveQuestion(Questions question) throws QuestionAlreadyExistsException;
 
     //method to get question by Id
-    Questions getQuestionById() throws QuestionNotPresentException;
+    Questions getQuestionById(int id) throws QuestionNotPresentException;
 
     //method to get question objects by tag
-    ArrayList<Questions> getQuestionByTag() throws QuestionNotPresentException;
+    ArrayList<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException;
 }

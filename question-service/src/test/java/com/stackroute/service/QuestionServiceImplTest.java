@@ -38,7 +38,7 @@ public class QuestionServiceImplTest {
     public void setUp() {
 
         MockitoAnnotations.initMocks(this);
-        question = new Questions(0,"Awesome" ,"Question1","input Format","output Format","Beginner","java","url");
+        question = new Questions(0,"Awesome" ,"Question1","input Format","output Format","Beginner","java","url","abc");
         options = Optional.of(question);
     }
 
@@ -53,7 +53,11 @@ public class QuestionServiceImplTest {
 
     @Test
     public void testGetQuestion() throws QuestionNotPresentException {
-
+        int id=0;
+        when(questionRepository.getById(id)).thenReturn(question);
+        Questions questions= musicServiceImpl.getQuestionById(id);
+        assertEquals(questions,question);
+        verify(questionRepository, times(1)).getById(id);
     }
 
     @Test

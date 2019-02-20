@@ -49,13 +49,17 @@ public class QuestionServiceImpl implements QuestionService {
 
     /*method to get question by questionId*/
     @Override
-    public Questions getQuestionById() throws QuestionNotPresentException {
-        return null;
+    public Questions getQuestionById(int id) throws QuestionNotPresentException {
+        if(questionRepository.findById(id)==null){
+            throw new QuestionNotPresentException("Question is not present in database");
+        }
+        Questions getQuestion = questionRepository.getById(id);
+        return getQuestion;
     }
 
     /*method to get questions by tag*/
     @Override
-    public ArrayList<Questions> getQuestionByTag() throws QuestionNotPresentException {
+    public ArrayList<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException {
         return null;
     }
 

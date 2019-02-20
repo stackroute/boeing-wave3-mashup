@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -48,7 +48,7 @@ public class QuestionControllerTest {
     @Before
     public void setUp()throws Exception{
         mockMvc = MockMvcBuilders.standaloneSetup(questionController).build();
-        question=new Questions(11,"Awesome" ,"Question1","input Format","output Format","Beginner","java","url","abc");
+        question=new Questions(0,"Awesome" ,"Question1","input Format","output Format","Beginner","java","url","abc");
         MockitoAnnotations.initMocks(this);
     }
 
@@ -65,7 +65,11 @@ public class QuestionControllerTest {
 
     @Test
     public void testGetQuestion() throws Exception{
-
+        int id=0;
+        when( questionService.getQuestionById(id)).thenReturn(question);
+        mockMvc.perform(get("/api/v1/question/{id}",0)).andExpect(status().isOk());
+        verify(questionService,times(1)).getQuestionById(id);
+        verifyNoMoreInteractions(questionService);
     }
 
     @Test

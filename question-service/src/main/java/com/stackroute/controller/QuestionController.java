@@ -2,6 +2,7 @@ package com.stackroute.controller;
 
 import com.stackroute.domain.Questions;
 import com.stackroute.exceptions.QuestionAlreadyExistsException;
+import com.stackroute.exceptions.QuestionNotPresentException;
 import com.stackroute.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,8 +50,17 @@ public class QuestionController {
 
     /*get question object by Id*/
     @GetMapping("question/{questionId}")
-    public ResponseEntity<?> getQuestion(){
-        return null;
+    public ResponseEntity<?> getQuestion(@PathVariable(value = "questionId") int questionId){
+        try{
+            Questions question = questionService.getQuestionById(questionId);
+            return new ResponseEntity<Questions>(question, HttpStatus.OK);
+        }
+        catch(QuestionNotPresentException ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        }
+        catch (Exception exception) {
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /*get question objects by tags*/
