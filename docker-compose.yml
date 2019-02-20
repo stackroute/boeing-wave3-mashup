@@ -4,6 +4,7 @@ services:
   apigateway:
     image: zuul-service
     build: zuul-gatewayservice/
+    container_name: apigateway
     restart: always
     network_mode: host
     hostname: localhost
@@ -17,6 +18,7 @@ services:
   eurekaserver:
     image: eureka-service:latest
     build: eureka-server/
+    container_name: eureka
     restart: always
     network_mode: host
     hostname: localhost
@@ -29,7 +31,7 @@ services:
     image: mongo:3.4-jessie
     ports:
       - 27017:27017
-    container_name: mongo_docker
+    container_name: mongo
     network_mode: host
     hostname: localhost
     restart: always
@@ -43,7 +45,7 @@ services:
     ports:
       - 7474:7474
       - 7687:7687
-    container_name: neo4j_docker
+    container_name: neo4j
     network_mode: host
     hostname: localhost
     restart: always
@@ -103,7 +105,7 @@ services:
   registration-service:
     image: registration-service
     build: ./registration-service/
-    container_name: reg_docker
+    container_name: registration
     restart: always
     network_mode: host
     hostname: localhost
@@ -124,7 +126,7 @@ services:
   authentication-service:
     image: authentication-service
     build: ./authentication-service/
-    container_name: auth_docker
+    container_name: authentication
     restart: always
     network_mode: host
     hostname: localhost
@@ -145,7 +147,7 @@ services:
   question-service:
     image: question-service
     build: ./question-service/
-    container_name: qp_docker
+    container_name: question
     restart: always
     network_mode: host
     hostname: localhost
@@ -166,7 +168,7 @@ services:
   recommendation-service:
     image: recommendation-service
     build: ./recommendation-service/
-    container_name: rs_docker
+    container_name: recommendation
     restart: always
     network_mode: host
     hostname: localhost
@@ -187,7 +189,7 @@ services:
   userprofile-service:
     image: userprofile-service
     build: ./userprofile-service/
-    container_name: up_docker
+    container_name: userprofile
     restart: always
     network_mode: host
     hostname: localhost
@@ -208,7 +210,7 @@ services:
   execution-engine:
     image: execution-engine
     build: ./execution-engine/
-    container_name: exec_docker
+    container_name: execution
     restart: always
     network_mode: host
     hostname: localhost
