@@ -21,8 +21,12 @@ public class FetchServiceImpl implements FetchService {
 //        Process procBuildScript = new ProcessBuilder("path/to/myScript.sh", "myArg1 myArg2").start();
         Process p;
         try {
-
-            String[] cmd = {"sh",params=(questionService.getGitUrl()),"sed '2 a <$params>' /home/user/Desktop/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh", "/home/user/Desktop/FinalMashupProduct/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh"};
+            String[] cmdScript=new String[] {"sed -i 's/repository=\"\"/repository="+questionService.getGitUrl()+"/' /home/user/Documents/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh"};
+            Process procScript=Runtime.getRuntime().exec(cmdScript);
+            System.out.println("procScript"+procScript);
+            procScript.waitFor();
+            BufferedReader read=new BufferedReader(new InputStreamReader(procScript.getInputStream()));
+            String[] cmd = {"sh","/home/user/Desktop/FinalMashupProduct/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh"};
             p = Runtime.getRuntime().exec(cmd);
             System.out.println("Process is:"+p);
             p.waitFor();

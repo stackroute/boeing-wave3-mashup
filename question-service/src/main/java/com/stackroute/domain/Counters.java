@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="counters")
 @Builder
+/*counter entity class for storing sequence value*/
 public class Counters {
 
     @Id
