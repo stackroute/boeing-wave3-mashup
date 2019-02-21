@@ -26,17 +26,17 @@ public class WebController {
     @MessageMapping("/template")
     @SendTo("/topic/template")
     public Code sendTemplate(Code code) throws Exception {
-        String temp=this.resultsService.run(codeWrittenFromEditor.);
-        System.out.println(temp);
+        System.out.println(code.getCodeTemplate());
 
-        return new Code(temp);
+        return new Code(code.getCodeTemplate());
     }
     @MessageMapping("/results")
     @SendTo("/topic/results")
-    public Code sendResults(codeWrittenFromEditor user) throws Exception {
-        String response=this.resultsService.run(user.getName());
-        System.out.println(response);
+    public Code sendResults(codeWrittenFromEditor sumittedCode) throws Exception {
+        String temp=this.resultsService.run(sumittedCode.getCodeWritten());
+        System.out.println(temp);
 
-        return new Code(response);
+        return new Code(temp);
+
     }
 }

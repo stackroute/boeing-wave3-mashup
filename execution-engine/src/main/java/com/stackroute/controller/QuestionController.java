@@ -35,10 +35,8 @@ public class QuestionController {
     @RequestMapping (value="post",method = RequestMethod.POST)
     public ResponseEntity<String> PostAgitURL(@RequestBody String giturl) throws IOException,InterruptedException {
             ResponseEntity responseEntity;
-            resultsService.setGitURL(giturl);
-           // fetchService.fetchFilesAndSave();
+            fetchService.setGitURL(giturl);
             responseEntity=new ResponseEntity(HttpStatus.ACCEPTED);
-//        repository="https://github.com/aroranamita09/ArrayListOperation.git"
         return responseEntity;
     }
 }

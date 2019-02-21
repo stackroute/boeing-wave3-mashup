@@ -9,12 +9,22 @@ import java.io.InputStreamReader;
 
 @Service
 public class FetchTemplateServiceImpl implements FetchService {
-    @Autowired
-    public ResultsService resultsService;
+    public String giturl;
+    @Override
+    public String setGitURL(String giturl){
+        this.giturl=giturl;
+        return giturl;
+    }
+    @Override
+    public String getGitUrl(){
+        return this.giturl;
+
+    }
+
 
     public void fetchFilesAndSave() throws IOException, InterruptedException {
 
-         String gitUrl= resultsService.getGitUrl();
+         String gitUrl= getGitUrl();
         System.out.println("git"+gitUrl);
         String[] cmdScript = new String[]{"sh", "/home/user/Documents/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh", gitUrl};
         Process procScript = Runtime.getRuntime().exec(cmdScript);
