@@ -1,3 +1,5 @@
+import { FooterComponent } from './_components/footer/footer.component';
+import { NavbarComponent } from './_components/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './_components/login/login.component';
@@ -35,6 +37,14 @@ const routes: Routes = [
     {
         path: 'auth/login',
         component: LoginComponent
+    },
+    {
+        path: 'barnav',
+        component: NavbarComponent
+    },
+    {
+        path:'footer',
+        component: FooterComponent
     },
     {
         path: '',
