@@ -44,6 +44,7 @@ public class KafkaListenerService {
 
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consume_ques(String message){
+
         System.out.println("Consumed msg : " + message);
     }
 }
