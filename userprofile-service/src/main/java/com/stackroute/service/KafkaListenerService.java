@@ -1,10 +1,14 @@
 package com.stackroute.service;
 
+import com.stackroute.domain.Question;
 import com.stackroute.domain.UserProfile;
 import com.stackroute.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class KafkaListenerService {
@@ -21,17 +25,29 @@ public class KafkaListenerService {
         userProfile.setEmailId(strMessage[11].split(":")[1].replace("\"",""));
         userProfile.setUserName(strMessage[0].split(":")[1].replace("\"",""));
         userProfile.setPassword(strMessage[1].split(":")[1].replace("\"",""));
-        System.out.println(userProfile.getFirstName());
-        System.out.println(userProfile.getLastName());
-        System.out.println(userProfile.getEmailId());
-        System.out.println(userProfile.getPassword());
-        System.out.println(userProfile.getUserName());
+        userProfile.setAge(Integer.parseInt(strMessage[2].split(":")[1].replace("\"","")));
+        userProfile.setGender(strMessage[3].split(":")[1].replace("\"",""));
+        userProfile.setComapny(strMessage[4].split(":")[1].replace("\"",""));
+        userProfile.setCourse(strMessage[5].split(":")[1].replace("\"",""));
+        userProfile.setDiscipline(strMessage[9].split(":")[1].replace("\"",""));
+        userProfile.setCollege(strMessage[12].split(":")[1].replace("\"",""));
+        List<String> interest = new ArrayList<>();
+        interest.add(strMessage[8].split(":")[1].replace("\"",""));
+        userProfile.setInterests(interest);
+        Question question = new Question(0, null);
+        List<Question> attemptedQuestion = new ArrayList<>();
+        attemptedQuestion.add(question);
+        userProfile.setAttemptedQuestion(attemptedQuestion);
+        List<Question> postedQuestion = new ArrayList<>();
+        postedQuestion.add(question);
+        userProfile.setPostedQuestion(postedQuestion);
         userRepository.save(userProfile);
         System.out.println("Consumed msg : " + message);
     }
 
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consume_ques(String message){
+
         System.out.println("Consumed msg : " + message);
     }
 }

@@ -5,6 +5,7 @@ import com.stackroute.exceptions.QuestionAlreadyExistsException;
 import com.stackroute.exceptions.QuestionNotPresentException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*question service interface*/
 public interface QuestionService {
@@ -16,5 +17,5 @@ public interface QuestionService {
     Questions getQuestionById(int id) throws QuestionNotPresentException;
 
     //method to get question objects by tag
-    ArrayList<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException;
+    List<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException;
 }
