@@ -12,6 +12,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*Question Service Implementation class*/
 @Service
@@ -50,7 +51,7 @@ public class QuestionServiceImpl implements QuestionService {
     /*method to get question by questionId*/
     @Override
     public Questions getQuestionById(int id) throws QuestionNotPresentException {
-        if(questionRepository.findById(id)==null){
+        if(questionRepository.findByQuestionId(id)==null){
             throw new QuestionNotPresentException("Question is not present in database");
         }
         Questions getQuestion = questionRepository.getById(id);
@@ -59,8 +60,13 @@ public class QuestionServiceImpl implements QuestionService {
 
     /*method to get questions by tag*/
     @Override
-    public ArrayList<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException {
-        return null;
+    public List<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException {
+      //  System.out.println(tag +"tag in service");
+        if(questionRepository.findByTags(tag).size()==0) {
+            throw new QuestionNotPresentException("Question of this tag are not present in database");
+        }
+        List<Questions> questions = questionRepository.getByTag(tag);
+        return questions;
     }
 
 }

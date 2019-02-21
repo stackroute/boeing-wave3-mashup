@@ -19,6 +19,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -32,6 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class QuestionControllerTest {
 
     private Questions question;
+    List<Questions> listOfQuestion=new ArrayList<>();
 
     @Autowired
     private MockMvc mockMvc;
@@ -49,6 +53,7 @@ public class QuestionControllerTest {
     public void setUp()throws Exception{
         mockMvc = MockMvcBuilders.standaloneSetup(questionController).build();
         question=new Questions(0,"Awesome" ,"Question1","input Format","output Format","Beginner","java","url","abc");
+        listOfQuestion.add(question);
         MockitoAnnotations.initMocks(this);
     }
 
@@ -74,7 +79,11 @@ public class QuestionControllerTest {
 
     @Test
     public void testGetQuestions() throws Exception{
-
+        String tagValue = "java";
+        when( questionService.getQuestionByTag(tagValue)).thenReturn(listOfQuestion);
+        mockMvc.perform(get("/api/v1/questions/{tag}","java")).andExpect(status().isOk());
+        verify(questionService,times(1)).getQuestionByTag(tagValue);
+        verifyNoMoreInteractions(questionService);
     }
 
     private static String jsonToString(final Object obj) throws JsonProcessingException {

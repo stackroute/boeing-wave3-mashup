@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 //Main controller
@@ -65,7 +66,16 @@ public class QuestionController {
 
     /*get question objects by tags*/
     @GetMapping("questions/{tag}")
-    public ResponseEntity<?> getQuestions(){
-        return null;
+    public ResponseEntity<?> getQuestions(@PathVariable(value = "tag") String tag){
+        try{
+            List<Questions> question = questionService.getQuestionByTag(tag);
+            return new ResponseEntity<List<Questions> >(question, HttpStatus.OK);
+        }
+        catch(QuestionNotPresentException ex){
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+        }
+        catch (Exception exception) {
+            return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
