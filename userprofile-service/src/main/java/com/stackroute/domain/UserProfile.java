@@ -18,18 +18,6 @@ import java.util.List;
 @ApiModel(description = "All details about the UserProfile. ")
 
 public class UserProfile {
-    public UserProfile(){}
-    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
-        this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.emailId = emailId;
-        this.interests = interests;
-        this.attemptedQuestion = attemptedQuestion;
-        this.postedQuestion = postedQuestion;
-    }
-
     @Id
     @ApiModelProperty(notes = "The userName of user")
     private String userName;
@@ -55,6 +43,18 @@ public class UserProfile {
     @ApiModelProperty(notes = "The user postedQuestion")
     private List<Question> postedQuestion;
 
+    public UserProfile(){}
+    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.emailId = emailId;
+        this.interests = interests;
+        this.attemptedQuestion = attemptedQuestion;
+        this.postedQuestion = postedQuestion;
+    }
+    
     public String getUserName() {
         return userName;
     }
