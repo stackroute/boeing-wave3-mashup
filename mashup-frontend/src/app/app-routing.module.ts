@@ -1,3 +1,4 @@
+import { VotingComponent } from './_components/voting/voting.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './_components/login/login.component';
@@ -36,6 +37,10 @@ const routes: Routes = [
     {
         path: 'auth/login',
         component: LoginComponent
+    },
+    {
+        path: 'voting',
+        component: VotingComponent
     },
     {
         path: '',

@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -70,6 +71,7 @@ import { UserprofileServiceService } from './services/userprofile-service.servic
 import { RecommendComponent } from './_components/recommend/recommend.component';
 import { RouterModule } from '@angular/router';
 import { SubmissionComponent } from './submission/submission.component';
+import { VotingComponent } from './_components/voting/voting.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -121,6 +123,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     UserprofileComponent,
     RecommendComponent,
     SubmissionComponent,
+    VotingComponent,
   ],
   imports: [
     BrowserModule,
@@ -174,9 +177,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
     ScrollingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     MonacoEditorModule.forRoot(monacoConfig),
     RouterModule.forRoot([
-      {path: 'fetch', component: RecommendComponent}
+      {path: 'fetch', component: RecommendComponent},
+      {path: 'voting', component:VotingComponent}
     ])
   ],
   providers: [
