@@ -1,3 +1,4 @@
+import { VotingComponent } from './_components/voting/voting.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './_components/login/login.component';
@@ -7,6 +8,7 @@ import { RegisterComponent } from './_components/register/register.component';
 import { SavequestionComponent} from './_components/savequestion/savequestion.component';
 import { EditComponent } from './_components/edit/edit.component';
 import { UserprofileComponent } from './_components/userprofile/userprofile.component';
+import { SubmissionComponent } from './submission/submission.component';
 
 
 const routes: Routes = [
@@ -37,9 +39,17 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
+        path: 'voting',
+        component: VotingComponent
+    },
+    {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
+    },
+    {
+        path: 'submission-component',
+        component: SubmissionComponent
     }
 ];
 

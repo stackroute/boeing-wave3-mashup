@@ -25,4 +25,12 @@ export class QuestionserviceService {
     console.log(allinfo);
     return allinfo;
   }
+
+  public sendVote(questionObj): Observable<any> {
+    // tslint:disable-next-line:prefer-const
+    console.log('QUESTION : ', questionObj);
+    const savedQuestionObj = this._http.post('http://172.23.239.122:8058/vote', questionObj, {responseType: 'text'});
+    console.log(savedQuestionObj);
+    return savedQuestionObj;
+  }
 }

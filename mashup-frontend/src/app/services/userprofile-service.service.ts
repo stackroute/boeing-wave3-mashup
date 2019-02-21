@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserprofileServiceService {
-  acd = [ 'hffh', 'fgdgdg'];
-  private userProfileUrl = 'http://172.23.239.121:8082/api/v1/';
+  // acd = [ 'hffh', 'fgdgdg'];
+  private userProfileUrl = 'http://13.234.74.67:8092/userprofile-service/api/v1/';
   constructor(private http: HttpClient) { }
   public getUserProfile(userName): Observable <any> {
     // tslint:disable-next-lin
-    const userProfile = this.http.get('http://172.23.239.121:8082/api/v1/userprofile/0');
+    const userProfile = this.http.get('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + userName);
     console.log('hii');
     // console.log(userProfile);
      return userProfile;

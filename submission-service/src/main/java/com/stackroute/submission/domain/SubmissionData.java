@@ -2,18 +2,28 @@ package com.stackroute.submission.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "Submission")
 public class SubmissionData {
     @Id
-    private String username;//sidh
-    private int questionId;//sidh
+    private String username;
+    @Field
+    private int questionId;
+    @Field
     private String questionTitle;
+    @Field
     private String result;
-    private String testCaseResult;
+    @Field
+    private int testCasePassed;
+    @Field
+    private int totalTestCases;
+    @Field
+    private String difficulty;
+    @Field
     private String solution;
-    private String questionTag;//sidh
-    private String questionLevel;//sidh
+    @Field
+    private double score;
 
     public String getUsername() {
         return username;
@@ -47,12 +57,20 @@ public class SubmissionData {
         this.result = result;
     }
 
-    public String getTestCaseResult() {
-        return testCaseResult;
+    public int getTestCasePassed() {
+        return testCasePassed;
     }
 
-    public void setTestCaseResult(String testCaseResult) {
-        this.testCaseResult = testCaseResult;
+    public void setTestCasePassed(int testCasePassed) {
+        this.testCasePassed = testCasePassed;
+    }
+
+    public int getTotalTestCases() {
+        return totalTestCases;
+    }
+
+    public void setTotalTestCases(int totalTestCases) {
+        this.totalTestCases = totalTestCases;
     }
 
     public String getSolution() {
@@ -63,19 +81,19 @@ public class SubmissionData {
         this.solution = solution;
     }
 
-    public String getQuestionTag() {
-        return questionTag;
+    public double getScore() {
+        return score;
     }
 
-    public void setQuestionTag(String questionTag) {
-        this.questionTag = questionTag;
+    public void setScore(double score) {
+        this.score = score;
     }
 
-    public String getQuestionLevel() {
-        return questionLevel;
+    public String getDifficulty() {
+        return difficulty;
     }
 
-    public void setQuestionLevel(String questionLevel) {
-        this.questionLevel = questionLevel;
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 }

@@ -7,4 +7,4 @@ COPY . .
 # Stage 2
 FROM node
 RUN npm install http-server -g
-CMD ["http-server","-p","8010", "dist/AngularJwtAuth"]
+CMD ["http-server","-p","4200", "dist/AngularJwtAuth"]

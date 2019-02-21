@@ -76,16 +76,6 @@ public class UserController {
 
     }
 
-//    @GetMapping("user/authenticate/{id}/{password}")
-//    public ResponseEntity<?> authenticateUser(@PathVariable("id") String id, @PathVariable("password") String password){
-//        ResponseEntity responseEntity;
-//        try{
-//            responseEntity = new ResponseEntity<String>(userService.findByPassword(id,password),HttpStatus.ACCEPTED);
-//        }catch (UserNotFoundException e){
-//            responseEntity=new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_FOUND);
-//        }
-//        return responseEntity;
-//    }
     @GetMapping("/publish/{email}")
     public String post(@PathVariable("email") String email){
         User user = userService.getUserByEmailid(email);

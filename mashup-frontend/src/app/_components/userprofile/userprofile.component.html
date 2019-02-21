@@ -54,9 +54,10 @@
     <mat-tab-group class="tile1">
       <mat-tab label="Question Attempted">
         <mat-list role="list" *ngFor="let questionA of abc.attemptedQuestion">
-          <mat-list-item role="listitem"
+          <mat-list-item role="listitem" [routerLink]="['/submission-component']"
             ><i class="fab fa-quora"></i> &nbsp;
-            {{ questionA.questionTitle }}</mat-list-item
+            <p>{{ questionA.questionTitle }}</p>
+            </mat-list-item
           >
         </mat-list>
       </mat-tab>
