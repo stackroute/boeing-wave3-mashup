@@ -232,6 +232,6 @@ services:
     network_mode: host
     hostname: localhost
     ports:
-      - 8010:8010
+      - 4200:4200
     healthcheck:
       test: "exit 0"
