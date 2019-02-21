@@ -16,7 +16,7 @@ import java.io.IOException;
 @CrossOrigin("*")
 public class SendTemplateToFrontEnd {
     @Autowired
-    public FetchService fetchService;\
+    public FetchService fetchService;
     @Autowired
     public SendTemplateToFrontEnd sendTemplateToFrontEnd;
 
@@ -38,7 +38,6 @@ public class SendTemplateToFrontEnd {
 //        System.out.println(template);
 
 
-    }
 }
 
 //
