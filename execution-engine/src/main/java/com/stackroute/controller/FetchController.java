@@ -1,5 +1,6 @@
 package com.stackroute.controller;
 
+import com.stackroute.service.FetchBoilerPlateService;
 import com.stackroute.service.FetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,15 +17,17 @@ import java.io.IOException;
 public class FetchController {
     @Autowired
     public FetchService fetchService;
+    @Autowired
+    FetchBoilerPlateService fetchBoilerPlateService;
 
     public void setFetchService(FetchService fetchservice) {
         this.fetchService = fetchservice;
     }
-    @RequestMapping(value = "fetch", method = RequestMethod.GET)
-    public ResponseEntity<String> getFiles() throws IOException,InterruptedException{
+    @RequestMapping(value = "fetch", method = RequestMethod.POST)
+    public ResponseEntity<?> getFiles() throws IOException,InterruptedException{
         fetchService.fetchFilesAndSave();
-//        String code1= resultsService.run(code);
-        return new ResponseEntity<String>("Done",HttpStatus.CREATED);
+        fetchBoilerPlateService.fetchFilesAndSave();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }
