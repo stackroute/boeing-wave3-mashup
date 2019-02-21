@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class QuestionServiceImpl implements QuestionService {
+public class ResultsServiceImpl implements ResultsService {
     public String giturl;
     public String getfilename(String code)
     {

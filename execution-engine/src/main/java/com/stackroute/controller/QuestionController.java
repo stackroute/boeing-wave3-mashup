@@ -1,7 +1,6 @@
 package com.stackroute.controller;
 import com.stackroute.service.FetchService;
-import com.stackroute.service.FileWriterService;
-import com.stackroute.service.QuestionService;
+import com.stackroute.service.ResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,20 +14,20 @@ import java.io.IOException;
 @CrossOrigin("*")
 public class QuestionController {
     @Autowired
-    private QuestionService questionService;
-    public QuestionService getQuestionService() {
-        return questionService;
+    private ResultsService resultsService;
+    public ResultsService getResultsService() {
+        return resultsService;
     }
     @Autowired
     public FetchService fetchService;
 
-    public void setQuestionService(QuestionService questionService) {
-        this.questionService = questionService;
+    public void setResultsService(ResultsService resultsService) {
+        this.resultsService = resultsService;
     }
     @RequestMapping(value = "code", method = RequestMethod.POST)
     public ResponseEntity<String> saveTrack(@RequestBody String code) {
         ResponseEntity responseEntity;
-        String code1= questionService.run(code);
+        String code1= resultsService.run(code);
         responseEntity=new ResponseEntity<String>(code1, HttpStatus.CREATED);
         return responseEntity;
     }
@@ -36,7 +35,7 @@ public class QuestionController {
     @RequestMapping (value="post",method = RequestMethod.POST)
     public ResponseEntity<String> PostAgitURL(@RequestBody String giturl) throws IOException,InterruptedException {
             ResponseEntity responseEntity;
-            questionService.setGitURL(giturl);
+            resultsService.setGitURL(giturl);
            // fetchService.fetchFilesAndSave();
             responseEntity=new ResponseEntity(HttpStatus.ACCEPTED);
 //        repository="https://github.com/aroranamita09/ArrayListOperation.git"

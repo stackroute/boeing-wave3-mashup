@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 @Service
 @Primary
-public class FetchBoilerPlate implements  FetchService{
+public class FetchBoilerPlateImpl implements FetchService {
     public void fetchFilesAndSave() throws IOException, InterruptedException{
         String gitUrl="https://github.com/aroranamita09/mashupBoilerplate.git";
         System.out.println("git"+gitUrl);
