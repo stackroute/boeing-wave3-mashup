@@ -230,7 +230,7 @@ services:
     container_name: frontend
     restart: always
     network_mode: host
-    hostname: 13.234.74.67
+    hostname: localhost
     ports:
       - 8010:8010
     healthcheck:
