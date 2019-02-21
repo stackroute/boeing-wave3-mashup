@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, NgModule } from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { UserprofileServiceService } from '../../services/userprofile-service.service';
+import { Token } from '@angular/compiler';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 export interface Tile {
   color: string;
@@ -27,7 +29,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class UserprofileComponent implements OnInit {
   bhaak: string;
   abc;
-  constructor(private userService: UserprofileServiceService) { }
+  public uname: string;
+  constructor(private token: TokenStorageService,private userService: UserprofileServiceService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 4, color: 'white'},
     {text: 'Two', cols: 2, rows: 4, color: 'white'},
@@ -41,7 +44,8 @@ export class UserprofileComponent implements OnInit {
     this.bhaak = 'bhaak2';
   }
   ngOnInit() {
-    this.userService.getUserProfile(0).subscribe(data => this.abc = data);
+    this.uname = this.token.getUsername();
+    this.userService.getUserProfile(this.uname).subscribe(data => this.abc = data);
     console.log(this.abc);
     this.bhaak = 'bhaak1';
   }

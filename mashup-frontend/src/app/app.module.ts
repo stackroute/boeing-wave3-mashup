@@ -69,8 +69,7 @@ import { UserprofileComponent } from './_components/userprofile/userprofile.comp
 import { UserprofileServiceService } from './services/userprofile-service.service';
 import { RecommendComponent } from './_components/recommend/recommend.component';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from './_components/navbar/navbar.component';
-import { FooterComponent } from './_components/footer/footer.component';
+import { SubmissionComponent } from './submission/submission.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -121,8 +120,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     SavequestionComponent,
     UserprofileComponent,
     RecommendComponent,
-    NavbarComponent,
-    FooterComponent,
+    SubmissionComponent,
   ],
   imports: [
     BrowserModule,
