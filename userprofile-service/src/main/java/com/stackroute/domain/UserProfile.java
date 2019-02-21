@@ -18,18 +18,6 @@ import java.util.List;
 @ApiModel(description = "All details about the UserProfile. ")
 
 public class UserProfile {
-    public UserProfile(){}
-    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
-        this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.emailId = emailId;
-        this.interests = interests;
-        this.attemptedQuestion = attemptedQuestion;
-        this.postedQuestion = postedQuestion;
-    }
-
     @Id
     @ApiModelProperty(notes = "The userName of user")
     private String userName;
@@ -46,26 +34,8 @@ public class UserProfile {
     @ApiModelProperty(notes = "The emailId of user")
     private String emailId;
     @Field
-    @ApiModelProperty(notes = "The age of user")
-    private int age;
-    @Field
-    @ApiModelProperty(notes = "The gender of user")
-    private String gender;
-    @Field
     @ApiModelProperty(notes = "The user interests")
     private List<String> interests;
-    @Field
-    @ApiModelProperty(notes = "The company of user")
-    private String comapny;
-    @Field
-    @ApiModelProperty(notes = "The course of user")
-    private String course;
-    @Field
-    @ApiModelProperty(notes = "The discipline of user")
-    private String discipline;
-    @Field
-    @ApiModelProperty(notes = "The college of user")
-    private String college;
     @Field
     @ApiModelProperty(notes = "The user attemptedQuestion")
     private List<Question> attemptedQuestion;
@@ -73,6 +43,18 @@ public class UserProfile {
     @ApiModelProperty(notes = "The user postedQuestion")
     private List<Question> postedQuestion;
 
+    public UserProfile(){}
+    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.emailId = emailId;
+        this.interests = interests;
+        this.attemptedQuestion = attemptedQuestion;
+        this.postedQuestion = postedQuestion;
+    }
+    
     public String getUserName() {
         return userName;
     }
@@ -111,54 +93,6 @@ public class UserProfile {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getComapny() {
-        return comapny;
-    }
-
-    public void setComapny(String comapny) {
-        this.comapny = comapny;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public String getDiscipline() {
-        return discipline;
-    }
-
-    public void setDiscipline(String discipline) {
-        this.discipline = discipline;
-    }
-
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
     }
 
     public List<String> getInterests() {
