@@ -223,3 +223,15 @@ services:
       - 8025:8025
     healthcheck:
       test: "exit 0"
+
+  mashup-frontend:
+    image: mashup-frontend
+    build: ./mashup-frontend/
+    container_name: frontend
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8010:8010
+    healthcheck:
+      test: "exit 0"
