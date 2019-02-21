@@ -34,9 +34,12 @@ public class KafkaListenerService {
         List<String> interest = new ArrayList<>();
         interest.add(strMessage[8].split(":")[1].replace("\"",""));
         userProfile.setInterests(interest);
+        Question question = new Question(0, null);
         List<Question> attemptedQuestion = new ArrayList<>();
+        attemptedQuestion.add(question);
         userProfile.setAttemptedQuestion(attemptedQuestion);
         List<Question> postedQuestion = new ArrayList<>();
+        postedQuestion.add(question);
         userProfile.setPostedQuestion(postedQuestion);
         userRepository.save(userProfile);
         System.out.println("Consumed msg : " + message);
