@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>scoreandbadge-service</artifactId>
+	<artifactId>score-badge-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>scoreandbadge-service</name>
+	<name>score-badge-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
