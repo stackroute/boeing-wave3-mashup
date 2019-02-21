@@ -72,6 +72,8 @@ import { RecommendComponent } from './_components/recommend/recommend.component'
 import { RouterModule } from '@angular/router';
 import { SubmissionComponent } from './submission/submission.component';
 import { VotingComponent } from './_components/voting/voting.component';
+import { NavbarComponent } from './_components/navbar/navbar.component';
+import { FooterComponent } from './_components/footer/footer.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -124,6 +126,8 @@ const monacoConfig: NgxMonacoEditorConfig = {
     RecommendComponent,
     SubmissionComponent,
     VotingComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

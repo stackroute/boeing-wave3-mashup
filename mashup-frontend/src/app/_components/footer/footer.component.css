@@ -1,0 +1,12 @@
+.fa {
+    font-size: 30px;
+   text-align: center;
+   text-decoration: none;
+   margin: 5px 2px;
+}
+
+.content{
+        align-content: center;
+        padding-right: 500px;
+        /* padding-top: 50px; */
+   }
