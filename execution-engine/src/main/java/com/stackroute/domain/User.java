@@ -1,5 +1,16 @@
 package com.stackroute.domain;
 
 public class User {
-    public String username;
+    private String name;
+
+    public User() {
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }

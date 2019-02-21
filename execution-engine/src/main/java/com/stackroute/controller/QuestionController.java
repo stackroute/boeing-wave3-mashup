@@ -1,6 +1,7 @@
 package com.stackroute.controller;
 import com.stackroute.service.FetchService;
-import com.stackroute.service.ResultsService;
+import com.stackroute.service.FileWriterService;
+import com.stackroute.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,29 +15,31 @@ import java.io.IOException;
 @CrossOrigin("*")
 public class QuestionController {
     @Autowired
-    private ResultsService resultsService;
-    public ResultsService getResultsService() {
-        return resultsService;
+    private QuestionService questionService;
+    public QuestionService getQuestionService() {
+        return questionService;
     }
     @Autowired
     public FetchService fetchService;
 
-    public void setResultsService(ResultsService resultsService) {
-        this.resultsService = resultsService;
+    public void setQuestionService(QuestionService questionService) {
+        this.questionService = questionService;
     }
     @RequestMapping(value = "code", method = RequestMethod.POST)
     public ResponseEntity<String> saveTrack(@RequestBody String code) {
         ResponseEntity responseEntity;
-        String code1= resultsService.run(code);
+        String code1= questionService.run(code);
         responseEntity=new ResponseEntity<String>(code1, HttpStatus.CREATED);
         return responseEntity;
     }
 //        In future we have to listen it from kafka via questionPopulator
     @RequestMapping (value="post",method = RequestMethod.POST)
-    public ResponseEntity<String> PostAgitURL(@RequestBody String giturl) throws IOException,InterruptedException {
+    public ResponseEntity<String> PostAgitURL(@RequestBody String giturl) throws IOException {
             ResponseEntity responseEntity;
-            fetchService.setGitURL(giturl);
+            questionService.setGitURL(giturl);
+            fetchService.fetchFilesAndSave();
             responseEntity=new ResponseEntity(HttpStatus.ACCEPTED);
+//        repository="https://github.com/aroranamita09/ArrayListOperation.git"
         return responseEntity;
     }
 }

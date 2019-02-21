@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.techprimers</groupId>
-	<artifactId>recommendation-service</artifactId>
+	<artifactId>spring-boot-neo4j-example-1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>recommendation-service</name>
+	<name>spring-boot-neo4j-example-1</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

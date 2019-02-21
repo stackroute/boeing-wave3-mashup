@@ -14,16 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Component
 public class DatabaseLoader implements ApplicationListener<ApplicationReadyEvent> {
 
-//    @Value("${userId1}")
-//    private int userId1;
-//    @Value("${userName1}")
-//    private String userName1;
-//    @Value("${password1}")
-//    private String password1;
-//    @Value("${age1}")
-//    private int age1;
-//    @Value("${gender1}")
-
     @Value("${gender2}")
     private String gender1;
     @Value("${username2}")
@@ -46,18 +36,6 @@ public class DatabaseLoader implements ApplicationListener<ApplicationReadyEvent
     private String emailId1;
     @Value("${collegeName2}")
     private String collegeName1;
-
-//    @Value("${userId2}")
-//    private int userId2;
-//    @Value("${userName2}")
-//    private String userName2;
-//    @Value("${password2}")
-//    private String password2;
-//    @Value("${age2}")
-//    private int age2;
-//    @Value("${gender2}")
-//    private String gender2;
-
 
     @Autowired
     private UserRepository userRepository;

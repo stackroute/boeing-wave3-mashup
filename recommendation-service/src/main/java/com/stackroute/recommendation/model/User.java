@@ -13,13 +13,9 @@ public class User {
 
     private Long id;
 
-
     private String emailId;
-    //private List<String> interests;
+
     private String interests;
-    //private List<String> tags;
-
-
 
     @Relationship(type = "ATTEMPTED", direction = Relationship.INCOMING)
     private List<Question> questions;
