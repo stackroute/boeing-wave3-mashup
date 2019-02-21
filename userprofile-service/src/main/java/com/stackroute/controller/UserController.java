@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 //Use an interface that can be implemented by UserProfileService and UserAWSService
 @RequestMapping("/api/v1/")
