@@ -6,12 +6,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Submission")
 public class SubmissionData {
     @Id
-    private String username;
-    private int questionId;
+    private String username;//sidh
+    private int questionId;//sidh
     private String questionTitle;
     private String result;
     private String testCaseResult;
     private String solution;
+    private String questionTag;//sidh
+    private String questionLevel;//sidh
 
     public String getUsername() {
         return username;
@@ -59,5 +61,21 @@ public class SubmissionData {
 
     public void setSolution(String solution) {
         this.solution = solution;
+    }
+
+    public String getQuestionTag() {
+        return questionTag;
+    }
+
+    public void setQuestionTag(String questionTag) {
+        this.questionTag = questionTag;
+    }
+
+    public String getQuestionLevel() {
+        return questionLevel;
+    }
+
+    public void setQuestionLevel(String questionLevel) {
+        this.questionLevel = questionLevel;
     }
 }
