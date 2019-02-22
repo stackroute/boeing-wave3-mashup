@@ -4,7 +4,8 @@ import { QuestioExeEngineService } from '../../services/questio-exe-engine.servi
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { autocomplete } from './autocomplete';
-
+import { TokenStorageService } from '../../services/token-storage.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class EditComponent implements OnInit {
 
   // wesocket
   title = 'grokonez';
+  public uname:String;
   description = 'Angular-WebSocket Demo';
 
   greetings: string[] = [];
@@ -35,9 +37,10 @@ export class EditComponent implements OnInit {
 `;
   private stompClient = null;
   // socket ends here
-
+  questionObj:String;
   auto = new autocomplete;
   questitle: string;
+  qid:string;
   quesstatement: string;
   questioninputs: string;
   questionout: string;
@@ -67,19 +70,24 @@ export class EditComponent implements OnInit {
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
     console.log(line);
   }
-  constructor(public quesservice: QuestioExeEngineService) {
+  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute,private token: TokenStorageService) {
   }
   ngOnInit() {
-    console.log(this.code);
+    this.qid=this._route.snapshot.paramMap.get('qid');
+    this.uname = this.token.getUsername();
+    console.log(this.qid);
+    console.log(this.uname);
     this.connect();
     this.quesservice.findques().subscribe(
       data => {
+        this.questionObj=data;
         this.questitle = data['title'];
         this.quesstatement = data['statement'];
         this.questioninputs = data['inputs'];
         this.questionout = data['Output'];
         console.log(data);
       });
+      // console.log(this.questitle);
   }
   // tslint:disable-next-line:member-ordering
   options = {
@@ -144,6 +152,8 @@ export class EditComponent implements OnInit {
   }
 
   submit() {
+    //console.log("From here");
+     console.log(this.questionObj);
     console.log(this.code);
     this.greetings = [];
     this.stompClient.send(

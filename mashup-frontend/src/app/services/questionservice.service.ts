@@ -20,7 +20,7 @@ export class QuestionserviceService {
     console.log(savedQuestionObj);
     return savedQuestionObj;
   }
-  public getallquestioninfo() {
+  public getallquestioninfo(): any {
     const allinfo = this._http.get(this.getallquestionUrl);
     console.log(allinfo);
     return allinfo;

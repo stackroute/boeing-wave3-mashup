@@ -27,6 +27,10 @@ const routes: Routes = [
         component: EditComponent
     },
     {
+        path: 'execution/:qid',  
+        component: EditComponent
+    },
+    {
         path: 'post/:username',
         component: SavequestionComponent
     },
