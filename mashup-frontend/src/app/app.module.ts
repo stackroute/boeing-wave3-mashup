@@ -74,6 +74,7 @@ import { SubmissionComponent } from './submission/submission.component';
 import { VotingComponent } from './_components/voting/voting.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
+import { ScorebadgeComponent } from './_components/scorebadge/scorebadge.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -128,6 +129,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     VotingComponent,
     NavbarComponent,
     FooterComponent,
+    ScorebadgeComponent,
   ],
   imports: [
     BrowserModule,
