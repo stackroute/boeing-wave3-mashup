@@ -12,10 +12,12 @@ export class RecommendComponent implements OnInit {
   constructor(public _route: ActivatedRoute, private router: Router, public fetchservice: QuestionserviceService) { }
   public fetch;
   ngOnInit() {
-
+    console.log("hello");
     this.fetch = this.fetchservice.getallquestioninfo().subscribe(
       data => {
+        console.log("hello");
         this.fetch = data;
+        console.log("hello");
         console.log(data);
       },
       error => {
@@ -23,6 +25,11 @@ export class RecommendComponent implements OnInit {
         console.log(error.errorMessage);
       }
     );
+  
+  }
+  openEditor(questionId){
+    this.router.navigate(['/execution',questionId]);
+   // console.log(questionId);
   }
 
 }
