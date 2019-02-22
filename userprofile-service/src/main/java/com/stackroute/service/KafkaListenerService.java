@@ -47,7 +47,16 @@ public class KafkaListenerService {
 
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consume_ques(String message){
+        String[] strMessage = message.split(",");
+        Question question = new Question();
+        System.out.println("Consumed msg : " + message);
+    }
 
+    @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")
+    public void consume_submission(String message){
+        String[] strMessage = message.split(",");
+
+        Question question = new Question();
         System.out.println("Consumed msg : " + message);
     }
 }
