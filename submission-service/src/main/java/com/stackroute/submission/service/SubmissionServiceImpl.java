@@ -35,6 +35,7 @@ public class SubmissionServiceImpl implements SubmissionService{
         else{
             level = hard;
         }
+        System.out.println("Level : " + level);
         Double score1 = (submissionData.getTestCasePassed()/submissionData.getTotalTestCases())*level;
         submissionData.setScore(score1);
         kafkaTemplate.send("SubmissionMessage",submissionData);
