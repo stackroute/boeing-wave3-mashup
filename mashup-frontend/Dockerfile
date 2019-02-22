@@ -1,16 +1,13 @@
 FROM node:carbon
 
-WORKDIR /xyz
-
-COPY . .
+COPY ./dist  ng
+COPY ./package-production.json ng/package-production
 
 RUN npm install
 
 RUN npm install http-server -g
 
-RUN npm run build
-
-WORKDIR /xyz/dist/AngularJwtAuth
+WORKDIR /ng/dist
 
 CMD ["http-server", "-c1" , "-p", "8029"]
 #FROM node:8.11.2-alpine as node
