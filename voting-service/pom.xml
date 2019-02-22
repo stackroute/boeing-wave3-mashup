@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stackroute</groupId>
-	<artifactId>voting</artifactId>
+	<artifactId>voting-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Voting</name>
+	<name>voting-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
