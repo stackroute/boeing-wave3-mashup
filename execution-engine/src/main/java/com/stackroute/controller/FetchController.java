@@ -25,6 +25,7 @@ public class FetchController {
     }
     @RequestMapping(value = "fetch", method = RequestMethod.POST)
     public ResponseEntity<?> getFiles(@RequestBody String giturl) throws IOException,InterruptedException{
+        fetchService.setGitURL(giturl);
             fetchService.fetchFilesAndSave();
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
