@@ -285,6 +285,27 @@ services:
     healthcheck:
       test: "exit 0"
 
+  submission-service:
+    image: submission-service
+    build: ./submission-service/
+    container_name: submission
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      mongo:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8026:8026
+    healthcheck:
+      test: "exit 0"
+
   mashup-frontend:
     image: mashup-frontend
     build: ./mashup-frontend/
