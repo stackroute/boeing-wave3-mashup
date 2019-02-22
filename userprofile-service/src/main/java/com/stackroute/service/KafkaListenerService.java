@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class KafkaListenerService {
@@ -48,15 +49,24 @@ public class KafkaListenerService {
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consume_ques(String message){
         String[] strMessage = message.split(",");
+        String userName = strMessage[8].split(":")[1].replace("\"","");
         Question question = new Question();
+        question.setQuestionId(Integer.parseInt(strMessage[0].split(":")[1].replace("\"","")));
+        question.setQuestionTitle(strMessage[1].split(":")[1].replace("\"",""));
+        UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
+        userDBProfileService.updateQuestionPosted(userName, question);
         System.out.println("Consumed msg : " + message);
     }
 
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")
     public void consume_submission(String message){
         String[] strMessage = message.split(",");
-
+        String userName = strMessage[0].split(":")[1].replace("\"","");
         Question question = new Question();
+        question.setQuestionId(Integer.parseInt(strMessage[1].split(":")[1].replace("\"","")));
+        question.setQuestionTitle(strMessage[2].split(":")[1].replace("\"",""));
+        UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
+        userDBProfileService.updateQuestionAttempted(userName, question);
         System.out.println("Consumed msg : " + message);
     }
 }
