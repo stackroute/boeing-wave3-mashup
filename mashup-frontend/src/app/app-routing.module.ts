@@ -8,7 +8,7 @@ import { RegisterComponent } from './_components/register/register.component';
 import { SavequestionComponent} from './_components/savequestion/savequestion.component';
 import { EditComponent } from './_components/edit/edit.component';
 import { UserprofileComponent } from './_components/userprofile/userprofile.component';
-import { SubmissionComponent } from './submission/submission.component';
+import { SubmissionComponent } from './_components/submission/submission.component';
 
 
 const routes: Routes = [

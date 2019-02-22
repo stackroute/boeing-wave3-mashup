@@ -70,7 +70,7 @@ import { UserprofileComponent } from './_components/userprofile/userprofile.comp
 import { UserprofileServiceService } from './services/userprofile-service.service';
 import { RecommendComponent } from './_components/recommend/recommend.component';
 import { RouterModule } from '@angular/router';
-import { SubmissionComponent } from './submission/submission.component';
+import { SubmissionComponent } from './_components/submission/submission.component';
 import { VotingComponent } from './_components/voting/voting.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
