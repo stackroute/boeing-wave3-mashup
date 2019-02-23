@@ -6,7 +6,7 @@
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
-<!-- 		<relativePath/> <!-- lookup parent from repository --> -->
+<!-- 		<relativePath/> lookup parent from repository -->
 	</parent>
 	<artifactId>question-service</artifactId>
 	<name>question-service</name>
