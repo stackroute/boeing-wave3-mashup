@@ -1,4 +1,4 @@
-  <div *ngIf="info.token; else loggedOut">
+  <div class="homecontainer" *ngIf="info.token; else loggedOut">
       <div class="post">
           <button class="btn btn-success"  [routerLink]="['/post',info.username]" >PostQuestion</button>
         </div>

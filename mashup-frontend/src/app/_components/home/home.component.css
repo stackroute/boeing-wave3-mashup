@@ -25,3 +25,8 @@ margin-left: 80%;
     right: 15%;
     
     }
+
+.homecontainer {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
