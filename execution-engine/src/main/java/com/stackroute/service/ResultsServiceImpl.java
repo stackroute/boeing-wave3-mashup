@@ -20,7 +20,7 @@ public class ResultsServiceImpl implements ResultsService{
         BufferedReader fr;
 
         String m="";
-        String fileName="/home/user/Documents/Mashup/js_complete/executionengine/compile.log";
+        String fileName="/home/user/IdeaProjects/executionengine/compile.log";
         file=new File(fileName);
         BufferedReader br=new BufferedReader(new FileReader(file));
         StringBuilder sb = new StringBuilder();
@@ -33,7 +33,7 @@ public class ResultsServiceImpl implements ResultsService{
 
         int mm=0;
         if(k.isEmpty()){
-            return "0,0,Tests passed";
+            return "2@*#2@*#Tests passed";
         }
         else
         if(k.contains("COMPILATION ERROR")){
@@ -134,14 +134,14 @@ public class ResultsServiceImpl implements ResultsService{
 
         }
         System.out.println("THis is log file\n"+m);
-        return total+","+(total-error-failure)+","+m;
+        return total+"@*#"+(total-error-failure)+"@*#"+m;
 
     }
     public  String  run(String code)  {
 
         String filename=getfilename(code);
         try{
-            FileWriter fw=new FileWriter("/home/user/Documents/Mashup/js_complete/executionengine/src/main/java/com/stackroute/"+filename);
+            FileWriter fw=new FileWriter("/home/user/IdeaProjects/executionengine/src/main/java/com/stackroute/"+filename);
 
             fw.write("package com.stackroute;"+"\n"+code);
             fw.close();
@@ -153,7 +153,7 @@ public class ResultsServiceImpl implements ResultsService{
         try {
             ///home/user/Documents/Mashup/js_complete/executionengine
 
-            String[] cmd = {"sh", "/home/user/Documents/Mashup/aws-v1.0.1/execution-engine/src/main/java/com/stackroute/script/run.sh"};
+            String[] cmd = {"sh", "/home/user/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/run.sh"};
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -169,13 +169,13 @@ public class ResultsServiceImpl implements ResultsService{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        File file1=new File("/home/user/Documents/Mashup/js_complete/executionengine/src/main/java/com/stackroute/"+filename);
-        if(file1.delete()){
-            System.out.println("file is deleted");
-        }
-        else{
-            System.out.println("not done your task");
-        }
+//        File file1=new File("/home/user/IdeaProjects/executionengine/src/main/java/com/stackroute/"+filename);
+//        if(file1.delete()){
+//            System.out.println("file is deleted");
+//        }
+//        else{
+//            System.out.println("not done your task");
+//        }
 
         try {
             String errorlogs = finderror();

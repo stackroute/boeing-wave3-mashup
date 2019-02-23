@@ -35,11 +35,12 @@ public class CodeController {
 
         return new Code(code.getCodeTemplate());
     }
-    @MessageMapping("/results")
-    @SendTo("/topic/results")
+    @MessageMapping("/hello")
+    @SendTo("/topic/hi")
     public Code sendResults(codeWrittenFromEditor sumittedCode) throws Exception {
+        System.out.println(sumittedCode.getCodeWritten());
         String temp=this.resultsService.run(sumittedCode.getCodeWritten());
-        System.out.println(temp);
+        System.out.println(temp+"vfvfd");
         return new Code(temp);
     }
 //        This should work after submitting code

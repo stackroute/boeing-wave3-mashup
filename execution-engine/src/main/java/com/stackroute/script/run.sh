@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-cd /home/user/Documents/product/executionengine
+touch sdf
+cd /home/user/IdeaProjects/executionengine
 alias mvn='mvn  --quiet'
 mvn test -l compile.log

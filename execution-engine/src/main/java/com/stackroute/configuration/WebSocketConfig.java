@@ -12,15 +12,15 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
-                .addEndpoint("/code-execution")
+                .addEndpoint("/gkz-stomp-endpoint")
                 .setAllowedOrigins("http://localhost:4200")
                 .withSockJS();
-        registry.addEndpoint("/code-result").setAllowedOrigins("http://localhost:4200")
-                .withSockJS();
+//        registry.addEndpoint("/code-result").setAllowedOrigins("http://localhost:4200")
+//                .withSockJS();
     }
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableSimpleBroker("/execution");
+        config.enableSimpleBroker("/topic");
         config.setApplicationDestinationPrefixes("/gkz");
     }
 }

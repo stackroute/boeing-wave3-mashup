@@ -21,7 +21,10 @@ export class EditComponent implements OnInit {
 
   // wesocket
   title = 'grokonez';
+  public difficulty:String;
   public uname:String;
+  public testpass:String;
+  public totaltest:String;
   description = 'Angular-WebSocket Demo';
 
   greetings: string[] = [];
@@ -38,6 +41,7 @@ export class EditComponent implements OnInit {
   private stompClient = null;
   // socket ends here
   questionObj:String;
+  result:String;
   auto = new autocomplete;
   questitle: string;
   qid:string;
@@ -65,6 +69,7 @@ export class EditComponent implements OnInit {
   }
 
   onInit(editor) {
+    
     const line = editor.getPosition();
     const monaco = window['monaco'];
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
@@ -75,21 +80,28 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.qid=this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
+      
     console.log(this.qid);
     console.log(this.uname);
     this.connect();
-    this.quesservice.findques().subscribe(
+    // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
+    
+     this.quesservice.getQuestionById('f').subscribe(
       data => {
-        this.questionObj=data;
-        this.questitle = data['title'];
-        this.quesstatement = data['statement'];
-        this.questioninputs = data['inputs'];
-        this.questionout = data['Output'];
+       this.questionObj=data;
+        this.questitle = data['questionTitle'];
+        this.quesstatement = data['questionDescription'];
+        this.questioninputs = data['inputFormat'];
+        this.questionout = data['outputFormat'];
+        this.difficulty=data['difficulty'];
         console.log(data);
       });
-      // console.log(this.questitle);
+     
   }
-  // tslint:disable-next-line:member-ordering
+    //  "username":this.uname,"questionId":this.qid,
+    //  "questionTitle":this.questitle,result:this.result,
+    //  "testCasePassed":this.testpass,"TotalTestCases":this.totaltest,
+    //  "difficulty":this.difficulty
   options = {
     theme: 'vs-dark'
   };
@@ -129,7 +141,7 @@ export class EditComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://172.23.239.132:8080/gkz-stomp-endpoint');
+    const socket = new SockJS('http://localhost:8025/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;
@@ -137,8 +149,8 @@ export class EditComponent implements OnInit {
       _this.setConnected(true);
       console.log('Connected: ' + frame);
 
-      _this.stompClient.subscribe('/topic/hi', function (hello) {
-        _this.showGreeting(JSON.parse(hello.body).greeting);
+      _this.stompClient.subscribe('/topic/hi', function (helo) {
+        _this.showGreeting(JSON.parse(helo.body).codeTemplate);
       });
     });
   }
@@ -152,28 +164,44 @@ export class EditComponent implements OnInit {
   }
 
   submit() {
-    //console.log("From here");
+    console.log("From here");
      console.log(this.questionObj);
-    console.log(this.code);
+    //console.log(this.code);
     this.greetings = [];
     this.stompClient.send(
       '/gkz/hello',
       {},
-      JSON.stringify({ 'name': this.code })
+      JSON.stringify({'codeWritten': this.code })
     );
+    console.log("sending data to submission service");
+    //this.sendDataToSubmissionService();
   }
  // tslint:disable-next-line:member-ordering
  public colorg: object = {};
+ sendDataToSubmissionService(){
+   //console.log("ayhshd");
+      this.quesservice.sendDatatoSubmission({"code":this.code,"username":this.uname,"questionId":this.qid,
+      "questionTitle":this.questitle,result:this.result,
+      "testCasePassed":this.testpass,"totalTestCases":this.totaltest,
+      "difficulty":this.difficulty})
+ }
   showGreeting(message) {
     this.greetings.push(message);
-    this.greetings = this.greetings[0].split('\n');
+    this.greetings=this.greetings[0].split('@*#');
+    this.totaltest=this.greetings[0];
+    this.testpass=this.greetings[1];
+    this.greetings = this.greetings[2].split('\n');
     this.colorg = {
       color: `red`
     };
     if ( this.greetings[0] === 'Tests passed' ) {
+      this.result="passed";
       this.colorg = {
         color: `green`
       };
+    }
+    else{
+      this.result="failed";
     }
   }
 

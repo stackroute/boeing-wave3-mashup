@@ -6,7 +6,7 @@ public class codeWrittenFromEditor {
     public codeWrittenFromEditor() {
     }
 
-    public void setCodeWritten(String codeWitten) {
+    public void setCodeWritten(String codeWritten) {
         this.codeWritten = codeWritten;
     }
 

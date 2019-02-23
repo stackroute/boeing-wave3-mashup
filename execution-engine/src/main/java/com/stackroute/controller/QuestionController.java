@@ -1,7 +1,7 @@
 package com.stackroute.controller;
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.EurekaClient;
-import com.netflix.discovery.shared.Application;
+//import com.netflix.appinfo.InstanceInfo;
+//import com.netflix.discovery.EurekaClient;
+//import com.netflix.discovery.shared.Application;
 import com.stackroute.domain.Question;
 import com.stackroute.service.FetchService;
 import com.stackroute.service.ResultsService;
@@ -29,27 +29,27 @@ public class QuestionController {
 
     @Autowired
     private RestTemplate restTemplate;
-
-    @Autowired
-    private EurekaClient eurekaClient;
+//
+//    @Autowired
+//    private EurekaClient eurekaClient;
 
     public void setResultsService(ResultsService resultsService) {
         this.resultsService = resultsService;
     }
     public Question question;
 
-    @RequestMapping(value="question/{id}", method = RequestMethod.GET)
-    public Question getQuestionObject(@PathVariable int id) {
-            Application application = eurekaClient.getApplication("QUESTION-SERVICE1");
-        System.out.println("Application : " + application);
-        InstanceInfo instanceInfo = application.getInstances().get(0);
-        System.out.println("Inst : " + instanceInfo);
-        String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "api/v1/question/" + id;
-        System.out.println("URL" + url);
-         question = restTemplate.getForObject(url, Question.class);
-        System.out.println("RESPONSE " + question.questionTitle);
-        fetchService.setGitURL(question.gitUrl);
-        return question;
-    }
+//    @RequestMapping(value="question/{id}", method = RequestMethod.GET)
+//    public Question getQuestionObject(@PathVariable int id) {
+//            Application application = eurekaClient.getApplication("QUESTION-SERVICE1");
+//        System.out.println("Application : " + application);
+//        InstanceInfo instanceInfo = application.getInstances().get(0);
+//        System.out.println("Inst : " + instanceInfo);
+//        String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "api/v1/question/" + id;
+//        System.out.println("URL" + url);
+//         question = restTemplate.getForObject(url, Question.class);
+//        System.out.println("RESPONSE " + question.questionTitle);
+//        fetchService.setGitURL(question.gitUrl);
+//        return question;
+//    }
 
 }
