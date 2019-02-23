@@ -96,4 +96,19 @@ public class SubmissionData {
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
+
+    @Override
+    public String toString() {
+        return "SubmissionData{" +
+                "username='" + username + '\'' +
+                ", questionId=" + questionId +
+                ", questionTitle='" + questionTitle + '\'' +
+                ", result='" + result + '\'' +
+                ", testCasePassed=" + testCasePassed +
+                ", totalTestCases=" + totalTestCases +
+                ", difficulty='" + difficulty + '\'' +
+                ", solution='" + solution + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }

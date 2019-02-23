@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/")
 public class SubmissionController {
@@ -20,6 +20,7 @@ public class SubmissionController {
 
     @PostMapping(value = "submission")
     public ResponseEntity<SubmissionData> saveSubmissions(@RequestBody SubmissionData submissionData){
+        System.out.println("DATA : "+submissionData.toString());
         SubmissionData submissionData1 = submissionService.saveSubmission(submissionData);
         return new ResponseEntity<SubmissionData>(submissionData1, HttpStatus.OK);
     }
