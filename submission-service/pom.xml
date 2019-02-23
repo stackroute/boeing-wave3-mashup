@@ -3,12 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
+		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
-<!-- 		<relativePath/> <!-- lookup parent from repository --> -->
+<!-- 		<relativePath/>  lookup parent from repository --> 
 	</parent>
-	<groupId>com.stackroute.submission</groupId>
 	<artifactId>submission-service</artifactId>
 	<name>submission-service</name>
 	<description>Submission Service</description>

@@ -1,6 +1,6 @@
-package com.stackroute.submission.service;
+package com.stackroute.service;
 
-import com.stackroute.submission.domain.SubmissionData;
+import com.stackroute.domain.SubmissionData;
 
 public interface SubmissionService {
     public SubmissionData saveSubmission(SubmissionData submissionData);

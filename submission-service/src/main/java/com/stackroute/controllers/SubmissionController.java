@@ -1,7 +1,7 @@
-package com.stackroute.submission.controllers;
+package com.stackroute.controllers;
 
-import com.stackroute.submission.domain.SubmissionData;
-import com.stackroute.submission.service.SubmissionService;
+import com.stackroute.domain.SubmissionData;
+import com.stackroute.service.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

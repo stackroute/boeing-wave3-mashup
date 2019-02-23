@@ -2,8 +2,8 @@
 //
 //import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.stackroute.submission.domain.SubmissionData;
-//import com.stackroute.submission.service.SubmissionService;
+//import SubmissionData;
+//import SubmissionService;
 //import org.junit.Before;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;

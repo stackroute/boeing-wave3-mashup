@@ -1,6 +1,6 @@
-package com.stackroute.submission.repository;
+package com.stackroute.repository;
 
-import com.stackroute.submission.domain.SubmissionData;
+import com.stackroute.domain.SubmissionData;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
