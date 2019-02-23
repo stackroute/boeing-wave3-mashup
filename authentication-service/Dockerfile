@@ -1,4 +1,4 @@
-FROM openjdk:10
+FROM openjdk:11
 
 ADD ./target/authentication-service-0.0.1-SNAPSHOT.jar authentication-service.jar
 EXPOSE 8021
