@@ -1,4 +1,4 @@
-FROM openjdk:10
+FROM openjdk:11
 
 ADD ./target/recommendation-service-2.1.2.RELEASE.jar recommendation-service.jar
 EXPOSE 8023
