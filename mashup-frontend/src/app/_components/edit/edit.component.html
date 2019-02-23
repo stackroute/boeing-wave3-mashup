@@ -43,11 +43,10 @@
             <ngx-monaco-editor id="editor2" class="my-code-editor" [options]="editorOptions" [(ngModel)]="code"
                 (onInit)="onInit($event)"></ngx-monaco-editor>
             <form class="form-inline my-2 my-lg-0 hello" #createForm="ngForm" (ngSubmit)="submit()">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button-addon2">Submit </button>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button-addon2">Compile </button>
-
-            </form>
-            
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button-addon2">Run </button>&nbsp;&nbsp;
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button-addon2">Submit </button>            </form>
+            <h3>Vote this question -> </h3> 
+            <app-voting></app-voting>
             <table id="conversation" class="table table-striped" style="margin-top: 20px;">
                 <thead>
                     <tr>
@@ -66,4 +65,3 @@
 
     </div>
 </div>
-<app-voting></app-voting>
