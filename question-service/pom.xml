@@ -3,16 +3,14 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.stackroute</groupId>
+		<artifactId>mashup</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+<!-- 		<relativePath/> <!-- lookup parent from repository --> -->
 	</parent>
-	<groupId>com.stackroute</groupId>
 	<artifactId>question-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>question-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Question Service</description>
 
 	<properties>
 		<java.version>10</java.version>
@@ -80,12 +78,6 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.0.Final</version>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-netflix-eureka-client</artifactId>-->
-			<!--<version>2.1.0.RELEASE</version>-->
-		<!--</dependency>-->
-
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
@@ -95,11 +87,6 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-netflix-eureka-client</artifactId>-->
-			<!--<version>2.1.0.RELEASE</version>-->
-		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

@@ -1,29 +1,32 @@
-<nav class="navbar navbar-default navbar-bottom" >
-  <li *ngIf="authority === 'admin'" class="nav-item">
-     </li>
-     <ul class="navbar-nav navbar-right" align = "center">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-         <span class="fa-stack fa-lg">
-             <i class="fa fa-google fa-stack-1x" style="color:firebrick">
-             </i>
-             </span>
-             <span class="fa-stack fa-lg">
-                 <i class="fa fa-facebook fa-stack-1x" style="color:rgba(0, 0, 255, 0.774)">
-                 </i>
-                 </span>
-             <span class="fa-stack fa-lg">
-                 <i class="fa fa-twitter fa-stack-1x" style="color:cornflowerblue">
-                 </i>
-                 </span>
-                 <span class="fa-stack fa-lg">
-                     <i class="fa fa-linkedin fa-stack-1x" style="color:mediumblue">
-                     </i>
-                     </span>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <li *ngIf="authority === 'admin'" class="nav-item"></li>
+  <ul class="navbar-nav navbar-right" align="center">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-google fa-stack-1x" style="color:firebrick"> </i>
+    </span>
+    <span class="fa-stack fa-lg">
+      <i
+        class="fa fa-facebook fa-stack-1x"
+        style="color:rgba(0, 0, 255, 0.774)"
+      >
+      </i>
+    </span>
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-twitter fa-stack-1x" style="color:cornflowerblue"> </i>
+    </span>
+    <span class="fa-stack fa-lg">
+      <!-- <i class="fa fa-linkedin fa-stack-1x" style="color:mediumblue"></i> -->
+      &nbsp;&nbsp;&nbsp;.
+    </span>
   </ul>
+  
   <div class="content">
-  <div class="footer-copyright py-3" align = "right" style="color: orangered" >
-   © 2019 Copyright : all rights reserved
-   </div>
+    <div class="footer-copyright py-3" align="right" style="color: orangered">
+      © 2019 Copyright : all rights reserved
+    </div>
   </div>
-   </nav>
-        
+</nav>

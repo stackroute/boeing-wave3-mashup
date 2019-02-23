@@ -224,6 +224,88 @@ services:
     healthcheck:
       test: "exit 0"
 
+  search-service:
+    image: search-service
+    build: ./search-service/
+    container_name: search
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8097:8097
+    healthcheck:
+      test: "exit 0"
+
+  score-badge-service:
+    image: score-badge-service
+    build: ./score-badge-service/
+    container_name: score-badge
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      mongo:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8033:8033
+    healthcheck:
+      test: "exit 0"
+
+  voting-service:
+    image: voting-service
+    build: ./voting-service/
+    container_name: voting
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      mongo:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8098:8098
+    healthcheck:
+      test: "exit 0"
+
+  submission-service:
+    image: submission-service
+    build: ./submission-service/
+    container_name: submission
+    restart: always
+    network_mode: host
+    hostname: localhost
+    depends_on:
+      mongo:
+        condition: service_healthy
+      apigateway:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    ports:
+      - 8026:8026
+    healthcheck:
+      test: "exit 0"
+
   mashup-frontend:
     image: mashup-frontend
     build: ./mashup-frontend/
@@ -232,6 +314,8 @@ services:
     network_mode: host
     hostname: localhost
     ports:
-      - 4200:4200
+      - 8029:8029
+    expose:
+      - 8029
     healthcheck:
       test: "exit 0"
