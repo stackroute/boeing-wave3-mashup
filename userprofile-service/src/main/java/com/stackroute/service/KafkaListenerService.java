@@ -48,14 +48,14 @@ public class KafkaListenerService {
 
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consume_ques(String message){
-        String[] strMessage = message.split(",");
-        String userName = strMessage[8].split(":")[1].replace("\"","");
+        System.out.println("Consumed questionMsg : " + message);
+        String[] strMessage = message.split(",\"");
+        String userName = strMessage[8].split(":")[1].replace("\"","").replace("}","");
         Question question = new Question();
         question.setQuestionId(Integer.parseInt(strMessage[0].split(":")[1].replace("\"","")));
         question.setQuestionTitle(strMessage[1].split(":")[1].replace("\"",""));
         UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
         userDBProfileService.updateQuestionPosted(userName, question);
-        System.out.println("Consumed msg : " + message);
     }
 
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")

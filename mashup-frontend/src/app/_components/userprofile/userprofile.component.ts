@@ -46,7 +46,7 @@ export class UserprofileComponent implements OnInit {
   ngOnInit() {
     this.uname = this.token.getUsername();
     this.userService.getUserProfile(this.uname).subscribe(data => this.abc = data);
-    console.log(this.abc);
+    console.log('ABC : ',this.abc);
     this.bhaak = 'bhaak1';
   }
 

@@ -49,7 +49,7 @@ public class User{
     private String email;
 
     @NotBlank
-    @Size(min=6, max = 50)
+    @Size(min=6, max = 150)
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)

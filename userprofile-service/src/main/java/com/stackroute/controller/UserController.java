@@ -47,6 +47,8 @@ public class UserController {
     @GetMapping(value = "userprofile/{username}")
     public ResponseEntity<?> getUserProfile(@PathVariable("username") String userName) throws UserProfileNotFoundException {
         System.out.println("username : " + userName);
+        UserProfile userProfile = userProfileService.getUser(userName);
+        System.out.println("USERPROFILE : "+userProfile);
         return new ResponseEntity<UserProfile>(userProfileService.getUser(userName), HttpStatus.OK);
     }
     

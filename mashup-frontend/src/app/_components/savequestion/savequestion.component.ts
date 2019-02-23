@@ -69,6 +69,7 @@ export class SavequestionComponent implements OnInit {
         console.log('data is ', data);
         // this.alertService.success(data, true);
         alert(data);
+        this.router.navigate(['home']);
     },
     error => {
       console.log('we are getting some errors');

@@ -18,7 +18,7 @@ export class RegisterService {
 
   register(user: User): Observable<any> {
     console.log('user details are  : ', user);
-    return this.http.post(`http://172.23.239.150:8020/api/v1/register`, user, {responseType: 'text'});
+    return this.http.post(`http://localhost:8020/api/v1/register`, user, {responseType: 'text'});
   }
 
   update(user: User) {
