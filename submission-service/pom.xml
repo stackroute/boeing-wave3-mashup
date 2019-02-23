@@ -4,15 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<artifactId>mashup</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+<!-- 		<relativePath/> <!-- lookup parent from repository --> -->
 	</parent>
 	<groupId>com.stackroute.submission</groupId>
 	<artifactId>submission-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>submission-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Submission Service</description>
 
 	<properties>
 		<java.version>10</java.version>
