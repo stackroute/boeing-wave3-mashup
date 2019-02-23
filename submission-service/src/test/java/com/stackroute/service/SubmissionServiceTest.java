@@ -1,7 +1,7 @@
 //package com.stackroute.submission.service;
 //
-//import com.stackroute.submission.domain.SubmissionData;
-//import com.stackroute.submission.repository.SubmissionRepository;
+//import SubmissionData;
+//import SubmissionRepository;
 //import org.junit.Before;
 //import org.junit.Test;
 //import org.junit.runner.RunWith;

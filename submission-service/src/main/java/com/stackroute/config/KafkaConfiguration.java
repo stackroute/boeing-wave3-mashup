@@ -1,6 +1,6 @@
-package com.stackroute.submission.config;
+package com.stackroute.config;
 
-import com.stackroute.submission.domain.SubmissionData;
+import com.stackroute.domain.SubmissionData;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
