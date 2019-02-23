@@ -5,14 +5,12 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.2-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.stackroute</groupId>
 	<artifactId>userprofile-service</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
 	<name>userprofile-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>User Profile Service</description>
 
 	<properties>
 		<java.version>10</java.version>
