@@ -166,7 +166,7 @@ var autocomplete = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\">\n            <div class=\"row font-weight-bold \">\n                \n                <h2>{{questitle}}</h2>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{quesstatement}}\n                </p>\n                <br>\n\n                <mat-divider></mat-divider>\n\n            </div>\n            <ul>\n                <h2>Input</h2>\n                <div *ngFor=\"let inp of questioninputs\">\n                    <li>{{inp}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n            <mat-divider></mat-divider>\n            <h2>Output</h2>\n            <p>{{questionout}}</p>\n\n\n        </div>\n        <div class=\"col-sm-7\" container-diff>\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n            <form class=\"form-inline my-2 my-lg-0 hello\" #createForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Submit </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Compile </button>\n\n            </form>\n            \n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n\n        </div>\n\n    </div>\n</div>\n<app-voting></app-voting>"
+module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\">\n            <div class=\"row font-weight-bold \">\n\n                <h2>{{questitle}}</h2>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{quesstatement}}\n                </p>\n                <br>\n\n                <mat-divider></mat-divider>\n\n            </div>\n            <ul>\n                <h2>Input</h2>\n                <div *ngFor=\"let inp of questioninputs\">\n                    <li>{{inp}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n            <mat-divider></mat-divider>\n            <h2>Output</h2>\n            <p>{{questionout}}</p>\n\n\n        </div>\n        <div class=\"col-sm-7\" container-diff>\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n            <form class=\"form-inline my-2 my-lg-0 hello\" #createForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Submit </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Compile </button>\n                <h3>Vote this question -> </h3>\n                <app-voting></app-voting>\n            </form>\n            <button (click)=sendDataToSubmissionService()></button>\n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n\n        </div>\n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -221,7 +221,10 @@ var EditComponent = /** @class */ (function () {
         this.auto = new _autocomplete__WEBPACK_IMPORTED_MODULE_4__["autocomplete"];
         this.selectedLang = 'java';
         this.editorOptions = { theme: 'vs-dark', language: 'java' };
-        // tslint:disable-next-line:member-ordering
+        //  "username":this.uname,"questionId":this.qid,
+        //  "questionTitle":this.questitle,result:this.result,
+        //  "testCasePassed":this.testpass,"TotalTestCases":this.totaltest,
+        //  "difficulty":this.difficulty
         this.options = {
             theme: 'vs-dark'
         };
@@ -281,15 +284,16 @@ var EditComponent = /** @class */ (function () {
         console.log(this.qid);
         console.log(this.uname);
         this.connect();
-        this.quesservice.findques().subscribe(function (data) {
+        // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
+        this.quesservice.getQuestionById('f').subscribe(function (data) {
             _this.questionObj = data;
-            _this.questitle = data['title'];
-            _this.quesstatement = data['statement'];
-            _this.questioninputs = data['inputs'];
-            _this.questionout = data['Output'];
+            _this.questitle = data['questionTitle'];
+            _this.quesstatement = data['questionDescription'];
+            _this.questioninputs = data['inputFormat'];
+            _this.questionout = data['outputFormat'];
+            _this.difficulty = data['difficulty'];
             console.log(data);
         });
-        // console.log(this.questitle);
     };
     // socket code
     EditComponent.prototype.setConnected = function (connected) {
@@ -299,14 +303,14 @@ var EditComponent = /** @class */ (function () {
         }
     };
     EditComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://172.23.239.132:8080/gkz-stomp-endpoint');
+        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://localhost:8025/gkz-stomp-endpoint');
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
         var _this = this;
         this.stompClient.connect({}, function (frame) {
             _this.setConnected(true);
             console.log('Connected: ' + frame);
-            _this.stompClient.subscribe('/topic/hi', function (hello) {
-                _this.showGreeting(JSON.parse(hello.body).greeting);
+            _this.stompClient.subscribe('/topic/hi', function (helo) {
+                _this.showGreeting(JSON.parse(helo.body).codeTemplate);
             });
         });
     };
@@ -318,22 +322,38 @@ var EditComponent = /** @class */ (function () {
         console.log('Disconnected!');
     };
     EditComponent.prototype.submit = function () {
-        //console.log("From here");
+        console.log("From here");
         console.log(this.questionObj);
-        console.log(this.code);
+        //console.log(this.code);
         this.greetings = [];
-        this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.code }));
+        this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'codeWritten': this.code }));
+        console.log("sending data to submission service");
+        //this.sendDataToSubmissionService();
+    };
+    EditComponent.prototype.sendDataToSubmissionService = function () {
+        //console.log("ayhshd");
+        this.quesservice.sendDatatoSubmission({ "code": this.code, "username": this.uname, "questionId": this.qid,
+            "questionTitle": this.questitle, result: this.result,
+            "testCasePassed": this.testpass, "totalTestCases": this.totaltest,
+            "difficulty": this.difficulty });
     };
     EditComponent.prototype.showGreeting = function (message) {
         this.greetings.push(message);
-        this.greetings = this.greetings[0].split('\n');
+        this.greetings = this.greetings[0].split('@*#');
+        this.totaltest = this.greetings[0];
+        this.testpass = this.greetings[1];
+        this.greetings = this.greetings[2].split('\n');
         this.colorg = {
             color: "red"
         };
         if (this.greetings[0] === 'Tests passed') {
+            this.result = "passed";
             this.colorg = {
                 color: "green"
             };
+        }
+        else {
+            this.result = "failed";
         }
     };
     EditComponent = __decorate([
@@ -359,7 +379,7 @@ var EditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fa {\n    font-size: 30px;\n   text-align: center;\n   text-decoration: none;\n   margin: 5px 2px;\n}\n\n.content{\n        align-content: center;\n        padding-right: 500px;\n        /* padding-top: 50px; */\n   }\n\n"
+module.exports = "body {\n   display: flex;\n   min-height: 100vh;\n   flex-direction: column;\n }\n\n main {\n   flex: 1 0 auto;\n }\n\n .page-footer{\n   background-image: url(\"/assets/MASHUP-BACK.png\");\n   background-size: cover;\n}"
 
 /***/ }),
 
@@ -370,7 +390,7 @@ module.exports = ".fa {\n    font-size: 30px;\n   text-align: center;\n   text-d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-bottom\" >\n  <li *ngIf=\"authority === 'admin'\" class=\"nav-item\">\n     </li>\n     <ul class=\"navbar-nav navbar-right\" align = \"center\">\n         <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n         <span class=\"fa-stack fa-lg\">\n             <i class=\"fa fa-google fa-stack-1x\" style=\"color:firebrick\">\n             </i>\n             </span>\n             <span class=\"fa-stack fa-lg\">\n                 <i class=\"fa fa-facebook fa-stack-1x\" style=\"color:rgba(0, 0, 255, 0.774)\">\n                 </i>\n                 </span>\n             <span class=\"fa-stack fa-lg\">\n                 <i class=\"fa fa-twitter fa-stack-1x\" style=\"color:cornflowerblue\">\n                 </i>\n                 </span>\n                 <span class=\"fa-stack fa-lg\">\n                     <i class=\"fa fa-linkedin fa-stack-1x\" style=\"color:mediumblue\">\n                     </i>\n                     </span>\n  </ul>\n  <div class=\"content\">\n  <div class=\"footer-copyright py-3\" align = \"right\" style=\"color: orangered\" >\n   © 2019 Copyright : all rights reserved\n   </div>\n  </div>\n   </nav>\n        "
+module.exports = "<!-- Compiled and minified CSS -->\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n\n<!-- Compiled and minified JavaScript -->\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"></script>\n        \n<footer class=\"page-footer\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col l6 s12\">\n        <h5 class=\"white-text\">Footer Content</h5>\n        <p class=\"grey-text text-lighten-4\">You can use rows and columns here to organize your footer content.</p>\n      </div>\n      <div class=\"col l4 offset-l2 s12\">\n        <h5 class=\"white-text\">Links</h5>\n        <ul>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 1</a></li>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 2</a></li>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 3</a></li>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 4</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div class=\"footer-copyright\">\n    <div class=\"container\">\n    © 2014 Copyright Text\n    <a class=\"grey-text text-lighten-4 right\" href=\"#!\">More Links</a>\n    </div>\n  </div>\n</footer>"
 
 /***/ }),
 
@@ -422,7 +442,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".post{\n    /* position: absolute; */\n    top: 10;\n    margin-right: 9%;\n    margin-left: 91%;\n}\n.logout{\n    position: absolute;\n    top: 2%;\n    right: 5%;\n    color: red;\n\n\n}\n.execut{\nposition: relative;\nmargin-right: 10%;\nmargin-left: 80%;\n\n}\n.userprofile{\n    position: absolute;\n    top: 2%;\n    right: 15%;\n    \n    }"
+module.exports = ".post{\n    /* position: absolute; */\n    top: 10;\n    margin-right: 9%;\n    margin-left: 91%;\n}\n.logout{\n    position: absolute;\n    top: 2%;\n    right: 5%;\n    color: red;\n\n\n}\n.execut{\nposition: relative;\nmargin-right: 10%;\nmargin-left: 80%;\n\n}\n.userprofile{\n    position: absolute;\n    top: 2%;\n    right: 15%;\n    \n}\n"
 
 /***/ }),
 
@@ -433,7 +453,7 @@ module.exports = ".post{\n    /* position: absolute; */\n    top: 10;\n    margi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div *ngIf=\"info.token; else loggedOut\">\n      <div class=\"post\">\n          <button class=\"btn btn-success\"  [routerLink]=\"['/post',info.username]\" >PostQuestion</button>\n        </div>\n        <div class = \"logout\">\n            <button class=\"btn btn-primary\" (click)=\"logout()\">Logout</button>\n        </div>\n        <div class = \"execut\">\n            <button class=\"btn btn-success\" [routerLink]=\"['/execution']\">execution</button>\n        </div>\n        <div class = \"userprofile\">\n          <button class=\"btn btn-primary\" [routerLink]=\"['/userprofile']\">userprofile</button>\n        </div>\n\n        <div id=\"band\" class=\"container text-center\">\n            <div class=\"jumbotron\">\n                <h1>Happy Coding!</h1>\n                <p><em>Place to the people who love to code!! Keep coding</em></p>\n            </div>\n            <p>We provide timely, specialised veterinary care to injured urban wild animals, rehabilitate them, and then\n                release them into their natural or adoptive habitats. Create awareness, amongst citizens of all ages and\n                backgrounds, about urban wildlife, and to instil a deep regard for their cohabitation needs and when to\n                actively engage in their welfare. Community outreach and education about our local environment and how we\n                can enrich and protect it.\n                Develop a practise that employs better wildlife care techniques, engaging specialists and veterinarians\n                from across the world.</p>\n            <br>\n    \n    \n            <!-- More Pictures aside section -->\n    \n            <div class=\"row text-center\">\n                <div class=\"col-sm-4\">\n                    <div class=\"thumbnail\">\n                        <img src=\"https://media.giphy.com/media/cpIvoQSU8vC9O/giphy.gif\" alt=\"code\" width=\"400\" height=\"300\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"thumbnail\">\n                        <img src=\"https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4646/original/humanities-to-coding.png\" alt=\"build\" width=\"400\" height=\"300\">\n    \n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"thumbnail\">\n                        <img src=\"https://www.gstatic.com/webp/gallery/1.jpg\" alt=\"feel\" width=\"400\" height=\"300\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <p>\n            <iframe width=\"400\" height=\"315\"\n            src=\"https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1\">\n            </iframe><br>\n        </p>\n    </div> \n    \n    <ng-template #loggedOut>\n      <!-- -------------------------- -->\n        <div id=\"band\" class=\"container text-center\">\n            <div class=\"jumbotron\">\n                <h1>Happy Coding!</h1>\n                <p><em>Place to the people who love to code!! Keep coding</em></p>\n            </div>\n            <p>We provide timely, specialised veterinary care to injured urban wild animals, rehabilitate them, and then\n                release them into their natural or adoptive habitats. Create awareness, amongst citizens of all ages and\n                backgrounds, about urban wildlife, and to instil a deep regard for their cohabitation needs and when to\n                actively engage in their welfare. Community outreach and education about our local environment and how we\n                can enrich and protect it.\n                Develop a practise that employs better wildlife care techniques, engaging specialists and veterinarians\n                from across the world.</p>\n            <br>\n            <!-- More Pictures aside section -->\n    \n            <div class=\"row text-center\">\n                <div class=\"col-sm-4\">\n                    <div class=\"thumbnail\">\n                        <img src=\"https://media.giphy.com/media/cpIvoQSU8vC9O/giphy.gif\" alt=\"code\" width=\"400\" height=\"300\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"thumbnail\">\n                        <img src=\"https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4646/original/humanities-to-coding.png\" alt=\"build\" width=\"400\" height=\"300\">\n    \n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"thumbnail\">\n                        <img src=\"https://www.gstatic.com/webp/gallery/1.jpg\" alt=\"feel\" width=\"400\" height=\"300\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <p>\n            <iframe width=\"400\" height=\"315\"\n            src=\"https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1\">\n            </iframe><br>\n        </p>\n        <app-submission></app-submission>\n    </ng-template>\n    \n"
+module.exports = "<div *ngIf=\"info.token; else loggedOut\">\n  <div class=\"row col-lg-12\">\n    <app-recommend>        \n    </app-recommend>\n  </div>\n  <!-- <div id=\"band\" class=\"container text-center\"> -->\n  <div class=\"row col-lg-12\">\n    <!-- <div class=\"row text-center\"> -->\n    <p>\n      We provide timely, specialised veterinary care to injured urban wild\n      animals, rehabilitate them, and then release them into their natural or\n      adoptive habitats. Create awareness, amongst citizens of all ages and\n      backgrounds, about urban wildlife, and to instil a deep regard for their\n      cohabitation needs and when to actively engage in their welfare. Community\n      outreach and education about our local environment and how we can enrich\n      and protect it. Develop a practise that employs better wildlife care\n      techniques, engaging specialists and veterinarians from across the world.\n    </p>\n    <!-- </div> -->\n  </div>\n\n  <!-- More Pictures aside section -->\n  <div class=\"row col-lg-12\">\n    <!-- <div class=\"row text-center\"> -->\n    <div class=\"col-sm-4\">\n      <div class=\"thumbnail\">\n        <img src=\"https://media.giphy.com/media/cpIvoQSU8vC9O/giphy.gif\" alt=\"code\" width=\"400\" height=\"300\" />\n      </div>\n    </div>\n    <div class=\"col-sm-4\">\n      <div class=\"thumbnail\">\n        <img\n          src=\"https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4646/original/humanities-to-coding.png\"\n          alt=\"build\" width=\"400\" height=\"300\" />\n      </div>\n    </div>\n    <div class=\"col-sm-4\">\n      <div class=\"thumbnail\">\n        <img src=\"https://www.gstatic.com/webp/gallery/1.jpg\" alt=\"feel\" width=\"400\" height=\"300\" />\n      </div>\n    </div>\n  </div>\n</div>\n<!-- <p>\n  <iframe width=\"400\" height=\"315\" src=\"https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1\">\n  </iframe><br />\n</p> -->\n\n<ng-template #loggedOut>\n  <!-- -------------------------- -->\n  <div id=\"band\" class=\"container text-center\">\n    <div class=\"jumbotron\">\n      <h1>Happy Coding!</h1>\n      <p><em>Place to the people who love to code!! Keep coding</em></p>\n    </div>\n    <p>\n      We provide timely, specialised veterinary care to injured urban wild\n      animals, rehabilitate them, and then release them into their natural or\n      adoptive habitats. Create awareness, amongst citizens of all ages and\n      backgrounds, about urban wildlife, and to instil a deep regard for their\n      cohabitation needs and when to actively engage in their welfare. Community\n      outreach and education about our local environment and how we can enrich\n      and protect it. Develop a practise that employs better wildlife care\n      techniques, engaging specialists and veterinarians from across the world.\n    </p>\n    <br />\n    <!-- More Pictures aside section -->\n\n    <div class=\"row text-center nav-fixed-bottom\">\n      <div class=\"col-sm-4\">\n        <div class=\"thumbnail\">\n          <img src=\"https://media.giphy.com/media/cpIvoQSU8vC9O/giphy.gif\" alt=\"code\" width=\"400\" height=\"300\" />\n        </div>\n      </div>\n      <div class=\"col-sm-4\">\n        <div class=\"thumbnail\">\n          <img\n            src=\"https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4646/original/humanities-to-coding.png\"\n            alt=\"build\" width=\"400\" height=\"300\" />\n        </div>\n      </div>\n      <div class=\"col-sm-4\">\n        <div class=\"thumbnail\">\n          <img src=\"https://www.gstatic.com/webp/gallery/1.jpg\" alt=\"feel\" width=\"400\" height=\"300\" />\n        </div>\n      </div>\n    </div>\n  </div>\n</ng-template>"
 
 /***/ }),
 
@@ -508,7 +528,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"isLoggedIn; else loggedOut\">\n  <h4 style=\"color: purple\">You are Logged in.</h4>\n  <h2 style=\"color: red\" >Hey, Enjoy the Stackroute guyz</h2>\n</div>\n\n<ng-template #loggedOut>\n  <div class=\"row col-sm-6\" style=\"max-width:350px;\">\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"form.username\" #username=\"ngModel\"\n          required />\n        <div *ngIf=\"f.submitted && username.invalid\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"form.password\" #password=\"ngModel\"\n          required minlength=\"6\" />\n        <div *ngIf=\"f.submitted && password.invalid\">\n          <div *ngIf=\"password.errors.required\">Password is required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-primary\">Login</button>\n        <div *ngIf=\"f.submitted && isLoginFailed\" class=\"alert alert-danger\">\n          Login failed: {{errorMessage}}\n        </div>\n      </div>\n    </form>\n    <hr />\n    <p>New User?</p>\n    <a href=\"register\" class=\"btn btn-success\">Sign Up</a>\n  </div>\n</ng-template>"
+module.exports = "<!-- <div *ngIf=\"isLoggedIn; else loggedOut\">\n  <h4 style=\"color: purple\">You are Logged in.</h4>\n  <h2 style=\"color: red\" >Hey, Enjoy the Stackroute guyz</h2>\n</div>\n\n<ng-template #loggedOut> -->\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-4\">\n\n  </div>\n  <div class=\"col-lg-4\">\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"form.username\" #username=\"ngModel\"\n          required />\n        <div *ngIf=\"f.submitted && username.invalid\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"form.password\" #password=\"ngModel\"\n          required minlength=\"6\" />\n        <div *ngIf=\"f.submitted && password.invalid\">\n          <div *ngIf=\"password.errors.required\">Password is required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-primary\">Login</button>\n        <div *ngIf=\"f.submitted && isLoginFailed\" class=\"alert alert-danger\">\n          Login failed: {{errorMessage}}\n        </div>\n      </div>\n    </form>\n    <hr />\n    <p>New User?</p>\n    <a href=\"register\" class=\"btn btn-success\">Sign Up</a>\n  </div>\n  <div class=\"col-lg-4\">\n\n  </div>\n</div>\n\n<!-- </ng-template> -->"
 
 /***/ }),
 
@@ -526,6 +546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _services_token_storage_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/token-storage.service */ "./src/app/services/token-storage.service.ts");
 /* harmony import */ var _components_auth_login_info__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../_components/auth/login-info */ "./src/app/_components/auth/login-info.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -539,8 +560,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService, tokenStorage) {
+    function LoginComponent(router, authService, tokenStorage) {
+        this.router = router;
         this.authService = authService;
         this.tokenStorage = tokenStorage;
         this.form = {};
@@ -567,6 +590,7 @@ var LoginComponent = /** @class */ (function () {
             _this.isLoggedIn = true;
             _this.roles = _this.tokenStorage.getAuthorities();
             _this.reloadPage();
+            _this.router.navigate(['home']);
         }, function (error) {
             console.log(error);
             _this.errorMessage = error.error.message;
@@ -582,7 +606,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/_components/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/_components/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _services_token_storage_service__WEBPACK_IMPORTED_MODULE_2__["TokenStorageService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"], _services_token_storage_service__WEBPACK_IMPORTED_MODULE_2__["TokenStorageService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -598,7 +622,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar-default {\n    background-color: #F8F8F8;\n    border-color: #E7E7E7;\n}\n\n.navbar-nav{\n    padding-right: 50px;\n  }"
+module.exports = ".nav-wrapper{\n    background-color: black;\n}\nimg{\n    width: 64px;\n    padding-bottom: 5px;\n}\n.input-field{\n    margin: 0%;\n    height: 64px;\n}\n.second-bar{\n    margin-left: 135px;\n    height: 60px;\n}\n.material-icons{\n    font-size: 40px;\n    color: black;\n    \n}\n#search{\n    margin: 0%;\n    background-image: url(\"/assets/MASHUP-BACK.png\");\n    background-position: center top;\n}\n.flex-container{\n    display: flex;\n    \n}"
 
 /***/ }),
 
@@ -609,7 +633,7 @@ module.exports = ".navbar-default {\n    background-color: #F8F8F8;\n    border-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n  <div class=\"navbar-header\">\n    <a class=\"navbar-brand\" href=\"#\">Mashup</a>\n  </div>\n  <ul class=\"nav navbar-nav navbar-right\" routerLinkActive=\"active\">\n    <li class=\"nav-item\"><a class=\"nav-link\" routerLink=\"home\">Home</a></li>\n    <li class=\"nav-item\"><a class=\"nav-link\" routerLink=\"home\">Practice</a></li>\n    <li class=\"nav-item\"><a class=\"nav-link\" [routerLink]=\"['/fetch']\">Recommend</a></li>\n    <li *ngIf=\"authority === 'user'\" class=\"nav-item\">\n      <a class=\"nav-link\" routerLink=\"user\">User Board</a>\n    </li>\n    <li *ngIf=\"!authority\" class=\"nav-item\">\n      <a class=\"nav-link\" routerLink=\"auth/login\"><span class=\"glyphicon glyphicon-log-in\"> </span> Login/Signup</a>\n    </li>\n  </ul>\n</div>\n</nav>"
+module.exports = "<link\n  href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n  rel=\"stylesheet\"\n/>\n\n<div *ngIf=\"info.token; else loggedOut\">\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"\n        ><img src=\"/assets/MASHUP.png\" class=\"image\"\n      /></a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li>\n          <a href=\"\" [routerLink]=\"['/post', info.username]\">Post Question</a>\n        </li>\n        <li><a href=\"\" [routerLink]=\"['/userprofile']\">Profile</a></li>\n        <li>\n          <a href=\"\" [routerLink]=\"['/execution']\" (click)=\"logout()\">Logout</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</div>\n<ng-template #loggedOut>\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"\n        ><img src=\"/assets/MASHUP.png\" class=\"image\"\n      /></a>\n      <!-- <form> -->\n\n      <!-- </form> -->\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <div class=\"flex-container\">\n        \n        <div><li><a href=\"\">Practice</a></li></div>\n        <div><li><a href=\"\" [routerLink]=\"['/fetch']\">Contact Us</a></li></div>\n        <div><li *ngIf=\"!authority\">\n          <a href=\"\" routerLink=\"auth/login\"\n            ><span class=\"glyphicon glyphicon-log-in\"> </span> Login/Signup\n          </a>\n        </li></div>\n        <div><li>\n            <form>\n              <div class=\"input-field\">\n                <input id=\"search\" type=\"search\" required />\n                <label class=\"label-icon\" for=\"search\"\n                  ><i class=\"material-icons\">search</i></label\n                >\n                <i class=\"material-icons\">close</i>\n              </div>\n            </form>\n          \n          </li>\n        </div>\n      </div>\n      </ul>\n    </div>\n\n    <!-- <div class=\"nav-wrapper second-bar\">\n          \n      </div> -->\n  </nav>\n  <!-- <nav>\n      \n    </nav> -->\n</ng-template>\n"
 
 /***/ }),
 
@@ -624,6 +648,8 @@ module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"containe
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/token-storage.service */ "./src/app/services/token-storage.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -634,10 +660,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent() {
+    function NavbarComponent(router, token) {
+        this.router = router;
+        this.token = token;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        this.info = {
+            token: this.token.getToken(),
+            username: this.token.getUsername(),
+            authorities: this.token.getAuthorities()
+        };
+    };
+    NavbarComponent.prototype.logout = function () {
+        this.token.signOut();
+        window.location.reload();
+        this.router.navigate(['home']);
     };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -645,7 +685,7 @@ var NavbarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./navbar.component.html */ "./src/app/_components/navbar/navbar.component.html"),
             styles: [__webpack_require__(/*! ./navbar.component.css */ "./src/app/_components/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_1__["TokenStorageService"]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -661,7 +701,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-card {\n    max-width: 400px;\n    max-height: 400px;\n    margin-bottom: 40px;\n  }\n \n  .example-header-image {\n    background-image: url('http://www.hdicon.com/wp-content/uploads/2010/07/java.png');\n    background-size: cover;\n  }"
+module.exports = ".example-card {\n    max-width: 400px;\n    max-height: 400px;\n    margin-bottom: 40px;\n  }\n \n  .example-header-image {\n    background-image: url('http://www.hdicon.com/wp-content/uploads/2010/07/java.png');\n    background-size: cover;\n  }\n \n  .parallax { \n    /* The image used */\n    background-image: url('parallax1.jpg');\n  \n    /* Set a specific height */\n    height: 500px; \n  \n    /* Create the parallax scrolling effect */\n    background-attachment: fixed;\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n  }"
 
 /***/ }),
 
@@ -672,7 +712,7 @@ module.exports = ".example-card {\n    max-width: 400px;\n    max-height: 400px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div *ngFor=\"let question of fetch\" class=\"col-md-4\">\n    <mat-card class=\"example-card\" >\n      <mat-card-header>\n        <div mat-card-avatar class=\"example-header-image\"></div>\n        <mat-card-title>{{question.questionTitle}}</mat-card-title>\n        <mat-card-subtitle>{{question.tags}}</mat-card-subtitle>\n      </mat-card-header>\n      <img mat-card-image src=\"https://cdn-images-1.medium.com/max/1600/1*E4CO83SmCCrvRrge7U3Ahw.jpeg\" alt=\"Photo of a Shiba Inu\">\n      <mat-card-content>\n      </mat-card-content>\n      <mat-card-actions>\n        <button mat-button (click)=openEditor(question.questionId)>ATTEMPT</button>\n        <button mat-button>SHARE</button>\n      </mat-card-actions>\n    </mat-card>\n  </div>"
+module.exports = "<h2 style=\"text-align:center;padding-bottom: 3vh\">It's time to dive into the world of CODING....</h2>\n<div *ngFor=\"let question of fetch\" class=\"col-lg-4\">\n  <mat-card class=\"example-card\" style=\"background-color: rgb(206, 255, 191)\">\n    <mat-card-header style=\"height: 15vh;\">\n      <div mat-card-avatar class=\"example-header-image\"></div>\n      <mat-card-title>{{question.questionTitle}}</mat-card-title>\n      <mat-card-subtitle>{{question.tags}}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n    </mat-card-content>\n    <mat-card-actions style=\"padding-left:8vw;padding-bottom:2vh\">\n      <button mat-raised-button (click)=openEditor(question.questionId)>ATTEMPT</button>\n    </mat-card-actions>\n  </mat-card>\n</div>"
 
 /***/ }),
 
@@ -746,7 +786,7 @@ var RecommendComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 style=\"text-align:center\" style=\"color: #7373e5\">Registration</h2>\n<mat-horizontal-stepper labelPosition=\"bottom\" #stepper >\n  <mat-step [stepControl]=\"firstFormGroup\">\n      <form [formGroup]=\"firstFormGroup\">\n          <ng-template matStepLabel style=\"color: pink\">Please provide details</ng-template>\n          <mat-form-field>\n              <input matInput placeholder=\"First name\" formControlName=\"firstName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Last name\" formControlName=\"lastName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Email Id\" formControlName=\"emailId\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Username\" formControlName=\"username\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"password\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Interests\" formControlName=\"interest\" required>\n          </mat-form-field>\n          <br>\n          <div>\n              <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n      </form>\n  </mat-step>\n  <mat-step [stepControl]=\"secondFormGroup\" optional>\n      <form [formGroup]=\"secondFormGroup\" (ngSubmit)=\"onSubmit()\">\n          <ng-template matStepLabel>Fill out optional stuffs</ng-template>\n          <mat-form-field>\n              <input matInput placeholder=\"Gender\" formControlName=\"gender\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Age\" formControlName=\"age\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"College Name\" formControlName=\"college\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Discipline\" formControlName=\"discipline\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Course\" formControlName=\"course\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Current Company\" formControlName=\"company\">\n          </mat-form-field>\n          <br>\n          <div>\n              <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n              <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n      </form>\n  </mat-step>\n  <mat-step>\n      <ng-template matStepLabel>Done</ng-template>\n      <div>\n          <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n          <button mat-raised-button color=\"warn\" (click)=\"stepper.reset()\">Reset</button>\n          <button mat-raised-button color=\"primary\" routerLink=\"/auth/login\">Done</button>\n      </div>\n  </mat-step>\n</mat-horizontal-stepper>"
+module.exports = "<!-- <h2 style=\"text-align:center\" style=\"color: #7373e5\">Registration</h2> -->\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-3\">\n\n  </div>\n  <div class=\"col-lg-6\">\n    <mat-horizontal-stepper labelPosition=\"bottom\" #stepper>\n      <mat-step [stepControl]=\"firstFormGroup\">\n        <form [formGroup]=\"firstFormGroup\">\n          <ng-template matStepLabel style=\"color: pink\">Please provide details</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"First name\" formControlName=\"firstName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Last name\" formControlName=\"lastName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Email Id\" formControlName=\"emailId\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Username\" formControlName=\"username\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"password\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Interests\" formControlName=\"interest\" required>\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step [stepControl]=\"secondFormGroup\" optional>\n        <form [formGroup]=\"secondFormGroup\" (ngSubmit)=\"onSubmit()\">\n          <ng-template matStepLabel>Fill out optional stuffs</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"Gender\" formControlName=\"gender\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Age\" formControlName=\"age\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"College Name\" formControlName=\"college\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Discipline\" formControlName=\"discipline\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Course\" formControlName=\"course\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Current Company\" formControlName=\"company\">\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n            <!-- <button mat-raised-button color=\"primary\" routerLink=\"/auth/login\">Done</button> -->\n          </div>\n        </form>\n      </mat-step>\n      <!-- <mat-step>\n      <ng-template matStepLabel>Done</ng-template>\n      <div>\n          <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>&nbsp;&nbsp;\n          <button mat-raised-button color=\"warn\" (click)=\"stepper.reset()\">Reset</button>&nbsp;&nbsp;\n          <button mat-raised-button color=\"primary\" routerLink=\"/auth/login\">Proceed to Login</button>\n      </div>\n  </mat-step> -->\n    </mat-horizontal-stepper>\n  </div>\n  <div class=\"col-lg-3\">\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -826,6 +866,7 @@ var RegisterComponent = /** @class */ (function () {
             console.log('data is ', data);
             _this.alertService.success(data, true);
             alert(data);
+            _this.router.navigate(['/auth/login']);
         }, function (error) {
             console.log('we are getting some errors');
             _this.alertService.error('user already exists');
@@ -936,6 +977,7 @@ var SavequestionComponent = /** @class */ (function () {
         });
     };
     SavequestionComponent.prototype.submit = function () {
+        var _this = this;
         this.submitted = true;
         if (this.questionForm.invalid) {
             console.log('register form is invalid ');
@@ -954,6 +996,7 @@ var SavequestionComponent = /** @class */ (function () {
             console.log('data is ', data);
             // this.alertService.success(data, true);
             alert(data);
+            _this.router.navigate(['home']);
         }, function (error) {
             console.log('we are getting some errors');
             alert(error);
@@ -1235,7 +1278,7 @@ module.exports = ".tile1{\n  height: 100%;\n  width: 80%;\n}\n.card {\n  width: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"3\" rowHeight=\"20vh\">\n  <mat-grid-tile\n    [colspan]=\"tiles[0].cols\"\n    [rowspan]=\"tiles[0].rows\"\n    [style.background]=\"tiles[0].color\"\n    class=\"profile\"\n  >\n    <div class=\"box\">\n      <div>\n        <mat-card class=\"card\" style=\"display:block;\">\n          <img\n            mat-card-image\n            src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\"\n            alt=\"Photo of a Shiba Inu\"\n            class=\"profileimage\"\n            width=\"195px\"\n            height=\"164px\"\n          />\n\n          <mat-card-content>\n            <p>{{ abc.firstName }} {{ abc.lastName }}</p>\n          </mat-card-content>\n          <p style=\"opacity:.7\">@ {{ abc.userName }}</p>\n        </mat-card>\n      </div>\n      <div>\n        <mat-card class=\"card card2\" style=\"display:block; margin-top: 1vh;\">\n          <p>\n            Password : {{ abc.password }}\n            <!-- <input type=\"text\"  value='password'></p> -->\n          </p>\n\n          <div [ngSwitch]=\"bhaak\">\n            <ng-template [ngSwitchCase]=\"'bhaak1'\">\n              <p>Email Id : {{ abc.emailId }}</p>\n              <p>list {{ abc.interests.join(\", \") }}</p>\n            </ng-template>\n            <ng-template [ngSwitchCase]=\"'bhaak2'\">\n                Email Id :<input type=text value= {{abc.emailId}}>\n              <p>list {{ abc.interests.join(\", \") }}</p>\n            </ng-template>\n          </div>\n          <button (click)=changemaadi()>Update Profile</button>\n        </mat-card>\n      </div>\n    </div>\n  </mat-grid-tile>\n\n  <mat-grid-tile\n    [colspan]=\"tiles[1].cols\"\n    [rowspan]=\"tiles[1].rows\"\n    [style.background]=\"tiles[1].color\"\n  >\n    <mat-tab-group class=\"tile1\">\n      <mat-tab label=\"Question Attempted\">\n        <mat-list role=\"list\" *ngFor=\"let questionA of abc.attemptedQuestion\">\n          <mat-list-item role=\"listitem\" [routerLink]=\"['/submission-component']\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            <p>{{ questionA.questionTitle }}</p>\n            </mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n      <mat-tab label=\"Question Posted\">\n        <mat-list role=\"list\" *ngFor=\"let questionP of abc.postedQuestion\">\n          <mat-list-item role=\"listitem\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            {{ questionP.questionTitle }}</mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-grid-tile>\n</mat-grid-list>\n"
+module.exports = "<mat-grid-list cols=\"3\" rowHeight=\"20vh\">\n  <mat-grid-tile\n    [colspan]=\"tiles[0].cols\"\n    [rowspan]=\"tiles[0].rows\"\n    [style.background]=\"tiles[0].color\"\n    class=\"profile\"\n  >\n    <div class=\"box\">\n      <div>\n        <mat-card class=\"card\" style=\"display:block;\">\n          <img\n            mat-card-image\n            src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\"\n            alt=\"Photo of a Shiba Inu\"\n            class=\"profileimage\"\n            width=\"195px\"\n            height=\"164px\"\n          />\n\n          <mat-card-content>\n            <p>{{ abc.firstName }} {{ abc.lastName }}</p>\n          </mat-card-content>\n          <p style=\"opacity:.7\">@ {{ abc.userName }}</p>\n        </mat-card>\n      </div>\n      <div>\n        <mat-card class=\"card card2\" style=\"display:block; margin-top: 1vh;\">\n          <p>\n            <!-- Password : {{ abc.password }} -->\n            <!-- <input type=\"text\"  value='password'></p> -->\n          </p>\n\n          <div [ngSwitch]=\"bhaak\">\n            <ng-template [ngSwitchCase]=\"'bhaak1'\">\n              <p>Email Id : {{ abc.emailId }}</p>\n              <p>list {{ abc.interests.join(\", \") }}</p>\n            </ng-template>\n            <ng-template [ngSwitchCase]=\"'bhaak2'\">\n                Email Id :<input type=text value= {{abc.emailId}}>\n              <p>list {{ abc.interests.join(\", \") }}</p>\n            </ng-template>\n          </div>\n          <button (click)=changemaadi()>Update Profile</button>\n        </mat-card>\n      </div>\n    </div>\n  </mat-grid-tile>\n\n  <mat-grid-tile\n    [colspan]=\"tiles[1].cols\"\n    [rowspan]=\"tiles[1].rows\"\n    [style.background]=\"tiles[1].color\"\n  >\n    <mat-tab-group class=\"tile1\">\n      <mat-tab label=\"Question Attempted\">\n        <mat-list role=\"list\" *ngFor=\"let questionA of abc.attemptedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\" [routerLink]=\"['/submission-component']\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            <p>{{ questionA.questionTitle }}</p>\n            </mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n      <mat-tab label=\"Question Posted\">\n        <mat-list role=\"list\" *ngFor=\"let questionP of abc.postedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            {{ questionP.questionTitle }}</mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 
@@ -1291,7 +1334,7 @@ var UserprofileComponent = /** @class */ (function () {
         var _this = this;
         this.uname = this.token.getUsername();
         this.userService.getUserProfile(this.uname).subscribe(function (data) { return _this.abc = data; });
-        console.log(this.abc);
+        console.log('ABC : ', this.abc);
         this.bhaak = 'bhaak1';
     };
     __decorate([
@@ -1642,7 +1685,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container{\n    overflow-x: hidden;\n    overflow-y: hidden;\n}"
 
 /***/ }),
 
@@ -1653,7 +1696,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-navbar></app-navbar>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -2148,8 +2191,19 @@ var QuestioExeEngineService = /** @class */ (function () {
     function QuestioExeEngineService(_http) {
         this._http = _http;
         this.url = './assets/question.json';
+        this.url3 = 'http://localhost:8022/api/v1/question/1';
         this.url2 = 'http://localhost:8069/rest/neo4j/questions/2';
+        this.url4 = 'http://172.23.239.150:8026/api/v1/submission';
     }
+    QuestioExeEngineService.prototype.sendDatatoSubmission = function (quesresultdata) {
+        console.log(quesresultdata);
+        this._http.post(this.url4, quesresultdata).subscribe();
+    };
+    QuestioExeEngineService.prototype.getQuestionById = function (id) {
+        var quest = this._http.get(this.url3);
+        console.log(quest);
+        return quest;
+    };
     QuestioExeEngineService.prototype.findques = function () {
         var trackinfo = this._http.get(this.url);
         return trackinfo;
@@ -2194,7 +2248,7 @@ var QuestionserviceService = /** @class */ (function () {
     function QuestionserviceService(_http) {
         this._http = _http;
         this.questionPopulatorApidUrl = 'http://13.234.74.67:8092/question-service/api/v1/';
-        this.getallquestionUrl = 'http://localhost:8069/rest/neo4j/questions';
+        this.getallquestionUrl = 'http://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
         console.log('http service got called');
     }
     QuestionserviceService.prototype.saveQuestion = function (questionObj) {
@@ -2430,7 +2484,8 @@ var UserprofileServiceService = /** @class */ (function () {
     }
     UserprofileServiceService.prototype.getUserProfile = function (userName) {
         // tslint:disable-next-lin
-        var userProfile = this.http.get('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + userName);
+        console.log('USERNAME : ', userName);
+        var userProfile = this.http.get('http://13.234.74.67:8024/api/v1/userprofile/' + userName);
         console.log('hii');
         // console.log(userProfile);
         return userProfile;
@@ -2508,7 +2563,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Music/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Downloads/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
