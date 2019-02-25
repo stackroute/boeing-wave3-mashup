@@ -20,7 +20,7 @@ public class KafkaListenerService {
     @Autowired
     PasswordEncoder encoder;
 
-    @KafkaListener(topics = "AuthMessage", groupId = "group_id")
+    @KafkaListener(topics = "AuthMessage", groupId = "group_id_auth")
     public void consume(String message){
         String[] strMessage = message.split(",");
         User user = new User();
