@@ -1,32 +1,67 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+
 <div *ngIf="info.token; else loggedOut">
-  <nav class="navbar-fixed-top navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Mashup</a>
-      </div>
-      <ul class="nav navbar-nav navbar-right" routerLinkActive="active">
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/post', info.username]">Post Question</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/userprofile']">Profile</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" [routerLink]="['/execution']">Execution</a></li> -->
-        <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"
+        ><img src="/assets/MASHUP.png" class="image"
+      /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a href="" [routerLink]="['/post', info.username]">Post Question</a>
+        </li>
+        <li><a href="" [routerLink]="['/userprofile']">Profile</a></li>
+        <li>
+          <a href="" [routerLink]="['/execution']" (click)="logout()">Logout</a>
+        </li>
       </ul>
     </div>
   </nav>
 </div>
 <ng-template #loggedOut>
-  <nav class="navbar-fixed-top navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Mashup</a>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"
+        ><img src="/assets/MASHUP.png" class="image"
+      /></a>
+      <!-- <form> -->
+
+      <!-- </form> -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="flex-container">
+        
+        <div><li><a href="">Practice</a></li></div>
+        <div><li><a href="" [routerLink]="['/fetch']">Contact Us</a></li></div>
+        <div><li *ngIf="!authority">
+          <a href="" routerLink="auth/login"
+            ><span class="glyphicon glyphicon-log-in"> </span> Login/Signup
+          </a>
+        </li></div>
+        <div><li>
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" required />
+                <label class="label-icon" for="search"
+                  ><i class="material-icons">search</i></label
+                >
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          
+          </li>
+        </div>
       </div>
-      <ul class="nav navbar-nav navbar-right" routerLinkActive="active">
-        <li class="nav-item"><a class="nav-link" routerLink="home">Practice</a></li>
-        <li class="nav-item"><a class="nav-link" [routerLink]="['/fetch']">Contact Us</a></li>
-        <li *ngIf="!authority" class="nav-item">
-          <a class="nav-link" routerLink="auth/login"><span class="glyphicon glyphicon-log-in"> </span>
-            Login/Signup</a>
-        </li>
       </ul>
     </div>
+
+    <!-- <div class="nav-wrapper second-bar">
+          
+      </div> -->
   </nav>
+  <!-- <nav>
+      
+    </nav> -->
 </ng-template>
