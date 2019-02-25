@@ -53,7 +53,7 @@
   >
     <mat-tab-group class="tile1">
       <mat-tab label="Question Attempted">
-        <mat-list role="list" *ngFor="let questionA of abc.attemptedQuestion">
+        <mat-list role="list" *ngFor="let questionA of abc.attemptedQuestion | slice:1;">
           <mat-list-item role="listitem" [routerLink]="['/submission-component']"
             ><i class="fab fa-quora"></i> &nbsp;
             <p>{{ questionA.questionTitle }}</p>
@@ -62,7 +62,7 @@
         </mat-list>
       </mat-tab>
       <mat-tab label="Question Posted">
-        <mat-list role="list" *ngFor="let questionP of abc.postedQuestion">
+        <mat-list role="list" *ngFor="let questionP of abc.postedQuestion | slice:1;">
           <mat-list-item role="listitem"
             ><i class="fab fa-quora"></i> &nbsp;
             {{ questionP.questionTitle }}</mat-list-item

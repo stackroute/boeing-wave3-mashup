@@ -50,7 +50,8 @@ services:
     hostname: localhost
     restart: always
     volumes:
-      - /DB/neo4j:/data/db
+      - /DB/neo4j/data:/data
+      - /DB/neo4j/import:/import
     healthcheck:
       test: "exit 0"
 
