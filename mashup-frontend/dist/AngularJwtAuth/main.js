@@ -528,7 +528,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div *ngIf=\"isLoggedIn; else loggedOut\">\n  <h4 style=\"color: purple\">You are Logged in.</h4>\n  <h2 style=\"color: red\" >Hey, Enjoy the Stackroute guyz</h2>\n</div>\n\n<ng-template #loggedOut> -->\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-4\">\n\n  </div>\n  <div class=\"col-lg-4\">\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"form.username\" #username=\"ngModel\"\n          required />\n        <div *ngIf=\"f.submitted && username.invalid\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"form.password\" #password=\"ngModel\"\n          required minlength=\"6\" />\n        <div *ngIf=\"f.submitted && password.invalid\">\n          <div *ngIf=\"password.errors.required\">Password is required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-primary\">Login</button>\n        <div *ngIf=\"f.submitted && isLoginFailed\" class=\"alert alert-danger\">\n          Login failed: {{errorMessage}}\n        </div>\n      </div>\n    </form>\n    <hr />\n    <p>New User?</p>\n    <a href=\"register\" class=\"btn btn-success\">Sign Up</a>\n  </div>\n  <div class=\"col-lg-4\">\n\n  </div>\n</div>\n\n<!-- </ng-template> -->"
+module.exports = "<!-- <div *ngIf=\"isLoggedIn; else loggedOut\">\n  <h4 style=\"color: purple\">You are Logged in.</h4>\n  <h2 style=\"color: red\" >Hey, Enjoy the Stackroute guyz</h2>\n</div>\n\n<ng-template #loggedOut> -->\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-4\">\n\n  </div>\n  <div class=\"col-lg-4\">\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"form.username\" #username=\"ngModel\"\n          required />\n        <div *ngIf=\"f.submitted && username.invalid\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"form.password\" #password=\"ngModel\"\n          required minlength=\"6\" />\n        <div *ngIf=\"f.submitted && password.invalid\">\n          <div *ngIf=\"password.errors.required\">Password is required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-primary\">Login</button>\n        <div *ngIf=\"f.submitted && isLoginFailed\" class=\"alert alert-danger\">\n          Login failed: {{errorMessage}}\n        </div>\n      </div>\n    </form>\n    <hr />\n    <p>New User?</p>\n    <a [routerLink]=\"['/register']\" class=\"btn btn-success\">Sign Up</a>\n  </div>\n  <div class=\"col-lg-4\">\n\n  </div>\n</div>\n\n<!-- </ng-template> -->"
 
 /***/ }),
 
@@ -633,7 +633,7 @@ module.exports = ".nav-wrapper{\n    background-color: black;\n}\nimg{\n    widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<link\n  href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n  rel=\"stylesheet\"\n/>\n\n<div *ngIf=\"info.token; else loggedOut\">\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"\n        ><img src=\"/assets/MASHUP.png\" class=\"image\"\n      /></a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <li>\n          <a href=\"\" [routerLink]=\"['/post', info.username]\">Post Question</a>\n        </li>\n        <li><a href=\"\" [routerLink]=\"['/userprofile']\">Profile</a></li>\n        <li>\n          <a href=\"\" [routerLink]=\"['/execution']\" (click)=\"logout()\">Logout</a>\n        </li>\n      </ul>\n    </div>\n  </nav>\n</div>\n<ng-template #loggedOut>\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"\n        ><img src=\"/assets/MASHUP.png\" class=\"image\"\n      /></a>\n      <!-- <form> -->\n\n      <!-- </form> -->\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <div class=\"flex-container\">\n        \n        <div><li><a href=\"\">Practice</a></li></div>\n        <div><li><a href=\"\" [routerLink]=\"['/fetch']\">Contact Us</a></li></div>\n        <div><li *ngIf=\"!authority\">\n          <a href=\"\" routerLink=\"auth/login\"\n            ><span class=\"glyphicon glyphicon-log-in\"> </span> Login/Signup\n          </a>\n        </li></div>\n        <div><li>\n            <form>\n              <div class=\"input-field\">\n                <input id=\"search\" type=\"search\" required />\n                <label class=\"label-icon\" for=\"search\"\n                  ><i class=\"material-icons\">search</i></label\n                >\n                <i class=\"material-icons\">close</i>\n              </div>\n            </form>\n          \n          </li>\n        </div>\n      </div>\n      </ul>\n    </div>\n\n    <!-- <div class=\"nav-wrapper second-bar\">\n          \n      </div> -->\n  </nav>\n  <!-- <nav>\n      \n    </nav> -->\n</ng-template>\n"
+module.exports = "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\" />\n\n<div *ngIf=\"info.token; else loggedOut\">\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"><img src=\"/assets/MASHUP.png\" class=\"image\" /></a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <div>\n          <li>\n            <a href=\"\" [routerLink]=\"['/post', info.username]\">Post Question</a>\n          </li>\n        </div>\n        <div>\n          <li><a href=\"\" [routerLink]=\"['/userprofile']\">Profile</a></li>\n        </div>\n        <div>\n          <li>\n            <a href=\"\" [routerLink]=\"['/execution']\" (click)=\"logout()\">Logout</a>\n          </li>\n        </div>\n        <div>\n          <li>\n            <form>\n              <div class=\"input-field\">\n                <input id=\"search\" type=\"search\" required />\n                <label class=\"label-icon\" for=\"search\"><i class=\"material-icons\">search</i></label>\n                <i class=\"material-icons\">close</i>\n              </div>\n            </form>\n          </li>\n        </div>\n      </ul>\n    </div>\n  </nav>\n</div>\n<ng-template #loggedOut>\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"><img src=\"/assets/MASHUP.png\" class=\"image\" /></a>\n      <!-- <form> -->\n\n      <!-- </form> -->\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <div class=\"flex-container\">\n\n          <div>\n            <li><a [routerLink]=\"['/fetch']\">Practice</a></li>\n          </div>\n          <div>\n            <li><a href=\"\">Contact Us</a></li>\n          </div>\n          <div>\n            <li *ngIf=\"!authority\">\n              <a href=\"\" routerLink=\"auth/login\"><span class=\"glyphicon glyphicon-log-in\"> </span> Login/Signup\n              </a>\n            </li>\n          </div>\n          <div>\n            <li>\n              <form>\n                <div class=\"input-field\">\n                  <input id=\"search\" type=\"search\" required />\n                  <label class=\"label-icon\" for=\"search\"><i class=\"material-icons\">search</i></label>\n                  <i class=\"material-icons\">close</i>\n                </div>\n              </form>\n            </li>\n          </div>\n        </div>\n      </ul>\n    </div>\n\n    <!-- <div class=\"nav-wrapper second-bar\">\n          \n      </div> -->\n  </nav>\n  <!-- <nav>\n      \n    </nav> -->\n</ng-template>"
 
 /***/ }),
 
@@ -2073,8 +2073,8 @@ var httpOptions = {
 var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
-        this.loginUrl = 'http://13.234.74.67:8092/authentication-service/api/auth/signin';
-        this.signupUrl = 'http://13.234.74.67:8092/authentication-service/api/auth/signup';
+        this.loginUrl = 'http://localhost:8092/authentication-service/api/auth/signin';
+        this.signupUrl = 'http://localhost:8092/authentication-service/api/auth/signup';
     }
     AuthService.prototype.attemptAuth = function (credentials) {
         return this.http.post(this.loginUrl, credentials, httpOptions);
@@ -2247,8 +2247,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var QuestionserviceService = /** @class */ (function () {
     function QuestionserviceService(_http) {
         this._http = _http;
-        this.questionPopulatorApidUrl = 'http://13.234.74.67:8092/question-service/api/v1/';
-        this.getallquestionUrl = 'http://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
+        this.questionPopulatorApidUrl = 'http://localhost:8092/question-service/api/v1/';
+        this.getallquestionUrl = 'http://localhost:8092/recommendation-service/rest/neo4j/questions';
         console.log('http service got called');
     }
     QuestionserviceService.prototype.saveQuestion = function (questionObj) {
@@ -2318,7 +2318,7 @@ var RegisterService = /** @class */ (function () {
     };
     RegisterService.prototype.register = function (user) {
         console.log('user details are  : ', user);
-        return this.http.post("http://13.234.74.67:8092/registration-service/api/v1/register", user, { responseType: 'text' });
+        return this.http.post("http://localhost:8092/registration-service/api/v1/register", user, { responseType: 'text' });
     };
     RegisterService.prototype.update = function (user) {
         return this.http.put("http://localhost:8096/api/v1/users/" + user.id, user);
@@ -2480,12 +2480,12 @@ var UserprofileServiceService = /** @class */ (function () {
     function UserprofileServiceService(http) {
         this.http = http;
         // acd = [ 'hffh', 'fgdgdg'];
-        this.userProfileUrl = 'http://13.234.74.67:8092/userprofile-service/api/v1/';
+        this.userProfileUrl = 'http://localhost:8092/userprofile-service/api/v1/';
     }
     UserprofileServiceService.prototype.getUserProfile = function (userName) {
         // tslint:disable-next-lin
         console.log('USERNAME : ', userName);
-        var userProfile = this.http.get('http://13.234.74.67:8024/api/v1/userprofile/' + userName);
+        var userProfile = this.http.get('http://localhost:8092/userprofile-service/api/v1/userprofile/' + userName);
         console.log('hii');
         // console.log(userProfile);
         return userProfile;
