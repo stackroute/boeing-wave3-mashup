@@ -1,9 +1,9 @@
-package com.stackroute.voting.controller;
+package com.stackroute.controller;
 
 
-import com.stackroute.voting.domain.Vote;
-import com.stackroute.voting.repository.VoteRepository;
-import com.stackroute.voting.service.VotingService;
+import com.stackroute.domain.Vote;
+import com.stackroute.repository.VoteRepository;
+import com.stackroute.service.VotingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

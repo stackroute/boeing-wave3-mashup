@@ -9,7 +9,7 @@ RUN npm install http-server -g
 
 WORKDIR /ng/dist
 
-CMD ["http-server", "-c1" , "-p", "8029"]
+CMD ["http-server", "-c1" , "-p", "8030"]
 #FROM node:8.11.2-alpine as node
 #
 #RUN npm install

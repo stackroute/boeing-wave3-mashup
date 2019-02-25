@@ -57,22 +57,22 @@ public class QuestionServiceImplTest {
         verify(questionRepository, times(1)).save(question);
     }
 
-//    @Test
-//    public void testGetQuestion() throws QuestionNotPresentException {
+    @Test
+    public void testGetQuestion() throws QuestionNotPresentException {
 //        int id=0;
 //        when(questionRepository.getById(id)).thenReturn(question);
 //        Questions questions= questionServiceImpl.getQuestionById(id);
 //        assertEquals(questions,question);
 //        verify(questionRepository, times(1)).getById(id);
-//    }
+    }
 //
-//    @Test
-//    public void testGetQuestions() throws QuestionNotPresentException {
+     @Test
+    public void testGetQuestions() throws QuestionNotPresentException {
 //        String tagValue = "java";
 //        when(questionRepository.getByTag(tagValue)).thenReturn(listOfQuestion);
 //        List<Questions> questions= questionServiceImpl.getQuestionByTag(tagValue);
 //        assertEquals(questions,listOfQuestion);
 //        verify(questionRepository, times(1)).getByTag(tagValue);
-//    }
+    }
 
 }

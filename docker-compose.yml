@@ -97,7 +97,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: 'localhost:2181'
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_CREATE_TOPICS: "AuthMessage, QuestionMessage"
+      KAFKA_CREATE_TOPICS: "AuthMessage, QuestionMessage, SubmissionMessage"
     restart: always
     healthcheck:
       test: "exit 0"
@@ -239,7 +239,7 @@ services:
       kafka:
         condition: service_healthy
     ports:
-      - 8097:8097
+      - 8026:8026
     healthcheck:
       test: "exit 0"
 
@@ -260,7 +260,7 @@ services:
       kafka:
         condition: service_healthy
     ports:
-      - 8033:8033
+      - 8027:8027
     healthcheck:
       test: "exit 0"
 
@@ -281,7 +281,7 @@ services:
       kafka:
         condition: service_healthy
     ports:
-      - 8098:8098
+      - 8028:8028
     healthcheck:
       test: "exit 0"
 
@@ -302,20 +302,20 @@ services:
       kafka:
         condition: service_healthy
     ports:
-      - 8026:8026
+      - 8029:8029
     healthcheck:
       test: "exit 0"
 
-  mashup-frontend:
-    image: mashup-frontend
-    build: ./mashup-frontend/
-    container_name: frontend
-    restart: always
-    network_mode: host
-    hostname: localhost
-    ports:
-      - 8029:8029
-    expose:
-      - 8029
-    healthcheck:
-      test: "exit 0"
+#  mashup-frontend:
+#    image: mashup-frontend
+#    build: ./mashup-frontend/
+#    container_name: frontend
+#    restart: always
+#    network_mode: host
+#    hostname: localhost
+#    ports:
+#      - 8030:8030
+#    expose:
+#      - 8029
+#    healthcheck:
+#      test: "exit 0"

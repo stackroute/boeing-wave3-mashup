@@ -1,6 +1,6 @@
-package com.stackroute.voting.repository;
+package com.stackroute.repository;
 
-import com.stackroute.voting.domain.Vote;
+import com.stackroute.domain.Vote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
