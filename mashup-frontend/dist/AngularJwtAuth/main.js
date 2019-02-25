@@ -677,7 +677,7 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent.prototype.logout = function () {
         this.token.signOut();
         window.location.reload();
-        this.router.navigate(['home']);
+        this.router.navigate(['']);
     };
     NavbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2480,12 +2480,12 @@ var UserprofileServiceService = /** @class */ (function () {
     function UserprofileServiceService(http) {
         this.http = http;
         // acd = [ 'hffh', 'fgdgdg'];
-        this.userProfileUrl = 'http://localhost:8092/userprofile-service/api/v1/';
+        this.userProfileUrl = 'http://13.234.74.67:8092/userprofile-service/api/v1/';
     }
     UserprofileServiceService.prototype.getUserProfile = function (userName) {
         // tslint:disable-next-lin
         console.log('USERNAME : ', userName);
-        var userProfile = this.http.get('http://localhost:8092/userprofile-service/api/v1/userprofile/' + userName);
+        var userProfile = this.http.get('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + userName);
         console.log('hii');
         // console.log(userProfile);
         return userProfile;
