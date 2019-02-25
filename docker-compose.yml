@@ -307,16 +307,16 @@ services:
     healthcheck:
       test: "exit 0"
 
-#  mashup-frontend:
-#    image: mashup-frontend
-#    build: ./mashup-frontend/
-#    container_name: frontend
-#    restart: always
-#    network_mode: host
-#    hostname: localhost
-#    ports:
-#      - 8030:8030
-#    expose:
-#      - 8029
-#    healthcheck:
-#      test: "exit 0"
+  mashup-frontend:
+    image: mashup-frontend
+    build: ./mashup-frontend/
+    container_name: frontend
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8030:8030
+    expose:
+      - 8030
+    healthcheck:
+      test: "exit 0"
