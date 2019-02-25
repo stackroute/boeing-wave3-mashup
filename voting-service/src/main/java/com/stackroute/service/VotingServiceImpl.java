@@ -1,7 +1,7 @@
-package com.stackroute.voting.service;
+package com.stackroute.service;
 
-import com.stackroute.voting.domain.Vote;
-import com.stackroute.voting.repository.VoteRepository;
+import com.stackroute.domain.Vote;
+import com.stackroute.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

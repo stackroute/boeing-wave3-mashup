@@ -1,7 +1,7 @@
-package com.stackroute.voting.config;
+package com.stackroute.config;
 
-import com.stackroute.voting.domain.Vote;
-import com.stackroute.voting.repository.VoteRepository;
+import com.stackroute.repository.VoteRepository;
+import com.stackroute.domain.Vote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

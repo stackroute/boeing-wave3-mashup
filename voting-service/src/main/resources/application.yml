@@ -15,7 +15,7 @@ eureka:         #tells about the Eureka server details and its refresh time
 
 spring:
   application:
-    name: submission-service   #current service name to be used by the eureka server
+    name: voting-service   #current service name to be used by the eureka server
 
 management:
   security:
@@ -23,4 +23,4 @@ management:
 
 logging:
   level:
-    com.stckroute.submission-service: DEBUG
+    com.stckroute.voting-service: DEBUG

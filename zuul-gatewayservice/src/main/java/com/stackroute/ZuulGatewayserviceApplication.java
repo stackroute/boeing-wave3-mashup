@@ -1,4 +1,4 @@
-package com.stackroute.zuulgatewayservice;
+package com.stackroute;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @EnableDiscoveryClient
 @EnableZuulProxy
 @SpringBootApplication

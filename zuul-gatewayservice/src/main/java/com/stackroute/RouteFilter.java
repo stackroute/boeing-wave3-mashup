@@ -1,8 +1,8 @@
-package com.stackroute.zuulgatewayservice;
+package com.stackroute;
 
 import com.netflix.zuul.ZuulFilter;
 
-public class ErrorFilter extends ZuulFilter {
+public class RouteFilter extends ZuulFilter {
     @Override
     public String filterType() {
         return "route";

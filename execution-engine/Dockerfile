@@ -1,6 +1,6 @@
 FROM openjdk:10
 
-ADD ./target/execution-engine-0.0.1-SNAPSHOT.jar execution-engine.jar
+ADD ./target/execution-engine-1.0.2-SNAPSHOT.jar execution-engine.jar
 EXPOSE 8025
 
 ENTRYPOINT ["java","-jar","execution-engine.jar"]

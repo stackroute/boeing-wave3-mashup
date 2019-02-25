@@ -1,8 +1,7 @@
-package com.stackroute.voting.config;
+package com.stackroute.config;
 
-import com.stackroute.voting.domain.Vote;
-import com.stackroute.voting.repository.VoteRepository;
-import com.stackroute.voting.repository.VoteRepositoryImpl;
+import com.stackroute.domain.Vote;
+import com.stackroute.repository.VoteRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

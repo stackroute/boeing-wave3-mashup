@@ -1,11 +1,11 @@
-package com.stackroute.zuulgatewayservice;
+package com.stackroute;
 
 import com.netflix.zuul.ZuulFilter;
 
-public class RouteFilter extends ZuulFilter {
+public class PostFilter extends ZuulFilter {
     @Override
     public String filterType() {
-        return "route";
+        return "post";
     }
 
     @Override
@@ -20,7 +20,9 @@ public class RouteFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        System.out.println("Inside Route Filter");
+        System.out.println("Inside Response Filter");
+
         return null;
     }
+
 }

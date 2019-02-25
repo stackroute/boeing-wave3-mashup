@@ -1,7 +1,6 @@
-package com.stackroute.voting.service;
+package com.stackroute.service;
 
-import com.stackroute.voting.domain.Vote;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
+import com.stackroute.domain.Vote;
 
 import java.util.List;
 

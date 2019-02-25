@@ -1,4 +1,4 @@
-package com.stackroute.voting;
+package com.stackroute;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

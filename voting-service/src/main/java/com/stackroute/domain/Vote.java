@@ -1,4 +1,4 @@
-package com.stackroute.voting.domain;
+package com.stackroute.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
