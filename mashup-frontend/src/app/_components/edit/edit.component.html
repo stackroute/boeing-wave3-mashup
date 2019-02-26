@@ -4,12 +4,12 @@
         <div class="col-sm-5">
             <div class="row font-weight-bold ">
 
-                <h2>{{questitle}}</h2>
+                <h2>{{questionTitle}}</h2>
                 <mat-divider></mat-divider>
             </div>
             <div class="row">
                 <p class="text-justify ">
-                    {{quesstatement}}
+                    {{questionDescription}}
                 </p>
                 <br>
 
@@ -18,7 +18,7 @@
             </div>
             <ul>
                 <h2>Input</h2>
-                <div *ngFor="let inp of questioninputs">
+                <div *ngFor="let inp of inputFormat">
                     <li>{{inp}}</li>
 
                 </div>
@@ -28,7 +28,7 @@
             </ul>
             <mat-divider></mat-divider>
             <h2>Output</h2>
-            <p>{{questionout}}</p>
+            <p>{{outputFormat}}</p>
 
 
         </div>

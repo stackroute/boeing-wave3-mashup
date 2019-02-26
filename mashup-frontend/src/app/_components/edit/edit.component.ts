@@ -43,11 +43,19 @@ export class EditComponent implements OnInit {
   questionObj:String;
   result:String;
   auto = new autocomplete;
-  questitle: string;
-  qid:string;
-  quesstatement: string;
-  questioninputs: string;
-  questionout: string;
+  // questitle: string;
+  // qid:string;
+  // quesstatement: string;
+  // questioninputs: string;
+  // questionout: string;
+  questionId;
+    questionTitle: String;
+    questionDescription: String ;
+    inputFormat: String;
+    outputFormat: String;
+    tags: String;
+    difficulty: String;
+    gitUrl: String;
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
 
@@ -84,19 +92,26 @@ export class EditComponent implements OnInit {
     console.log(this.qid);
     console.log(this.uname);
     this.connect();
+    // tslint:disable-next-line:max-line-length
     // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
-    
      this.quesservice.getQuestionById('f').subscribe(
       data => {
-       this.questionObj=data;
-        this.questitle = data['questionTitle'];
-        this.quesstatement = data['questionDescription'];
-        this.questioninputs = data['inputFormat'];
-        this.questionout = data['outputFormat'];
-        this.difficulty=data['difficulty'];
+       this.questionObj = data;
+        // this.questitle = data['questionTitle'];
+        // this.quesstatement = data['questionDescription'];
+        // this.questioninputs = data['inputFormat'];
+        // this.questionout = data['outputFormat'];
+        // this.difficulty=data['difficulty'];
+        this.questionId = data['questionId'];
+        this.questionTitle = data['questionTitle'] ;
+        this.questionDescription = data['questionDescription'] ;
+        this.inputFormat = data['inputFormat'] ;
+        this.outputFormat = data['outputFormat'] ;
+        this.difficulty = data['difficulty'] ;
+        this.tags = data['tags'] ;
+        this.gitUrl = data['gitUrl'] ;
         console.log(data);
       });
-     
   }
     //  "username":this.uname,"questionId":this.qid,
     //  "questionTitle":this.questitle,result:this.result,
