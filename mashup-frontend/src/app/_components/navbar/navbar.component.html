@@ -8,15 +8,15 @@
         <div class="flex-container">
           <div>
             <li>
-              <a [routerLink]="['/post', info.username]">Post Question</a>
+              <a class="navhover" [routerLink]="['/post', info.username]">Post Question</a>
             </li>
           </div>
           <div>
-            <li><a [routerLink]="['/userprofile']">Profile</a></li>
+            <li><a class="navhover" [routerLink]="['/userprofile']">Profile</a></li>
           </div>
           <div>
             <li>
-              <a (click)="logout()">Logout</a>
+              <a class="navhover" (click)="logout()">Logout</a>
             </li>
           </div>
           <div>
@@ -46,14 +46,14 @@
         <div class="flex-container">
 
           <div>
-            <li><a [routerLink]="['/fetch']">Practice</a></li>
+            <li><a class="navhover" [routerLink]="['/fetch']">Practice</a></li>
           </div>
           <div>
-            <li><a>Contact Us</a></li>
+            <li><a class="navhover">Contact Us</a></li>
           </div>
           <div>
             <li *ngIf="!authority">
-              <a [routerLink]="['/auth/login']"><span class="glyphicon glyphicon-log-in"> </span> Login/Signup
+              <a class="navhover" [routerLink]="['/auth/login']"><span class="glyphicon glyphicon-log-in"> </span> Login/Signup
               </a>
             </li>
           </div>
