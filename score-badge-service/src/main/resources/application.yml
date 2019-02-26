@@ -23,7 +23,7 @@ eureka:         #tells about the Eureka server details and its refresh time
 
 spring:
     application:
-        name: score-badge-service   #current service name to be used by the eureka server
+        name: scoreandbadge-service   #current service name to be used by the eureka server
 
 management:
     security:
@@ -31,4 +31,4 @@ management:
 
 logging:
     level:
-        com.stackroute.score-badge-service: DEBUG
+        com.stackroute.scoreandbadge-service: DEBUG
