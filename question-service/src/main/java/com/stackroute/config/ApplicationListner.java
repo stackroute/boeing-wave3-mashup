@@ -23,7 +23,7 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
     //    @Autowired
     private QuestionRepository questionRepository;
     private CounterRepository counterRepository;
-    private String fileName = "question-service/src/main/resources/csvRepoUpdated.csv";
+    private String fileName = "csvRepoUpdated.csv";
 
 
     @Autowired
