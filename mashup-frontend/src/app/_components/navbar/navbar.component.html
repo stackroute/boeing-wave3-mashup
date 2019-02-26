@@ -5,29 +5,31 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo"><img src="/assets/MASHUP.png" class="image" /></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <div>
-          <li>
-            <a  [routerLink]="['/post', info.username]">Post Question</a>
-          </li>
-        </div>
-        <div>
-          <li><a  [routerLink]="['/userprofile']">Profile</a></li>
-        </div>
-        <div>
-          <li>
-            <a  (click)="logout()">Logout</a>
-          </li>
-        </div>
-        <div>
-          <li>
-            <form>
-              <div class="input-field">
-                <input id="search" type="search" required />
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-              </div>
-            </form>
-          </li>
+        <div class="flex-container">
+          <div>
+            <li>
+              <a [routerLink]="['/post', info.username]">Post Question</a>
+            </li>
+          </div>
+          <div>
+            <li><a [routerLink]="['/userprofile']">Profile</a></li>
+          </div>
+          <div>
+            <li>
+              <a (click)="logout()">Logout</a>
+            </li>
+          </div>
+          <div>
+            <li>
+              <form>
+                <div class="input-field">
+                  <input id="search" type="search" required />
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </li>
+          </div>
         </div>
       </ul>
     </div>
@@ -47,7 +49,7 @@
             <li><a [routerLink]="['/fetch']">Practice</a></li>
           </div>
           <div>
-            <li><a >Contact Us</a></li>
+            <li><a>Contact Us</a></li>
           </div>
           <div>
             <li *ngIf="!authority">
