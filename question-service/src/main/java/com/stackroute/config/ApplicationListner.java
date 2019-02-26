@@ -23,13 +23,16 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
     //    @Autowired
     private QuestionRepository questionRepository;
     private CounterRepository counterRepository;
-    private String fileName = "csvRepoUpdated.csv";
+
+    private String fileName;
 
 
     @Autowired
     public ApplicationListner(QuestionRepository questionRepository, CounterRepository counterRepository) {
         this.questionRepository = questionRepository;
         this.counterRepository = counterRepository;
+	System.out.println("Hello"+System.getProperty("user.dir"));
+    	fileName = "/DB/resources/csvRepoUpdated.csv";
     }
 
 

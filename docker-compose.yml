@@ -163,6 +163,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+    volumes:
+      - /DB/resources:/DB/resources
     ports:
       - 8022:8022
     healthcheck:
