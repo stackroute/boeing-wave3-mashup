@@ -26,7 +26,7 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
 
     /*method to push seed data */
     public void seedData(){
-        scoreRepository.delete(new Score(0,"ram",0.0,0.0,"easy"));
-        scoreRepository.save(new Score(0,"ram",0.0,0.0,"easy"));
+        scoreRepository.delete(new Score("ram",0.0));
+        scoreRepository.save(new Score("ram",0.0));
     }
 }
