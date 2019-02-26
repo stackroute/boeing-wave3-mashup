@@ -166,7 +166,7 @@ var autocomplete = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\">\n            <div class=\"row font-weight-bold \">\n\n                <h2>{{questitle}}</h2>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{quesstatement}}\n                </p>\n                <br>\n\n                <mat-divider></mat-divider>\n\n            </div>\n            <ul>\n                <h2>Input</h2>\n                <div *ngFor=\"let inp of questioninputs\">\n                    <li>{{inp}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n            <mat-divider></mat-divider>\n            <h2>Output</h2>\n            <p>{{questionout}}</p>\n\n\n        </div>\n        <div class=\"col-sm-7\" container-diff>\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n            <form class=\"form-inline my-2 my-lg-0 hello\" #createForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Submit </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Compile </button>\n                <h3>Vote this question -> </h3>\n                <app-voting></app-voting>\n            </form>\n            <button (click)=sendDataToSubmissionService()></button>\n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n\n        </div>\n\n    </div>\n</div>"
+module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\">\n            <div class=\"row font-weight-bold \">\n\n                <h2>{{questionTitle}}</h2>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{questionDescription}}\n                </p>\n                <br>\n\n                <mat-divider></mat-divider>\n\n            </div>\n            <ul>\n                <h2>Input</h2>\n                <div *ngFor=\"let inp of inputFormat\">\n                    <li>{{inp}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n            <mat-divider></mat-divider>\n            <h2>Output</h2>\n            <p>{{outputFormat}}</p>\n\n\n        </div>\n        <div class=\"col-sm-7\" container-diff>\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n            <form class=\"form-inline my-2 my-lg-0 hello\" #createForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Submit </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Compile </button>\n                <h3>Vote this question -> </h3>\n                <app-voting></app-voting>\n            </form>\n            <button (click)=sendDataToSubmissionService()></button>\n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n\n        </div>\n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -279,19 +279,28 @@ var EditComponent = /** @class */ (function () {
     };
     EditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.qid = this._route.snapshot.paramMap.get('qid');
+        this.questionId = this._route.snapshot.paramMap.get('qid');
         this.uname = this.token.getUsername();
-        console.log(this.qid);
+        console.log(this.questionId);
         console.log(this.uname);
         this.connect();
+        // tslint:disable-next-line:max-line-length
         // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
-        this.quesservice.getQuestionById('f').subscribe(function (data) {
+        this.quesservice.getQuestionById(this.questionId).subscribe(function (data) {
             _this.questionObj = data;
-            _this.questitle = data['questionTitle'];
-            _this.quesstatement = data['questionDescription'];
-            _this.questioninputs = data['inputFormat'];
-            _this.questionout = data['outputFormat'];
+            // this.questitle = data['questionTitle'];
+            // this.quesstatement = data['questionDescription'];
+            // this.questioninputs = data['inputFormat'];
+            // this.questionout = data['outputFormat'];
+            // this.difficulty=data['difficulty'];
+            _this.questionId = data['questionId'];
+            _this.questionTitle = data['questionTitle'];
+            _this.questionDescription = data['questionDescription'];
+            _this.inputFormat = data['inputFormat'];
+            _this.outputFormat = data['outputFormat'];
             _this.difficulty = data['difficulty'];
+            _this.tags = data['tags'];
+            _this.gitUrl = data['gitUrl'];
             console.log(data);
         });
     };
@@ -332,8 +341,8 @@ var EditComponent = /** @class */ (function () {
     };
     EditComponent.prototype.sendDataToSubmissionService = function () {
         //console.log("ayhshd");
-        this.quesservice.sendDatatoSubmission({ "code": this.code, "username": this.uname, "questionId": this.qid,
-            "questionTitle": this.questitle, result: this.result,
+        this.quesservice.sendDatatoSubmission({ "code": this.code, "username": this.uname, "questionId": this.questionId,
+            "questionTitle": this.questionTitle, result: this.result,
             "testCasePassed": this.testpass, "totalTestCases": this.totaltest,
             "difficulty": this.difficulty });
     };
@@ -590,7 +599,7 @@ var LoginComponent = /** @class */ (function () {
             _this.isLoggedIn = true;
             _this.roles = _this.tokenStorage.getAuthorities();
             _this.reloadPage();
-            _this.router.navigate(['home']);
+            _this.router.navigate(['']);
         }, function (error) {
             console.log(error);
             _this.errorMessage = error.error.message;
@@ -2191,7 +2200,7 @@ var QuestioExeEngineService = /** @class */ (function () {
     function QuestioExeEngineService(_http) {
         this._http = _http;
         this.url = './assets/question.json';
-        this.url3 = 'http://localhost:8022/api/v1/question/1';
+        this.url3 = 'http://13.234.74.67:8092/question-service/api/v1/question/';
         this.url2 = 'http://localhost:8069/rest/neo4j/questions/2';
         this.url4 = 'http://172.23.239.150:8026/api/v1/submission';
     }
@@ -2200,7 +2209,8 @@ var QuestioExeEngineService = /** @class */ (function () {
         this._http.post(this.url4, quesresultdata).subscribe();
     };
     QuestioExeEngineService.prototype.getQuestionById = function (id) {
-        var quest = this._http.get(this.url3);
+        console.log('ID : ' + id);
+        var quest = this._http.get(this.url3 + id);
         console.log(quest);
         return quest;
     };

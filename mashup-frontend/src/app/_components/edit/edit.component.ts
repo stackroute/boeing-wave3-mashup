@@ -54,7 +54,6 @@ export class EditComponent implements OnInit {
     inputFormat: String;
     outputFormat: String;
     tags: String;
-    difficulty: String;
     gitUrl: String;
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
@@ -86,15 +85,15 @@ export class EditComponent implements OnInit {
   constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute,private token: TokenStorageService) {
   }
   ngOnInit() {
-    this.qid=this._route.snapshot.paramMap.get('qid');
+    this.questionId=this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
       
-    console.log(this.qid);
+    console.log(this.questionId);
     console.log(this.uname);
     this.connect();
     // tslint:disable-next-line:max-line-length
     // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
-     this.quesservice.getQuestionById('f').subscribe(
+     this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
        this.questionObj = data;
         // this.questitle = data['questionTitle'];
@@ -195,8 +194,8 @@ export class EditComponent implements OnInit {
  public colorg: object = {};
  sendDataToSubmissionService(){
    //console.log("ayhshd");
-      this.quesservice.sendDatatoSubmission({"code":this.code,"username":this.uname,"questionId":this.qid,
-      "questionTitle":this.questitle,result:this.result,
+      this.quesservice.sendDatatoSubmission({"code":this.code,"username":this.uname,"questionId":this.questionId,
+      "questionTitle":this.questionTitle,result:this.result,
       "testCasePassed":this.testpass,"totalTestCases":this.totaltest,
       "difficulty":this.difficulty})
  }
