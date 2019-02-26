@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:10
 
 ADD ./target/score-badge-service-0.0.1-SNAPSHOT.jar score-badge-service.jar
 EXPOSE 8033
