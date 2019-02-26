@@ -27,3 +27,7 @@ img{
     display: flex;
     
 }
+.navhover:hover{
+    color: rgb(95, 176, 241);
+    text-decoration: none;
+}
