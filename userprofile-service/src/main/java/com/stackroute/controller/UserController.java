@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 //Use an interface that can be implemented by UserProfileService and UserAWSService
@@ -21,17 +20,10 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 @Api(value = "UserProfile", description = "UserProfile Profile")
 public class UserController {
-
-
     private UserProfileService userProfileService;
 
-    // autowired must be used on constructor
     @Autowired
     public UserController(UserProfileService userProfileService) {
-        this.userProfileService = userProfileService;
-    }
-
-    public void setUserProfileService(UserProfileService userProfileService) {
         this.userProfileService = userProfileService;
     }
     
