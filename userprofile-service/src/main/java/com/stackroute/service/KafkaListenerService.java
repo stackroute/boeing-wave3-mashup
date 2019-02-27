@@ -6,17 +6,18 @@ import com.stackroute.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+// Service class to handle kafka Listener
 @Service
 public class KafkaListenerService {
 
     @Autowired
     UserProfileRepository userRepository;
 
+    // consumer method for consuming object from registration service
     @KafkaListener(topics = "AuthMessage", groupId = "group_id_up")
     public void consume(String message){
         String [] strMessage = message.split(",");
@@ -45,7 +46,8 @@ public class KafkaListenerService {
         userRepository.save(userProfile);
         System.out.println("Consumed msg : " + message);
     }
-
+    
+    // consumer method for consuming object from question service
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consume_ques(String message){
         System.out.println("Consumed questionMsg : " + message);
@@ -58,6 +60,7 @@ public class KafkaListenerService {
         userDBProfileService.updateQuestionPosted(userName, question);
     }
 
+    // consumer method for consuming object from submission service
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")
     public void consume_submission(String message){
         String[] strMessage = message.split(",");
