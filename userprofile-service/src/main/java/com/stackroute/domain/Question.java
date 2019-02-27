@@ -10,6 +10,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+// POJO class for Question
 @Document
 @Data
 @ApiModel(description = "All details about the Question. ")
@@ -20,13 +21,15 @@ public class Question {
     @Field
     @ApiModelProperty(notes = "The questionTitle of track")
     private String questionTitle;
-
+    
+    // Constructors
     public Question() {}
     public Question(int questionId, String questionTitle) {
         this.questionId = questionId;
         this.questionTitle = questionTitle;
     }
 
+    // setter and getter for fields
     public int getQuestionId() {
         return questionId;
     }
