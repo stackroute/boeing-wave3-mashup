@@ -7,10 +7,10 @@ import com.stackroute.exception.UserProfileNotFoundException;
 import com.stackroute.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
+// class implementing the UserProfileService inteface
 @Service
 public class UserDBProfileServiceImpl implements UserProfileService {
 
@@ -22,10 +22,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         this.userProfileRepository = userProfileRepository;
     }
 
-    public void setUserProfileRepository(UserProfileRepository userProfileRepository) {
-        this.userProfileRepository = userProfileRepository;
-    }
-
+    // method to save userprofile to mongo database
     @Override
     public UserProfile saveUserProfile(UserProfile userProfile) throws UserProfileAlreadyExistException {
         if (userProfileRepository.existsById(userProfile.getUserName())) {
@@ -33,7 +30,8 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         }
         return userProfileRepository.save(userProfile);
     }
-
+    
+    // method to get userprofile from mongo database
     @Override
     public UserProfile getUser(String userName) throws UserProfileNotFoundException {
         if (!userProfileRepository.existsById(userName)) {
@@ -46,6 +44,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         return null;
     }
 
+    // method to delete userprofile from mongo database
     @Override
     public Boolean deleteUser(String userName) throws UserProfileNotFoundException {
         if (!userProfileRepository.existsById(userName)) {
@@ -55,6 +54,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         return true;
     }
 
+    // method to change password to mongo database
     @Override
     public UserProfile changePassword(String userName, String newPassword) throws UserProfileNotFoundException {
         if (!userProfileRepository.existsById(userName)) {
@@ -68,12 +68,14 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         return null;
     }
 
+    // method to get list of interest from mongo database
     @Override
     public List<String> getInterests(String userName) {
         Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         return tempUser.get().getInterests();
     }
 
+    // method to edit list of interest to mongo database    
     @Override
     public List<String> editInterests(String userName, List<String> newInterests) {
         Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
@@ -82,13 +84,15 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         return tempUser.get().getInterests();
     }
 
+    // method to update list of attempted questions to mongo database
     @Override
     public UserProfile updateQuestionAttempted(String userName, Question questionAttempted) {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
         temp.get().getAttemptedQuestion().add(questionAttempted);
         return userProfileRepository.save(temp.get());
     }
-
+    
+    // method to update list of posted questions to mongo database
     @Override
     public UserProfile updateQuestionPosted(String userName, Question questionPosted) {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
