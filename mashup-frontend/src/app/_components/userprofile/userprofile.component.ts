@@ -3,6 +3,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { UserprofileServiceService } from '../../services/userprofile-service.service';
 import { Token } from '@angular/compiler';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { ScorebadgeService } from 'src/app/services/scorebadge.service';
 
 export interface Tile {
   color: string;
@@ -30,7 +31,10 @@ export class UserprofileComponent implements OnInit {
   bhaak: string;
   abc;
   public uname: string;
-  constructor(private token: TokenStorageService,private userService: UserprofileServiceService) { }
+  // for getting data from scoreand badge service (added by pratima on 27th feb2019)
+  public userData = {};
+  // tslint:disable-next-line:max-line-length
+  constructor(private token: TokenStorageService,private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 4, color: 'white'},
     {text: 'Two', cols: 2, rows: 4, color: 'white'},
@@ -48,6 +52,17 @@ export class UserprofileComponent implements OnInit {
     this.userService.getUserProfile(this.uname).subscribe(data => this.abc = data);
     console.log('ABC : ',this.abc);
     this.bhaak = 'bhaak1';
+    // call score and badge service to get data(added by pratima on 27th feb2019)
+    this.scorebadgeservice.getUserData(this.uname).subscribe(
+      data => {
+       this.userData = data;
+        console.log('data is ', data);
+    },
+      error => {
+        alert(error);
+      }
+    );
+
   }
 
 }
