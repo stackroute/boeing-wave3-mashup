@@ -9,27 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
-
-@Document(collection = "USERPROFILE")
+// POJO class for UserProfile
+@Document(collection = "userprofile")
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Builder    //need to be discussed
 @ApiModel(description = "All details about the UserProfile. ")
-
 public class UserProfile {
-    public UserProfile(){}
-    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
-        this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.emailId = emailId;
-        this.interests = interests;
-        this.attemptedQuestion = attemptedQuestion;
-        this.postedQuestion = postedQuestion;
-    }
-
+    // variable declaration
     @Id
     @ApiModelProperty(notes = "The userName of user")
     private String userName;
@@ -72,7 +57,21 @@ public class UserProfile {
     @Field
     @ApiModelProperty(notes = "The user postedQuestion")
     private List<Question> postedQuestion;
+    
+    // constructors
+    public UserProfile(){}
+    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.emailId = emailId;
+        this.interests = interests;
+        this.attemptedQuestion = attemptedQuestion;
+        this.postedQuestion = postedQuestion;
+    }
 
+    // setter and getter for variables
     public String getUserName() {
         return userName;
     }
