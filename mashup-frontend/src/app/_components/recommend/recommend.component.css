@@ -1,0 +1,23 @@
+.example-card {
+    max-width: 400px;
+    max-height: 400px;
+    margin-bottom: 40px;
+  }
+ 
+  .example-header-image {
+    background-image: url('http://www.hdicon.com/wp-content/uploads/2010/07/java.png');
+    background-size: cover;
+  }
+  .parallax { 
+    /* The image used */
+    background-image: url("./../../../assets/parallax1.jpg");
+  
+    /* Set a specific height */
+    height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
