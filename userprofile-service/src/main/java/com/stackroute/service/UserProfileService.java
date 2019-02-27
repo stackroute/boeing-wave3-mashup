@@ -4,9 +4,9 @@ import com.stackroute.domain.Question;
 import com.stackroute.domain.UserProfile;
 import com.stackroute.exception.UserProfileAlreadyExistException;
 import com.stackroute.exception.UserProfileNotFoundException;
-
 import java.util.List;
 
+// interface for UserProfileService
 public interface UserProfileService {
     public UserProfile saveUserProfile(UserProfile userProfile) throws UserProfileAlreadyExistException;
 //            throws UserProfileAlreadyExistException, UserProfileAlreadyExistException;
