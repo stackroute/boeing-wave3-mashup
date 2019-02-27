@@ -1,0 +1,32 @@
+#server:
+#  port: 8026
+#server:
+#  port: 8888    #default port from  where the service will pick up app.prop
+
+#eureka:         #tells about the Eureka server details and its refresh time
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8093/eureka/
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
+
+spring:
+  application:
+    name: search-service   #current service name to be used by the eureka server
+
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+  profiles:
+    active: development
+  cloud:
+    config:
+      uri: http://localhost:8888
+#logging:
+#  level:
+#    com.stckroute.search-service: DEBUG
