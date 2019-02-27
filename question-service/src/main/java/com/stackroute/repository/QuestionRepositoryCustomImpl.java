@@ -27,11 +27,11 @@ public class QuestionRepositoryCustomImpl implements QuestionRepositoryCustom{
 
     @Override
     public List<Questions> getByTag(String tag) {
-      //  System.out.println(tag+"tag given here");
+        //  System.out.println(tag+"tag given here");
         Query query = new Query();
         query.addCriteria(Criteria.where("tags").is(tag));
         List<Questions> questions= operations.find(query,Questions.class);
-      //  System.out.println(questions.size()+"fshdfsdjhfjhdfjdsfjhsdfhsdfj");
+        //  System.out.println(questions.size()+"fshdfsdjhfjhdfjdsfjhsdfhsdfj");
         return questions;
     }
 }

@@ -18,8 +18,14 @@ import java.util.List;
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
-    @Autowired
     private QuestionRepository questionRepository;
+
+
+    @Autowired
+    public QuestionServiceImpl(QuestionRepository questionRepository) {
+        this.questionRepository=questionRepository;
+    }
+
 
     /*save method to save questions*/
     @Override
@@ -61,7 +67,7 @@ public class QuestionServiceImpl implements QuestionService {
     /*method to get questions by tag*/
     @Override
     public List<Questions> getQuestionByTag(String tag) throws QuestionNotPresentException {
-      //  System.out.println(tag +"tag in service");
+        //  System.out.println(tag +"tag in service");
         if(questionRepository.findByTags(tag).size()==0) {
             throw new QuestionNotPresentException("Question of this tag are not present in database");
         }
