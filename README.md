@@ -12,8 +12,11 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ****Running the System****
+1.Docker compose up
 
-Run ```mvn clean compile package``` on all the services
+2.Run ```mvn clean compile package``` on all the services
+
+3.Services depend upon
 
 
 
