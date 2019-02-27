@@ -1,6 +1,6 @@
-##server:
-##  port: 8098    #default port where the service will be started
-##
+server:
+  port: 8029    #default port where the service will be started
+
 eureka:         #tells about the Eureka server details and its refresh time
   instance:
     leaseRenewalIntervalInSeconds: 1
@@ -16,6 +16,12 @@ eureka:         #tells about the Eureka server details and its refresh time
 spring:
   application:
     name: submission-service   #current service name to be used by the eureka server
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      uri: mongodb://localhost/submission
+
 
 management:
   security:
