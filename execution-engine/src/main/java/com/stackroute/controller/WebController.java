@@ -3,6 +3,7 @@ package com.stackroute.controller;
 import com.stackroute.domain.Code;
 import com.stackroute.domain.User;
 import com.stackroute.service.QuestionService;
+import com.stackroute.service.ResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -19,14 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebController {
 
     @Autowired
-    private QuestionService questionService;
-    public QuestionService getQuestionService() {
-        return questionService;
-    }
-
-    public void setQuestionService(QuestionService questionService) {
-        this.questionService = questionService;
-    }
+    private ResultsService resultsService;
+//    public QuestionService getQuestionService() {
+//        return resultsService;
+//    }
+//
+//    public void setQuestionService(QuestionService questionService) {
+//        this.resultsService = questionService;
+//    }
 
 //    @PostMapping("/post")
 //    public Code greeting2(User user) throws Exception {
@@ -38,7 +39,7 @@ public class WebController {
     @MessageMapping("/hello")
     @SendTo("/topic/hi")
     public Code greeting(User user) throws Exception {
-        String response=this.questionService.run(user.getName());
+        String response=this.resultsService.run(user.getName());
         System.out.println(response);
 
         return new Code(response);
