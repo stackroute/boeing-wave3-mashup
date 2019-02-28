@@ -88,6 +88,7 @@ export class EditComponent implements OnInit {
         console.log(data);
       });
       // console.log(this.questitle);
+     this.quesservice.getcode(this.qid,this.uname).subscribe(data=>this.code=data);
   }
   // tslint:disable-next-line:member-ordering
   options = {
@@ -153,6 +154,7 @@ export class EditComponent implements OnInit {
 
   submit() {
     //console.log("From here");
+    this.code=this.uname+"@#*"+this.code;
      console.log(this.questionObj);
     console.log(this.code);
     this.greetings = [];
