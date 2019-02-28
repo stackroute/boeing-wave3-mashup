@@ -6,8 +6,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class QuestioExeEngineService {
   private url = './assets/question.json';
-  private url2 ='http://localhost:8069/rest/neo4j/questions/2';
-  private url3='http://localhost:8025/api/v1/question';
+  private url2 ='http://13.234.74.67:8023/rest/neo4j/questions/2';
+  private url3='http://13.234.74.67:8025/api/v1/question';
   constructor(private _http: HttpClient) { }
 
   
