@@ -3,7 +3,7 @@
 <div *ngIf="info.token; else loggedOut">
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo"><img src="/assets/MASHUP.png" class="image" /></a>
+      <a href="#" class="brand-logo"><img src="https://seytlines.lexblogplatform.com/wp-content/uploads/sites/234/2014/10/Mashup.png" class="image" /></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <div class="flex-container">
           <div>
@@ -38,7 +38,7 @@
 <ng-template #loggedOut>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo"><img src="/assets/MASHUP.png" class="image" /></a>
+      <a href="#" class="brand-logo"><img src="https://seytlines.lexblogplatform.com/wp-content/uploads/sites/234/2014/10/Mashup.png" class="image" /></a>
       <!-- <form> -->
 
       <!-- </form> -->
@@ -49,6 +49,17 @@
             <li><a class="navhover" [routerLink]="['/fetch']">Practice</a></li>
           </div>
           <div>
+              <li>
+                <form>
+                  <div class="input-field">
+                    <input id="search" type="search" required />
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                  </div>
+                </form>
+              </li>
+            </div>
+          <div>
             <li><a class="navhover">Contact Us</a></li>
           </div>
           <div>
@@ -57,7 +68,7 @@
               </a>
             </li>
           </div>
-          <div>
+          <!-- <div>
             <li>
               <form>
                 <div class="input-field">
@@ -67,7 +78,7 @@
                 </div>
               </form>
             </li>
-          </div>
+          </div> -->
         </div>
       </ul>
     </div>

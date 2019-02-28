@@ -1,5 +1,5 @@
 .nav-wrapper{
-    background-color: black;
+    background-color: skyblue;
 }
 img{
     width: 64px;
@@ -15,12 +15,12 @@ img{
 }
 .material-icons{
     font-size: 40px;
-    color: black;
+    color: skyblue;
     
 }
 #search{
     margin: 0%;
-    background-image: url("/assets/MASHUP-BACK.png");
+    background-color: whitesmoke;
     background-position: center top;
 }
 .flex-container{
@@ -28,6 +28,7 @@ img{
     
 }
 .navhover:hover{
-    color: rgb(95, 176, 241);
+    color: rgb(75, 44, 4);
     text-decoration: none;
+    font-size: 20px;
 }
