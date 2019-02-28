@@ -35,8 +35,8 @@
 #  client:
 #    serviceUrl:
 #      defaultZone: http://localhost:8093/eureka/
-#    healthcheck:
-#      enabled: true
+    healthcheck:
+      enabled: true
 #    lease:
 #      duration: 5
 
@@ -48,7 +48,7 @@ spring:
   cloud:
     config:
         uri: http://localhost:8888
-management:
+ management:
   security:
     enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
 
