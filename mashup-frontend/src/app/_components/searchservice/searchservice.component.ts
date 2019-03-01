@@ -1,5 +1,5 @@
-import { SearchserviceService } from './../../services/searchservice.service';
 import { Component, OnInit } from '@angular/core';
+import { SearchserviceService } from './../../services/searchservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -23,21 +23,5 @@ export class SearchserviceComponent implements OnInit {
             .subscribe(data => this.fetch = data
               );
   }
+
 }
-
-//   search(): any {
-//     console.log(' mai idhar hu');
-//     this.go = this.fetchservice.findQuestion(this.tags)
-//     .subscribe(
-//       data => {
-//         this.fetch = data;
-//         console.log(data);
-//       },
-//       error => {
-//         console.log('some error occured');
-//         console.log(error.errorMessage);
-//       }
-//     );
-//   }
-// }
-
