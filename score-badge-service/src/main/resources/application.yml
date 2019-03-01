@@ -20,18 +20,18 @@
 ##    application:
 ##        name: question-service   #current service name to be used by the eureka server
 #
-#eureka:         #tells about the Eureka server details and its refresh time
-#    instance:
-#        leaseRenewalIntervalInSeconds: 1
-#        leaseExpirationDurationInSeconds: 2
-#    client:
-#        serviceUrl:
-#            defaultZone: http://localhost:8093/eureka/
-#        healthcheck:
-#            enabled: true
-#        lease:
-#            duration: 5
-#
+eureka:         #tells about the Eureka server details and its refresh time
+    instance:
+        leaseRenewalIntervalInSeconds: 1
+        leaseExpirationDurationInSeconds: 2
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8093/eureka/
+        healthcheck:
+            enabled: true
+        lease:
+            duration: 5
+
 spring:
     application:
         name: score-badge-service   #current service name to be used by the eureka server
