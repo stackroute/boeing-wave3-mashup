@@ -4,8 +4,7 @@ import com.stackroute.domain.Score;
 import com.stackroute.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import reactor.core.publisher.Mono;
 
 /*Question Service Implementation class*/
 @Service
@@ -20,29 +19,27 @@ public class ScoreAndBadgeServiceImpl implements ScoreAndBadgeService {
 
     //service method to calc and update data
     @Override
-    public Score calcAndUpdateTotalScore(Score score,double scoreOfQuestion) {
-        Score score1 = scoreRepository.findById(score.getUserName()).get();
-        double totlScore = 0.0;
-        totlScore = (score1.getTotalScore()+ scoreOfQuestion);
-        score.setTotalScore(totlScore);
-        scoreRepository.save(score);
-        return score;
+    public Mono<Score> calcAndUpdateTotalScore(Score score, double scoreOfQuestion) {
+        return scoreRepository.findById(score.getUserName()).flatMap( existingScore-> {
+            if(score.getUserName() != null){
+                double totlScore = 0.0;
+                totlScore = (existingScore.getTotalScore()+ scoreOfQuestion);
+                existingScore.setTotalScore(totlScore);
+            }
+            return scoreRepository.save(existingScore);
+        });
     }
 
     //service method to save data
     @Override
-    public Score saveTotalScore(Score score){
-        scoreRepository.save(score);
-        System.out.println(score+"saved data in saveTotalScore");
-        return score;
+    public Mono<Score> saveTotalScore(Score score){
+        return scoreRepository.save(score);
     }
 
     //service method to get data
     @Override
-    public Score getTotalScore(String userName){
-        Score score=new Score();
-        score = scoreRepository.findById(userName).get();
-        System.out.println(score + "score in get data");
-        return score;
+    public Mono<Score> getTotalScore(String userName)
+    {
+        return scoreRepository.findById(userName);
     }
 }

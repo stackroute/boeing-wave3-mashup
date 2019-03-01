@@ -6,22 +6,18 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="userscore")
 public class Score {
-
     @Id
     String userName;
     @Field
     double totalScore;
-
     public Score(){
 
     }
-
     public Score(String userName,double totalScore) {
         this.userName = userName;
         this.totalScore = totalScore;
 
     }
-
     public String getUserName() {
         return userName;
     }
