@@ -72,6 +72,9 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public List<String> getInterests(String userName) {
         Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
+        if (tempUser.isPresent()) {
+            return tempUser.get().getInterests();
+        }
         return tempUser.get().getInterests();
     }
 
@@ -79,8 +82,10 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public List<String> editInterests(String userName, List<String> newInterests) {
         Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
-        tempUser.get().setInterests(newInterests);
-        userProfileRepository.save(tempUser.get());
+        if (tempUser.isPresent()) {
+            tempUser.get().setInterests(newInterests);
+            userProfileRepository.save(tempUser.get());
+        }
         return tempUser.get().getInterests();
     }
 
@@ -88,7 +93,9 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile updateQuestionAttempted(String userName, Question questionAttempted) {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
-        temp.get().getAttemptedQuestion().add(questionAttempted);
+        if (temp.isPresent()) {
+            temp.get().getAttemptedQuestion().add(questionAttempted);
+        }
         return userProfileRepository.save(temp.get());
     }
     
@@ -96,7 +103,9 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile updateQuestionPosted(String userName, Question questionPosted) {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
-        temp.get().getPostedQuestion().add(questionPosted);
+        if (temp.isPresent()) {
+            temp.get().getPostedQuestion().add(questionPosted);
+        }
         return userProfileRepository.save(temp.get());
     }
 }
