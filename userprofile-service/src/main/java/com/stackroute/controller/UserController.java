@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/")
-@Api(value = "UserProfile", description = "UserProfile Profile")
+@Api(value = "UserProfile")
 public class UserController {
     private UserProfileService userProfileService;
 
@@ -30,14 +30,14 @@ public class UserController {
     // method to save user profile
     @ApiOperation(value = "Save a userProfile")
     @PostMapping(value = "userprofile")
-    public ResponseEntity<?> saveUserProfile( @ApiParam(value = "UserProfile will be saved in database" +
+    public ResponseEntity<UserProfile> saveUserProfile( @ApiParam(value = "UserProfile will be saved in database" +
             " table", required = true)@RequestBody UserProfile userProfile) throws UserProfileAlreadyExistException {
             return new ResponseEntity<UserProfile>(userProfileService.saveUserProfile(userProfile), HttpStatus.OK);
     }
     
     // method to get user profile
     @GetMapping(value = "userprofile/{username}")
-    public ResponseEntity<?> getUserProfile(@PathVariable("username") String userName) throws UserProfileNotFoundException {
+    public ResponseEntity<UserProfile> getUserProfile(@PathVariable("username") String userName) throws UserProfileNotFoundException {
         System.out.println("username : " + userName);
         UserProfile userProfile = userProfileService.getUser(userName);
         System.out.println("USERPROFILE : "+userProfile);
@@ -47,7 +47,7 @@ public class UserController {
     // method to get list of ineterest
     @ApiOperation(value = "List of interest")
     @GetMapping(value = "interests/{username}")
-    public ResponseEntity<?> getInterests(@PathVariable("userName") String userName) throws Exception{
+    public ResponseEntity<List<String>> getInterests(@PathVariable("userName") String userName) throws Exception{
             List<String> user = userProfileService.getInterests(userName);
             return new ResponseEntity<List<String>>(user, HttpStatus.OK);
     }
@@ -55,7 +55,7 @@ public class UserController {
     // method to edit list of ineterest
     @ApiOperation(value = "List of interest")
     @PostMapping(value = "interests/{username}")
-    public ResponseEntity<?> editInterests(@PathVariable("username") String userName, @RequestBody List<String> newInterests) throws Exception{
+    public ResponseEntity<List<String>> editInterests(@PathVariable("username") String userName, @RequestBody List<String> newInterests) throws Exception{
         List<String> interests = userProfileService.editInterests(userName, newInterests);
         return new ResponseEntity<List<String>>(interests, HttpStatus.OK);
     }
@@ -63,14 +63,14 @@ public class UserController {
     // method to delete user profile from database
     @ApiOperation(value = "Delete a user")
     @DeleteMapping(value = "{username}")
-    public ResponseEntity<?> deleteUserProfile( @ApiParam(value = "UserProfile with Id will be deleted from database " +
+    public ResponseEntity<Boolean> deleteUserProfile( @ApiParam(value = "UserProfile with Id will be deleted from database " +
             "table", required = true)@PathVariable("userName") String userName) throws UserProfileNotFoundException {
             return new ResponseEntity<Boolean>(userProfileService.deleteUser(userName), HttpStatus.OK);
     }
     
     // method to change password
     @PostMapping(value = "password/{username}")
-    public ResponseEntity<?> changePassword(@PathVariable("username") String userName, @RequestBody String newPassword) throws UserProfileNotFoundException {
+    public ResponseEntity<UserProfile> changePassword(@PathVariable("username") String userName, @RequestBody String newPassword) throws UserProfileNotFoundException {
         return new ResponseEntity<UserProfile>(userProfileService.changePassword(userName, newPassword), HttpStatus.OK);
     }
 
