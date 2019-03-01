@@ -9,9 +9,7 @@ import java.util.List;
 // interface for UserProfileService
 public interface UserProfileService {
     public UserProfile saveUserProfile(UserProfile userProfile) throws UserProfileAlreadyExistException;
-//            throws UserProfileAlreadyExistException, UserProfileAlreadyExistException;
     public Boolean deleteUser(String userName) throws UserProfileNotFoundException;
-//            throws UserProfileNotFoundException, UserProfileNotFoundException;
     public UserProfile changePassword(String userName, String newPassword) throws UserProfileNotFoundException;
     public List<String> editInterests(String userName, List<String> newInterests);
     public List<String> getInterests(String userName);
