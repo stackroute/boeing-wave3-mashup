@@ -1,0 +1,16 @@
+.bg-img {
+    /* The image used */
+    background-image: url("https://ak4.picdn.net/shutterstock/videos/11397134/thumb/1.jpg");
+  
+    /* Control the height of the image */
+    min-height: 500px;
+    width: 100%;
+    length: 100%;
+    
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }

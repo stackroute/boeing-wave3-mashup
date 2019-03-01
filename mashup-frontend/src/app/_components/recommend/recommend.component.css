@@ -21,3 +21,9 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .btn{
+    margin:10px;
+ }
+ .del{
+    background-color: rgb(255, 64, 64);
+ }
