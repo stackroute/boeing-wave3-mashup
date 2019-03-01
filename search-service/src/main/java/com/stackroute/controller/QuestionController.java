@@ -14,6 +14,7 @@ import java.util.List;
 @RefreshScope
 @RestController
 @RequestMapping(value = "/api/v1/")
+@CrossOrigin("*")
 public class QuestionController {
 
     @Autowired
@@ -21,10 +22,11 @@ public class QuestionController {
     @Autowired
     private EurekaClient eurekaClient;
 
-//    method to call question service controller
+    private List<Question> ques;
+//   request method to call question service controller
     @RequestMapping(value = "question/{tag}")
-    public void getQuestionByTag(@PathVariable String tag) {
-        Application application = eurekaClient.getApplication("QUESTION-SERVICE1");
+    public List<Question> getQuestionByTag(@PathVariable String tag) {
+        Application application = eurekaClient.getApplication("QUESTION-SERVICE2");
         System.out.println("App : " + application);
         InstanceInfo instanceInfo = application.getInstances().get(0);
         System.out.println("Inst : " + instanceInfo);
@@ -32,5 +34,12 @@ public class QuestionController {
         System.out.println("URL" + url);
         List<Question> ques = restTemplate.getForObject(url, List.class);
         System.out.println("RESPONSE " + ques);
+        this.ques = ques;
+        return this.ques;
+    }
+
+    @GetMapping(value = "searched")
+    public List<Question> giveQuestions(){
+        return ques;
     }
 }

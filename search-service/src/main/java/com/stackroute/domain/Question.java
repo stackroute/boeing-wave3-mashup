@@ -3,7 +3,7 @@ package com.stackroute.domain;
 public class Question {
 //    defining field variables for question class
     private String tag;
-    private String questiondescription;
+    private String questionDescription;
     public int questionId;
     private String questionTitle;
     private String  inputFormat;
@@ -13,6 +13,6 @@ public class Question {
 
     public Question(String tag, String questiondescription) {
         this.tag = tag;
-        this.questiondescription = questiondescription;
+        this.questionDescription = questiondescription;
     }
 }
