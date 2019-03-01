@@ -33,7 +33,7 @@ public class ResultsServiceImpl implements ResultsService{
 
         int mm=0;
         if(k.isEmpty()){
-            return "2@*#2@*#Tests passed";
+            return "@*#@*#Tests passed";
         }
         else
         if(k.contains("COMPILATION ERROR")){

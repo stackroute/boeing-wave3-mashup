@@ -21,6 +21,7 @@ export class EditComponent implements OnInit {
 
   // wesocket
   title = 'grokonez';
+  
   public difficulty:String;
   public uname:String;
   public testpass:String;
@@ -110,6 +111,7 @@ export class EditComponent implements OnInit {
         this.tags = data['tags'] ;
         this.gitUrl = data['gitUrl'] ;
         console.log(data);
+        this.quesservice.getcode(this.questionId,this.uname).subscribe(data=>this.code=data);
       });
   }
     //  "username":this.uname,"questionId":this.qid,
@@ -155,7 +157,7 @@ export class EditComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://localhost:8025/gkz-stomp-endpoint');
+    const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;
@@ -178,14 +180,14 @@ export class EditComponent implements OnInit {
   }
 
   submit() {
-    console.log("From here");
+   this.code=this.uname+"@#*"+this.code;
      console.log(this.questionObj);
     //console.log(this.code);
     this.greetings = [];
     this.stompClient.send(
       '/gkz/hello',
       {},
-      JSON.stringify({'codeWritten': this.code })
+      JSON.stringify({'name': this.code })
     );
     console.log("sending data to submission service");
     //this.sendDataToSubmissionService();
@@ -214,9 +216,7 @@ export class EditComponent implements OnInit {
         color: `green`
       };
     }
-    else{
-      this.result="failed";
-    }
+    
   }
 
 }
