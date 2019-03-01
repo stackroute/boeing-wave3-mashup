@@ -1,0 +1,82 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+<div *ngIf="info.token; else loggedOut">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><img src="/assets/MASHUP.png" class="image" /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="flex-container">
+          <div>
+            <li>
+              <a class="navhover" [routerLink]="['/post', info.username]">Post Question</a>
+            </li>
+          </div>
+          <div>
+            <li><a class="navhover" [routerLink]="['/userprofile']">Profile</a></li>
+          </div>
+          <div>
+            <li>
+              <a class="navhover" (click)="logout()">Logout</a>
+            </li>
+          </div>
+          <div>
+            <li>
+              <form>
+                <div class="input-field">
+                  <input id="search" type="search" required />
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</div>
+<ng-template #loggedOut>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><img src="/assets/MASHUP.png" class="image" /></a>
+      <!-- <form> -->
+
+      <!-- </form> -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="flex-container">
+
+          <div>
+            <li><a class="navhover" [routerLink]="['/fetch']">Practice</a></li>
+          </div>
+          <div>
+            <li><a class="navhover">Contact Us</a></li>
+          </div>
+          <div>
+            <li *ngIf="!authority">
+              <a class="navhover" [routerLink]="['/auth/login']"><span class="glyphicon glyphicon-log-in"> </span> Login/Signup
+              </a>
+            </li>
+          </div>
+          <div>
+            <li>
+              <form>
+                <div class="input-field">
+                  <input id="search" type="search" required />
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+
+    <!-- <div class="nav-wrapper second-bar">
+          
+      </div> -->
+  </nav>
+  <!-- <nav>
+      
+    </nav> -->
+</ng-template>

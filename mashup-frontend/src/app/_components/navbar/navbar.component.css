@@ -1,0 +1,33 @@
+.nav-wrapper{
+    background-color: black;
+}
+img{
+    width: 64px;
+    padding-bottom: 5px;
+}
+.input-field{
+    margin: 0%;
+    height: 64px;
+}
+.second-bar{
+    margin-left: 135px;
+    height: 60px;
+}
+.material-icons{
+    font-size: 40px;
+    color: black;
+    
+}
+#search{
+    margin: 0%;
+    background-image: url("/assets/MASHUP-BACK.png");
+    background-position: center top;
+}
+.flex-container{
+    display: flex;
+    
+}
+.navhover:hover{
+    color: rgb(95, 176, 241);
+    text-decoration: none;
+}
