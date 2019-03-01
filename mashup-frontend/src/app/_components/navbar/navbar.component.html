@@ -58,7 +58,7 @@
         <!--<h1><a href="#hero">Bell</a></h1>-->
       <!-- </div> -->
 
-      <nav id="nav-menu-container" class="navbar-fixed-top">
+      <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
           <li><a href="" [routerLink]="['/post', info.username]">Post Question</a></li>
           <li><a href="" [routerLink]="['/userprofile']">Profile</a></li>
@@ -76,7 +76,7 @@
 
     <ng-template #loggedOut>
 
-      <nav id="nav-menu-container" class="navbar-fixed-top">
+      <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
           <li><a href="" [routerLink]="['/fetch']">Practice</a></li>
           <li *ngIf="!authority"><a href="" [routerLink]="['/auth/login']">Login/Signup</a></li>

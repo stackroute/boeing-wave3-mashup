@@ -26,7 +26,7 @@ public class UserController {
     }
 //Request mapping for posting user details
     @PostMapping("register")
-    public ResponseEntity<String> saveUser(@RequestBody User user) {
+    public ResponseEntity saveUser(@RequestBody User user) {
         ResponseEntity responseEntity;
         try {
             userService.saveUser(user);
@@ -43,7 +43,7 @@ public class UserController {
     @GetMapping("users")
     public ResponseEntity<List<User>> listOfUsers() {
         List<User> allUsers = userService.getAllUsers();
-        return new ResponseEntity<List<User>>(allUsers, HttpStatus.OK);
+        return new ResponseEntity<>(allUsers, HttpStatus.OK);
     }
 //Request mapping for deleting user details
     @DeleteMapping("users/{id}")
@@ -61,9 +61,8 @@ public class UserController {
     }
     //Request mapping for updating user details
     @PutMapping("users/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") String userId, @RequestBody User user) {
+    public ResponseEntity updateUser(@PathVariable("id") String userId, @RequestBody User user) {
         ResponseEntity responseEntity;
-        System.out.println("I am in controller");
         try{
             User user1 = userService.updateUser(userId,user);
             responseEntity = new ResponseEntity<User>(user1, HttpStatus.OK);

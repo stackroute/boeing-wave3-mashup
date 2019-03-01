@@ -6,11 +6,9 @@ import com.stackroute.exception.UserNotFoundException;
 import com.stackroute.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 @Primary
 @Service
@@ -32,20 +30,15 @@ public class UserServiceImpl implements UserService {
         }
         //Encrypting password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        User user1 = userRepository.save(user);
-        if (user1 == null) {
-            throw new UserAlreadyExistsException("User already exists");
-        }
-        return user1;
+        return userRepository.save(user);
     }
 
     public List<User> getAllUsers() {
-        List<User> userList = (List<User>) userRepository.findAll();
-        return userList;
+        return userRepository.findAll();
     }
 
     public User deleteUser(String userId) throws UserNotFoundException {
-        User user1 = userRepository.findById(userId).get();
+        User user1 = userRepository.findByEmailId(userId);
         if (userRepository.existsById(userId))
             userRepository.deleteById(userId);
         else {
@@ -57,8 +50,7 @@ public class UserServiceImpl implements UserService {
 
     public User updateUser(String userId, User user) throws UserNotFoundException {
         if (userRepository.existsById(userId)) {
-            User user1 = userRepository.save(user);
-            return user1;
+            return userRepository.save(user);
         } else
             throw new UserNotFoundException("User not found");
 
@@ -66,27 +58,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByEmailid(String emailId) {
-        User user = userRepository.findByEmailId(emailId);
-        return user;
+        return userRepository.findByEmailId(emailId);
     }
 }
 
-    //Method to authenticate password for time-being
-//    @Override
-//    public String findByPassword(String id,String password) throws UserNotFoundException {
-//        //check if user exists
-//        if (userRepository.existsById(id)){
-//            //extract user from db with encrypted password
-//            User dbUser=userRepository.findById(id);
-//            //returns true if entered plain and stored encrypted password matches
-//            if(BCrypt.checkpw(password,dbUser.getPassword())){
-//               return "Password matches!";
-//            }else{
-//                return "Password Incorrect!";
-//            }
-//        }else{
-//            throw  new UserNotFoundException("User not found");
-//        }
-//    }
-//
-//}

@@ -67,42 +67,11 @@ public class RegistrationControllerTest {
     private KafkaTemplate<String, User> template;
 
 
-//    username2=mahesh
-//            password2=mahe123
-//    age2=22
-//    gender2=male
-//            currentCompany2=Boeing
-//    course2=CSE
-//            firstName2=mahi
-//    lastName2=eswar
-//            discipline2=BE
-//    emailId2=example@gmail.com
-//            collegeName2=BIT
-
-//    private String username;
-//    private String password;
-//    private int age;
-//    private String gender;
-//    private String company;
-//    private String course;
-//    private String firstName;
-//    private String lastName;
-//    private String interest;
-//    private String discipline;
-//    @Id
-//    private String id;
-//    private String emailId;
-//    private String college;
-
     User user;
     List<User> userList;
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-//        template = Mockito.mock(KafkaTemplate.class);
-//        Mockito.when(configuration.getKafkaTemplateObject()).thenReturn(template);
-        //KafkaTemplate<String, User> template = Mockito.mock(KafkaTemplate.class);
-        //ject mock = when(template.send(Mockito.any(), Mockito.any())).getMock();
 
         user = new User();
         user.setUsername("mahe12");
@@ -123,26 +92,6 @@ public class RegistrationControllerTest {
 
     }
 
-//    @Test
-//    public void saveUser() throws UserAlreadyExistsException {
-//        User user1 = Mockito.mock(User.class);
-//        //OngoingStubbing<ListenableFuture<SendResult<String, User>>> mockFuture = Mockito.mock(OngoingStubbing<ListenableFuture<SendResult<K, V>>);
-////        Mockito.when(template.send("AuthMessage", user1)).thenReturn(Mockito.any());
-//        Mockito.when(service.saveUser(user)).thenReturn(user1);
-//        ResponseEntity result = userController.saveUser(this.user);
-//        verify(service).saveUser(Mockito.any());
-//        Assert.assertEquals(HttpStatus.CREATED,result.getStatusCode());
-//    }
-
-   /* public static String asJsonString(final Object object) {
-        try {
-            return new ObjectMapper().writeValueAsString(object);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }*/
 
     @Test
     public void listallUsers_success(){
@@ -168,61 +117,4 @@ public class RegistrationControllerTest {
         Assert.assertEquals(HttpStatus.OK,result.getStatusCode());
     }
 
-    /*@Test
-    public void post_success(){
-        User user1 = Mockito.mock(User.class);
-        Mockito.when(template.send("AuthMessage", user1)).thenReturn(Mockito.any());
-        Mockito.when(service.getUserByEmailid("User")).thenReturn(user1);
-        String result = userController.post("User");
-        verify(service).getUserByEmailid("User");
-        Assert.assertEquals("Published Successfully", result);
-    }*/
-
-
-//    @Test
-//    public void test_get_all_success() throws Exception {
-//        List<User> muzixs = Arrays.asList(
-//                new User("mahe12","blowin in the wind",25,"Nice song","Nice song","mahe12","nice"),
-//                new User(2, "californication","wow"));
-//        when(userService.getAllUsers()).thenReturn(muzixs);
-//        mockMvc.perform(get("/api/v2/tracks"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-//                .andExpect(jsonPath("$[0].id", is(1)))
-//                .andExpect(jsonPath("$[0].name", is("dont let me down")))
-//                .andExpect(jsonPath("$[0].comments", is("nice")))
-//                .andExpect(jsonPath("$[1].id", is(2)))
-//                .andExpect(jsonPath("$[1].name", is("californication")))
-//                .andExpect(jsonPath("$[1].comments", is("wow")));
-//        verify(userService, times(1)).getAllUsers();
-//        verifyNoMoreInteractions(userService);
-//    }
-
-    /*@Test
-    public void test_delete_user_success() throws Exception {
-        User user = new User();
-        user.setUsername("mahe12");
-        user.setPassword("blowin in the wind");
-        user.setGender("Nice song");
-        user.setLastName("mahe12");
-        user.setFirstName("blowin in the wind");
-        user.setEmailId("Nice song");
-        user.setCourse("mahe12");
-        user.setDiscipline("blowin in the wind");
-        user.setCollege("Nice song");
-        user.setAge(25);
-        user.setInterest("blowin in the wind");
-        user.setCompany("Nice song");
-
-        doNothing().when(userService).deleteUser(user.getEmailId());
-
-        mockMvc.perform(
-                delete("/api/v1/users/{id}", user.getEmailId()))
-                .andExpect(status().isOk());
-
-
-        verify(userService, times(1)).deleteUser(user.getEmailId());
-        verifyNoMoreInteractions(userService);
-    }
-*/
 }
