@@ -1,3 +1,4 @@
+import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { VotingComponent } from './_components/voting/voting.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -54,6 +55,10 @@ const routes: Routes = [
     {
         path: 'submission-component',
         component: SubmissionComponent
+    },
+    {
+        path:'search',
+        component: SearchserviceComponent
     }
 ];
 

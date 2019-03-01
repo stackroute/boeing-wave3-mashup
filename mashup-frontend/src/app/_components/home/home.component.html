@@ -1,8 +1,9 @@
 <div *ngIf="info.token; else loggedOut">
-  <div class="row col-lg-12">
-    <app-recommend>        
-    </app-recommend>
-  </div>
+  <!-- <div class="row col-lg-12">
+    
+  </div> -->
+  <app-recommend>        
+  </app-recommend>
   <!-- <div class="row col-lg-12">
     <p>
       We provide timely, specialised veterinary care to injured urban wild
@@ -21,6 +22,7 @@
 </div>
 
 <ng-template #loggedOut>
+  
   <app-landing></app-landing>
   <!-- -------------------------- -->
   <div id="band" class="container text-center">

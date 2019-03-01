@@ -76,6 +76,7 @@ import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { ScoreandbadgeComponent } from './_components/scoreandbadge/scoreandbadge.component';
 import { LandingComponent } from './_components/landing/landing.component';
+import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -132,6 +133,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     FooterComponent,
     ScoreandbadgeComponent,
     LandingComponent,
+    SearchserviceComponent,
   ],
   imports: [
     BrowserModule,

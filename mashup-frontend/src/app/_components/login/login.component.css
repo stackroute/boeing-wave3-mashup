@@ -1,6 +1,6 @@
 .bg-img {
     /* The image used */
-    background-image: url("https://ak4.picdn.net/shutterstock/videos/11397134/thumb/1.jpg");
+    background-image: url("/assets/loginback.jpg");
   
     /* Control the height of the image */
     min-height: 500px;
@@ -13,4 +13,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+  }
+
+  @media (min-width: 992px){
+  .col-lg-4 {
+      -webkit-box-flex: 0;
+      margin-top: 100px;
+      -ms-flex: 0 0 33.333333%;
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+  }}
+  label{
+    font-size: 15px;
   }
