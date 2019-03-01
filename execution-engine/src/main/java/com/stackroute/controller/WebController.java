@@ -19,6 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class WebController {
 
+    public ResultsService getResultsService() {
+        return resultsService;
+    }
+
+    public void setResultsService(ResultsService resultsService) {
+        this.resultsService = resultsService;
+    }
+
     @Autowired
     private ResultsService resultsService;
 //    public QuestionService getQuestionService() {

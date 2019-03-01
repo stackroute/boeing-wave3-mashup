@@ -6,43 +6,34 @@ import com.stackroute.domain.Question;
 import com.stackroute.service.FetchService;
 import com.stackroute.service.ResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.io.IOException;
 
 
 @RestController
 @RequestMapping("api/v1/")
 @CrossOrigin("*")
 public class QuestionController {
-    @Autowired
+
     private ResultsService resultsService;
-    public ResultsService getResultsService() {
-        return resultsService;
-    }
-    @Autowired
     public FetchService fetchService;
-
-    @Autowired
     private RestTemplate restTemplate;
-
-    @Autowired
     private EurekaClient eurekaClient;
-
-    public void setResultsService(ResultsService resultsService) {
-        this.resultsService = resultsService;
-    }
     public Question question;
 
-//    @GetMapping(username){
-//
-//    }
-    @RequestMapping(value="question/{id}/{username}", method = RequestMethod.GET)
+    public QuestionController() {
+    }
+
+    public QuestionController(ResultsService resultsService, FetchService fetchService, RestTemplate restTemplate, Question question,EurekaClient eurekaClient) {
+        this.resultsService = resultsService;
+        this.fetchService = fetchService;
+        this.restTemplate = restTemplate;
+        this.question = question;
+    }
+
+    @GetMapping(value="question/{id}/{username}")
     public String getQuestionObject(@PathVariable int id,@PathVariable String username) {
+        System.out.println("inside the getQuestionObject() ");
         Application application = eurekaClient.getApplication("QUESTION-SERVICE1");
         System.out.println("Application : " + application);
         InstanceInfo instanceInfo = application.getInstances().get(0);
