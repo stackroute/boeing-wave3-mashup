@@ -1,14 +1,12 @@
 package com.stackroute.service;
 
-import com.stackroute.domain.Question;
-import com.stackroute.domain.UserProfile;
+import com.stackroute.domain.*;
 import com.stackroute.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 // Service class to handle kafka Listener
 @Service
@@ -44,13 +42,11 @@ public class KafkaListenerService {
         postedQuestion.add(question);
         userProfile.setPostedQuestion(postedQuestion);
         userRepository.save(userProfile);
-        System.out.println("Consumed msg : " + message);
     }
     
     // consumer method for consuming object from question service
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
-    public void consume_ques(String message){
-        System.out.println("Consumed questionMsg : " + message);
+    public void consumeQuestion(String message){
         String[] strMessage = message.split(",\"");
         String userName = strMessage[8].split(":")[1].replace("\"","").replace("}","");
         Question question = new Question();
@@ -62,7 +58,7 @@ public class KafkaListenerService {
 
     // consumer method for consuming object from submission service
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")
-    public void consume_submission(String message){
+    public void consumeSubmission(String message){
         String[] strMessage = message.split(",");
         String userName = strMessage[0].split(":")[1].replace("\"","");
         Question question = new Question();
@@ -70,6 +66,5 @@ public class KafkaListenerService {
         question.setQuestionTitle(strMessage[2].split(":")[1].replace("\"",""));
         UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
         userDBProfileService.updateQuestionAttempted(userName, question);
-        System.out.println("Consumed msg : " + message);
     }
 }

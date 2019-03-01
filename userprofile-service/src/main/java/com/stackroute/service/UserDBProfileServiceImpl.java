@@ -16,7 +16,8 @@ public class UserDBProfileServiceImpl implements UserProfileService {
 
 
     private UserProfileRepository userProfileRepository;
-
+    private String prefix = "UserProfile with ";
+    private String sufix = " doesnot exist";
     @Autowired
     public UserDBProfileServiceImpl(UserProfileRepository userProfileRepository) {
         this.userProfileRepository = userProfileRepository;
@@ -35,7 +36,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile getUser(String userName) throws UserProfileNotFoundException {
         if (!userProfileRepository.existsById(userName)) {
-            throw new UserProfileNotFoundException("UserProfile with " + userName + " doesnot exist");
+            throw new UserProfileNotFoundException(prefix + userName + sufix);
         }
         Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         if (tempUser.isPresent()) {
@@ -48,7 +49,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public Boolean deleteUser(String userName) throws UserProfileNotFoundException {
         if (!userProfileRepository.existsById(userName)) {
-            throw new UserProfileNotFoundException("UserProfile with " + userName + " doesnot exist");
+            throw new UserProfileNotFoundException(prefix + userName + sufix);
         }
         userProfileRepository.deleteById(userName);
         return true;
@@ -58,7 +59,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile changePassword(String userName, String newPassword) throws UserProfileNotFoundException {
         if (!userProfileRepository.existsById(userName)) {
-            throw new UserProfileNotFoundException("UserProfile with " + userName + " doesnot exist");
+            throw new UserProfileNotFoundException(prefix + userName + sufix);
         }
         Optional<UserProfile> tempUser = userProfileRepository.findById(userName);
         if (tempUser.isPresent()) {

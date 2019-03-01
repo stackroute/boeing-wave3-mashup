@@ -32,32 +32,30 @@ public class UserController {
     @PostMapping(value = "userprofile")
     public ResponseEntity<UserProfile> saveUserProfile( @ApiParam(value = "UserProfile will be saved in database" +
             " table", required = true)@RequestBody UserProfile userProfile) throws UserProfileAlreadyExistException {
-            return new ResponseEntity<UserProfile>(userProfileService.saveUserProfile(userProfile), HttpStatus.OK);
+            return new ResponseEntity<>(userProfileService.saveUserProfile(userProfile), HttpStatus.OK);
     }
     
     // method to get user profile
     @GetMapping(value = "userprofile/{username}")
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable("username") String userName) throws UserProfileNotFoundException {
-        System.out.println("username : " + userName);
         UserProfile userProfile = userProfileService.getUser(userName);
-        System.out.println("USERPROFILE : "+userProfile);
-        return new ResponseEntity<UserProfile>(userProfileService.getUser(userName), HttpStatus.OK);
+        return new ResponseEntity<>(userProfileService.getUser(userName), HttpStatus.OK);
     }
     
     // method to get list of ineterest
     @ApiOperation(value = "List of interest")
     @GetMapping(value = "interests/{username}")
-    public ResponseEntity<List<String>> getInterests(@PathVariable("userName") String userName) throws Exception{
+    public ResponseEntity<List<String>> getInterests(@PathVariable("userName") String userName) {
             List<String> user = userProfileService.getInterests(userName);
-            return new ResponseEntity<List<String>>(user, HttpStatus.OK);
+            return new ResponseEntity<>(user, HttpStatus.OK);
     }
     
     // method to edit list of ineterest
     @ApiOperation(value = "List of interest")
     @PostMapping(value = "interests/{username}")
-    public ResponseEntity<List<String>> editInterests(@PathVariable("username") String userName, @RequestBody List<String> newInterests) throws Exception{
+    public ResponseEntity<List<String>> editInterests(@PathVariable("username") String userName, @RequestBody List<String> newInterests) {
         List<String> interests = userProfileService.editInterests(userName, newInterests);
-        return new ResponseEntity<List<String>>(interests, HttpStatus.OK);
+        return new ResponseEntity<>(interests, HttpStatus.OK);
     }
 
     // method to delete user profile from database
@@ -89,6 +87,6 @@ public class UserController {
     // method to test controller is working or not
     @GetMapping(value = "hi")
     public ResponseEntity<String> hi() {
-        return new ResponseEntity<>("UserProfile Controller is runnig", HttpStatus.OK);
+        return new ResponseEntity<String>("UserProfile Controller is runnig", HttpStatus.OK);
     }
 }

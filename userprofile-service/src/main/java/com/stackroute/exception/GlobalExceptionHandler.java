@@ -11,17 +11,17 @@ import java.util.Date;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(UserProfileNotFoundException.class)
-    public ResponseEntity<?> userProfileNotFoundException(UserProfileNotFoundException ex, WebRequest request) {
+    public ResponseEntity<CustomizedErrorResponseStructure> userProfileNotFoundException(UserProfileNotFoundException ex, WebRequest request) {
         CustomizedErrorResponseStructure errorDetails = new CustomizedErrorResponseStructure(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(UserProfileAlreadyExistException.class)
-    public ResponseEntity<?> userProfileAlreadyExistException(UserProfileAlreadyExistException ex, WebRequest request) {
+    public ResponseEntity<CustomizedErrorResponseStructure> userProfileAlreadyExistException(UserProfileAlreadyExistException ex, WebRequest request) {
         CustomizedErrorResponseStructure errorDetails = new CustomizedErrorResponseStructure(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> globleExcpetionHandler(Exception ex, WebRequest request) {
+    public ResponseEntity<CustomizedErrorResponseStructure> globleExcpetionHandler(Exception ex, WebRequest request) {
         CustomizedErrorResponseStructure errorDetails = new CustomizedErrorResponseStructure(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }
