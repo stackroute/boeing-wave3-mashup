@@ -50,7 +50,15 @@ public class UserProfileDBServiceTest {
         questionPosted.add(question);
         question = new Question(2, "q2");
         questionPosted.add(question);
-        userProfile = new UserProfile("ujj", "ujj", "yati","1234567890", "u@gmail.com", interests, questionAttempted, questionPosted);
+        userProfile = new UserProfile();
+        userProfile.setUserName("ujj");
+        userProfile.setFirstName("ujj");
+        userProfile.setLastName("yati");
+        userProfile.setPassword("1234567890");
+        userProfile.setEmailId("u@gmail.com");
+        userProfile.setInterests(interests);
+        userProfile.setAttemptedQuestion(questionAttempted);
+        userProfile.setPostedQuestion(questionPosted);
     }
     @Test
     public void saveUserProfile() throws UserProfileAlreadyExistException {

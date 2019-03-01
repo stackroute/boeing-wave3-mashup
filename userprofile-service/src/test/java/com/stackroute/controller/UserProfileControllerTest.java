@@ -47,12 +47,19 @@ public class UserProfileControllerTest {
         questionAttempted.add(question);
         question = new Question(2, "q2");
         questionAttempted.add(question);
-        List<Question> questionPosted = new ArrayList<>();
         question = new Question(1, "q1");
         questionPosted.add(question);
         question = new Question(2, "q2");
         questionPosted.add(question);
-        userProfile = new UserProfile("ujj", "ujj", "yati","1234567890", "u@gmail.com", interests,questionAttempted, questionPosted);
+        userProfile = new UserProfile();
+        userProfile.setUserName("ujj");
+        userProfile.setFirstName("ujj");
+        userProfile.setLastName("yati");
+        userProfile.setPassword("1234567890");
+        userProfile.setEmailId("u@gmail.com");
+        userProfile.setInterests(interests);
+        userProfile.setAttemptedQuestion(questionAttempted);
+        userProfile.setPostedQuestion(questionPosted);
     }
 
     @Test
@@ -69,18 +76,18 @@ public class UserProfileControllerTest {
     @Test
     public void getUserProfile() throws Exception {
         when(userDBProfileService.getUser("ujj")).thenReturn(userProfile);
-        mockMvc.perform(get("/api/v1/userprofile/1")
+        mockMvc.perform(get("/api/v1/userprofile/ujj")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-        verify(userDBProfileService, times(1)).getUser("ujj");
+        verify(userDBProfileService, times(2)).getUser("ujj");
         verifyNoMoreInteractions(userDBProfileService);
     }
 
     @Test
     public void getInterests() throws Exception {
         when(userDBProfileService.getInterests("ujj")).thenReturn(interests);
-        mockMvc.perform(get("/api/v1/interests/1")
+        mockMvc.perform(get("/api/v1/interests/ujj")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -92,7 +99,7 @@ public class UserProfileControllerTest {
     public void editInterests() throws Exception {
         interests.add("i4");
         when(userDBProfileService.editInterests("ujj", interests)).thenReturn(interests);
-        mockMvc.perform(post("/api/v1/interests/1")
+        mockMvc.perform(post("/api/v1/interests/ujj")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON).content(jsonToString(interests)))
                 .andExpect(status().isOk());
@@ -103,7 +110,7 @@ public class UserProfileControllerTest {
     @Test
     public void deleteUserProfile() throws Exception {
         when(userDBProfileService.deleteUser("ujj")).thenReturn(true);
-        mockMvc.perform(delete("/api/v1/1")
+        mockMvc.perform(delete("/api/v1/ujj")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -116,7 +123,7 @@ public class UserProfileControllerTest {
         Question question = new Question(3, "q3");
         questionAttempted.add(question);
         when(userDBProfileService.updateQuestionAttempted("ujj", question)).thenReturn(userProfile);
-        mockMvc.perform(post("/api/v1/questionattempted/1")
+        mockMvc.perform(post("/api/v1/questionattempted/ujj")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON).content(jsonToString(question)))
                 .andExpect(status().isOk());
@@ -129,7 +136,7 @@ public class UserProfileControllerTest {
         Question question = new Question(3, "q3");
         questionAttempted.add(question);
         when(userDBProfileService.updateQuestionPosted("ujj", question)).thenReturn(userProfile);
-        mockMvc.perform(post("/api/v1/questionposted/1")
+        mockMvc.perform(post("/api/v1/questionposted/ujj")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON).content(jsonToString(question)))
                 .andExpect(status().isOk());

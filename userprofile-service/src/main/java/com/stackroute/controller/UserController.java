@@ -45,7 +45,7 @@ public class UserController {
     // method to get list of ineterest
     @ApiOperation(value = "List of interest")
     @GetMapping(value = "interests/{username}")
-    public ResponseEntity<List<String>> getInterests(@PathVariable("userName") String userName) {
+    public ResponseEntity<List<String>> getInterests(@PathVariable("username") String userName) {
             List<String> user = userProfileService.getInterests(userName);
             return new ResponseEntity<>(user, HttpStatus.OK);
     }
@@ -62,7 +62,7 @@ public class UserController {
     @ApiOperation(value = "Delete a user")
     @DeleteMapping(value = "{username}")
     public ResponseEntity<Boolean> deleteUserProfile( @ApiParam(value = "UserProfile with Id will be deleted from database " +
-            "table", required = true)@PathVariable("userName") String userName) throws UserProfileNotFoundException {
+            "table", required = true)@PathVariable("username") String userName) throws UserProfileNotFoundException {
             return new ResponseEntity<Boolean>(userProfileService.deleteUser(userName), HttpStatus.OK);
     }
     

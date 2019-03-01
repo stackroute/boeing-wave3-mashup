@@ -7,6 +7,8 @@ import com.stackroute.exception.UserProfileNotFoundException;
 import com.stackroute.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,7 +78,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         if (tempUser.isPresent()) {
             return tempUser.get().getInterests();
         }
-        return null;
+        return new ArrayList<>();
     }
 
     // method to edit list of interest to mongo database    
@@ -88,7 +90,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
             userProfileRepository.save(tempUser.get());
             return tempUser.get().getInterests();
         }
-        return null;
+        return new ArrayList<>();
     }
 
     // method to update list of attempted questions to mongo database
