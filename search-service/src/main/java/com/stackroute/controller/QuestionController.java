@@ -22,7 +22,7 @@ public class QuestionController {
     private EurekaClient eurekaClient;
 
 //    method to call question service controller
-    @RequestMapping("question/{tag}")
+    @RequestMapping(value = "question/{tag}")
     public void getQuestionByTag(@PathVariable String tag) {
         Application application = eurekaClient.getApplication("QUESTION-SERVICE1");
         System.out.println("App : " + application);
