@@ -75,7 +75,7 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         if (tempUser.isPresent()) {
             return tempUser.get().getInterests();
         }
-        return tempUser.get().getInterests();
+        return null;
     }
 
     // method to edit list of interest to mongo database    
@@ -85,8 +85,9 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         if (tempUser.isPresent()) {
             tempUser.get().setInterests(newInterests);
             userProfileRepository.save(tempUser.get());
+            return tempUser.get().getInterests();
         }
-        return tempUser.get().getInterests();
+        return null;
     }
 
     // method to update list of attempted questions to mongo database
@@ -95,8 +96,9 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
         if (temp.isPresent()) {
             temp.get().getAttemptedQuestion().add(questionAttempted);
+            return userProfileRepository.save(temp.get());
         }
-        return userProfileRepository.save(temp.get());
+        return null;
     }
     
     // method to update list of posted questions to mongo database
@@ -105,7 +107,8 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
         if (temp.isPresent()) {
             temp.get().getPostedQuestion().add(questionPosted);
+            return userProfileRepository.save(temp.get());
         }
-        return userProfileRepository.save(temp.get());
+        return null;
     }
 }
