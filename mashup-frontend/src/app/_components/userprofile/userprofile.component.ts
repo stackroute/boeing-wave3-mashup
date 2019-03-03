@@ -29,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class UserprofileComponent implements OnInit {
   bhaak: string;
-  abc;
+  profile;
   public uname: string;
   // for getting data from scoreand badge service (added by pratima on 27th feb2019)
   public userData = {};
@@ -49,14 +49,14 @@ export class UserprofileComponent implements OnInit {
   }
   ngOnInit() {
     this.uname = this.token.getUsername();
-    this.userService.getUserProfile(this.uname).subscribe(data => this.abc = data);
-    console.log('ABC : ',this.abc);
+    this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
+    console.log('User Profile : ', this.profile);
     this.bhaak = 'bhaak1';
     // call score and badge service to get data(added by pratima on 27th feb2019)
     this.scorebadgeservice.getUserData(this.uname).subscribe(
       data => {
        this.userData = data;
-        console.log('data is ', data);
+        console.log('Data is ', data);
     },
       error => {
         alert(error);

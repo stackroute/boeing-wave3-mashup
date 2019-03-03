@@ -11,7 +11,7 @@ export class UserprofileServiceService {
   constructor(private http: HttpClient) { }
   public getUserProfile(userName): Observable <any> {
     // tslint:disable-next-lin
-    console.log('USERNAME : ',userName);
+    console.log('USERNAME : ', userName);
     const userProfile = this.http.get('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + userName);
     console.log('hii');
     // console.log(userProfile);
