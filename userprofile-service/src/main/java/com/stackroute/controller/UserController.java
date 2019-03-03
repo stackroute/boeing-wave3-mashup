@@ -38,7 +38,6 @@ public class UserController {
     // method to get user profile
     @GetMapping(value = "userprofile/{username}")
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable("username") String userName) throws UserProfileNotFoundException {
-        UserProfile userProfile = userProfileService.getUser(userName);
         return new ResponseEntity<>(userProfileService.getUser(userName), HttpStatus.OK);
     }
     
@@ -46,16 +45,14 @@ public class UserController {
     @ApiOperation(value = "List of interest")
     @GetMapping(value = "interests/{username}")
     public ResponseEntity<List<String>> getInterests(@PathVariable("username") String userName) {
-            List<String> user = userProfileService.getInterests(userName);
-            return new ResponseEntity<>(user, HttpStatus.OK);
+            return new ResponseEntity<>(userProfileService.getInterests(userName), HttpStatus.OK);
     }
     
     // method to edit list of ineterest
     @ApiOperation(value = "List of interest")
     @PostMapping(value = "interests/{username}")
     public ResponseEntity<List<String>> editInterests(@PathVariable("username") String userName, @RequestBody List<String> newInterests) {
-        List<String> interests = userProfileService.editInterests(userName, newInterests);
-        return new ResponseEntity<>(interests, HttpStatus.OK);
+        return new ResponseEntity<>(userProfileService.editInterests(userName, newInterests), HttpStatus.OK);
     }
 
     // method to delete user profile from database

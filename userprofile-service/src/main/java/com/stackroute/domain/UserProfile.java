@@ -57,19 +57,6 @@ public class UserProfile {
     @Field
     @ApiModelProperty(notes = "The user postedQuestion")
     private List<Question> postedQuestion;
-    
-    // constructors
-    public UserProfile(){}
-//    public UserProfile(String userName, String firstName, String lastName, String password, String emailId, List<String> interests, List<Question> attemptedQuestion, List<Question> postedQuestion) {
-//        this.userName = userName;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.password = password;
-//        this.emailId = emailId;
-//        this.interests = interests;
-//        this.attemptedQuestion = attemptedQuestion;
-//        this.postedQuestion = postedQuestion;
-//    }
 
     // setter and getter for variables
     public String getUserName() {
