@@ -60,30 +60,30 @@ public class UserController {
     @DeleteMapping(value = "{username}")
     public ResponseEntity<Boolean> deleteUserProfile( @ApiParam(value = "UserProfile with Id will be deleted from database " +
             "table", required = true)@PathVariable("username") String userName) throws UserProfileNotFoundException {
-            return new ResponseEntity<Boolean>(userProfileService.deleteUser(userName), HttpStatus.OK);
+            return new ResponseEntity<>(userProfileService.deleteUser(userName), HttpStatus.OK);
     }
     
     // method to change password
     @PostMapping(value = "password/{username}")
     public ResponseEntity<UserProfile> changePassword(@PathVariable("username") String userName, @RequestBody String newPassword) throws UserProfileNotFoundException {
-        return new ResponseEntity<UserProfile>(userProfileService.changePassword(userName, newPassword), HttpStatus.OK);
+        return new ResponseEntity<>(userProfileService.changePassword(userName, newPassword), HttpStatus.OK);
     }
 
     // method update list of attempted questions 
     @PostMapping(value = "questionattempted/{username}")
     public ResponseEntity<UserProfile> updateQuestionAttempted(@PathVariable("username") String userName, @RequestBody Question question) {
-        return new ResponseEntity<UserProfile>(userProfileService.updateQuestionAttempted(userName, question), HttpStatus.OK);
+        return new ResponseEntity<>(userProfileService.updateQuestionAttempted(userName, question), HttpStatus.OK);
     }
     
     // method update list of posted questions
     @PostMapping(value = "questionposted/{username}")
     public ResponseEntity<UserProfile> updateQuestionPosted(@PathVariable("username") String userName, @RequestBody Question question) {
-        return new ResponseEntity<UserProfile>(userProfileService.updateQuestionPosted(userName, question), HttpStatus.OK);
+        return new ResponseEntity<>(userProfileService.updateQuestionPosted(userName, question), HttpStatus.OK);
     }
     
     // method to test controller is working or not
     @GetMapping(value = "hi")
     public ResponseEntity<String> hi() {
-        return new ResponseEntity<String>("UserProfile Controller is runnig", HttpStatus.OK);
+        return new ResponseEntity<>("UserProfile Controller is runnig", HttpStatus.OK);
     }
 }
