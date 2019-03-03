@@ -11,7 +11,7 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
-		<version>1.0.2-SNAPSHOT</version><!-- lookup parent from repository -->
+		<version>1.0.3-SNAPSHOT</version><!-- lookup parent from repository -->
 	    <relativePath>../pom.xml</relativePath>
 	</parent>
 	
