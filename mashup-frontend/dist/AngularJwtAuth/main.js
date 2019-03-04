@@ -388,7 +388,7 @@ var EditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body {\n   display: flex;\n   min-height: 100vh;\n   flex-direction: column;\n }\n\n main {\n   flex: 1 0 auto;\n }\n\n .page-footer{\n   background-image: url(\"/assets/MASHUP-BACK.png\");\n   background-size: cover;\n}"
+module.exports = "li a {\n  font-size: 15px;\n}\n.copyright-text{\n  font-size: 20px;\n}\n.credits a{\n  font-size: 15px;\n}"
 
 /***/ }),
 
@@ -399,7 +399,7 @@ module.exports = "body {\n   display: flex;\n   min-height: 100vh;\n   flex-dire
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Compiled and minified CSS -->\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n\n<!-- Compiled and minified JavaScript -->\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"></script>\n        \n<footer class=\"page-footer\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col l6 s12\">\n        <h5 class=\"white-text\">Footer Content</h5>\n        <p class=\"grey-text text-lighten-4\">You can use rows and columns here to organize your footer content.</p>\n      </div>\n      <div class=\"col l4 offset-l2 s12\">\n        <h5 class=\"white-text\">Links</h5>\n        <ul>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 1</a></li>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 2</a></li>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 3</a></li>\n          <li><a class=\"grey-text text-lighten-3\" href=\"#!\">Link 4</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div class=\"footer-copyright\">\n    <div class=\"container\">\n    © 2014 Copyright Text\n    <a class=\"grey-text text-lighten-4 right\" href=\"#!\">More Links</a>\n    </div>\n  </div>\n</footer>"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n  <!-- =======================================================\n    Theme Name: Bell\n    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/\n    Author: BootstrapMade.com\n    Author URL: https://bootstrapmade.com\n  ======================================================= -->\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n    <footer class=\"site-footer\">\n      <div class=\"bottom\">\n        <div class=\"container\">\n          <div class=\"row\">\n  \n            <div class=\"col-lg-6 col-xs-12 text-lg-left text-center\">\n              <p class=\"copyright-text\">\n                © MASHUP\n              </p>\n              <div class=\"credits\">\n               Designed by <a href=\"\">MASHUP</a>\n              </div>\n            </div>\n  \n            <div class=\"col-lg-6 col-xs-12 text-lg-right text-center\">\n              <ul class=\"list-inline\">\n                <li class=\"list-inline-item\">\n                  <a href=\"landing.component.html\">Home</a>\n                </li>\n  \n                <li class=\"list-inline-item\">\n                  <a href=\"#about\">About Us</a>\n                </li>\n  \n                <li class=\"list-inline-item\">\n                  <a href=\"#features\">Features</a>\n                </li>\n  \n                <li class=\"list-inline-item\">\n                  <a href=\"#portfolio\">Portfolio</a>\n                </li>\n  \n                <li class=\"list-inline-item\">\n                  <a href=\"#team\">Team</a>\n                </li>\n  \n                <li class=\"list-inline-item\">\n                  <a href=\"#contact\">Contact</a>\n                </li>\n              </ul>\n            </div>\n  \n          </div>\n        </div>\n      </div>\n    </footer>\n    <a class=\"scrolltop\" href=\"#\"><span class=\"fa fa-angle-up\"></span></a>\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n</body>\n</html>"
 
 /***/ }),
 
@@ -451,7 +451,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".post{\n    /* position: absolute; */\n    top: 10;\n    margin-right: 9%;\n    margin-left: 91%;\n}\n.logout{\n    position: absolute;\n    top: 2%;\n    right: 5%;\n    color: red;\n\n\n}\n.execut{\nposition: relative;\nmargin-right: 10%;\nmargin-left: 80%;\n\n}\n.userprofile{\n    position: absolute;\n    top: 2%;\n    right: 15%;\n    \n}\n"
+module.exports = ".post{\n    /* position: absolute; */\n    top: 10;\n    margin-right: 9%;\n    margin-left: 91%;\n}\n.logout{\n    position: absolute;\n    top: 2%;\n    right: 5%;\n    color: red;\n\n\n}\n.execut{\nposition: relative;\nmargin-right: 10%;\nmargin-left: 80%;\n\n}\n.userprofile{\n    position: absolute;\n    top: 2%;\n    right: 15%;\n    \n}\n\n"
 
 /***/ }),
 
@@ -462,7 +462,7 @@ module.exports = ".post{\n    /* position: absolute; */\n    top: 10;\n    margi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"info.token; else loggedOut\">\n  <div class=\"row col-lg-12\">\n    <app-recommend>        \n    </app-recommend>\n  </div>\n  <!-- <div id=\"band\" class=\"container text-center\"> -->\n  <div class=\"row col-lg-12\">\n    <!-- <div class=\"row text-center\"> -->\n    <p>\n      We provide timely, specialised veterinary care to injured urban wild\n      animals, rehabilitate them, and then release them into their natural or\n      adoptive habitats. Create awareness, amongst citizens of all ages and\n      backgrounds, about urban wildlife, and to instil a deep regard for their\n      cohabitation needs and when to actively engage in their welfare. Community\n      outreach and education about our local environment and how we can enrich\n      and protect it. Develop a practise that employs better wildlife care\n      techniques, engaging specialists and veterinarians from across the world.\n    </p>\n    <!-- </div> -->\n  </div>\n\n  <!-- More Pictures aside section -->\n  <div class=\"row col-lg-12\">\n    <!-- <div class=\"row text-center\"> -->\n    <div class=\"col-sm-4\">\n      <div class=\"thumbnail\">\n        <img src=\"https://media.giphy.com/media/cpIvoQSU8vC9O/giphy.gif\" alt=\"code\" width=\"400\" height=\"300\" />\n      </div>\n    </div>\n    <div class=\"col-sm-4\">\n      <div class=\"thumbnail\">\n        <img\n          src=\"https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4646/original/humanities-to-coding.png\"\n          alt=\"build\" width=\"400\" height=\"300\" />\n      </div>\n    </div>\n    <div class=\"col-sm-4\">\n      <div class=\"thumbnail\">\n        <img src=\"https://www.gstatic.com/webp/gallery/1.jpg\" alt=\"feel\" width=\"400\" height=\"300\" />\n      </div>\n    </div>\n  </div>\n</div>\n<!-- <p>\n  <iframe width=\"400\" height=\"315\" src=\"https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1\">\n  </iframe><br />\n</p> -->\n\n<ng-template #loggedOut>\n  <!-- -------------------------- -->\n  <div id=\"band\" class=\"container text-center\">\n    <div class=\"jumbotron\">\n      <h1>Happy Coding!</h1>\n      <p><em>Place to the people who love to code!! Keep coding</em></p>\n    </div>\n    <p>\n      We provide timely, specialised veterinary care to injured urban wild\n      animals, rehabilitate them, and then release them into their natural or\n      adoptive habitats. Create awareness, amongst citizens of all ages and\n      backgrounds, about urban wildlife, and to instil a deep regard for their\n      cohabitation needs and when to actively engage in their welfare. Community\n      outreach and education about our local environment and how we can enrich\n      and protect it. Develop a practise that employs better wildlife care\n      techniques, engaging specialists and veterinarians from across the world.\n    </p>\n    <br />\n    <!-- More Pictures aside section -->\n\n    <div class=\"row text-center nav-fixed-bottom\">\n      <div class=\"col-sm-4\">\n        <div class=\"thumbnail\">\n          <img src=\"https://media.giphy.com/media/cpIvoQSU8vC9O/giphy.gif\" alt=\"code\" width=\"400\" height=\"300\" />\n        </div>\n      </div>\n      <div class=\"col-sm-4\">\n        <div class=\"thumbnail\">\n          <img\n            src=\"https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/4646/original/humanities-to-coding.png\"\n            alt=\"build\" width=\"400\" height=\"300\" />\n        </div>\n      </div>\n      <div class=\"col-sm-4\">\n        <div class=\"thumbnail\">\n          <img src=\"https://www.gstatic.com/webp/gallery/1.jpg\" alt=\"feel\" width=\"400\" height=\"300\" />\n        </div>\n      </div>\n    </div>\n  </div>\n</ng-template>"
+module.exports = "<div *ngIf=\"info.token; else loggedOut\">\n  <!-- <div class=\"row col-lg-12\">\n    \n  </div> -->\n  <app-recommend>        \n  </app-recommend>\n  <!-- <div class=\"row col-lg-12\">\n    <p>\n      We provide timely, specialised veterinary care to injured urban wild\n      animals, rehabilitate them, and then release them into their natural or\n      adoptive habitats. Create awareness, amongst citizens of all ages and\n      backgrounds, about urban wildlife, and to instil a deep regard for their\n      cohabitation needs and when to actively engage in their welfare. Community\n      outreach and education about our local environment and how we can enrich\n      and protect it. Develop a practise that employs better wildlife care\n      techniques, engaging specialists and veterinarians from across the world.\n    </p>\n  </div> -->\n\n  <!-- More Pictures aside section -->\n  \n</div>\n\n<ng-template #loggedOut>\n  \n  <app-landing></app-landing>\n  <!-- -------------------------- -->\n  <div id=\"band\" class=\"container text-center\">\n    <!-- <div class=\"jumbotron\">\n      <h1>Happy Coding!</h1>\n      <p><em>Place to the people who love to code!! Keep coding</em></p>\n    </div>\n    <p>\n      We provide timely, specialised veterinary care to injured urban wild\n      animals, rehabilitate them, and then release them into their natural or\n      adoptive habitats. Create awareness, amongst citizens of all ages and\n      backgrounds, about urban wildlife, and to instil a deep regard for their\n      cohabitation needs and when to actively engage in their welfare. Community\n      outreach and education about our local environment and how we can enrich\n      and protect it. Develop a practise that employs better wildlife care\n      techniques, engaging specialists and veterinarians from across the world.\n    </p>\n    <br /> -->\n    <!-- More Pictures aside section -->\n\n    \n  </div>\n</ng-template>"
 
 /***/ }),
 
@@ -519,6 +519,69 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/_components/landing/landing.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/_components/landing/landing.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".navbar-fixed-top{\n    background:black;\n}\n.hello{\n    \n    \n}\n.logo{\n    width: 100px;\n\n}\n.hero::after{\n    height: 800px;\n    background: url(\"/assets/MASHUP-BACK.png\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\np.tagline[_ngcontent-c3][_ngcontent-c3]{\n    margin-bottom: 20px;\n    margin-top: 20px;\n}\n.info p{\n    font-size: 15px;\n}\n#contact .form input, #contact .form textarea {\n    border-radius: 0;\n    box-shadow: none;\n    font-size: 15px;\n}"
+
+/***/ }),
+
+/***/ "./src/app/_components/landing/landing.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/_components/landing/landing.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n  <!-- =======================================================\n    Theme Name: Bell\n    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/\n    Author: BootstrapMade.com\n    Author URL: https://bootstrapmade.com\n  ======================================================= -->\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n  \n    <!-- Hero -->\n\n  <section class=\"hero hello\">\n    <div class=\"container text-center bye\">\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <a class=\"hero-brand\" href=\"landing.component.html\" title=\"Home\"><img alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\"></a>\n        </div>\n      </div>\n\n      <div class=\"col-md-12\">\n        <h1>\n            MASHUP\n          </h1>\n\n        <p class=\"tagline\">\n          We empower programmers\n        </p>\n        <a class=\"btn btn-full startbtn\" href=\"#about\">Get Started Now</a>\n      </div>\n    </div>\n\n  </section>\n  <!-- /Hero -->\n\n  \n\n  \n  \n  <!-- Features -->\n\n  <section class=\"features\" id=\"features\">\n    <div class=\"container\">\n      <h2 class=\"text-center\">\n          Features\n        </h2>\n\n      <div class=\"row\">\n        <div class=\"feature-col col-lg-4 col-xs-12\">\n          <div class=\"card card-block text-center\">\n            <div>\n              <div class=\"feature-icon\">\n                <span class=\"fa fa-cogs\"></span>\n              </div>\n            </div>\n\n            <div>\n              <h3>\n                  Recommendation\n                </h3>\n\n              <p>\n                Our algorithms provide you with right set of challenges to tackle with.\n              </p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"feature-col col-lg-4 col-xs-12\">\n          <div class=\"card card-block text-center\">\n            <div>\n              <div class=\"feature-icon\">\n                <span class=\"fa fa-envelope\"></span>\n              </div>\n            </div>\n\n            <div>\n              <h3>\n                  Support\n                </h3>\n\n              <p>\n                We like to hear from you. Anything you feel asking.\n              </p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"feature-col col-lg-4 col-xs-12\">\n          <div class=\"card card-block text-center\">\n            <div>\n              <div class=\"feature-icon\">\n                <span class=\"fa fa-bell\"></span>\n              </div>\n            </div>\n\n            <div>\n              <h3>\n                  Get notified\n                </h3>\n\n              <p>\n                Stay updated with MASHUP using our email and mobile notifications.\n              </p>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"feature-col col-lg-4 col-xs-12\">\n          <div class=\"card card-block text-center\">\n            <div>\n              <div class=\"feature-icon\">\n                <span class=\"fa fa-database\"></span>\n              </div>\n            </div>\n\n            <div>\n              <h3>\n                  Good Documentation\n                </h3>\n\n              <p>\n                We are proud to have one of the best documentation of learning modules.\n              </p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"feature-col col-lg-4 col-xs-12\">\n          <div class=\"card card-block text-center\">\n            <div>\n              <div class=\"feature-icon\">\n                <span class=\"fa fa-graduation-cap\"></span>\n              </div>\n            </div>\n\n            <div>\n              <h3>\n                  Get Certified\n                </h3>\n\n              <p>\n                Signed-up members have access to our assessment platfrom, where you stand against the world.\n              </p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"feature-col col-lg-4 col-xs-12\">\n          <div class=\"card card-block text-center\">\n            <div>\n              <div class=\"feature-icon\">\n                <span class=\"fa fa-dashboard\"></span>\n              </div>\n            </div>\n\n            <div>\n              <h3>\n                  Track your progress\n                </h3>\n\n              <p>\n                Dashboard allows to view and keep track of all your effort.\n              </p>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n  <!-- /Features -->\n  <!-- Call to Action -->\n\n  \n  <!-- Portfolio -->\n\n  <section class=\"portfolio\" id=\"portfolio\">\n    <div class=\"container text-center\">\n      <h2>\n          Get Certified in.........\n        </h2>\n\n      <p>\n        Handpicked programming topics and mind-bending coding !\n      </p>\n    </div>\n\n    <div class=\"portfolio-grid\">\n      <div class=\"row\">\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/angular.jpeg\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/CPlus.jpeg\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/CSharp.jpeg\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/javascript.jpeg\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/nodejs.jpeg\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/java.png\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Start with Java\n                  </h3>\n\n                  <p class=\"card-text\">\n\n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/python.png\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n\n        <div class=\"col-lg-3 col-sm-6 col-xs-12\">\n          <div class=\"card card-block\">\n            <a href=\"#\"><img alt=\"\" src=\"/assets/ruby.jpeg\">\n              <div class=\"portfolio-over\">\n                <div>\n                  <h3 class=\"card-title\">\n                    Coming Soon....\n                  </h3>\n\n                  <p class=\"card-text\">\n                    \n                  </p>\n                </div>\n              </div></a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n  <!-- /Portfolio -->\n  <!-- Team -->\n\n  \n  <!-- @component: footer -->\n\n  <section id=\"contact\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-md-12 text-center\">\n          <h2 class=\"section-title\">Contact Us</h2>\n        </div>\n      </div>\n\n      <div class=\"row justify-content-center\">\n        <div class=\"col-lg-3 col-md-4\">\n          <div class=\"info\">\n            <div>\n              <i class=\"fa fa-map-marker\"></i>\n              <p>Stackroute<br>Koramangala, Bangalore, India</p>\n            </div>\n\n            <div>\n              <i class=\"fa fa-envelope\"></i>\n              <p>admin@mashup.com</p>\n            </div>\n\n            <div>\n              <i class=\"fa fa-phone\"></i>\n              <p>080 2325365</p>\n            </div>\n\n          </div>\n        </div>\n\n        <div class=\"col-lg-5 col-md-8\">\n          <div class=\"form\">\n            <div id=\"sendmessage\">Your message has been sent. Thank you!</div>\n            <div id=\"errormessage\"></div>\n            <form action=\"\" method=\"post\" role=\"form\" class=\"contactForm\">\n              <div class=\"form-group\">\n                <input type=\"text\" name=\"name\" class=\"form-control\" id=\"name\" placeholder=\"Your Name\" data-rule=\"minlen:4\" data-msg=\"Please enter at least 4 chars\" />\n                <div class=\"validation\"></div>\n              </div>\n              <div class=\"form-group\">\n                <input type=\"email\" class=\"form-control\" name=\"email\" id=\"email\" placeholder=\"Your Email\" data-rule=\"email\" data-msg=\"Please enter a valid email\" />\n                <div class=\"validation\"></div>\n              </div>\n              <div class=\"form-group\">\n                <input type=\"text\" class=\"form-control\" name=\"subject\" id=\"subject\" placeholder=\"Subject\" data-rule=\"minlen:4\" data-msg=\"Please enter at least 8 chars of subject\" />\n                <div class=\"validation\"></div>\n              </div>\n              <div class=\"form-group\">\n                <textarea class=\"form-control\" name=\"message\" rows=\"5\" data-rule=\"required\" data-msg=\"Please write something for us\" placeholder=\"Message\"></textarea>\n                <div class=\"validation\"></div>\n              </div>\n              <div class=\"text-center\"><button type=\"submit\">Send Message</button></div>\n            </form>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </section>\n\n  \n\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n</body>\n</html>"
+
+/***/ }),
+
+/***/ "./src/app/_components/landing/landing.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/_components/landing/landing.component.ts ***!
+  \**********************************************************/
+/*! exports provided: LandingComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingComponent", function() { return LandingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LandingComponent = /** @class */ (function () {
+    function LandingComponent() {
+    }
+    LandingComponent.prototype.ngOnInit = function () {
+    };
+    LandingComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-landing',
+            template: __webpack_require__(/*! ./landing.component.html */ "./src/app/_components/landing/landing.component.html"),
+            styles: [__webpack_require__(/*! ./landing.component.css */ "./src/app/_components/landing/landing.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LandingComponent);
+    return LandingComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/_components/login/login.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/_components/login/login.component.css ***!
@@ -526,7 +589,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".bg-img {\n    /* The image used */\n    background-image: url(\"/assets/loginback.jpg\");\n  \n    /* Control the height of the image */\n    min-height: 500px;\n    width: 100%;\n    length: 100%;\n    \n  \n    /* Center and scale the image nicely */\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    position: relative;\n  }\n\n  @media (min-width: 992px){\n  .col-lg-4 {\n      -webkit-box-flex: 0;\n      margin-top: 100px;\n      flex: 0 0 33.333333%;\n      max-width: 33.333333%;\n  }}\n\n  label{\n    font-size: 15px;\n  }"
 
 /***/ }),
 
@@ -537,7 +600,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div *ngIf=\"isLoggedIn; else loggedOut\">\n  <h4 style=\"color: purple\">You are Logged in.</h4>\n  <h2 style=\"color: red\" >Hey, Enjoy the Stackroute guyz</h2>\n</div>\n\n<ng-template #loggedOut> -->\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-4\">\n\n  </div>\n  <div class=\"col-lg-4\">\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"form.username\" #username=\"ngModel\"\n          required />\n        <div *ngIf=\"f.submitted && username.invalid\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"form.password\" #password=\"ngModel\"\n          required minlength=\"6\" />\n        <div *ngIf=\"f.submitted && password.invalid\">\n          <div *ngIf=\"password.errors.required\">Password is required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <button type=\"submit\" class=\"btn btn-success\">Login</button>\n        <div *ngIf=\"f.submitted && isLoginFailed\" class=\"alert alert-danger\">\n          Login failed: {{errorMessage}}\n        </div>\n      </div>\n    </form>\n    <hr />\n    <p>New User?</p>\n    <a [routerLink]=\"['/register']\" class=\"btn btn-success\">Sign Up</a>\n  </div>\n  <div class=\"col-lg-4\">\n\n  </div>\n</div>\n\n<!-- </ng-template> -->"
+module.exports = "<div class=\"bg-img\">\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-4\">\n  </div>\n  <div class=\"col-lg-4\">\n    <form name=\"form\" (ngSubmit)=\"f.form.valid && onSubmit()\" #f=\"ngForm\" novalidate>\n      <div class=\"form-group\">\n        <label for=\"username\">Username</label>\n        <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"form.username\" #username=\"ngModel\"\n          required />\n        <div *ngIf=\"f.submitted && username.invalid\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"form.password\" #password=\"ngModel\"\n          required minlength=\"6\" />\n        <div *ngIf=\"f.submitted && password.invalid\">\n          <div *ngIf=\"password.errors.required\">Password is required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 6 characters</div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <button type=\"submit\" class=\"btn btn-success\">Login</button>\n        <div *ngIf=\"f.submitted && isLoginFailed\" class=\"alert alert-danger\">\n          Login failed: {{errorMessage}}\n        </div>\n      </div>\n    </form>\n    <hr />\n    <p>New User?</p>\n    <a [routerLink]=\"['/register']\" class=\"btn btn-success\">Sign Up</a>\n  </div>\n  <div class=\"col-lg-4\">\n  </div>\n</div>\n</div>\n\n<!-- </ng-template> -->\n"
 
 /***/ }),
 
@@ -631,7 +694,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".nav-wrapper{\n    background-color: black;\n}\nimg{\n    width: 64px;\n    padding-bottom: 5px;\n}\n.input-field{\n    margin: 0%;\n    height: 64px;\n}\n.second-bar{\n    margin-left: 135px;\n    height: 60px;\n}\n.material-icons{\n    font-size: 40px;\n    color: black;\n    \n}\n#search{\n    margin: 0%;\n    background-image: url(\"/assets/MASHUP-BACK.png\");\n    background-position: center top;\n}\n.flex-container{\n    display: flex;\n    \n}"
+module.exports = ".nav-wrapper{\n    background-color: skyblue;\n}\nimg{\n    width: 65px;\n    padding-bottom: 5px;\n}\n.input-field{\n    margin: 0%;\n    height: 64px;\n}\n.second-bar{\n    margin-left: 135px;\n    height: 60px;\n}\n.material-icons{\n    font-size: 40px;\n    color: skyblue;\n    \n}\n#search{\n    margin: 0%;\n    background-color: whitesmoke;\n    background-position: center top;\n}\n.flex-container{\n    display: flex;\n    \n}\n.navhover:hover{\n    color: rgb(75, 44, 4);\n    text-decoration: none;\n    font-size: 20px;\n}\n"
 
 /***/ }),
 
@@ -642,7 +705,7 @@ module.exports = ".nav-wrapper{\n    background-color: black;\n}\nimg{\n    widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\" />\n\n<div *ngIf=\"info.token; else loggedOut\">\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"><img src=\"/assets/MASHUP.png\" class=\"image\" /></a>\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <div class=\"flex-container\">\n          <div>\n            <li>\n              <a [routerLink]=\"['/post', info.username]\">Post Question</a>\n            </li>\n          </div>\n          <div>\n            <li><a [routerLink]=\"['/userprofile']\">Profile</a></li>\n          </div>\n          <div>\n            <li>\n              <a (click)=\"logout()\">Logout</a>\n            </li>\n          </div>\n          <div>\n            <li>\n              <form>\n                <div class=\"input-field\">\n                  <input id=\"search\" type=\"search\" required />\n                  <label class=\"label-icon\" for=\"search\"><i class=\"material-icons\">search</i></label>\n                  <i class=\"material-icons\">close</i>\n                </div>\n              </form>\n            </li>\n          </div>\n        </div>\n      </ul>\n    </div>\n  </nav>\n</div>\n<ng-template #loggedOut>\n  <nav>\n    <div class=\"nav-wrapper\">\n      <a href=\"#\" class=\"brand-logo\"><img src=\"/assets/MASHUP.png\" class=\"image\" /></a>\n      <!-- <form> -->\n\n      <!-- </form> -->\n      <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n        <div class=\"flex-container\">\n\n          <div>\n            <li><a [routerLink]=\"['/fetch']\">Practice</a></li>\n          </div>\n          <div>\n            <li><a>Contact Us</a></li>\n          </div>\n          <div>\n            <li *ngIf=\"!authority\">\n              <a [routerLink]=\"['/auth/login']\"><span class=\"glyphicon glyphicon-log-in\"> </span> Login/Signup\n              </a>\n            </li>\n          </div>\n          <div>\n            <li>\n              <form>\n                <div class=\"input-field\">\n                  <input id=\"search\" type=\"search\" required />\n                  <label class=\"label-icon\" for=\"search\"><i class=\"material-icons\">search</i></label>\n                  <i class=\"material-icons\">close</i>\n                </div>\n              </form>\n            </li>\n          </div>\n        </div>\n      </ul>\n    </div>\n\n    <!-- <div class=\"nav-wrapper second-bar\">\n          \n      </div> -->\n  </nav>\n  <!-- <nav>\n      \n    </nav> -->\n</ng-template>"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n  <!-- =======================================================\n    Theme Name: Bell\n    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/\n    Author: BootstrapMade.com\n    Author URL: https://bootstrapmade.com\n  ======================================================= -->\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n  <!-- Header -->\n  <header id=\"header\">\n    <div class=\"container\">\n      <div *ngIf=\"info.token; else loggedOut\">\n      <!-- <div id=\"logo\" class=\"pull-left\"> -->\n        <!-- <a href=\"landing.component.html\"><img src=\"/assets/img/logo-nav.png\"></img></a> -->\n        <!-- Uncomment below if you prefer to use a text image -->\n        <!--<h1><a href=\"#hero\">Bell</a></h1>-->\n      <!-- </div> -->\n\n      <nav id=\"nav-menu-container\" class=\"\">\n        <ul class=\"nav-menu\">\n          <li><a href=\"\" [routerLink]=\"['/post', info.username]\">Post Question</a></li>\n          <li><a href=\"\" [routerLink]=\"['/userprofile']\">Profile</a></li>\n          <li><a href=\"\" (click)=\"logout()\">Logout</a></li>\n          <li><a href=\"#contact\">Contact Us</a></li>\n          <li><a href=\"\" [routerLink]=\"['/search']\">Search</a></li>\n        </ul>\n      </nav>\n      <!-- #nav-menu-container -->\n\n      <nav class=\"nav social-nav pull-right d-none d-lg-inline\">\n        <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> <a href=\"#\"><i class=\"fa fa-envelope\"></i></a>\n      </nav>\n    </div>\n\n    <ng-template #loggedOut>\n\n      <nav id=\"nav-menu-container\" class=\"\">\n        <ul class=\"nav-menu\">\n          <li><a href=\"\" [routerLink]=\"['/fetch']\">Practice</a></li>\n          <li *ngIf=\"!authority\"><a href=\"\" [routerLink]=\"['/auth/login']\">Login/Signup</a></li>\n          <!-- <li><a href=\"\" (click)=\"logout()\">Logout</a></li> -->\n          <li><a href=\"#contact\">Contact Us</a></li>\n          <li><a href=\"\" [routerLink]=\"['/search']\">Search</a></li>\n        </ul>\n      </nav>\n      <!-- #nav-menu-container -->\n\n      <nav class=\"nav social-nav pull-right d-none d-lg-inline\">\n        <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> <a href=\"#\"><i class=\"fa fa-envelope\"></i></a>\n      </nav>\n\n\n\n\n\n\n    </ng-template>\n\n\n\n\n    </div>\n  </header>\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n</body>\n</html>"
 
 /***/ }),
 
@@ -710,7 +773,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-card {\n    max-width: 400px;\n    max-height: 400px;\n    margin-bottom: 40px;\n  }\n \n  .example-header-image {\n    background-image: url('http://www.hdicon.com/wp-content/uploads/2010/07/java.png');\n    background-size: cover;\n  }\n \n  .parallax { \n    /* The image used */\n    background-image: url('parallax1.jpg');\n  \n    /* Set a specific height */\n    height: 500px; \n  \n    /* Create the parallax scrolling effect */\n    background-attachment: fixed;\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n  }"
+module.exports = ".example-card {\n    max-width: 400px;\n    max-height: 400px;\n    margin-bottom: 40px;\n  }\n \n  .example-header-image {\n    background-image: url('http://www.hdicon.com/wp-content/uploads/2010/07/java.png');\n    background-size: cover;\n  }\n \n  .btn{\n    margin:10px;\n }\n \n  .del{\n    background-color: rgb(255, 64, 64);\n }"
 
 /***/ }),
 
@@ -721,7 +784,7 @@ module.exports = ".example-card {\n    max-width: 400px;\n    max-height: 400px;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 style=\"text-align:center;padding-bottom: 3vh\">It's time to dive into the world of CODING....</h2>\n<div *ngFor=\"let question of fetch\" class=\"col-lg-4\">\n  <mat-card class=\"example-card\" style=\"background-color: rgb(206, 255, 191)\">\n    <mat-card-header style=\"height: 15vh;\">\n      <div mat-card-avatar class=\"example-header-image\"></div>\n      <mat-card-title>{{question.questionTitle}}</mat-card-title>\n      <mat-card-subtitle>{{question.tags}}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n    </mat-card-content>\n    <mat-card-actions style=\"padding-left:8vw;padding-bottom:2vh\">\n      <button mat-raised-button (click)=openEditor(question.questionId)>ATTEMPT</button>\n    </mat-card-actions>\n  </mat-card>\n</div>"
+module.exports = "<div class=\"container\" style=\"text-align:center\">\n    <div class=\"row\" style=\"text-align:center\">\n      <div class=\"col-md-12\" style=\"font-size:22px\">Let's dive into the world of Coding !!! </div>\n      <br><br><br><br>\n    </div>\n    <div class=\"row\" style=\"text-align:center\" >\n      <div *ngFor=\"let question of fetch\" class=\"col-md-4\">\n   \n        <!-- <div class=\"row\">\n            <div class=\"col s12 m6\"> -->\n              <div class=\"card\">\n                <div class=\"card-image\">\n                  <!-- <img src='{{question.trackImg}}'> -->\n                  <span class=\"card-title\">{{question.questionTitle}}</span>\n                  <!-- <a [routerLink]=\"['/update',track.trackId]\" class=\"btn-floating halfway-fab waves-effect waves-light red\"><i class=\"material-icons\">add</i></a> -->\n                </div>\n                <div class=\"card-content\">\n                  <p>Related to:{{question.tags}}</p>\n                  <p>Of level:{{question.difficulty}}</p>\n                  <!-- <p><input type=\"text\" [(ngModel)]=\"track.trackComment\"></p> -->\n                  <!-- <button  [routerLink]=\"['/delete',track.trackId]\"  type=\"button\"  class=\"btn btn-primary btn-sm del \" onClick=\"window.location.reload();\">Delete</button>\n                  <button  [routerLink]=\"['/updatetrack',track.trackId,track.trackComment]\" type=\"button\" class=\"btn btn-primary btn-sm \">update</button> -->\n                  <mat-card-actions style=\"padding-left:8vw;padding-bottom:2vh\">\n                      <button mat-raised-button (click)=openEditor(question.questionId)>ATTEMPT</button>\n                    </mat-card-actions>\n                </div>\n              </div>\n            <!-- </div>\n          </div> -->\n   \n        <br />\n      </div>\n    </div>\n   </div>"
 
 /***/ }),
 
@@ -1026,39 +1089,40 @@ var SavequestionComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/_components/scorebadge/scorebadge.component.css":
-/*!*****************************************************************!*\
-  !*** ./src/app/_components/scorebadge/scorebadge.component.css ***!
-  \*****************************************************************/
+/***/ "./src/app/_components/scoreandbadge/scoreandbadge.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/_components/scoreandbadge/scoreandbadge.component.css ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#header\n{\n  font-weight: bold;\n}\n.card{\nwidth: 220px;\nheight: 230px;\n}\n#cardtitle{\n  font-size:18px;\n  font-weight: bold;\n}\n"
 
 /***/ }),
 
-/***/ "./src/app/_components/scorebadge/scorebadge.component.html":
-/*!******************************************************************!*\
-  !*** ./src/app/_components/scorebadge/scorebadge.component.html ***!
-  \******************************************************************/
+/***/ "./src/app/_components/scoreandbadge/scoreandbadge.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/_components/scoreandbadge/scoreandbadge.component.html ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  scorebadge works!\n</p>\n"
+module.exports = "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js\"></script>\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n<!-- Compiled and minified CSS -->\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n<!-- Compiled and minified JavaScript -->\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"></script>\n\n<h5 id=\"header\">Badges</h5>\n<div class=\"card\">\n  <div class=\"card-image waves-effect waves-block waves-light\">\n    <img class=\"activator\" src=\"../../../assets/badge.jpg\">\n  </div>\n  <div class=\"card-content\">\n    <span class=\"card-title activator grey-text text-darken-4\"></span>\n  </div>\n</div>\n  <p id=\"cardtitle\">Your Total Score is : {{userData['totalScore']}}</p>\n\n\n"
 
 /***/ }),
 
-/***/ "./src/app/_components/scorebadge/scorebadge.component.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/_components/scorebadge/scorebadge.component.ts ***!
-  \****************************************************************/
-/*! exports provided: ScorebadgeComponent */
+/***/ "./src/app/_components/scoreandbadge/scoreandbadge.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/_components/scoreandbadge/scoreandbadge.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: ScoreandbadgeComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScorebadgeComponent", function() { return ScorebadgeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScoreandbadgeComponent", function() { return ScoreandbadgeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_scorebadge_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/scorebadge.service */ "./src/app/services/scorebadge.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1069,20 +1133,97 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ScorebadgeComponent = /** @class */ (function () {
-    function ScorebadgeComponent() {
+
+var ScoreandbadgeComponent = /** @class */ (function () {
+    function ScoreandbadgeComponent(scorebadgeservice) {
+        this.scorebadgeservice = scorebadgeservice;
     }
-    ScorebadgeComponent.prototype.ngOnInit = function () {
+    ScoreandbadgeComponent.prototype.ngOnInit = function () {
     };
-    ScorebadgeComponent = __decorate([
+    ScoreandbadgeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-scorebadge',
-            template: __webpack_require__(/*! ./scorebadge.component.html */ "./src/app/_components/scorebadge/scorebadge.component.html"),
-            styles: [__webpack_require__(/*! ./scorebadge.component.css */ "./src/app/_components/scorebadge/scorebadge.component.css")]
+            selector: 'app-scoreandbadge',
+            template: __webpack_require__(/*! ./scoreandbadge.component.html */ "./src/app/_components/scoreandbadge/scoreandbadge.component.html"),
+            styles: [__webpack_require__(/*! ./scoreandbadge.component.css */ "./src/app/_components/scoreandbadge/scoreandbadge.component.css")]
         }),
-        __metadata("design:paramtypes", [])
-    ], ScorebadgeComponent);
-    return ScorebadgeComponent;
+        __metadata("design:paramtypes", [_services_scorebadge_service__WEBPACK_IMPORTED_MODULE_1__["ScorebadgeService"]])
+    ], ScoreandbadgeComponent);
+    return ScoreandbadgeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/_components/searchservice/searchservice.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/_components/searchservice/searchservice.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".hello{\n    background-color: black;\n\n}"
+
+/***/ }),
+
+/***/ "./src/app/_components/searchservice/searchservice.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/_components/searchservice/searchservice.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<link\n href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n rel=\"stylesheet\"\n/>\n<!-- Compiled and minified CSS -->\n<link\n rel=\"stylesheet\"\n href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\"\n/>\n\n<!-- Compiled and minified JavaScript -->\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js\"></script>\n\n<nav>\n  <div class=\"nav-wrapper\">\n    <form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n      <div class=\"input-field hello\">\n        <input id=\"search\" type=\"search\" required input-type=\"text\" class=\"form-control \" name=\"tag\" [(ngModel)]=\"tag\" placeholder=\"Search\" aria-label=\"Recipient's username\" aria-describedby=\"button-addon2\">\n        <label class=\"label-icon\" for=\"search\"><i class=\"material-icons\">search</i></label>\n\n        <i class=\"material-icons\">close</i>\n      </div>\n\n    </form>\n  </div>\n</nav>\n\n<!-- <div *ngFor=\"let question of fetch\" class=\"col-md-4\">\n  <mat-card class=\"example-card\">\n    <mat-card-header>\n      <div mat-card-avatar class=\"example-header-image\"></div>\n      <mat-card-title>{{question.questionTitle}}</mat-card-title>\n      <mat-card-subtitle>{{question.questionDescription}}</mat-card-subtitle>\n    </mat-card-header>\n    <img mat-card-image src=\"https://cdn-images-1.medium.com/max/1600/1*E4CO83SmCCrvRrge7U3Ahw.jpeg\" alt=\"Photo of a Shiba Inu\">\n    <mat-card-content>\n    </mat-card-content>\n    <mat-card-actions>\n      <button mat-button>ATTEMPT</button>\n      <button mat-button>SHARE</button>\n    </mat-card-actions>\n  </mat-card>\n</div> -->\n<!-- <h2 style=\"text-align:center;padding-bottom: 3vh\">It's time to dive into the world of CODING....</h2> -->\n<div *ngFor=\"let question of fetch\" class=\"col-lg-4\">\n  <mat-card class=\"example-card\" style=\"background-color: rgb(206, 255, 191)\">\n    <mat-card-header style=\"height: 15vh;\">\n      <div mat-card-avatar class=\"example-header-image\"></div>\n      <mat-card-title>{{question.questionTitle}}</mat-card-title>\n      <mat-card-subtitle>{{question.questionDescription}}</mat-card-subtitle>\n      <mat-card-subtitle>{{question.difficulty}}</mat-card-subtitle>\n    </mat-card-header>\n    <mat-card-content>\n    </mat-card-content>\n    <mat-card-actions style=\"padding-left:8vw;padding-bottom:2vh\">\n      <button mat-raised-button [routerLink]=\"['/execution',question.questionId]\">ATTEMPT</button>\n    </mat-card-actions>\n  </mat-card>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/_components/searchservice/searchservice.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/_components/searchservice/searchservice.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: SearchserviceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchserviceComponent", function() { return SearchserviceComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_searchservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/searchservice.service */ "./src/app/services/searchservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SearchserviceComponent = /** @class */ (function () {
+    function SearchserviceComponent(_route, router, fetchservice) {
+        this._route = _route;
+        this.router = router;
+        this.fetchservice = fetchservice;
+    }
+    SearchserviceComponent.prototype.ngOnInit = function () {
+    };
+    SearchserviceComponent.prototype.search = function () {
+        var _this = this;
+        this.fetchservice.findQuestion(this.tag)
+            .subscribe(function (data) { return _this.fetch = data; });
+    };
+    SearchserviceComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-searchservice',
+            template: __webpack_require__(/*! ./searchservice.component.html */ "./src/app/_components/searchservice/searchservice.component.html"),
+            styles: [__webpack_require__(/*! ./searchservice.component.css */ "./src/app/_components/searchservice/searchservice.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_searchservice_service__WEBPACK_IMPORTED_MODULE_1__["SearchserviceService"]])
+    ], SearchserviceComponent);
+    return SearchserviceComponent;
 }());
 
 
@@ -1287,7 +1428,7 @@ module.exports = ".tile1{\n  height: 100%;\n  width: 80%;\n}\n.card {\n  width: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"3\" rowHeight=\"20vh\">\n  <mat-grid-tile\n    [colspan]=\"tiles[0].cols\"\n    [rowspan]=\"tiles[0].rows\"\n    [style.background]=\"tiles[0].color\"\n    class=\"profile\"\n  >\n    <div class=\"box\">\n      <div>\n        <mat-card class=\"card\" style=\"display:block;\">\n          <img\n            mat-card-image\n            src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\"\n            alt=\"Photo of a Shiba Inu\"\n            class=\"profileimage\"\n            width=\"195px\"\n            height=\"164px\"\n          />\n\n          <mat-card-content>\n            <p>{{ abc.firstName }} {{ abc.lastName }}</p>\n          </mat-card-content>\n          <p style=\"opacity:.7\">@ {{ abc.userName }}</p>\n        </mat-card>\n      </div>\n      <div>\n        <mat-card class=\"card card2\" style=\"display:block; margin-top: 1vh;\">\n          <p>\n            <!-- Password : {{ abc.password }} -->\n            <!-- <input type=\"text\"  value='password'></p> -->\n          </p>\n\n          <div [ngSwitch]=\"bhaak\">\n            <ng-template [ngSwitchCase]=\"'bhaak1'\">\n              <p>Email Id : {{ abc.emailId }}</p>\n              <p>list {{ abc.interests.join(\", \") }}</p>\n            </ng-template>\n            <ng-template [ngSwitchCase]=\"'bhaak2'\">\n                Email Id :<input type=text value= {{abc.emailId}}>\n              <p>list {{ abc.interests.join(\", \") }}</p>\n            </ng-template>\n          </div>\n          <button (click)=changemaadi()>Update Profile</button>\n        </mat-card>\n      </div>\n    </div>\n  </mat-grid-tile>\n\n  <mat-grid-tile\n    [colspan]=\"tiles[1].cols\"\n    [rowspan]=\"tiles[1].rows\"\n    [style.background]=\"tiles[1].color\"\n  >\n    <mat-tab-group class=\"tile1\">\n      <mat-tab label=\"Question Attempted\">\n        <mat-list role=\"list\" *ngFor=\"let questionA of abc.attemptedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\" [routerLink]=\"['/submission-component']\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            <p>{{ questionA.questionTitle }}</p>\n            </mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n      <mat-tab label=\"Question Posted\">\n        <mat-list role=\"list\" *ngFor=\"let questionP of abc.postedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            {{ questionP.questionTitle }}</mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-grid-tile>\n</mat-grid-list>\n"
+module.exports = "<app-scoreandbadge></app-scoreandbadge>\n<mat-grid-list cols=\"3\" rowHeight=\"20vh\">\n  <mat-grid-tile\n    [colspan]=\"tiles[0].cols\"\n    [rowspan]=\"tiles[0].rows\"\n    [style.background]=\"tiles[0].color\"\n    class=\"profile\"\n  >\n    <div class=\"box\">\n      <div>\n        <mat-card class=\"card\" style=\"display:block;\">\n          <img\n            mat-card-image\n            src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\"\n            alt=\"Photo of a Shiba Inu\"\n            class=\"profileimage\"\n            width=\"195px\"\n            height=\"164px\"\n          />\n\n          <mat-card-content>\n            <p>{{ profile.firstName }} {{ profile.lastName }}</p>\n          </mat-card-content>\n          <p style=\"opacity:.7\">@ {{ profile.userName }}</p>\n        </mat-card>\n      </div>\n      <div>\n        <mat-card class=\"card card2\" style=\"display:block; margin-top: 1vh;\">\n          <p>Age : {{ profile.age }}</p>\n          <p>Gender : {{ profile.gender}}</p>\n          <p>Company : {{ profile.company }}</p>\n          <p>College : {{ profile.college }}</p>\n          <p>Course : {{ profile.course }}</p>\n          <p>Discipline : {{ profile.discipline }}</p>\n\n          <div [ngSwitch]=\"bhaak\">\n            <ng-template [ngSwitchCase]=\"'bhaak1'\">\n              <p>Email Id : {{ profile.emailId }}</p>\n              <p>list {{ profile.interests.join(\", \") }}</p>\n            </ng-template>\n            <ng-template [ngSwitchCase]=\"'bhaak2'\">\n                Email Id :<input type=text value= {{abc.emailId}}>\n              <p>list {{ profile.interests.join(\", \") }}</p>\n            </ng-template>\n          </div>\n          <button (click)=changemaadi()>Update Profile</button>\n        </mat-card>\n      </div>\n    </div>\n  </mat-grid-tile>\n\n  <mat-grid-tile\n    [colspan]=\"tiles[1].cols\"\n    [rowspan]=\"tiles[1].rows\"\n    [style.background]=\"tiles[1].color\"\n  >\n    <mat-tab-group class=\"tile1\">\n      <mat-tab label=\"Question Attempted\">\n        <mat-list role=\"list\" *ngFor=\"let questionA of profile.attemptedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\" [routerLink]=\"['/submission-component']\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            <p>{{ questionA.questionTitle }}</p>\n            </mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n      <mat-tab label=\"Question Posted\">\n        <mat-list role=\"list\" *ngFor=\"let questionP of profile.postedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            {{ questionP.questionTitle }}</mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 
@@ -1305,6 +1446,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/userprofile-service.service */ "./src/app/services/userprofile-service.service.ts");
 /* harmony import */ var src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/token-storage.service */ "./src/app/services/token-storage.service.ts");
+/* harmony import */ var src_app_services_scorebadge_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/scorebadge.service */ "./src/app/services/scorebadge.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1318,6 +1460,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ELEMENT_DATA = [
     { position: 1, name: 'Hydroge ns rdctf dgfdhbcm dvi dkgfdvd dfg fdgdfgf dfgfdg dfgdfg dffhdg guhny' },
     { position: 2, name: 'Heliumwegfhdgcufyiguohef eft udjqe  qetuyg qeqiqyhdg qef' },
@@ -1325,9 +1468,13 @@ var ELEMENT_DATA = [
     { position: 4, name: 'Beryllium' },
 ];
 var UserprofileComponent = /** @class */ (function () {
-    function UserprofileComponent(token, userService) {
+    // tslint:disable-next-line:max-line-length
+    function UserprofileComponent(token, userService, scorebadgeservice) {
         this.token = token;
         this.userService = userService;
+        this.scorebadgeservice = scorebadgeservice;
+        // for getting data from scoreand badge service (added by pratima on 27th feb2019)
+        this.userData = {};
         this.tiles = [
             { text: 'One', cols: 1, rows: 4, color: 'white' },
             { text: 'Two', cols: 2, rows: 4, color: 'white' },
@@ -1342,9 +1489,16 @@ var UserprofileComponent = /** @class */ (function () {
     UserprofileComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.uname = this.token.getUsername();
-        this.userService.getUserProfile(this.uname).subscribe(function (data) { return _this.abc = data; });
-        console.log('ABC : ', this.abc);
+        this.userService.getUserProfile(this.uname).subscribe(function (data) { return _this.profile = data; });
+        console.log('User Profile : ', this.profile);
         this.bhaak = 'bhaak1';
+        // call score and badge service to get data(added by pratima on 27th feb2019)
+        this.scorebadgeservice.getUserData(this.uname).subscribe(function (data) {
+            _this.userData = data;
+            console.log('Data is ', data);
+        }, function (error) {
+            alert(error);
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
@@ -1356,7 +1510,7 @@ var UserprofileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./userprofile.component.html */ "./src/app/_components/userprofile/userprofile.component.html"),
             styles: [__webpack_require__(/*! ./userprofile.component.css */ "./src/app/_components/userprofile/userprofile.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__["TokenStorageService"], _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_2__["UserprofileServiceService"]])
+        __metadata("design:paramtypes", [src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__["TokenStorageService"], _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_2__["UserprofileServiceService"], src_app_services_scorebadge_service__WEBPACK_IMPORTED_MODULE_4__["ScorebadgeService"]])
     ], UserprofileComponent);
     return UserprofileComponent;
 }());
@@ -1599,17 +1753,18 @@ var JwtInterceptor = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
-/* harmony import */ var _components_voting_voting_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_components/voting/voting.component */ "./src/app/_components/voting/voting.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_components/login/login.component */ "./src/app/_components/login/login.component.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_components/home/home.component */ "./src/app/_components/home/home.component.ts");
-/* harmony import */ var _components_user_user_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_components/user/user.component */ "./src/app/_components/user/user.component.ts");
-/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_components/register/register.component */ "./src/app/_components/register/register.component.ts");
-/* harmony import */ var _components_savequestion_savequestion_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_components/savequestion/savequestion.component */ "./src/app/_components/savequestion/savequestion.component.ts");
-/* harmony import */ var _components_edit_edit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./_components/edit/edit.component */ "./src/app/_components/edit/edit.component.ts");
-/* harmony import */ var _components_userprofile_userprofile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./_components/userprofile/userprofile.component */ "./src/app/_components/userprofile/userprofile.component.ts");
-/* harmony import */ var _components_submission_submission_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./_components/submission/submission.component */ "./src/app/_components/submission/submission.component.ts");
+/* harmony import */ var _components_searchservice_searchservice_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_components/searchservice/searchservice.component */ "./src/app/_components/searchservice/searchservice.component.ts");
+/* harmony import */ var _components_voting_voting_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_components/voting/voting.component */ "./src/app/_components/voting/voting.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_components/login/login.component */ "./src/app/_components/login/login.component.ts");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_components/home/home.component */ "./src/app/_components/home/home.component.ts");
+/* harmony import */ var _components_user_user_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_components/user/user.component */ "./src/app/_components/user/user.component.ts");
+/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_components/register/register.component */ "./src/app/_components/register/register.component.ts");
+/* harmony import */ var _components_savequestion_savequestion_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./_components/savequestion/savequestion.component */ "./src/app/_components/savequestion/savequestion.component.ts");
+/* harmony import */ var _components_edit_edit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./_components/edit/edit.component */ "./src/app/_components/edit/edit.component.ts");
+/* harmony import */ var _components_userprofile_userprofile_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./_components/userprofile/userprofile.component */ "./src/app/_components/userprofile/userprofile.component.ts");
+/* harmony import */ var _components_submission_submission_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./_components/submission/submission.component */ "./src/app/_components/submission/submission.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1627,39 +1782,40 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
-    { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"] },
+    { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_7__["RegisterComponent"] },
     {
         path: 'home',
-        component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"]
+        component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]
     },
     {
         path: 'userprofile',
-        component: _components_userprofile_userprofile_component__WEBPACK_IMPORTED_MODULE_9__["UserprofileComponent"]
+        component: _components_userprofile_userprofile_component__WEBPACK_IMPORTED_MODULE_10__["UserprofileComponent"]
     },
     {
         path: 'execution',
-        component: _components_edit_edit_component__WEBPACK_IMPORTED_MODULE_8__["EditComponent"]
+        component: _components_edit_edit_component__WEBPACK_IMPORTED_MODULE_9__["EditComponent"]
     },
     {
         path: 'execution/:qid',
-        component: _components_edit_edit_component__WEBPACK_IMPORTED_MODULE_8__["EditComponent"]
+        component: _components_edit_edit_component__WEBPACK_IMPORTED_MODULE_9__["EditComponent"]
     },
     {
         path: 'post/:username',
-        component: _components_savequestion_savequestion_component__WEBPACK_IMPORTED_MODULE_7__["SavequestionComponent"]
+        component: _components_savequestion_savequestion_component__WEBPACK_IMPORTED_MODULE_8__["SavequestionComponent"]
     },
     {
         path: 'user',
-        component: _components_user_user_component__WEBPACK_IMPORTED_MODULE_5__["UserComponent"]
+        component: _components_user_user_component__WEBPACK_IMPORTED_MODULE_6__["UserComponent"]
     },
     {
         path: 'auth/login',
-        component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
+        component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]
     },
     {
         path: 'voting',
-        component: _components_voting_voting_component__WEBPACK_IMPORTED_MODULE_0__["VotingComponent"]
+        component: _components_voting_voting_component__WEBPACK_IMPORTED_MODULE_1__["VotingComponent"]
     },
     {
         path: '',
@@ -1668,16 +1824,20 @@ var routes = [
     },
     {
         path: 'submission-component',
-        component: _components_submission_submission_component__WEBPACK_IMPORTED_MODULE_10__["SubmissionComponent"]
+        component: _components_submission_submission_component__WEBPACK_IMPORTED_MODULE_11__["SubmissionComponent"]
+    },
+    {
+        path: 'search',
+        component: _components_searchservice_searchservice_component__WEBPACK_IMPORTED_MODULE_0__["SearchserviceComponent"]
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -1694,7 +1854,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container{\n    overflow-x: hidden;\n    overflow-y: hidden;\n}"
+module.exports = ".container{\n    /* overflow-x: hidden;\n    overflow-y: hidden; */\n}\n"
 
 /***/ }),
 
@@ -1705,7 +1865,7 @@ module.exports = ".container{\n    overflow-x: hidden;\n    overflow-y: hidden;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp;\n<app-footer></app-footer>"
+module.exports = "<app-navbar></app-navbar>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<router-outlet></router-outlet>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -1807,13 +1967,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_voting_voting_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./_components/voting/voting.component */ "./src/app/_components/voting/voting.component.ts");
 /* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./_components/navbar/navbar.component */ "./src/app/_components/navbar/navbar.component.ts");
 /* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./_components/footer/footer.component */ "./src/app/_components/footer/footer.component.ts");
-/* harmony import */ var _components_scorebadge_scorebadge_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./_components/scorebadge/scorebadge.component */ "./src/app/_components/scorebadge/scorebadge.component.ts");
+/* harmony import */ var _components_scoreandbadge_scoreandbadge_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./_components/scoreandbadge/scoreandbadge.component */ "./src/app/_components/scoreandbadge/scoreandbadge.component.ts");
+/* harmony import */ var _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./_components/landing/landing.component */ "./src/app/_components/landing/landing.component.ts");
+/* harmony import */ var _components_searchservice_searchservice_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./_components/searchservice/searchservice.component */ "./src/app/_components/searchservice/searchservice.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1907,7 +2071,9 @@ var AppModule = /** @class */ (function () {
                 _components_voting_voting_component__WEBPACK_IMPORTED_MODULE_32__["VotingComponent"],
                 _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_33__["NavbarComponent"],
                 _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_34__["FooterComponent"],
-                _components_scorebadge_scorebadge_component__WEBPACK_IMPORTED_MODULE_35__["ScorebadgeComponent"],
+                _components_scoreandbadge_scoreandbadge_component__WEBPACK_IMPORTED_MODULE_35__["ScoreandbadgeComponent"],
+                _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_36__["LandingComponent"],
+                _components_searchservice_searchservice_component__WEBPACK_IMPORTED_MODULE_37__["SearchserviceComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -2347,6 +2513,101 @@ var RegisterService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/scorebadge.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/scorebadge.service.ts ***!
+  \************************************************/
+/*! exports provided: ScorebadgeService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScorebadgeService", function() { return ScorebadgeService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ScorebadgeService = /** @class */ (function () {
+    function ScorebadgeService(_http) {
+        this._http = _http;
+        this.scoreBadgeApidUrl = 'http://localhost:8033/api/v1/';
+        console.log('http service got called');
+    }
+    ScorebadgeService.prototype.getUserData = function (userName) {
+        // tslint:disable-next-line:prefer-const
+        var getUserData = this._http.get(this.scoreBadgeApidUrl + 'getTotalScore' + '/' + userName);
+        console.log(getUserData);
+        return getUserData;
+    };
+    ScorebadgeService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ScorebadgeService);
+    return ScorebadgeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/searchservice.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/services/searchservice.service.ts ***!
+  \***************************************************/
+/*! exports provided: SearchserviceService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchserviceService", function() { return SearchserviceService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SearchserviceService = /** @class */ (function () {
+    function SearchserviceService(httpclient) {
+        this.httpclient = httpclient;
+        this.fetchURL = 'http://localhost:8097/api/v1/question/';
+        this.getinfo = 'http://localhost:8097/api/v1/searched';
+    }
+    SearchserviceService.prototype.findQuestion = function (tag) {
+        var info = this.httpclient.get(this.fetchURL + tag);
+        console.log(tag + info);
+        return info;
+    };
+    SearchserviceService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], SearchserviceService);
+    return SearchserviceService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/token-storage.service.ts":
 /*!***************************************************!*\
   !*** ./src/app/services/token-storage.service.ts ***!
@@ -2573,7 +2834,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Downloads/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
