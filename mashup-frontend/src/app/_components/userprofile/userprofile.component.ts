@@ -32,7 +32,7 @@ export class UserprofileComponent implements OnInit {
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 4, color: 'white'},
     {text: 'Two', cols: 2, rows: 4, color: 'white'},
-    {text: 'three', cols: 1, rows: 4, color: 'grey'},
+    {text: 'three', cols: 2, rows: 1, color: 'grey'},
   ];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
