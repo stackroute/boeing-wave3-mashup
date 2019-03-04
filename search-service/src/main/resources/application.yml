@@ -1,6 +1,6 @@
-##server:
-##  port: 8098    #default port where the service will be started
-##
+server:
+  port: 8026    #default port where the service will be started
+
 eureka:         #tells about the Eureka server details and its refresh time
   instance:
     leaseRenewalIntervalInSeconds: 1
@@ -15,7 +15,7 @@ eureka:         #tells about the Eureka server details and its refresh time
 
 spring:
   application:
-    name: search-service2   #current service name to be used by the eureka server
+    name: search-service   #current service name to be used by the eureka server
 
 management:
   security:
