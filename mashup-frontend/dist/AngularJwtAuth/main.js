@@ -2539,7 +2539,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ScorebadgeService = /** @class */ (function () {
     function ScorebadgeService(_http) {
         this._http = _http;
-        this.scoreBadgeApidUrl = 'http://localhost:8033/api/v1/';
+        this.scoreBadgeApidUrl = 'http://13.234.74.67:8092/score-badge-service/api/v1/';
         console.log('http service got called');
     }
     ScorebadgeService.prototype.getUserData = function (userName) {
