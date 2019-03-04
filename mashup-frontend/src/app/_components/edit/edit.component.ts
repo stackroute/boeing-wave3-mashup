@@ -86,7 +86,7 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.questionId=this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
-     
+     this.uname="sidhu";
     console.log(this.questionId);
     console.log(this.uname);
     this.connect();
