@@ -23,13 +23,13 @@ public class SubmissionController {
     @PostMapping(value = "submission")
     public ResponseEntity<SubmissionData> saveSubmissions(@RequestBody SubmissionData submissionData){
         SubmissionData submissionData1 = submissionService.saveSubmission(submissionData);
-        return new ResponseEntity<SubmissionData>(submissionData1, HttpStatus.OK);
+        return new ResponseEntity<>(submissionData1, HttpStatus.OK);
     }
 
     //Method to fetch data(question) on the basis of username and questionId from database
     @GetMapping(value = "submission/{username}/{questionId}")
-    public ResponseEntity<?> getSubmissions(@PathVariable("username") String username, @PathVariable("questionId") int questionId){
+    public ResponseEntity<SubmissionData> getSubmissions(@PathVariable("username") String username, @PathVariable("questionId") int questionId){
         SubmissionData submissionData = submissionService.getSubmission(username,questionId);
-        return new ResponseEntity<SubmissionData>(submissionData,HttpStatus.OK);
+        return new ResponseEntity<>(submissionData,HttpStatus.OK);
     }
 }

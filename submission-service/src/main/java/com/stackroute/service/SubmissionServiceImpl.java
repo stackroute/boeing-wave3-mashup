@@ -9,10 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class SubmissionServiceImpl implements SubmissionService{
 
-    static final double easy = 10;
-    static final double medium = 20;
-    static final double hard = 30;
-
     private SubmissionRepository submissionRepository;
     private KafkaTemplate<String, SubmissionData> kafkaTemplate;
 
@@ -27,15 +23,15 @@ public class SubmissionServiceImpl implements SubmissionService{
     public SubmissionData saveSubmission(SubmissionData submissionData) {
         double level;
         if(submissionData.getDifficulty().equals("easy")){
-            level = easy;
+            level = 10;
         }
         else if(submissionData.getDifficulty().equals("medium")){
-            level = medium;
+            level = 20;
         }
         else{
-            level = hard;
+            level = 30;
         }
-        Double score1 = (submissionData.getTestCasePassed()/submissionData.getTotalTestCases())*level;
+        Double score1 = ((double)submissionData.getTestCasePassed()/(double)submissionData.getTotalTestCases())*level;
         submissionData.setScore(score1);
         kafkaTemplate.send("SubmissionMessage",submissionData);
         SubmissionData submissionObj = submissionRepository.save(submissionData);
