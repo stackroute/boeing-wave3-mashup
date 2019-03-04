@@ -1428,7 +1428,7 @@ module.exports = ".tile1{\n  height: 100%;\n  width: 80%;\n}\n.card {\n  width: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-scoreandbadge></app-scoreandbadge>\n<mat-grid-list cols=\"3\" rowHeight=\"20vh\">\n  <mat-grid-tile\n    [colspan]=\"tiles[0].cols\"\n    [rowspan]=\"tiles[0].rows\"\n    [style.background]=\"tiles[0].color\"\n    class=\"profile\"\n  >\n    <div class=\"box\">\n      <div>\n        <mat-card class=\"card\" style=\"display:block;\">\n          <img\n            mat-card-image\n            src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\"\n            alt=\"Photo of a Shiba Inu\"\n            class=\"profileimage\"\n            width=\"195px\"\n            height=\"164px\"\n          />\n\n          <mat-card-content>\n            <p>{{ profile.firstName }} {{ profile.lastName }}</p>\n          </mat-card-content>\n          <p style=\"opacity:.7\">@ {{ profile.userName }}</p>\n        </mat-card>\n      </div>\n      <div>\n        <mat-card class=\"card card2\" style=\"display:block; margin-top: 1vh;\">\n          <p>Age : {{ profile.age }}</p>\n          <p>Gender : {{ profile.gender}}</p>\n          <p>Company : {{ profile.company }}</p>\n          <p>College : {{ profile.college }}</p>\n          <p>Course : {{ profile.course }}</p>\n          <p>Discipline : {{ profile.discipline }}</p>\n\n          <div [ngSwitch]=\"bhaak\">\n            <ng-template [ngSwitchCase]=\"'bhaak1'\">\n              <p>Email Id : {{ profile.emailId }}</p>\n              <p>list {{ profile.interests.join(\", \") }}</p>\n            </ng-template>\n            <ng-template [ngSwitchCase]=\"'bhaak2'\">\n                Email Id :<input type=text value= {{abc.emailId}}>\n              <p>list {{ profile.interests.join(\", \") }}</p>\n            </ng-template>\n          </div>\n          <button (click)=changemaadi()>Update Profile</button>\n        </mat-card>\n      </div>\n    </div>\n  </mat-grid-tile>\n\n  <mat-grid-tile\n    [colspan]=\"tiles[1].cols\"\n    [rowspan]=\"tiles[1].rows\"\n    [style.background]=\"tiles[1].color\"\n  >\n    <mat-tab-group class=\"tile1\">\n      <mat-tab label=\"Question Attempted\">\n        <mat-list role=\"list\" *ngFor=\"let questionA of profile.attemptedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\" [routerLink]=\"['/submission-component']\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            <p>{{ questionA.questionTitle }}</p>\n            </mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n      <mat-tab label=\"Question Posted\">\n        <mat-list role=\"list\" *ngFor=\"let questionP of profile.postedQuestion | slice:1;\">\n          <mat-list-item role=\"listitem\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            {{ questionP.questionTitle }}</mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-grid-tile>\n</mat-grid-list>\n"
+module.exports = "<mat-grid-list cols=\"3\" rowHeight=\"20vh\">\n  <mat-grid-tile\n    [colspan]=\"tiles[0].cols\"\n    [rowspan]=\"tiles[0].rows\"\n    [style.background]=\"tiles[0].color\"\n    class=\"profile\"\n  >\n    <div class=\"box\">\n      <div>\n        <mat-card class=\"card\" style=\"display:block;\">\n          <img\n            mat-card-image\n            src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\"\n            alt=\"Photo of a Shiba Inu\"\n            class=\"profileimage\"\n            width=\"195px\"\n            height=\"164px\"\n          />\n\n          <mat-card-content>\n            <p>{{ profile.firstName }} {{ profile.lastName }}</p>\n          </mat-card-content>\n          <p style=\"opacity:.7\">@ {{ profile.userName }}</p>\n        </mat-card>\n      </div>\n      <div>\n        <app-scoreandbadge></app-scoreandbadge>\n        <mat-card class=\"card card2\" style=\"display:block; margin-top: 1vh;\">\n          <div [ngSwitch]=\"profileState\">\n            <ng-template [ngSwitchCase]=\"'currentProfile'\">\n              <p>Email Id : {{ profile.emailId }}</p>\n              <p>Age : {{ profile.age }}</p>\n              <p>Gender : {{ profile.gender }}</p>\n              <p>Company : {{ profile.company }}</p>\n              <p>College : {{ profile.college }}</p>\n              <p>Course : {{ profile.course }}</p>\n              <p>Discipline : {{ profile.discipline }}</p>\n              <p>list {{ profile.interests.join(\", \") }}</p>\n            </ng-template>\n            <ng-template [ngSwitchCase]=\"'updatingProfile'\">\n              <p>Email Id : {{ profile.emailId }}</p>\n              <p>Age : <input type=\"text\" value={{ profile.age }} /></p>\n              <p>Gender : <input type=\"text\" value={{ profile.gender}} /></p>\n              <p>\n                Company : <input type=\"text\" value={{ profile.company }} />\n              </p>\n              <p>\n                College : <input type=\"text\" value={{ profile.college }} />\n              </p>\n              <p>Course : <input type=\"text\" value={{ profile.course }} /></p>\n              <p>\n                Discipline :\n                <input type=\"text\" value={{ profile.discipline }} />\n              </p>\n              <p>list {{ profile.interests.join(\", \") }}</p>\n            </ng-template>\n          </div>\n          <button (click)=\"updateProfile()\">Update Profile</button>\n        </mat-card>\n      </div>\n    </div>\n  </mat-grid-tile>\n\n  <mat-grid-tile\n    [colspan]=\"tiles[1].cols\"\n    [rowspan]=\"tiles[1].rows\"\n    [style.background]=\"tiles[1].color\"\n  >\n    <mat-tab-group class=\"tile1\">\n      <mat-tab label=\"Question Attempted\">\n        <mat-list\n          role=\"list\"\n          *ngFor=\"let questionA of (profile.attemptedQuestion | slice: 1)\"\n        >\n          <mat-list-item\n            role=\"listitem\"\n            [routerLink]=\"['/submission-component']\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            <p>{{ questionA.questionTitle }}</p>\n          </mat-list-item>\n        </mat-list>\n      </mat-tab>\n      <mat-tab label=\"Question Posted\">\n        <mat-list\n          role=\"list\"\n          *ngFor=\"let questionP of (profile.postedQuestion | slice: 1)\"\n        >\n          <mat-list-item role=\"listitem\"\n            ><i class=\"fab fa-quora\"></i> &nbsp;\n            {{ questionP.questionTitle }}</mat-list-item\n          >\n        </mat-list>\n      </mat-tab>\n    </mat-tab-group>\n  </mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 
@@ -1461,12 +1461,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var ELEMENT_DATA = [
-    { position: 1, name: 'Hydroge ns rdctf dgfdhbcm dvi dkgfdvd dfg fdgdfgf dfgfdg dfgdfg dffhdg guhny' },
-    { position: 2, name: 'Heliumwegfhdgcufyiguohef eft udjqe  qetuyg qeqiqyhdg qef' },
-    { position: 3, name: 'Lithium' },
-    { position: 4, name: 'Beryllium' },
-];
 var UserprofileComponent = /** @class */ (function () {
     // tslint:disable-next-line:max-line-length
     function UserprofileComponent(token, userService, scorebadgeservice) {
@@ -1480,18 +1474,16 @@ var UserprofileComponent = /** @class */ (function () {
             { text: 'Two', cols: 2, rows: 4, color: 'white' },
             { text: 'three', cols: 1, rows: 4, color: 'grey' },
         ];
-        this.displayedColumns = ['position', 'name'];
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](ELEMENT_DATA);
     }
-    UserprofileComponent.prototype.changemaadi = function () {
-        this.bhaak = 'bhaak2';
+    UserprofileComponent.prototype.updateProfile = function () {
+        this.profileState = 'updatingProfile';
     };
     UserprofileComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.uname = this.token.getUsername();
         this.userService.getUserProfile(this.uname).subscribe(function (data) { return _this.profile = data; });
         console.log('User Profile : ', this.profile);
-        this.bhaak = 'bhaak1';
+        this.profileState = 'currentProfile';
         // call score and badge service to get data(added by pratima on 27th feb2019)
         this.scorebadgeservice.getUserData(this.uname).subscribe(function (data) {
             _this.userData = data;
@@ -2834,7 +2826,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Documents/Mashup/aws-v1.0.3/boeing-wave3-mashup/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
