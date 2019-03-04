@@ -2587,8 +2587,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var SearchserviceService = /** @class */ (function () {
     function SearchserviceService(httpclient) {
         this.httpclient = httpclient;
-        this.fetchURL = 'http://localhost:8097/api/v1/question/';
-        this.getinfo = 'http://localhost:8097/api/v1/searched';
+        this.fetchURL = 'http://13.234.74.67:8092/search-service/api/v1/question/';
+        this.getinfo = 'http://13.234.74.67:8092/search-service/api/v1/searched';
     }
     SearchserviceService.prototype.findQuestion = function (tag) {
         var info = this.httpclient.get(this.fetchURL + tag);
