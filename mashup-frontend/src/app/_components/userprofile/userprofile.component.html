@@ -26,20 +26,25 @@
       </div>
       <div>
         <mat-card class="card card2" style="display:block; margin-top: 1vh;">
-          <p>Age : {{ profile.age }}</p>
-          <p>Gender : {{ profile.gender}}</p>
-          <p>Company : {{ profile.company }}</p>
-          <p>College : {{ profile.college }}</p>
-          <p>Course : {{ profile.course }}</p>
-          <p>Discipline : {{ profile.discipline }}</p>
-
           <div [ngSwitch]="bhaak">
             <ng-template [ngSwitchCase]="'bhaak1'">
               <p>Email Id : {{ profile.emailId }}</p>
+              <p>Age : {{ profile.age }}</p>
+              <p>Gender : {{ profile.gender}}</p>
+              <p>Company : {{ profile.company }}</p>
+              <p>College : {{ profile.college }}</p>
+              <p>Course : {{ profile.course }}</p>
+              <p>Discipline : {{ profile.discipline }}</p>
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
             <ng-template [ngSwitchCase]="'bhaak2'">
-                Email Id :<input type=text value= {{profile.emailId}}>
+              <p>Email Id : {{ profile.emailId }} </p>
+              <p>Age : <input type=text value= {{ profile.age }}/></p>
+              <p>Gender : <input type=text value= {{ profile.gender}}/></p>
+              <p>Company : <input type=text value= {{ profile.company }}/></p>
+              <p>College : <input type=text value= {{ profile.college }}/></p>
+              <p>Course : <input type=text value= {{ profile.course }}/></p>
+              <p>Discipline : <input type=text value= {{ profile.discipline }}/></p>
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
           </div>
