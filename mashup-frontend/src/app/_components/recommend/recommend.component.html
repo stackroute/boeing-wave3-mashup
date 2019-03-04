@@ -5,28 +5,20 @@
     </div>
     <div class="row" style="text-align:center" >
       <div *ngFor="let question of fetch" class="col-md-4">
-   
-        <!-- <div class="row">
-            <div class="col s12 m6"> -->
-              <div class="card">
-                <div class="card-image">
-                  <!-- <img src='{{question.trackImg}}'> -->
+              <div class="card" style="background-color: rgb(206, 255, 191)">
+                <div class="card-image" style="background-color: rgb(206, 255, 191)">
                   <span class="card-title">{{question.questionTitle}}</span>
-                  <!-- <a [routerLink]="['/update',track.trackId]" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
                 </div>
                 <div class="card-content">
                   <p>Related to:{{question.tags}}</p>
                   <p>Of level:{{question.difficulty}}</p>
-                  <!-- <p><input type="text" [(ngModel)]="track.trackComment"></p> -->
-                  <!-- <button  [routerLink]="['/delete',track.trackId]"  type="button"  class="btn btn-primary btn-sm del " onClick="window.location.reload();">Delete</button>
-                  <button  [routerLink]="['/updatetrack',track.trackId,track.trackComment]" type="button" class="btn btn-primary btn-sm ">update</button> -->
+          
                   <mat-card-actions style="padding-left:8vw;padding-bottom:2vh">
                       <button mat-raised-button (click)=openEditor(question.questionId)>ATTEMPT</button>
                     </mat-card-actions>
                 </div>
               </div>
-            <!-- </div>
-          </div> -->
+
    
         <br />
       </div>
