@@ -5,8 +5,7 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-		<!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>execution-engine</artifactId>
 	<name>execution-engine</name>
@@ -54,7 +53,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 
 </project>
