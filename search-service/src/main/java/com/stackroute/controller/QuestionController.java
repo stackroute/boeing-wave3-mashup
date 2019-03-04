@@ -17,13 +17,18 @@ import java.util.List;
 @CrossOrigin("*")
 public class QuestionController {
 
-    @Autowired
     private RestTemplate restTemplate;
-    @Autowired
     private EurekaClient eurekaClient;
 
     private List<Question> ques;
-//   request method to call question service controller
+
+    @Autowired
+    public QuestionController(RestTemplate restTemplate, EurekaClient eurekaClient) {
+        this.restTemplate = restTemplate;
+        this.eurekaClient = eurekaClient;
+    }
+
+    //   request method to call question service controller
     @RequestMapping(value = "question/{tag}")
     public List<Question> getQuestionByTag(@PathVariable String tag) {
         Application application = eurekaClient.getApplication("QUESTION-SERVICE");
