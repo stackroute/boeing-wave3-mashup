@@ -11,10 +11,10 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RefreshScope
 @RestController
 @RequestMapping(value = "/api/v1/")
-@CrossOrigin("*")
 public class QuestionController {
 
     private RestTemplate restTemplate;
@@ -35,7 +35,8 @@ public class QuestionController {
         System.out.println("App : " + application);
         InstanceInfo instanceInfo = application.getInstances().get(0);
         System.out.println("Inst : " + instanceInfo);
-        String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "api/v1/questions/" + tag;
+//        String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "api/v1/questions/" + tag;
+        String url = "http://" + "localhost" + ":" + instanceInfo.getPort() + "/" + "api/v1/questions/" + tag;
         System.out.println("URL" + url);
         List<Question> ques = restTemplate.getForObject(url, List.class);
         System.out.println("RESPONSE " + ques);
