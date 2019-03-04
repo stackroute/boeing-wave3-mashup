@@ -35,7 +35,6 @@ public class UserController {
         }
         catch (UserAlreadyExistsException ex){
             responseEntity = new ResponseEntity<String>(ex.getMessage(),HttpStatus.BAD_REQUEST);
-            ex.printStackTrace();
         }
         return responseEntity;
     }
@@ -47,7 +46,7 @@ public class UserController {
     }
 //Request mapping for deleting user details
     @DeleteMapping("users/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable("id") String userId){
+    public ResponseEntity<String> deleteUser(@PathVariable("id") String userId){
         ResponseEntity responseEntity;
         try {
             User user = userService.deleteUser(userId);
@@ -69,10 +68,8 @@ public class UserController {
         }
         catch (UserNotFoundException ex){
             responseEntity = new ResponseEntity<String>(ex.getMessage(),HttpStatus.NOT_FOUND);
-            ex.printStackTrace();
         }
         return responseEntity;
-
     }
 
     @GetMapping("/publish/{email}")
