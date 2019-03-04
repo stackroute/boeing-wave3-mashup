@@ -28,14 +28,14 @@ public class QuestionController {
         this.eurekaClient = eurekaClient;
     }
 
-    //   request method to call question service controller
+//       request method to call question service controller
     @RequestMapping(value = "question/{tag}")
     public List<Question> getQuestionByTag(@PathVariable String tag) {
         Application application = eurekaClient.getApplication("QUESTION-SERVICE");
         System.out.println("App : " + application);
         InstanceInfo instanceInfo = application.getInstances().get(0);
         System.out.println("Inst : " + instanceInfo);
-        String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "api/v1/questions/" + tag;
+        String url = "http://" + "localhost" + ":" + instanceInfo.getPort() + "/" + "api/v1/questions/" + tag;
         System.out.println("URL" + url);
         List<Question> ques = restTemplate.getForObject(url, List.class);
         System.out.println("RESPONSE " + ques);
