@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.2-SNAPSHOT</version>
 		<!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
 	</parent>
 	<artifactId>execution-engine</artifactId>
 	<name>execution-engine</name>
-	<description>Execution Engine</description>
+	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>10</java.version>
@@ -40,6 +40,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
