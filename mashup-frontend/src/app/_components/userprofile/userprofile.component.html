@@ -39,18 +39,18 @@
             </ng-template>
             <ng-template [ngSwitchCase]="'updatingProfile'">
               <p>Email Id : {{ profile.emailId }}</p>
-              <p>Age : <input type="text" value="{{" profile.age }} /></p>
-              <p>Gender : <input type="text" value="{{" profile.gender}} /></p>
+              <p>Age : <input type="text" value={{ profile.age }} /></p>
+              <p>Gender : <input type="text" value={{ profile.gender}} /></p>
               <p>
-                Company : <input type="text" value="{{" profile.company }} />
+                Company : <input type="text" value={{ profile.company }} />
               </p>
               <p>
-                College : <input type="text" value="{{" profile.college }} />
+                College : <input type="text" value={{ profile.college }} />
               </p>
-              <p>Course : <input type="text" value="{{" profile.course }} /></p>
+              <p>Course : <input type="text" value={{ profile.course }} /></p>
               <p>
                 Discipline :
-                <input type="text" value="{{" profile.discipline }} />
+                <input type="text" value={{ profile.discipline }} />
               </p>
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
