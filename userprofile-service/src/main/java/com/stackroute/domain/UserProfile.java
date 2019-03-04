@@ -41,7 +41,7 @@ public class UserProfile {
     private List<String> interests;
     @Field
     @ApiModelProperty(notes = "The company of user")
-    private String comapny;
+    private String company;
     @Field
     @ApiModelProperty(notes = "The course of user")
     private String course;
@@ -116,11 +116,11 @@ public class UserProfile {
     }
 
     public String getComapny() {
-        return comapny;
+        return company;
     }
 
     public void setComapny(String comapny) {
-        this.comapny = comapny;
+        this.company = comapny;
     }
 
     public String getCourse() {
