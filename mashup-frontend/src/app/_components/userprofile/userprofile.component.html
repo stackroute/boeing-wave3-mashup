@@ -26,8 +26,8 @@
       </div>
       <div>
         <mat-card class="card card2" style="display:block; margin-top: 1vh;">
-          <div [ngSwitch]="bhaak">
-            <ng-template [ngSwitchCase]="'bhaak1'">
+          <div [ngSwitch]="profileState">
+            <ng-template [ngSwitchCase]="'currentProfile'">
               <p>Email Id : {{ profile.emailId }}</p>
               <p>Age : {{ profile.age }}</p>
               <p>Gender : {{ profile.gender}}</p>
@@ -37,7 +37,7 @@
               <p>Discipline : {{ profile.discipline }}</p>
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
-            <ng-template [ngSwitchCase]="'bhaak2'">
+            <ng-template [ngSwitchCase]="'updatingProfile'">
               <p>Email Id : {{ profile.emailId }} </p>
               <p>Age : <input type=text value= {{ profile.age }}/></p>
               <p>Gender : <input type=text value= {{ profile.gender}}/></p>
@@ -48,7 +48,7 @@
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
           </div>
-          <button (click)=changemaadi()>Update Profile</button>
+          <button (click)=updateProfile()>Update Profile</button>
         </mat-card>
       </div>
     </div>
