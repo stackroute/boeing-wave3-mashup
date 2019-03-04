@@ -34,14 +34,12 @@ public class SubmissionServiceImpl implements SubmissionService{
         Double score1 = ((double)submissionData.getTestCasePassed()/(double)submissionData.getTotalTestCases())*level;
         submissionData.setScore(score1);
         kafkaTemplate.send("SubmissionMessage",submissionData);
-        SubmissionData submissionObj = submissionRepository.save(submissionData);
-        return submissionObj;
+        return submissionRepository.save(submissionData);
     }
 
     //Method to fetch data on the basis of username and questionId from database
     @Override
     public SubmissionData getSubmission(String username, int questionId) {
-        SubmissionData submissionObj1 = submissionRepository.getSubmissionDataByUsernameAndQuestionId(username,questionId);
-        return submissionObj1;
+        return submissionRepository.getSubmissionDataByUsernameAndQuestionId(username,questionId);
     }
 }
