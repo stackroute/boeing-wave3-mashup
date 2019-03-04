@@ -1,4 +1,3 @@
-<app-scoreandbadge></app-scoreandbadge>
 <mat-grid-list cols="3" rowHeight="20vh">
   <mat-grid-tile
     [colspan]="tiles[0].cols"
@@ -25,12 +24,13 @@
         </mat-card>
       </div>
       <div>
+        <app-scoreandbadge></app-scoreandbadge>
         <mat-card class="card card2" style="display:block; margin-top: 1vh;">
           <div [ngSwitch]="profileState">
             <ng-template [ngSwitchCase]="'currentProfile'">
               <p>Email Id : {{ profile.emailId }}</p>
               <p>Age : {{ profile.age }}</p>
-              <p>Gender : {{ profile.gender}}</p>
+              <p>Gender : {{ profile.gender }}</p>
               <p>Company : {{ profile.company }}</p>
               <p>College : {{ profile.college }}</p>
               <p>Course : {{ profile.course }}</p>
@@ -38,17 +38,24 @@
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
             <ng-template [ngSwitchCase]="'updatingProfile'">
-              <p>Email Id : {{ profile.emailId }} </p>
-              <p>Age : <input type=text value= {{ profile.age }}/></p>
-              <p>Gender : <input type=text value= {{ profile.gender}}/></p>
-              <p>Company : <input type=text value= {{ profile.company }}/></p>
-              <p>College : <input type=text value= {{ profile.college }}/></p>
-              <p>Course : <input type=text value= {{ profile.course }}/></p>
-              <p>Discipline : <input type=text value= {{ profile.discipline }}/></p>
+              <p>Email Id : {{ profile.emailId }}</p>
+              <p>Age : <input type="text" value="{{" profile.age }} /></p>
+              <p>Gender : <input type="text" value="{{" profile.gender}} /></p>
+              <p>
+                Company : <input type="text" value="{{" profile.company }} />
+              </p>
+              <p>
+                College : <input type="text" value="{{" profile.college }} />
+              </p>
+              <p>Course : <input type="text" value="{{" profile.course }} /></p>
+              <p>
+                Discipline :
+                <input type="text" value="{{" profile.discipline }} />
+              </p>
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
           </div>
-          <button (click)=updateProfile()>Update Profile</button>
+          <button (click)="updateProfile()">Update Profile</button>
         </mat-card>
       </div>
     </div>
@@ -61,16 +68,23 @@
   >
     <mat-tab-group class="tile1">
       <mat-tab label="Question Attempted">
-        <mat-list role="list" *ngFor="let questionA of profile.attemptedQuestion | slice:1;">
-          <mat-list-item role="listitem" [routerLink]="['/submission-component']"
+        <mat-list
+          role="list"
+          *ngFor="let questionA of (profile.attemptedQuestion | slice: 1)"
+        >
+          <mat-list-item
+            role="listitem"
+            [routerLink]="['/submission-component']"
             ><i class="fab fa-quora"></i> &nbsp;
             <p>{{ questionA.questionTitle }}</p>
-            </mat-list-item
-          >
+          </mat-list-item>
         </mat-list>
       </mat-tab>
       <mat-tab label="Question Posted">
-        <mat-list role="list" *ngFor="let questionP of profile.postedQuestion | slice:1;">
+        <mat-list
+          role="list"
+          *ngFor="let questionP of (profile.postedQuestion | slice: 1)"
+        >
           <mat-list-item role="listitem"
             ><i class="fab fa-quora"></i> &nbsp;
             {{ questionP.questionTitle }}</mat-list-item

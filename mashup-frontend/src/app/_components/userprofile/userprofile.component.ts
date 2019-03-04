@@ -15,12 +15,6 @@ export interface PeriodicElement {
   name: string;
   position: number;
 }
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydroge ns rdctf dgfdhbcm dvi dkgfdvd dfg fdgdfgf dfgfdg dfgdfg dffhdg guhny'},
-//   {position: 2, name: 'Heliumwegfhdgcufyiguohef eft udjqe  qetuyg qeqiqyhdg qef'},
-//   {position: 3, name: 'Lithium'},
-//   {position: 4, name: 'Beryllium'},
-// ];
 
 @Component({
   selector: 'app-userprofile',
@@ -40,8 +34,6 @@ export class UserprofileComponent implements OnInit {
     {text: 'Two', cols: 2, rows: 4, color: 'white'},
     {text: 'three', cols: 1, rows: 4, color: 'grey'},
   ];
-  // displayedColumns: string[] = ['position', 'name'];
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   updateProfile() {
