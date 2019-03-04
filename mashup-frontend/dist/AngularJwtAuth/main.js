@@ -316,7 +316,7 @@ var EditComponent = /** @class */ (function () {
         }
     };
     EditComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8025/gkz-stomp-endpoint');
+        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8092/execution-service/gkz-stomp-endpoint');
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
         var _this = this;
         this.stompClient.connect({}, function (frame) {
@@ -2368,7 +2368,7 @@ var QuestioExeEngineService = /** @class */ (function () {
         this.url3 = 'http://13.234.74.67:8092/question-service/api/v1/question/';
         this.url2 = 'http://13.234.74.67:8023/rest/neo4j/questions/2';
         this.url4 = 'http://13.234.74.67:8029/api/v1/submission';
-        this.url5 = 'http://13.234.74.67:8025/api/v1/question';
+        this.url5 = 'http://13.234.74.67:8092/execution-service/api/v1/question';
     }
     QuestioExeEngineService.prototype.getcode = function (gitUrl, username) {
         return this._http.put(this.url5 + "/" + username, { "gitUrl": gitUrl });
