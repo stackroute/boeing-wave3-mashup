@@ -10,17 +10,16 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-    @Override
+
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
         config.setApplicationDestinationPrefixes("/gkz");
     }
 
-    @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
                 .addEndpoint("/gkz-stomp-endpoint")
-                .setAllowedOrigins("http://13.234.74.67:8030")
+                .setAllowedOrigins("*")
                 .withSockJS();
     }
 }
