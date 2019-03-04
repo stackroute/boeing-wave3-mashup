@@ -26,7 +26,7 @@ public class QuestionController {
 //   request method to call question service controller
     @RequestMapping(value = "question/{tag}")
     public List<Question> getQuestionByTag(@PathVariable String tag) {
-        Application application = eurekaClient.getApplication("QUESTION-SERVICE2");
+        Application application = eurekaClient.getApplication("QUESTION-SERVICE");
         System.out.println("App : " + application);
         InstanceInfo instanceInfo = application.getInstances().get(0);
         System.out.println("Inst : " + instanceInfo);
