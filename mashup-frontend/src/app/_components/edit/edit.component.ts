@@ -90,8 +90,6 @@ export class EditComponent implements OnInit {
     console.log(this.questionId);
     console.log(this.uname);
     this.connect();
-    // tslint:disable-next-line:max-line-length
-    // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
        this.questionObj = data;   
@@ -126,10 +124,6 @@ export class EditComponent implements OnInit {
      //   });
        
   }
-    //  "username":this.uname,"questionId":this.qid,
-    //  "questionTitle":this.questitle,result:this.result,
-    //  "testCasePassed":this.testpass,"TotalTestCases":this.totaltest,
-    //  "difficulty":this.difficulty
   options = {
     theme: 'vs-dark'
   };
@@ -202,12 +196,11 @@ export class EditComponent implements OnInit {
       JSON.stringify({'name': this.uname+"@#"+this.code })
     );
     console.log("sending data to submission service");
-    //this.sendDataToSubmissionService();
   }
+
  // tslint:disable-next-line:member-ordering
  public colorg: object = {};
  sendDataToSubmissionService(){
-   //console.log("ayhshd");
       this.quesservice.sendDatatoSubmission({"code":this.code,"username":this.uname,"questionId":this.questionId,
       "questionTitle":this.questionTitle,result:this.result,
       "testCasePassed":this.testpass,"totalTestCases":this.totaltest,
