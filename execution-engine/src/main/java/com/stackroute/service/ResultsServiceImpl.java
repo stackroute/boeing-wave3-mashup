@@ -29,8 +29,8 @@ public class ResultsServiceImpl implements ResultsService{
         BufferedReader fr;
 
         String m="";
-        String fileName="./execution-engine/src/"+userName+"/compile.log";
-        String fileName2="./execution-engine/src/"+userName+"/compile2.log";
+        String fileName=System.getProperty("user.dir")+"/execution-engine/src/"+userName+"/compile.log";
+        String fileName2=System.getProperty("user.dir")+"/execution-engine/src/"+userName+"/compile2.log";
         file=new File(fileName);
         BufferedReader br=new BufferedReader(new FileReader(file));
 
@@ -189,7 +189,7 @@ int count=0;
 
         try{
 
-            FileWriter fw=new FileWriter(finder("./execution-engine/src/"+username+"/src/main/java/com/stackroute/")[0]);
+            FileWriter fw=new FileWriter(finder(System.getProperty("user.dir")+"/execution-engine/src/"+username+"/src/main/java/com/stackroute/")[0]);
 
                 fw.flush();
             fw.write(code);
@@ -202,7 +202,7 @@ int count=0;
         Process p;
         try {
             ///home/user/Documents/Mashup/js_complete/executionengine
-            String[] cmd = {"sh","./execution-engine/src/main/java/com/stackroute/script/run.sh",username};
+            String[] cmd = {"sh",System.getProperty("user.dir")+"/execution-engine/src/main/java/com/stackroute/script/run.sh",username,System.getProperty("user.dir")};
               p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(

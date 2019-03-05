@@ -2,7 +2,7 @@
 echo "inside the run.sh script "
 echo $1
 pwd
-cd ./execution-engine/src/$1
+cd $2/execution-engine/src/$1
 echo "printing the current directory"
 pwd
 echo "running maven package life cycle"
