@@ -163,7 +163,7 @@ export class EditComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://13.234.74.67:8092/execution-service/gkz-stomp-endpoint');
+    const socket = new SockJS('http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;

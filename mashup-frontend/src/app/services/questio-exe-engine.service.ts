@@ -10,7 +10,7 @@ export class QuestioExeEngineService {
   private url3= 'http://13.234.74.67:8092/question-service/api/v1/question/';
   private url2 ='http://13.234.74.67:8023/rest/neo4j/questions/2';
   private url4 ='http://13.234.74.67:8029/api/v1/submission';
-  private url5 ='http://13.234.74.67:8092/execution-service/api/v1/question';
+  private url5 ='http://13.234.74.67:8092/execution-engine/api/v1/question';
   
   constructor(private _http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class QuestioExeEngineService {
 
   public sendDatatoSubmission(quesresultdata){
     console.log(quesresultdata);
-    console.log("oye kisley data bhej raha hu accept karle");
+    console.log("oye kishlay data bhej raha hu accept karle");
                this._http.post(this.url4,quesresultdata).subscribe();
   }
   public getQuestionById(id): any {
