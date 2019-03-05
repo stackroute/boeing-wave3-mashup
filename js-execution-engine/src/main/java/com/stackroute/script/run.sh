@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-cd js-boilerplate
+userpath=$1
+cd $1/js-boilerplate
 alias mvn='mvn  --quiet'
 mvn test -l compile.log
