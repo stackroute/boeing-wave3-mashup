@@ -1,5 +1,5 @@
 server:
-  port: 8031    #default port where the service will be started
+  port: 8032    #default port where the service will be started
 
 eureka:         #tells about the Eureka server details and its refresh time
   instance:
@@ -7,7 +7,7 @@ eureka:         #tells about the Eureka server details and its refresh time
     leaseExpirationDurationInSeconds: 2
   client:
     serviceUrl:
-      defaultZone: http://localhost:8093/eureka/
+      defaultZone: http://13.234.74.67:8093/eureka/
     healthcheck:
       enabled: true
     lease:
