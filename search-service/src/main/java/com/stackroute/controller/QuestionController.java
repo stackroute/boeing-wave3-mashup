@@ -11,10 +11,10 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RefreshScope
 @RestController
 @RequestMapping(value = "/api/v1/")
-@CrossOrigin("*")
 public class QuestionController {
 
     private RestTemplate restTemplate;

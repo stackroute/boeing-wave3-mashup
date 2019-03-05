@@ -11,7 +11,6 @@ import { EditComponent } from './_components/edit/edit.component';
 import { UserprofileComponent } from './_components/userprofile/userprofile.component';
 import { SubmissionComponent } from './_components/submission/submission.component';
 
-
 const routes: Routes = [
      { path: 'register', component: RegisterComponent },
 
