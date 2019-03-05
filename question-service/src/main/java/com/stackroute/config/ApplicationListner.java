@@ -14,27 +14,22 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 
 /*class to add seed data on start of application*/
 @Component
 public class ApplicationListner implements ApplicationListener<ApplicationReadyEvent> {
 
-    //    @Autowired
     private QuestionRepository questionRepository;
     private CounterRepository counterRepository;
 
     private String fileName;
 
-
     @Autowired
     public ApplicationListner(QuestionRepository questionRepository, CounterRepository counterRepository) {
         this.questionRepository = questionRepository;
         this.counterRepository = counterRepository;
-        System.out.println("Hello"+System.getProperty("user.dir"));
         fileName = "/DB/resources/csvRepoUpdated.csv";
     }
-
 
     @Override
     public void onApplicationEvent(final ApplicationReadyEvent applicationReadyEvent){
@@ -43,21 +38,16 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
 
     /*method to push seed data */
     public void seedData()  {
-        //    counterRepository.delete(new Counters("questionId",3));
         counterRepository.deleteAll();
         counterRepository.save(new Counters("questionId", 51));
         questionRepository.deleteAll();
-//        questionRepository.delete(new Questions(0,"Awesome" ,"Question1","input format","output Format","Beginner","java","url","abc"));
-        //      questionRepository.delete(new Questions(1,"Awesome1" ,"Question2","input format","output Format","Intermediate","java","url","def"));
-//        questionRepository.save(new Questions(0,"Awesome" ,"Question1","input format","output Format","Beginner","java","url","abc"));
-//        questionRepository.save(new Questions(1,"Awesome1" ,"Question2","input format","output Format","Intermediate","java","url","def"));
+        questionRepository.save(new Questions(0,"Awesome" ,"Question1","input format","output Format","Beginner","java","url","abc"));
         File file = new File(fileName);
         try{
             CSVReader csvReader = new CSVReaderBuilder(new FileReader(file)).withSkipLines(1).build();
             String[] record;
             Questions question;
             while ((record = csvReader.readNext()) != null) {
-                System.out.println(record);
                 question = new Questions();
                 question.setQuestionId(Integer.parseInt(record[0]));
                 question.setQuestionTitle(record[1]);
@@ -74,8 +64,6 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
             }
         }
         catch (Exception e){
-            e.printStackTrace();
         }
-
     }
 }

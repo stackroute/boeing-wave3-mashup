@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-//Main controller
 /*Controller class*/
 @CrossOrigin("*")
 @RestController
@@ -32,14 +31,12 @@ public class QuestionController {
 
     /*post method for saving question*/
     @PostMapping("question")
-    public ResponseEntity<?> saveQuestions(@RequestBody Questions question) {
-
-        //System.out.println(question);
+    public ResponseEntity<String> saveQuestions(@RequestBody Questions question) {
 
         try {
             Questions question1 = questionService.saveQuestion(question);
             kafkaTemplate.send("QuestionMessage",question1);
-            return new ResponseEntity<String>("Successfully saved", HttpStatus.OK);
+            return new ResponseEntity<>("Successfully saved", HttpStatus.OK);
         }
         catch(QuestionAlreadyExistsException ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
@@ -54,7 +51,7 @@ public class QuestionController {
     public ResponseEntity<?> getQuestion(@PathVariable(value = "questionId") int questionId){
         try{
             Questions question = questionService.getQuestionById(questionId);
-            return new ResponseEntity<Questions>(question, HttpStatus.OK);
+            return new ResponseEntity<>(question, HttpStatus.OK);
         }
         catch(QuestionNotPresentException ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
@@ -69,7 +66,7 @@ public class QuestionController {
     public ResponseEntity<?> getQuestions(@PathVariable(value = "tag") String tag){
         try{
             List<Questions> question = questionService.getQuestionByTag(tag);
-            return new ResponseEntity<List<Questions> >(question, HttpStatus.OK);
+            return new ResponseEntity<>(question, HttpStatus.OK);
         }
         catch(QuestionNotPresentException ex){
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);

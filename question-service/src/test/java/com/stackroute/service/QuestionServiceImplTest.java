@@ -31,9 +31,6 @@ public class QuestionServiceImplTest {
 
     @Mock
     private QuestionRepository questionRepository;
-//    @Mock
-//    private QuestionRepositoryCustom questionRepositoryCustom;
-
 
     @InjectMocks
     private QuestionServiceImpl questionServiceImpl;
@@ -55,24 +52,6 @@ public class QuestionServiceImplTest {
         Questions questions= questionServiceImpl.saveQuestion(question);
         assertEquals(questions,question);
         verify(questionRepository, times(1)).save(question);
-    }
-
-    @Test
-    public void testGetQuestion() throws QuestionNotPresentException {
-//        int id=0;
-//        when(questionRepository.getById(id)).thenReturn(question);
-//        Questions questions= questionServiceImpl.getQuestionById(id);
-//        assertEquals(questions,question);
-//        verify(questionRepository, times(1)).getById(id);
-    }
-//
-     @Test
-    public void testGetQuestions() throws QuestionNotPresentException {
-//        String tagValue = "java";
-//        when(questionRepository.getByTag(tagValue)).thenReturn(listOfQuestion);
-//        List<Questions> questions= questionServiceImpl.getQuestionByTag(tagValue);
-//        assertEquals(questions,listOfQuestion);
-//        verify(questionRepository, times(1)).getByTag(tagValue);
     }
 
 }
