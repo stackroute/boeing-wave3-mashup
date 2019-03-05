@@ -39,6 +39,7 @@
         <module>score-badge-service</module>
         <module>search-service</module>
         <module>voting-service</module>
+        <module>js-execution-engine</module>
     </modules>
     <dependencies>
         <dependency>
