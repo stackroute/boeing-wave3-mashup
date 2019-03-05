@@ -150,7 +150,7 @@ public class QuestionServiceImpl implements QuestionService{
         try {
             ///home/user/Documents/Mashup/js_complete/executionengine
 
-            String[] cmd = {"sh", "com/stackroute/script/run.sh"};
+            String[] cmd = {"sh", "js-execution-engine/src/main/java/com/stackroute/script/run.sh"};
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(
