@@ -1,3 +1,4 @@
+import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
 import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { VotingComponent } from './_components/voting/voting.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,7 @@ import { SavequestionComponent} from './_components/savequestion/savequestion.co
 import { EditComponent } from './_components/edit/edit.component';
 import { UserprofileComponent } from './_components/userprofile/userprofile.component';
 import { SubmissionComponent } from './_components/submission/submission.component';
-
+import { EditaudioComponent } from './_components/editaudio/editaudio.component';
 
 const routes: Routes = [
      { path: 'register', component: RegisterComponent },
@@ -57,8 +58,16 @@ const routes: Routes = [
         component: SubmissionComponent
     },
     {
-        path:'search',
+        path: 'search',
         component: SearchserviceComponent
+    },
+    {
+        path: 'editaudio',
+        component: EditaudioComponent
+    },
+    {
+        path: 'searchdisplay',
+        component: SearchdisplayComponent
     }
 ];
 

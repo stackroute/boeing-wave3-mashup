@@ -30,8 +30,8 @@ export class UserprofileComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   constructor(private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
   tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 4, color: 'white'},
-    {text: 'Two', cols: 2, rows: 4, color: 'white'},
+    {text: 'One', cols: 1, rows: 5, color: 'white'},
+    {text: 'Two', cols: 2, rows: 5, color: 'white'},
     {text: 'three', cols: 2, rows: 1, color: 'grey'},
   ];
 
