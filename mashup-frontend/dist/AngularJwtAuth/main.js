@@ -275,6 +275,7 @@ var EditComponent = /** @class */ (function () {
         var _this = this;
         this.questionId = this._route.snapshot.paramMap.get('qid');
         this.uname = this.token.getUsername();
+        this.uname = "sidhu";
         console.log(this.questionId);
         console.log(this.uname);
         this.connect();
@@ -315,7 +316,7 @@ var EditComponent = /** @class */ (function () {
         }
     };
     EditComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://localhost:8050/gkz-stomp-endpoint');
+        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8092/execution-service/gkz-stomp-endpoint');
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
         var _this = this;
         this.stompClient.connect({}, function (frame) {
@@ -2367,7 +2368,7 @@ var QuestioExeEngineService = /** @class */ (function () {
         this.url3 = 'http://13.234.74.67:8092/question-service/api/v1/question/';
         this.url2 = 'http://13.234.74.67:8023/rest/neo4j/questions/2';
         this.url4 = 'http://13.234.74.67:8029/api/v1/submission';
-        this.url5 = 'http://localhost:8050/api/v1/question';
+        this.url5 = 'http://13.234.74.67:8092/execution-service/api/v1/question';
     }
     QuestioExeEngineService.prototype.getcode = function (gitUrl, username) {
         return this._http.put(this.url5 + "/" + username, { "gitUrl": gitUrl });
@@ -2837,7 +2838,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/MashupRepo/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

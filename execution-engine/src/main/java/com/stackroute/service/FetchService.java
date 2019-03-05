@@ -1,12 +1,15 @@
 package com.stackroute.service;
 
-import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 
 public interface FetchService {
 
-    public void fetchFilesAndSave() throws IOException, InterruptedException;
-    public String setGitURL(String giturl);
-    public String getGitUrl();
+    public String fetchFilesAndSave() throws IOException, InterruptedException;
+
+    public void setGiturl1(String gitUrl);  public String getGiturl1();
+
+    public void  setUsername(String username);
+
+    public String getUsername();
+
 }

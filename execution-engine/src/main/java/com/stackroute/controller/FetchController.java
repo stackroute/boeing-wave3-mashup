@@ -1,6 +1,7 @@
 package com.stackroute.controller;
 
-import com.stackroute.service.FetchBoilerPlateService;
+//import com.stackroute.service.FetchBoilerPlateService;
+import com.stackroute.domain.Question;
 import com.stackroute.service.FetchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,19 +16,20 @@ import java.io.IOException;
 @RequestMapping(value="api/v1/")
 @CrossOrigin("*")
 public class FetchController {
-    @Autowired
-    public FetchService fetchService;
-    @Autowired
-    FetchBoilerPlateService fetchBoilerPlateService;
 
+    public FetchService fetchService;
+
+    @Autowired
     public void setFetchService(FetchService fetchservice) {
         this.fetchService = fetchservice;
     }
-    @RequestMapping(value = "fetch", method = RequestMethod.POST)
-    public ResponseEntity<?> getFiles(@RequestBody String giturl) throws IOException,InterruptedException{
-        fetchService.setGitURL(giturl);
-            fetchService.fetchFilesAndSave();
-        return new ResponseEntity<>(HttpStatus.CREATED);
+
+    @PostMapping("fetch")
+    public ResponseEntity<?> getFiles(@RequestBody Question question) throws IOException,InterruptedException{
+//        fetchService.setGiturl1(question.gitUrl);
+//        fetchService.setUsername(question.username);
+        fetchService.fetchFilesAndSave();
+        return new ResponseEntity<String>("request successfully transmitted ",HttpStatus.CREATED);
     }
 
 }

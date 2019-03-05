@@ -86,7 +86,7 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.questionId=this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
-     
+     this.uname="sidhu";
     console.log(this.questionId);
     console.log(this.uname);
     this.connect();
@@ -163,7 +163,7 @@ export class EditComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
+    const socket = new SockJS('http://13.234.74.67:8092/execution-service/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;
