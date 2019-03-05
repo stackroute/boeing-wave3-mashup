@@ -545,7 +545,7 @@ var EditaudioComponent = /** @class */ (function () {
         }
     };
     EditaudioComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://localhost:8031/gkz-stomp-endpoint');
+        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8031/gkz-stomp-endpoint');
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
         var _this = this;
         this.stompClient.connect({}, function (frame) {
