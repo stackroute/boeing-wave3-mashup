@@ -4,7 +4,6 @@ import com.stackroute.domain.Questions;
 import com.stackroute.exceptions.QuestionAlreadyExistsException;
 import com.stackroute.exceptions.QuestionNotPresentException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /*question service interface*/
