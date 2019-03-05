@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bell Bootstrap 4 Theme</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Favicon -->
+  <link href="/assets/img/favicon.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Bell
+    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body>
+  <!-- Page Content
+    ================================================== -->
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div *ngIf="info.token; else loggedOut">
+      <!-- <div id="logo" class="pull-left"> -->
+        <!-- <a href="landing.component.html"><img src="/assets/img/logo-nav.png"></img></a> -->
+        <!-- Uncomment below if you prefer to use a text image -->
+        <!--<h1><a href="#hero">Bell</a></h1>-->
+      <!-- </div> -->
+
+      <nav id="nav-menu-container" class="">
+        <ul class="nav-menu">
+          <li><a href="" [routerLink]="['/post', info.username]">Post Question</a></li>
+          <li><a href="" [routerLink]="['/userprofile']">Profile</a></li>
+          <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
+          <li><a href="" (click)="logout()">Logout</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="" [routerLink]="['/search']">Search</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+      </nav>
+    </div>
+
+    <ng-template #loggedOut>
+
+      <nav id="nav-menu-container" class="">
+        <ul class="nav-menu">
+          <li><a href="" [routerLink]="['/fetch']">Practice</a></li>
+          <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
+          <li *ngIf="!authority"><a href="" [routerLink]="['/auth/login']">Login/Signup</a></li>
+          <!-- <li><a href="" (click)="logout()">Logout</a></li> -->
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="" [routerLink]="['/search']">Search</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
+      </nav>
+
+
+
+
+
+
+    </ng-template>
+
+
+
+
+    </div>
+  </header>
+
+  <!-- Required JavaScript Libraries -->
+  <script src="/assets/lib/jquery/jquery.min.js"></script>
+  <script src="/assets/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/assets/lib/superfish/hoverIntent.js"></script>
+  <script src="/assets/lib/superfish/superfish.min.js"></script>
+  <script src="/assets/lib/tether/js/tether.min.js"></script>
+  <script src="/assets/lib/stellar/stellar.min.js"></script>
+  <script src="/assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/lib/counterup/counterup.min.js"></script>
+  <script src="/assets/lib/waypoints/waypoints.min.js"></script>
+  <script src="/assets/lib/easing/easing.js"></script>
+  <script src="/assets/lib/stickyjs/sticky.js"></script>
+  <script src="/assets/lib/parallax/parallax.js"></script>
+  <script src="/assets/lib/lockfixed/lockfixed.min.js"></script>
+
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="/assets/js/custom.js"></script>
+
+  <script src="/assets/contactform/contactform.js"></script>
+
+</body>
+</html>
