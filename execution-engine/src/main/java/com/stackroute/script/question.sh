@@ -2,19 +2,21 @@
 
 repository=$1
 username=$2
-mkdir ./src/$2/questionplate
-cd ./src/$2/questionplate
+mkdir ./execution-engine/src/$2/questionplate
+cd ./execution-engine/src/$2/questionplate
 
 git clone "$repository"
 echo "i am here"
 cd ../
 cd ../
 cd ../
-rm ./src/$2/src/main/java/com/stackroute/*.java
-rm ./src/$2/src/test/java/com/stackroute/*est.java
-cd ./src/$2/questionplate
+cd ../
+rm ./execution-engine/src/$2/src/main/java/com/stackroute/*.java
+rm ./execution-engine/src/$2/src/test/java/com/stackroute/*est.java
+cd ./execution-engine/src/$2/questionplate
 a=`find  . -name '*.java'`
 b=`find  . -name '*est*.java'`
+cd ../
 cd ../
 cd ../
 cd ../
@@ -26,12 +28,12 @@ if [ $i != $b ]
 then
 echo $i
 
-cp ./src/$2/questionplate/$i ./src/$2/src/main/java/com/stackroute
+cp ./execution-engine/src/$2/questionplate/$i ./execution-engine/src/$2/src/main/java/com/stackroute
 fi
 done
 
-cp ./src/$2/questionplate/$b  ./src/$2/src/test/java/com/stackroute
-rm -r ./src/$2/questionplate
+cp ./execution-engine/src/$2/questionplate/$b  ./execution-engine/src/$2/src/test/java/com/stackroute
+rm -r ./execution-engine/src/$2/questionplate
 
 echo "running question.sh finished successfully"
 

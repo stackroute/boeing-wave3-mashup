@@ -29,21 +29,7 @@ public class WebController {
 
     @Autowired
     private ResultsService resultsService;
-//    public QuestionService getQuestionService() {
-//        return resultsService;
-//    }
-//
-//    public void setQuestionService(QuestionService questionService) {
-//        this.resultsService = questionService;
-//    }
 
-//    @PostMapping("/post")
-//    public Code greeting2(User user) throws Exception {
-//        String response=this.questionService.run(user.getName());
-//        System.out.println(response);
-//
-//        return new Code(response);
-//    }
     @MessageMapping("/hello")
     @SendTo("/topic/hi")
     public Code greeting(User user) throws Exception {
