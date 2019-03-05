@@ -1,3 +1,4 @@
+import { EditaudioComponent } from './_components/editaudio/editaudio.component';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,7 +25,6 @@ import {SavequestionComponent} from './_components/savequestion/savequestion.com
 import { ResizableModule } from 'angular-resizable-element';
 import { OwlModule } from 'ngx-owl-carousel';
 import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
-
 import { httpInterceptorProviders } from './_components/auth/auth-interceptor';
 
 import {
@@ -77,6 +77,10 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { ScoreandbadgeComponent } from './_components/scoreandbadge/scoreandbadge.component';
 import { LandingComponent } from './_components/landing/landing.component';
 import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
+import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
+// import { EditoraudioComponent } from './editoraudio/editoraudio.component';
+// import { EditaudioComponent } from './_components/editaudio/editaudio.component'
+// import { EditaudioComponent } from './app/_components/editaudio/editaudio.component';
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
   defaultOptions: { scrollBeyondLastLine: false },
@@ -133,6 +137,8 @@ const monacoConfig: NgxMonacoEditorConfig = {
     ScoreandbadgeComponent,
     LandingComponent,
     SearchserviceComponent,
+    EditaudioComponent,
+    SearchdisplayComponent,
   ],
   imports: [
     BrowserModule,
