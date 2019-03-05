@@ -95,7 +95,7 @@ export class EditaudioComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://localhost:8031/gkz-stomp-endpoint');
+    const socket = new SockJS('http://13.234.74.67:8031/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame) {
