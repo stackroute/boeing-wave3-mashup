@@ -226,6 +226,9 @@ services:
         condition: service_healthy
     ports:
       - 8025:8025
+    volumes:
+      - /DB/script:/DB/script
+      - /DB/users:/DB/users
     healthcheck:
       test: "exit 0"
 
@@ -323,14 +326,14 @@ services:
     healthcheck:
       test: "exit 0"
 
-  js-execution-engine:
-    image: js-execution-engine
-    build: ./js-execution-engine/
-    container_name: js-execution
-    restart: always
-    network_mode: host
-    hostname: localhost
-    ports:
-     - 8031:8031
-    healthcheck:
-     test: "exit 0"
+#  js-execution-engine:
+#    image: js-execution-engine
+#    build: ./js-execution-engine/
+#    container_name: js-execution
+#    restart: always
+#    network_mode: host
+#    hostname: localhost
+#    ports:
+#     - 8031:8031
+#    healthcheck:
+#     test: "exit 0"
