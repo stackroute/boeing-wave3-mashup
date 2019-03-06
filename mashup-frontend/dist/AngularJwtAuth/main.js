@@ -309,7 +309,7 @@ var EditComponent = /** @class */ (function () {
         }
     };
     EditComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint');
+        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://localhost:8092/execution-engine/gkz-stomp-endpoint');
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
         var _this = this;
         this.stompClient.connect({}, function (frame) {
@@ -3163,7 +3163,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
