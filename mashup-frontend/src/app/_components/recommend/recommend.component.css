@@ -1,16 +1,3 @@
-.example-card {
-    max-width: 400px;
-    max-height: 400px;
-    margin-bottom: 40px;
-  }
- 
-  .example-header-image {
-    background-image: url('http://www.hdicon.com/wp-content/uploads/2010/07/java.png');
-    background-size: cover;
-  }
-  .btn{
-    margin:10px;
- }
- .del{
-    background-color: rgb(255, 64, 64);
- }
+p{
+  font-size: 15px;
+}
