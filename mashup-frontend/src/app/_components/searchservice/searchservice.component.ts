@@ -21,7 +21,7 @@ export class SearchserviceComponent implements OnInit {
   search(): any {
    
     this.router.navigate(['/display',this.tag]);
-    console.log(this.tag+"origin");
+    
   }
 
 }
