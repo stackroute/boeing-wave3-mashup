@@ -150,7 +150,6 @@ public class QuestionServiceImpl implements QuestionService{
         Process p;
         try {
             ///home/user/Documents/Mashup/js_complete/executionengine
-            System.out.println("curr path" + System.getProperty("user.dir"));
             String[] cmd = {"sh", "/DB/script/jsrun.sh"};
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
@@ -161,10 +160,8 @@ public class QuestionServiceImpl implements QuestionService{
                 System.out.println(line);
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         System.out.println("curr path" + System.getProperty("user.dir"));
