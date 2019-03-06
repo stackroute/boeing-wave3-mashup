@@ -48,31 +48,31 @@ public class FetchServiceImpl implements FetchService  {
 
         System.out.println("inside fetchFilesAndSave() ");
 //        System.out.println("bhaakbc"+System.getProperty("user.dir"));
-        File file3=new File(System.getProperty("user.dir")+"/execution-engine/src/main/java/com/stackroute/script/fetch.sh");
+        File file3=new File("/DB/script/fetch.sh");
         if(file3.exists()){
             System.out.println("fetch file exist");
         }
         else{
             System.out.println("fetch file doesnot exist");
         }
-        file3=new File(System.getProperty("user.dir")+"/execution-engine/src/main/java/com/stackroute/script/run.sh");
+        file3=new File("/DB/script/run.sh");
         if(file3.exists()){
             System.out.println("run file exist");
         }
         else{
             System.out.println("run file doesnot exist");
         }
-        file3=new File(System.getProperty("user.dir")+"/execution-engine/src/main/java/com/stackroute/script/question.sh");
+        file3=new File("/DB/script/question.sh");
         if(file3.exists()){
             System.out.println("run file exist");
         }
         else{
             System.out.println("run file doesnot exist");
         }
-        String[] cmdScript = new String[]{"sh", System.getProperty("user.dir")+"/execution-engine/src/main/java/com/stackroute/script/fetch.sh","https://github.com/umamahesh1603/instanceNew.git",fetchService1.getUsername(),System.getProperty("user.dir")};
+        String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/umamahesh1603/instanceNew.git",fetchService1.getUsername(),"/DB/users"};
         Process procScript = Runtime.getRuntime().exec(cmdScript);
         procScript.waitFor();
-        System.out.println("checking the user directory "+System.getProperty("user.dir"));
+//        System.out.println("checking the user directory "+System.getProperty("user.dir"));
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(procScript.getInputStream()));
         BufferedReader errorReader = new BufferedReader(new InputStreamReader(procScript.getErrorStream()));
@@ -88,7 +88,7 @@ public class FetchServiceImpl implements FetchService  {
         }
         //System.out.println(System.getProperty("user.dir"));
     System.out.println("its here to call question.sh"+fetchService1.getGiturl1()+fetchService1.getUsername());
-        String[] cmdScript1 = new String[]{"sh",System.getProperty("user.dir")+"/execution-engine/src/main/java/com/stackroute/script/question.sh",fetchService1.getGiturl1(),fetchService1.getUsername(),System.getProperty("user.dir")};
+        String[] cmdScript1 = new String[]{"sh","/DB/script/question.sh",fetchService1.getGiturl1(),fetchService1.getUsername(),"/DB/users"};
          Process procScript1 = Runtime.getRuntime().exec(cmdScript1);
         procScript1.waitFor();
 
@@ -108,7 +108,7 @@ public class FetchServiceImpl implements FetchService  {
          File file;
         BufferedReader fr;
 
-       file=  finder(System.getProperty("user.dir")+"/execution-engine/src/"+username+"/src/main/java/com/stackroute")[0];
+       file=  finder("/DB/users/"+username+"/src/main/java/com/stackroute")[0];
 
 
         BufferedReader br=new BufferedReader(new FileReader(file));

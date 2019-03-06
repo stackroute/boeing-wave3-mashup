@@ -4,8 +4,8 @@ echo $1
 repository=$1
 username=$2
 
-mkdir $3/execution-engine/src/$2
-cd  $3/execution-engine/src/$2
+mkdir $3/$2
+cd  $3/$2
 cd ../
 
 

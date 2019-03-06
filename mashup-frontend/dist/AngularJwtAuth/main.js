@@ -283,9 +283,6 @@ var EditComponent = /** @class */ (function () {
             _this.questionObj = data;
             console.log("here it is");
             console.log(data);
-            // this.questitle = data['questionTitle'];
-            // this.quesstatement = data['questionDescription'];
-            // this.difficulty=data['difficulty'];
             _this.questionId = data['questionId'];
             _this.questionTitle = data['questionTitle'];
             _this.questionDescription = data['questionDescription'];
@@ -303,10 +300,6 @@ var EditComponent = /** @class */ (function () {
                 _this.code = data['codeTemplate'];
             });
         });
-        // .subscribe(data=>{this.code=data;
-        //   console.log("ggjgjgj");  }
-        //   );
-        //   });
     };
     // socket code
     EditComponent.prototype.setConnected = function (connected) {
@@ -3169,7 +3162,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/abccc/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/MashupRepo/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

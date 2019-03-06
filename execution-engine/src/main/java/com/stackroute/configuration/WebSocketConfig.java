@@ -19,7 +19,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
-                .addEndpoint("/gkz")
+                .addEndpoint("/gkz-stomp-endpoint")
                 .setAllowedOrigins("*")
                 .withSockJS();
     }
