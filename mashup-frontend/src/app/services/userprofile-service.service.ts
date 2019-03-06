@@ -17,4 +17,12 @@ export class UserprofileServiceService {
     // console.log(userProfile);
      return userProfile;
   }
+  // public saveUserProfile(userName): Observable <any> {
+  //   // tslint:disable-next-lin
+  //   console.log('USERNAME : ', userName);
+  //   const userProfile = this.http.get('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + userName);
+  //   console.log('hii');
+  //   // console.log(userProfile);
+  //    return userProfile;
+  // }
 }
