@@ -11,13 +11,8 @@
       <div *ngFor="let question of fetch" class="col-md-4">
         
         <div class="card">
-          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
           <div class="card-body">
             <h2 class="card-title">{{ question.questionTitle }}</h2>
-            <!-- <p class="card-text">{{question.questionDescription}}</p> -->
-            <!-- <p>Related to: {{ question.tags }}</p>
-            <p>Of level: {{ question.difficulty }}</p> -->
-            
             <p class="card-text">Related to: {{ question.tags }}</p>
             <p class="card-text"><small class="text-muted">Of level: {{ question.difficulty }}</small></p>
             <button
@@ -28,13 +23,7 @@
               ATTEMPT
             </button>
           </div>
-          <!-- <div class="card-footer">
-                <small class="text-muted"></small>
-                <small class="text-muted"></small>
-                
-              </div> -->
         </div>
-
         <br />
       </div>
     </div>
