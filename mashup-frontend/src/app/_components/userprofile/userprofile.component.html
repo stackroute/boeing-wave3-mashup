@@ -31,24 +31,24 @@
               <p>Email Id : {{ profile.emailId }}</p>
               <p>
                  <label>Age:-</label>
-                 <input type="text" value =  "{{ profile.age }}" />
+                 <input type="text" value =  "{{ profile.age }}" [(ngModel)]="profile.age"/>
               </p>
                 <label>Gender:-</label>
-               <input type="text" value= "{{ profile.gender}}" />
+               <input type="text" value= "{{ profile.gender}}" [(ngModel)]="profile.gender"/>
               <p>
-                  <label>Company:</label>
-                {{ profile.company }}
+                  <label>Company:-</label>
+                  <input type="text" value= "{{ profile.company }}" [(ngModel)]="profile.company"/>
               </p>
               <p>
                   <label>College:</label>
-                 <input type="text" value = "{{ profile.college }}" />
+                 <input type="text" value = "{{ profile.college }}" [(ngModel)]="profile.college"/>
               </p>
               <p>
                   <label>Course:-</label>
-                <input type="text" value="{{ profile.course }}" /></p>
+                <input type="text" value="{{ profile.course }}" [(ngModel)]="profile.course"/></p>
               <p>
-                  <!-- <label>Discipline:-</label> -->
-                Discipline :{{ profile.discipline }}
+                  <label>Discipline:-</label>
+                  <input type="text" value="{{ profile.discipline }}" [(ngModel)]="profile.discipline"/></p>
               </p>
               <p>list {{ profile.interests.join(", ") }}</p>
             </ng-template>
