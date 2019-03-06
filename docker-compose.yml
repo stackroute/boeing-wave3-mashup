@@ -226,6 +226,9 @@ services:
         condition: service_healthy
     ports:
       - 8025:8025
+    volumes:
+      - /DB/script:/DB/script
+      - /DB/users:/DB/users
     healthcheck:
       test: "exit 0"
 
@@ -332,5 +335,8 @@ services:
     hostname: localhost
     ports:
      - 8031:8031
+    volumes:
+      - /DB/script:/DB/script
+      - /DB/js-boilerplate:/DB/js-boilerplate
     healthcheck:
      test: "exit 0"

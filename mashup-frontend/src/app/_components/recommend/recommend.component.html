@@ -11,7 +11,7 @@
               <div class="card-body">
                 <h2 class="card-title">{{question.questionTitle}}</h2>
                 <p class="card-text">{{question.questionDescription}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <button type="button" class="btn btn-primary" (click)=openEditor(question.questionId)>ATTEMPT</button>
               </div>
               <div class="card-footer">
                 <small class="text-muted">Related to:{{question.tags}}</small>
