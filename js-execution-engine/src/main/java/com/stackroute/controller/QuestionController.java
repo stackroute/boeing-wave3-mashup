@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/")
-@CrossOrigin(value = "*")
+@CrossOrigin(value = "http://13.234.74.67:8030")
 public class QuestionController {
     @Autowired
     private QuestionService questionService;
