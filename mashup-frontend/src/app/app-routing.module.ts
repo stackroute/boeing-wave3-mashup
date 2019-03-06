@@ -66,7 +66,7 @@ const routes: Routes = [
         component: EditaudioComponent
     },
     {
-        path: 'searchdisplay',
+        path: 'display/:tag',
         component: SearchdisplayComponent
     }
 ];
