@@ -95,14 +95,14 @@ export class EditaudioComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://13.234.74.67:8092/js-execution-engine/gkz-stomp-endpoint');
+    const socket = new SockJS('http://13.234.74.67:8092/js-execution-engine/gkz-stomp-endpoint-js');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame) {
       _this.setConnected(true);
       console.log('Connected: ' + frame);
       this.connectedSocket = true;
-      _this.stompClient.subscribe('/topic/hi', function (hello) {
+      _this.stompClient.subscribe('/topic-js/hi', function (hello) {
         if ( _this.mvnDependencyDownload > 1) {
           _this.showResults(JSON.parse(hello.body).greeting);
         } else {

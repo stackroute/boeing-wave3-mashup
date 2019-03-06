@@ -95,10 +95,7 @@ export class EditComponent implements OnInit {
        this.questionObj = data;   
        console.log("here it is");
        console.log(data);
-        // this.questitle = data['questionTitle'];
-        // this.quesstatement = data['questionDescription'];
        
-        // this.difficulty=data['difficulty'];
         this.questionId = data['questionId'];
         this.questionTitle = data['questionTitle'] ;
         this.questionDescription = data['questionDescription'] ;
@@ -116,12 +113,7 @@ export class EditComponent implements OnInit {
           this.code=data['codeTemplate'];  });
         }
         );
-        
-        // .subscribe(data=>{this.code=data;
-        //   console.log("ggjgjgj");  }
-        //   );
      
-     //   });
        
   }
   options = {
@@ -163,9 +155,9 @@ export class EditComponent implements OnInit {
     }
   }
   connect() {
-    const socket = new SockJS('http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint');
+    const socket = new SockJS('http://localhost:8092/execution-engine/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
-
+        
     const _this = this;
     this.stompClient.connect({}, function (frame) {
       _this.setConnected(true);
