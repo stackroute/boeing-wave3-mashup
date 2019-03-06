@@ -36,10 +36,6 @@ export class UserprofileComponent implements OnInit {
     {text: 'three', cols: 2, rows: 1, color: 'grey'},
   ];
 
-  updateProfile() {
-    this.profileState = 'updatingProfile';
-    this.profile.age = 23;
-  }
   ngOnInit() {
     this.uname = this.token.getUsername();
     this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
@@ -56,6 +52,20 @@ export class UserprofileComponent implements OnInit {
       }
     );
 
+  }
+
+  updateProfile() {
+    this.profileState = 'updatingProfile';
+  }
+  submitUpdatedProfile(age, gender, company, college, course, discipline) {
+    this.profile.age = age;
+    this.profile.gender = gender;
+    this.profile.company = company;
+    this.profile.college = college;
+    this.profile.course = course;
+    this.profile.disciple = discipline;
+    console.log(this.profile.age);
+    this.userService.updateProfile(this.profile)
   }
 
 }
