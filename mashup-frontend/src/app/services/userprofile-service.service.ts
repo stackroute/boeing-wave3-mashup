@@ -21,7 +21,7 @@ export class UserprofileServiceService {
   public updateProfile(updatedProfile): Observable <any> {
     // tslint:disable-next-lin
     console.log('User Profile : ', updatedProfile);
-    const newProfile = this.http.put('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/', updatedProfile);
+    const newProfile = this.http.post('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/', updatedProfile);
     console.log('hii');
      return newProfile;
   }

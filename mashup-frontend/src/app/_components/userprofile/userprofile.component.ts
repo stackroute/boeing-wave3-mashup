@@ -65,7 +65,7 @@ export class UserprofileComponent implements OnInit {
     this.profile.course = course;
     this.profile.disciple = discipline;
     console.log(this.profile.age);
-    this.userService.updateProfile(this.profile)
+    this.userService.updateProfile(this.profile).subscribe();
   }
 
 }
