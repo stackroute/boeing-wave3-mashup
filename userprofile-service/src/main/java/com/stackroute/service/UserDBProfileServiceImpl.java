@@ -28,9 +28,9 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     // method to save userprofile to mongo database
     @Override
     public UserProfile saveUserProfile(UserProfile userProfile) throws UserProfileAlreadyExistException {
-        if (userProfileRepository.existsById(userProfile.getUserName())) {
-            throw new UserProfileAlreadyExistException("UserProfile already exist with id" + userProfile.getUserName());
-        }
+//        if (userProfileRepository.existsById(userProfile.getUserName())) {
+//            throw new UserProfileAlreadyExistException("UserProfile already exist with id" + userProfile.getUserName());
+//        }
         return userProfileRepository.save(userProfile);
     }
     
