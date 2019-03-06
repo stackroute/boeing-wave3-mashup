@@ -2,7 +2,7 @@
 
 
   .container:after {
-    height:1000px;
+    height:10vh;
   }
   .col-lg-4{
     width: 500px;

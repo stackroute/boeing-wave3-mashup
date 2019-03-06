@@ -14,8 +14,9 @@ import { SubmissionComponent } from './_components/submission/submission.compone
 import { EditaudioComponent } from './_components/editaudio/editaudio.component';
 
 const routes: Routes = [
-     { path: 'register', component: RegisterComponent },
-
+    { path: 'register',
+     component: RegisterComponent 
+    },
     {
         path: 'home',
         component: HomeComponent

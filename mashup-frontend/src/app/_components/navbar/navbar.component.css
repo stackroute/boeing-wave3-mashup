@@ -1,9 +1,10 @@
 .nav-wrapper{
     background-color: skyblue;
 }
-img{
+li img{
     width: 70px;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
+    
 }
 #logoimage{
   width:30px;
@@ -13,7 +14,7 @@ img{
     height: 65px;
     font-size: 30px;
 }
-.second-bar{
+/* .second-bar{
     margin-left: 135px;
     height: 60px;
 }
@@ -21,7 +22,7 @@ img{
     font-size: 40px;
     color: skyblue;
 
-}
+} */
 #search{
     margin: 0%;
     background-color: whitesmoke;
@@ -58,4 +59,6 @@ img{
     padding-top: 3px;
 }}
 
-
+li a{
+    margin-top: 10px;
+}
