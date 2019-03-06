@@ -4,6 +4,7 @@ import { UserprofileServiceService } from '../../services/userprofile-service.se
 import { Token } from '@angular/compiler';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { ScorebadgeService } from 'src/app/services/scorebadge.service';
+import { Profile } from 'selenium-webdriver/firefox';
 
 export interface Tile {
   color: string;
@@ -35,9 +36,9 @@ export class UserprofileComponent implements OnInit {
     {text: 'three', cols: 2, rows: 1, color: 'grey'},
   ];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   updateProfile() {
     this.profileState = 'updatingProfile';
+    this.profile.age = 23;
   }
   ngOnInit() {
     this.uname = this.token.getUsername();
