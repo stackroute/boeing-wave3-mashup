@@ -21,7 +21,7 @@ public class QuestionServiceImpl implements QuestionService{
 
         String m="";
         System.out.println("curr path" + System.getProperty("user.dir"));
-        String fileName= System.getProperty("user.dir") + "/js-boilerplate/compile.log";
+        String fileName= "/DB/js-boilerplate/compile.log";
         file=new File(fileName);
         BufferedReader br=new BufferedReader(new FileReader(file));
         StringBuilder sb = new StringBuilder();
@@ -139,8 +139,7 @@ public class QuestionServiceImpl implements QuestionService{
 
         String filename=getfilename(code);
         try{
-            System.out.println("curr path" + System.getProperty("user.dir"));
-            FileWriter fw=new FileWriter(System.getProperty("user.dir") + "/js-boilerplate/src/main/java/com/stackroute/"+filename);
+            FileWriter fw=new FileWriter("/DB/js-boilerplate/src/main/java/com/stackroute/"+filename);
 
             fw.write("package com.stackroute;"+"\n"+code);
             fw.close();
@@ -151,8 +150,7 @@ public class QuestionServiceImpl implements QuestionService{
         Process p;
         try {
             ///home/user/Documents/Mashup/js_complete/executionengine
-            System.out.println("curr path" + System.getProperty("user.dir"));
-            String[] cmd = {"sh", System.getProperty("user.dir") + "/js-execution-engine/src/main/java/com/stackroute/script/run.sh",System.getProperty("user.dir")};
+            String[] cmd = {"sh", "/DB/script/jsrun.sh"};
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -162,14 +160,12 @@ public class QuestionServiceImpl implements QuestionService{
                 System.out.println(line);
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         System.out.println("curr path" + System.getProperty("user.dir"));
-        File file1=new File(System.getProperty("user.dir") + "/js-boilerplate/src/main/java/com/stackroute/"+filename);
+        File file1=new File("/DB/js-boilerplate/src/main/java/com/stackroute/"+filename);
         if(file1.exists()) {
             System.out.println("file exists");
         }

@@ -60,13 +60,14 @@
 
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
-          <li><app-searchservice class="sea" [routerLink]="['/searchdisplay']"></app-searchservice></li>
+          <li><a href="#">Home</a></li>
           <li><a href="" [routerLink]="['/post', info.username]">Post Question</a></li>
           <li><a href="" [routerLink]="['/userprofile']">Profile</a></li>
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li><a href="" (click)="logout()">Logout</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <!-- <li><a href="" [routerLink]="['/search']">Search</a></li> -->
+          <li><app-searchservice [routerLink]="['/searchdisplay']"></app-searchservice></li>
         </ul>
       </nav>
       <!-- #nav-menu-container -->
@@ -80,15 +81,18 @@
 
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
-          <li><app-searchservice class="sea" [routerLink]="['/searchdisplay']"></app-searchservice></li>
+          <li><a href="#">Home</a></li>
           <li><a href="" [routerLink]="['/fetch']">Practice</a></li>
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li *ngIf="!authority"><a href="" [routerLink]="['/auth/login']">Login/Signup</a></li>
           <!-- <li><a href="" (click)="logout()">Logout</a></li> -->
           <li><a href="#contact">Contact Us</a></li>
           <!-- <li><a href="" [routerLink]="['/search']">Search</a></li> -->
+          <li><app-searchservice [routerLink]="['/searchdisplay']"></app-searchservice></li>
+
           
         </ul>
+        
       </nav>
       <!-- #nav-menu-container -->
 
