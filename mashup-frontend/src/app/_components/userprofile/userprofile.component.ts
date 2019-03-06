@@ -52,7 +52,7 @@ export class UserprofileComponent implements OnInit {
         console.log('Data is ', data);
     },
       error => {
-        alert(error);
+        // alert(error);
       }
     );
 
