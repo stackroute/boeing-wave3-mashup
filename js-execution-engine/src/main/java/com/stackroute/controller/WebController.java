@@ -25,7 +25,7 @@ public class WebController {
     }
 
     @MessageMapping("/hello")
-    @SendTo("/topic/hi")
+    @SendTo("/topic-js/hi")
     public Hello  greeting(User user) throws Exception {
         String response=this.questionService.run(user.getName());
         System.out.println(response);

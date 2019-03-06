@@ -14,14 +14,14 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableSimpleBroker("/topic");
+        config.enableSimpleBroker("/topic-js");
         config.setApplicationDestinationPrefixes("/gkz");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
-                .addEndpoint("/gkz-stomp-endpoint")
+                .addEndpoint("/gkz-stomp-endpoint-js")
                 .setAllowedOrigins("http://13.234.74.67:8030")
                 .withSockJS();
     }

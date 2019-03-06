@@ -546,14 +546,14 @@ var EditaudioComponent = /** @class */ (function () {
         }
     };
     EditaudioComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8092/js-execution-engine/gkz-stomp-endpoint');
+        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8092/js-execution-engine/gkz-stomp-endpoint-js');
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
         var _this = this;
         this.stompClient.connect({}, function (frame) {
             _this.setConnected(true);
             console.log('Connected: ' + frame);
             this.connectedSocket = true;
-            _this.stompClient.subscribe('/topic/hi', function (hello) {
+            _this.stompClient.subscribe('/topic-js/hi', function (hello) {
                 if (_this.mvnDependencyDownload > 1) {
                     _this.showResults(JSON.parse(hello.body).greeting);
                 }
@@ -3170,7 +3170,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
