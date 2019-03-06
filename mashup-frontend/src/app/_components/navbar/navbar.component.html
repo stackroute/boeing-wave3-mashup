@@ -60,7 +60,9 @@
 
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
-          <li><a href="#">Home</a></li>
+          <li><a href="#">
+         <img id="logoimage" alt="Bell Logo" src="/assets/fire.png" class="logo">
+          </a></li>
           <li><a href="" [routerLink]="['/post', info.username]">Post Question</a></li>
           <li><a href="" [routerLink]="['/userprofile']">Profile</a></li>
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
@@ -81,7 +83,9 @@
 
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
-          <li><a href="#">Home</a></li>
+          <li><a href="#">
+          <img id="logoimage" alt="Bell Logo" src="/assets/fire.png" class="logo">
+          </a></li>
           <li><a href="" [routerLink]="['/fetch']">Practice</a></li>
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li *ngIf="!authority"><a href="" [routerLink]="['/auth/login']">Login/Signup</a></li>

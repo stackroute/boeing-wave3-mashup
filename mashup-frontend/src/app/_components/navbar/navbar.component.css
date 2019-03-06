@@ -2,12 +2,15 @@
     background-color: skyblue;
 }
 img{
-    width: 65px;
+    width: 70px;
     padding-bottom: 5px;
+}
+#logoimage{
+  width:30px;
 }
 .input-field{
     margin: 0%;
-    height: 64px;
+    height: 65px;
     font-size: 30px;
 }
 .second-bar{
@@ -17,7 +20,7 @@ img{
 .material-icons{
     font-size: 40px;
     color: skyblue;
-    
+
 }
 #search{
     margin: 0%;
@@ -26,13 +29,21 @@ img{
 }
 .flex-container{
     display: flex;
-    
+
 }
 .navhover:hover{
     color: rgb(75, 44, 4);
     text-decoration: none;
     font-size: 20px;
 }
+
+.nav-menu a {
+  padding: 13px 13px 13px 13px;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+}
+
 
 @media (min-width: 1200px){
 .container {
