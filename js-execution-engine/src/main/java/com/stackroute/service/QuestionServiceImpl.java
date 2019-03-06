@@ -152,7 +152,7 @@ public class QuestionServiceImpl implements QuestionService{
         try {
             ///home/user/Documents/Mashup/js_complete/executionengine
             System.out.println("curr path" + System.getProperty("user.dir"));
-            String[] cmd = {"sh", System.getProperty("user.dir") + "/js-execution-engine/src/main/java/com/stackroute/script/run.sh",System.getProperty("user.dir")};
+            String[] cmd = {"sh", System.getProperty("user.dir") + "/js-execution-engine/src/main/java/com/stackroute/script/jsrun.sh",System.getProperty("user.dir")};
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(
