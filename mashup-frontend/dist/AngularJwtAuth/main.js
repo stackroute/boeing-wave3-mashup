@@ -275,6 +275,7 @@ var EditComponent = /** @class */ (function () {
         var _this = this;
         this.questionId = this._route.snapshot.paramMap.get('qid');
         this.uname = this.token.getUsername();
+        //  this.uname="rahul";
         console.log(this.questionId);
         console.log(this.uname);
         this.connect();
@@ -3168,7 +3169,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Music/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/abccc/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
