@@ -1,27 +1,42 @@
 <div class="container" style="text-align:center">
-    <div class="row" style="text-align:center">
-      <div class="col-md-12" style="font-size:22px">Let's dive into the world of Coding !!! </div>
-      <br><br><br><br>
+  <div class="row" style="text-align:center">
+    <div class="col-md-12" style="font-size:22px">
+      <h1>Let's dive into the world of Coding...</h1>
+      <hr size="30">
     </div>
-    <div class="row" style="text-align:center" >
+    <br /><br /><br /><br />
+  </div>
+  <div class="row" style="text-align:center">
       <div class="card-deck">
       <div *ngFor="let question of fetch" class="col-md-4">
-          <div class="card">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-              <div class="card-body">
-                <h2 class="card-title">{{question.questionTitle}}</h2>
-                <p class="card-text">{{question.questionDescription}}</p>
-                <button type="button" class="btn btn-primary" (click)=openEditor(question.questionId)>ATTEMPT</button>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Related to:{{question.tags}}</small>
-                <small class="text-muted">Of level:{{question.difficulty}}</small>
+        
+        <div class="card">
+          <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+          <div class="card-body">
+            <h2 class="card-title">{{ question.questionTitle }}</h2>
+            <!-- <p class="card-text">{{question.questionDescription}}</p> -->
+            <!-- <p>Related to: {{ question.tags }}</p>
+            <p>Of level: {{ question.difficulty }}</p> -->
+            
+            <p class="card-text">Related to: {{ question.tags }}</p>
+            <p class="card-text"><small class="text-muted">Of level: {{ question.difficulty }}</small></p>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="openEditor(question.questionId)"
+            >
+              ATTEMPT
+            </button>
+          </div>
+          <!-- <div class="card-footer">
+                <small class="text-muted"></small>
+                <small class="text-muted"></small>
                 
-              </div>
-            </div>
-   
+              </div> -->
+        </div>
+
         <br />
       </div>
-      </div>
     </div>
-   </div>
+  </div>
+</div>
