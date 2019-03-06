@@ -30,7 +30,7 @@ public class UserController {
     // method to save user profile
     @ApiOperation(value = "Save a userProfile")
     @PostMapping(value = "userprofile")
-    public ResponseEntity<UserProfile> saveUserProfile( @ApiParam(value = "UserProfile will be saved in database" +
+    public ResponseEntity<UserProfile> updateUserProfile( @ApiParam(value = "UserProfile will be saved in database" +
             " table", required = true)@RequestBody UserProfile userProfile) throws UserProfileAlreadyExistException {
             return new ResponseEntity<>(userProfileService.saveUserProfile(userProfile), HttpStatus.OK);
     }

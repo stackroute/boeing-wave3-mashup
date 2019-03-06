@@ -54,6 +54,7 @@
             </ng-template>
           </div>
           <button (click)="updateProfile()">Update Profile</button>
+          <button (click)="submitUpdatedProfile(profile.age, profile.gender, profile.company, profile.college, profile.course, profile.discipline)">Submit Changes</button>
         </mat-card>
       </div>
     </div>
@@ -81,3 +82,4 @@
     </mat-tab-group>
   </mat-grid-tile>
 </mat-grid-list>
+
