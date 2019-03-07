@@ -25,6 +25,7 @@ export class VotingComponent implements OnInit {
     this.vote="UP";
     console.log(this.vote);
     this.username = this.token.getUsername();
+
    // tslint:disable-next-line:label-position
     this.add = '{"userName":"' + this.username + '"}';
     console.log('masse:' + this.add);
@@ -55,6 +56,7 @@ export class VotingComponent implements OnInit {
     this.vote="DOWN";
     console.log(this.vote);
     this.username = this.token.getUsername();
+    
    // tslint:disable-next-line:label-position
     this.add = '{"userName":"' + this.username + '"}';
     console.log('masse:' + this.add);

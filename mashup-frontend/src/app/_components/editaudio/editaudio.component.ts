@@ -22,7 +22,7 @@ export class EditaudioComponent implements OnInit {
   description = 'Angular-WebSocket Demo';
   greetings: string[] = [];
   disabled = true;
-  // name: string;
+  
   code = `public class Employee {
     public  String addEmployeeEmailId(String emailId){
 

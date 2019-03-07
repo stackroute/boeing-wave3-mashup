@@ -29,6 +29,7 @@ export class SubmissionComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
+
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
@@ -65,8 +66,3 @@ function createNewUser(id: number): UserData {
     try1: try1
   };
 }
-
-
-/**  Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */

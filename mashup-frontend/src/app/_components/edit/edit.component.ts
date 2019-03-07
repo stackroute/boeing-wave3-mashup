@@ -40,11 +40,6 @@ export class EditComponent implements OnInit {
   questionObj:String;
   result:String;
   auto = new autocomplete;
-  // questitle: string;
-  // qid:string;
-  // quesstatement: string;
-  // questioninputs: string;
-  // questionout: string;
   questionId;
     questionTitle: String;
     questionDescription: String ;
@@ -86,7 +81,6 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.questionId=this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
-    //  this.uname="rahul";
     this.connect();
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
