@@ -219,9 +219,8 @@ var EditComponent = /** @class */ (function () {
         this.auto = new _autocomplete__WEBPACK_IMPORTED_MODULE_4__["autocomplete"];
         this.selectedLang = 'java';
         this.editorOptions = { theme: 'vs-dark', language: 'java' };
-        this.options = {
-            theme: 'vs-dark'
-        };
+        // tslint:disable-next-line:member-ordering
+        this.options = { theme: 'vs-dark' };
         // tslint:disable-next-line:member-ordering
         this.jsonCode = [
             '{',
@@ -281,12 +280,13 @@ var EditComponent = /** @class */ (function () {
             _this.questionTitle = data['questionTitle'];
             _this.questionDescription = data['questionDescription'];
             _this.inputFormat1 = data['inputFormat'];
-            _this.inputFormat = _this.inputFormat1.split("\n");
+            _this.inputFormat = _this.inputFormat1.split('\n');
             _this.outputFormat1 = data['outputFormat'];
-            _this.outputFormat = _this.outputFormat1.split("\n");
+            _this.outputFormat = _this.outputFormat1.split('\n');
             _this.difficulty = data['difficulty'];
             _this.tags = data['tags'];
             _this.gitUrl = data['gitUrl'];
+            // tslint:disable-next-line:no-shadowed-variable
             _this.quesservice.getcode(_this.gitUrl, _this.uname).subscribe(function (data) {
                 _this.code = data['codeTemplate'];
             });
@@ -317,15 +317,14 @@ var EditComponent = /** @class */ (function () {
         this.setConnected(false);
     };
     EditComponent.prototype.submit = function () {
-        //this.code=this.uname+"@#"+this.code;
         this.greetings = [];
-        this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.uname + "@#" + this.code }));
+        this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.uname + '@#' + this.code }));
     };
     EditComponent.prototype.sendDataToSubmissionService = function () {
-        this.quesservice.sendDatatoSubmission({ "code": this.code, "username": this.uname, "questionId": this.questionId,
-            "questionTitle": this.questionTitle, result: this.result,
-            "testCasePassed": this.testpass, "totalTestCases": this.totaltest,
-            "difficulty": this.difficulty });
+        this.quesservice.sendDatatoSubmission({ 'code': this.code, 'username': this.uname, 'questionId': this.questionId,
+            'questionTitle': this.questionTitle, result: this.result,
+            'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
+            'difficulty': this.difficulty });
     };
     EditComponent.prototype.showGreeting = function (message) {
         this.greetings.push(message);
@@ -333,20 +332,20 @@ var EditComponent = /** @class */ (function () {
         this.totaltest = this.greetings[0];
         this.testpass = this.greetings[1];
         this.greetings = this.greetings[2].split('\n');
-        if (this.greetings[0] === "") {
+        if (this.greetings[0] === '') {
             this.greetings[0] = 'Tests passed';
         }
         this.colorg = {
             color: "red"
         };
         if (this.greetings[0] === 'Tests passed') {
-            this.result = "passed";
+            this.result = 'passed';
             this.colorg = {
                 color: "green"
             };
         }
         else {
-            this.result = "failed";
+            this.result = 'failed';
         }
     };
     EditComponent = __decorate([
@@ -505,7 +504,6 @@ var EditaudioComponent = /** @class */ (function () {
         this.editorOptions = { theme: 'vs-light', language: 'java', readOnly: readValue };
     };
     EditaudioComponent.prototype.onInit = function (editor) {
-        var line = editor.getPosition();
         var monaco = window['monaco'];
         monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
     };
@@ -862,7 +860,6 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.onSubmit = function () {
         var _this = this;
-        console.log(this.form);
         this.loginInfo = new _components_auth_login_info__WEBPACK_IMPORTED_MODULE_3__["AuthLoginInfo"](this.form.username, this.form.password);
         this.authService.attemptAuth(this.loginInfo).subscribe(function (data) {
             _this.tokenStorage.saveToken(data.accessToken);
@@ -874,7 +871,6 @@ var LoginComponent = /** @class */ (function () {
             _this.reloadPage();
             _this.router.navigate(['']);
         }, function (error) {
-            console.log(error);
             _this.errorMessage = error.error.message;
             _this.isLoginFailed = true;
         });
@@ -1031,14 +1027,9 @@ var RecommendComponent = /** @class */ (function () {
     }
     RecommendComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("hello");
         this.fetchservice.getallquestioninfo().subscribe(function (data) {
-            console.log("hello");
             _this.fetch = data;
-            console.log("hello");
-            console.log(data);
         }, function (error) {
-            console.log('some error occured');
             console.log(error.errorMessage);
         });
     };
@@ -1138,18 +1129,15 @@ var RegisterComponent = /** @class */ (function () {
         this.submitted = true;
         // stop here if form is invalid
         if (this.firstFormGroup.invalid) {
-            console.log('register form is invalid ');
+            alert('register form is invalid ');
             return;
         }
         var object = Object.assign(this.firstFormGroup.value, this.secondFormGroup.value);
-        console.log('registerForm.value : ', object);
         this.registerService.register(object).subscribe(function (data) {
-            console.log('data is ', data);
             _this.alertService.success(data, true);
             alert(data);
             _this.router.navigate(['/auth/login']);
         }, function (error) {
-            console.log('we are getting some errors');
             _this.alertService.error('user already exists');
             alert('error');
         });
@@ -1246,7 +1234,6 @@ var SavequestionComponent = /** @class */ (function () {
         configurable: true
     });
     SavequestionComponent.prototype.ngOnInit = function () {
-        console.log('USERNAME : ' + this.uname);
         this.questionForm = this.formBuilder.group({
             questionTitle: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             questionDescription: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -1261,25 +1248,18 @@ var SavequestionComponent = /** @class */ (function () {
         var _this = this;
         this.submitted = true;
         if (this.questionForm.invalid) {
-            console.log('register form is invalid ');
+            alert('Question form is invalid ');
             return;
         }
-        console.log('questionForm: ', this.questionForm.value);
         this.uname = this.token.getUsername();
         // tslint:disable-next-line:label-position
         this.add = '{"username":"' + this.uname + '"}';
-        console.log('masse:' + this.add);
         this.obj1 = JSON.parse(this.add);
-        console.log(this.obj1);
         var obj2 = Object.assign(this.questionForm.value, this.obj1);
-        console.log(obj2);
         this.questionservice.saveQuestion(obj2).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["first"])()).subscribe(function (data) {
-            console.log('data is ', data);
-            // this.alertService.success(data, true);
             alert(data);
             _this.router.navigate(['home']);
         }, function (error) {
-            console.log('we are getting some errors');
             alert(error);
         });
     };
@@ -1743,7 +1723,7 @@ var UserprofileComponent = /** @class */ (function () {
         this.token = token;
         this.userService = userService;
         this.scorebadgeservice = scorebadgeservice;
-        // for getting data from scoreand badge service 
+        // for getting data from scoreand badge service
         this.userData = {};
         this.tiles = [
             { text: 'One', cols: 1, rows: 5, color: 'white' },
@@ -1755,12 +1735,10 @@ var UserprofileComponent = /** @class */ (function () {
         var _this = this;
         this.uname = this.token.getUsername();
         this.userService.getUserProfile(this.uname).subscribe(function (data) { return _this.profile = data; });
-        console.log('User Profile : ', this.profile);
         this.profileState = 'currentProfile';
         // call score and badge service to get data(added by pratima on 27th feb2019)
         this.scorebadgeservice.getUserData(this.uname).subscribe(function (data) {
             _this.userData = data;
-            console.log('Data is ', data);
         }, function (error) {
             // alert(error);
         });
@@ -1775,7 +1753,6 @@ var UserprofileComponent = /** @class */ (function () {
         this.profile.college = college;
         this.profile.course = course;
         this.profile.disciple = discipline;
-        console.log(this.profile.age);
         this.userService.updateProfile(this.profile).subscribe();
         this.profileState = 'currentProfile';
     };
@@ -1854,49 +1831,35 @@ var VotingComponent = /** @class */ (function () {
     VotingComponent.prototype.ngOnInit = function () {
     };
     VotingComponent.prototype.myFunction1 = function () {
-        this.vote = "UP";
-        console.log(this.vote);
+        this.vote = 'UP';
         this.username = this.token.getUsername();
         // tslint:disable-next-line:label-position
         this.add = '{"userName":"' + this.username + '"}';
-        console.log('masse:' + this.add);
         this.obj1 = JSON.parse(this.add);
-        console.log(this.obj1);
         this.add = '{"voteStatus":"' + this.vote + '"}';
-        console.log('masse:' + this.add);
         this.obj2 = JSON.parse(this.add);
-        console.log(this.obj2);
         var obj3 = Object.assign(this.obj2, this.obj1);
         this.questionservice.sendVote(obj3).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])()).subscribe(function (data) {
-            console.log('data is ', data);
             // this.alertService.success(data, true);
-            //alert(data);
+            alert('Voting Successfull');
         }, function (error) {
-            console.log('we are getting some errors');
-            //alert(error);
+            alert(error);
         });
     };
     VotingComponent.prototype.myFunction2 = function () {
-        this.vote = "DOWN";
-        console.log(this.vote);
+        this.vote = 'DOWN';
         this.username = this.token.getUsername();
         // tslint:disable-next-line:label-position
         this.add = '{"userName":"' + this.username + '"}';
-        console.log('masse:' + this.add);
         this.obj1 = JSON.parse(this.add);
-        console.log(this.obj1);
         this.add = '{"voteStatus":"' + this.vote + '"}';
-        console.log('masse:' + this.add);
         this.obj2 = JSON.parse(this.add);
-        console.log(this.obj2);
         var obj3 = Object.assign(this.obj2, this.obj1);
         this.questionservice.sendVote(obj3).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])()).subscribe(function (data) {
-            console.log('data is ', data);
             // this.alertService.success(data, true);
-            //alert(data);
+            alert('Successfull');
         }, function (error) {
-            console.log('we are getting some errors');
-            //alert(error);
+            alert(error);
         });
     };
     VotingComponent = __decorate([
@@ -3138,7 +3101,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Videos/mash/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
