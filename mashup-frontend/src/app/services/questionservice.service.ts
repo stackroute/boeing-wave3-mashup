@@ -14,6 +14,7 @@ export class QuestionserviceService {
   }
 
   public saveQuestion(questionObj): Observable<any> {
+    
     // tslint:disable-next-line:prefer-const
     console.log('QUESTION : ', questionObj);
     const savedQuestionObj = this._http.post(this.questionPopulatorApidUrl + 'question', questionObj, {responseType: 'text'});

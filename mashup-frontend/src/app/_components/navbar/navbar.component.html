@@ -37,12 +37,6 @@
   <!-- Main Stylesheet File -->
   <link href="/assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: Bell
-    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
 </head>
 
 <body>
@@ -52,12 +46,6 @@
   <header id="header">
     <div class="container">
       <div *ngIf="info.token; else loggedOut">
-      <!-- <div id="logo" class="pull-left"> -->
-        <!-- <a href="landing.component.html"><img src="/assets/img/logo-nav.png"></img></a> -->
-        <!-- Uncomment below if you prefer to use a text image -->
-        <!--<h1><a href="#hero">Bell</a></h1>-->
-      <!-- </div> -->
-
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
           <li><a href="#">
@@ -68,12 +56,11 @@
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li><a href="" (click)="logout()">Logout</a></li>
           <li><a href="#contact">Contact Us</a></li>
-          <!-- <li><a href="" [routerLink]="['/search']">Search</a></li> -->
           <li><app-searchservice [routerLink]="['/searchdisplay']"></app-searchservice></li>
         </ul>
       </nav>
-      <!-- #nav-menu-container -->
 
+      <!-- #nav-menu-container -->
       <nav class="nav social-nav pull-right d-none d-lg-inline">
         <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
       </nav>
@@ -89,12 +76,11 @@
           <li><a href="" [routerLink]="['/fetch']">Practice</a></li>
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li *ngIf="!authority"><a href="" [routerLink]="['/auth/login']">Login/Signup</a></li>
-          <!-- <li><a href="" (click)="logout()">Logout</a></li> -->
           <li><a href="#contact">Contact Us</a></li>
-          <!-- <li><a href="" [routerLink]="['/search']">Search</a></li> -->
           <li><app-searchservice [routerLink]="['/searchdisplay']"></app-searchservice></li>
         </ul>
       </nav>
+      
       <!-- #nav-menu-container -->
       <nav class="nav social-nav pull-right d-none d-lg-inline">
         <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>

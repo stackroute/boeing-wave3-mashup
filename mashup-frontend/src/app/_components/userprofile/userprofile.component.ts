@@ -27,7 +27,7 @@ export class UserprofileComponent implements OnInit {
   profile;
   public uname: string;
 
-  // for getting data from scoreand badge service (added by pratima on 27th feb2019)
+  // for getting data from scoreand badge service
   public userData = {};
 
   // tslint:disable-next-line:max-line-length
@@ -41,14 +41,12 @@ export class UserprofileComponent implements OnInit {
   ngOnInit() {
     this.uname = this.token.getUsername();
     this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
-    console.log('User Profile : ', this.profile);
     this.profileState = 'currentProfile';
 
     // call score and badge service to get data(added by pratima on 27th feb2019)
     this.scorebadgeservice.getUserData(this.uname).subscribe(
       data => {
        this.userData = data;
-        console.log('Data is ', data);
     },
       error => {
         // alert(error);
@@ -66,7 +64,6 @@ export class UserprofileComponent implements OnInit {
     this.profile.college = college;
     this.profile.course = course;
     this.profile.disciple = discipline;
-    console.log(this.profile.age);
     this.userService.updateProfile(this.profile).subscribe();
     this.profileState = 'currentProfile';
   }

@@ -3,9 +3,6 @@
 }
 li img{
     width: 70px;
-    max-width: 100%;
-    /* padding-bottom: 5px; */
-
 }
 #logoimage{
   width:30px;
@@ -16,15 +13,6 @@ li img{
     height: 65px;
     font-size: 30px;
 }
-/* .second-bar{
-    margin-left: 135px;
-    height: 60px;
-}
-.material-icons{
-    font-size: 40px;
-    color: skyblue;
-
-} */
 #search{
     margin: 0%;
     background-color: whitesmoke;

@@ -22,4 +22,5 @@ export class SearchdisplayComponent implements OnInit {
     this.fetchservice.findQuestion(this.tag).subscribe(data => this.fetch = data);
     console.log(this.fetchservice.findQuestion(this.tag).subscribe(data => this.fetch = data));
   }
+
 }

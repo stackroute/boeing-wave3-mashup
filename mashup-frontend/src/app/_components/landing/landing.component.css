@@ -1,13 +1,8 @@
 .navbar-fixed-top{
     background:black;
 }
-.hello{
-    
-    
-}
 .logo{
     width: 100px;
-
 }
 .hero::after{
     min-height: 800px;
@@ -27,4 +22,7 @@ p.tagline[_ngcontent-c3][_ngcontent-c3]{
     -webkit-box-shadow: none;
     box-shadow: none;
     font-size: 15px;
+}
+.team-img{
+    height: 300px;
 }

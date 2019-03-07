@@ -9,17 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchserviceComponent implements OnInit {
 
-  // questionTitle: string;
   tag: string;
-  // questionDescription: string;
-  // public go;
-  // public fetch: string;
   constructor(private _route: ActivatedRoute, private router: Router, public fetchservice: SearchserviceService) { }
-  // public tags: string;
   ngOnInit() {
   }
   search(): any {
-    console.log('hi inside search');
     this.router.navigate(['/display', this.tag]);
   }
 
