@@ -6,6 +6,7 @@ li img{
 }
 #logoimage{
   width:30px;
+  max-width: 100%;
 }
 .input-field{
     margin: 0%;
