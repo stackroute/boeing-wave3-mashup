@@ -79,12 +79,10 @@ export class EditaudioComponent implements OnInit {
     let line = editor.getPosition();
     const monaco = window['monaco'];
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-    console.log(line);
   }
   constructor() {}
 
   ngOnInit() {
-    console.log(this.code) ;
     this.connect();
   }
   // socket code
@@ -100,7 +98,6 @@ export class EditaudioComponent implements OnInit {
     const _this = this;
     this.stompClient.connect({}, function (frame) {
       _this.setConnected(true);
-      console.log('Connected: ' + frame);
       this.connectedSocket = true;
       _this.stompClient.subscribe('/topic-js/hi', function (hello) {
         if ( _this.mvnDependencyDownload > 1) {
@@ -116,11 +113,8 @@ export class EditaudioComponent implements OnInit {
       this.stompClient.disconnect();
     }
     this.setConnected(false);
-    console.log('Disconnected!');
   }
   submit() {
-    console.log('submit button');
-    console.log(this.code);
     this.greetings = [];
     this.stompClient.send(
       '/gkz/hello',
@@ -134,8 +128,6 @@ export class EditaudioComponent implements OnInit {
     this.greetings = this.greetings[0].split('#*@');
     this.totaltest = this.greetings[0];
     this.passed = this.greetings[1];
-    console.log(this.totaltest);
-    console.log(this.passed);
     this.greetings  = this.greetings[2].split('\n');
     this.colorg = {
       color: `red`
