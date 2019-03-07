@@ -38,6 +38,8 @@ public class ResultsServiceImpl implements ResultsService{
         while((d=br.readLine())!=null)
             k+=d;
 
+//        file.delete();
+
         String r[]=k.split("\\[ERROR\\]");
 
         int mm=0;
@@ -325,6 +327,11 @@ public class ResultsServiceImpl implements ResultsService{
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     p.getInputStream()));
             String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
