@@ -69,7 +69,7 @@ public class FetchServiceImpl implements FetchService  {
         else{
             System.out.println("run file doesnot exist");
         }
-        String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/umamahesh1603/instanceNew.git",fetchService1.getUsername(),"/DB/users"};
+        String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/Ujjawala/execution-boilerplate.git",fetchService1.getUsername(),"/DB/users"};
         Process procScript = Runtime.getRuntime().exec(cmdScript);
         procScript.waitFor();
 //        System.out.println("checking the user directory "+System.getProperty("user.dir"));
