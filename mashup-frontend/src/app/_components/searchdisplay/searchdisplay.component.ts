@@ -16,13 +16,11 @@ export class SearchdisplayComponent implements OnInit {
   public fetch: string;
   constructor(private _route: ActivatedRoute, private router: Router, public fetchservice: SearchserviceService) { }
   public tags: string;
-  
   ngOnInit() {
     this.tag = this._route.snapshot.paramMap.get('tag');
     this.fetchservice.findQuestion(this.tag)
             .subscribe(data => this.fetch = data
               );
   }
-  
 
 }

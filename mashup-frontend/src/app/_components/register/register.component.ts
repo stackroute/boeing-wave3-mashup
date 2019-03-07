@@ -49,20 +49,17 @@ export class RegisterComponent implements OnInit {
 
       // stop here if form is invalid
       if (this.firstFormGroup.invalid) {
-        console.log('register form is invalid ');
+        alert('register form is invalid ');
         return;
       }
       const object = Object.assign(this.firstFormGroup.value, this.secondFormGroup.value);
-      console.log('registerForm.value : ', object);
       this.registerService.register(object).subscribe(
         data => {
-          console.log('data is ', data);
            this.alertService.success(data, true);
            alert(data);
            this.router.navigate(['/auth/login']);
         },
         error => {
-          console.log('we are getting some errors');
           this.alertService.error('user already exists');
           alert('error');
         }

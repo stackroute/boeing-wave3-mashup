@@ -22,7 +22,6 @@ export class EditaudioComponent implements OnInit {
   description = 'Angular-WebSocket Demo';
   greetings: string[] = [];
   disabled = true;
-  
   code = `public class Employee {
     public  String addEmployeeEmailId(String emailId){
 
@@ -76,7 +75,6 @@ export class EditaudioComponent implements OnInit {
   }
 
   onInit(editor) {
-    let line = editor.getPosition();
     const monaco = window['monaco'];
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
   }

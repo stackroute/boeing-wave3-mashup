@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
 
   selector: 'app-edit',
-  styles: ['ngx-monaco-editor { height: 70vh; width:100%; display:block; }',`ul{
+  styles: ['ngx-monaco-editor { height: 70vh; width:100%; display:block; }', `ul{
     list-style-type: none;
   }`],
   styleUrls: [],
@@ -23,22 +23,21 @@ export class EditComponent implements OnInit {
 
   // wesocket
   title = 'grokonez';
-  
-  public difficulty:String;
-  public uname:String;
-  public testpass:String;
-  public totaltest:String;
+  public difficulty: String;
+  public uname: String;
+  public testpass: String;
+  public totaltest: String;
   description = 'Angular-WebSocket Demo';
 
   greetings: string[] = [];
 
   disabled = true;
   // name: string;
- code:String;
+ code: String;
   private stompClient = null;
   // socket ends here
-  questionObj:String;
-  result:String;
+  questionObj: String;
+  result: String;
   auto = new autocomplete;
   questionId;
     questionTitle: String;
@@ -70,41 +69,38 @@ export class EditComponent implements OnInit {
   }
 
   onInit(editor) {
-    
     const line = editor.getPosition();
     const monaco = window['monaco'];
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
 
   }
-  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute,private token: TokenStorageService) {
+  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService) {
   }
   ngOnInit() {
-    this.questionId=this._route.snapshot.paramMap.get('qid');
+    this.questionId = this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
     this.connect();
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
-       this.questionObj = data; 
+       this.questionObj = data;
         this.questionId = data['questionId'];
         this.questionTitle = data['questionTitle'] ;
         this.questionDescription = data['questionDescription'] ;
         this.inputFormat1 = data['inputFormat'] ;
-       this.inputFormat=this.inputFormat1.split("\n");
-       this.outputFormat1=data['outputFormat'];
-        this.outputFormat = this.outputFormat1.split("\n");
+       this.inputFormat = this.inputFormat1.split('\n');
+       this.outputFormat1 = data['outputFormat'];
+        this.outputFormat = this.outputFormat1.split('\n');
         this.difficulty = data['difficulty'] ;
         this.tags = data['tags'] ;
         this.gitUrl = data['gitUrl'] ;
-        this.quesservice.getcode(this.gitUrl,this.uname).subscribe(data=>{
-          this.code=data['codeTemplate'];  });
+        // tslint:disable-next-line:no-shadowed-variable
+        this.quesservice.getcode(this.gitUrl, this.uname).subscribe(data => {
+          this.code = data['codeTemplate'];  });
         }
         );
-     
-       
   }
-  options = {
-    theme: 'vs-dark'
-  };
+  // tslint:disable-next-line:member-ordering
+  options = {theme: 'vs-dark'};
   // tslint:disable-next-line:member-ordering
   jsonCode = [
     '{',
@@ -143,7 +139,6 @@ export class EditComponent implements OnInit {
   connect() {
     const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
-        
     const _this = this;
     this.stompClient.connect({}, function (frame) {
       _this.setConnected(true);
@@ -162,43 +157,41 @@ export class EditComponent implements OnInit {
   }
 
   submit() {
-   //this.code=this.uname+"@#"+this.code;
     this.greetings = [];
     this.stompClient.send(
       '/gkz/hello',
       {},
-      JSON.stringify({'name': this.uname+"@#"+this.code })
+      JSON.stringify({'name': this.uname + '@#' + this.code })
     );
   }
 
  // tslint:disable-next-line:member-ordering
  public colorg: object = {};
- sendDataToSubmissionService(){
-      this.quesservice.sendDatatoSubmission({"code":this.code,"username":this.uname,"questionId":this.questionId,
-      "questionTitle":this.questionTitle,result:this.result,
-      "testCasePassed":this.testpass,"totalTestCases":this.totaltest,
-      "difficulty":this.difficulty})
+ sendDataToSubmissionService() {
+      this.quesservice.sendDatatoSubmission({'code': this.code, 'username': this.uname, 'questionId': this.questionId,
+      'questionTitle': this.questionTitle, result: this.result,
+      'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
+      'difficulty': this.difficulty});
  }
   showGreeting(message) {
     this.greetings.push(message);
-    this.greetings=this.greetings[0].split('@*#');
-    this.totaltest=this.greetings[0];
-    this.testpass=this.greetings[1];
+    this.greetings = this.greetings[0].split('@*#');
+    this.totaltest = this.greetings[0];
+    this.testpass = this.greetings[1];
     this.greetings = this.greetings[2].split('\n');
-    if(this.greetings[0]===""){
-    this.greetings[0]='Tests passed'  }
-   
+    if (this.greetings[0] === '') {
+    this.greetings[0] = 'Tests passed';
+  }
     this.colorg = {
       color: `red`
     };
     if ( this.greetings[0] === 'Tests passed') {
-      this.result="passed";
+      this.result = 'passed';
       this.colorg = {
         color: `green`
       };
-    }
-    else{
-      this.result="failed";
+    } else {
+      this.result = 'failed';
     }
   }
 

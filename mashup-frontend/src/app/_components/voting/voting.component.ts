@@ -16,69 +16,50 @@ export class VotingComponent implements OnInit {
   public add;
   public obj1;
   public obj2;
-  public vote:string;
-  constructor(private token: TokenStorageService,private http:HttpModule,public questionservice: QuestionserviceService) { }
+  public vote: string;
+  constructor(private token: TokenStorageService, private http: HttpModule, public questionservice: QuestionserviceService) { }
 
   ngOnInit() {
   }
-  myFunction1():any{
-    this.vote="UP";
-    console.log(this.vote);
+  myFunction1(): any {
+    this.vote = 'UP';
     this.username = this.token.getUsername();
 
    // tslint:disable-next-line:label-position
     this.add = '{"userName":"' + this.username + '"}';
-    console.log('masse:' + this.add);
     this.obj1  = JSON.parse(this.add);
-    console.log(this.obj1);
 
     this.add = '{"voteStatus":"' + this.vote + '"}';
-    console.log('masse:' + this.add);
     this.obj2  = JSON.parse(this.add);
-    console.log(this.obj2);
 
     const obj3 = Object.assign(this.obj2, this.obj1);
-     
     this.questionservice.sendVote(obj3).pipe(first()).subscribe(
       data => {
-        console.log('data is ', data);
         // this.alertService.success(data, true);
-        //alert(data);
+        alert('Voting Successfull');
     },
     error => {
-      console.log('we are getting some errors');
-      //alert(error);
+      alert(error);
     }
     );
   }
 
-  myFunction2():any{
-    this.vote="DOWN";
-    console.log(this.vote);
+  myFunction2(): any {
+    this.vote = 'DOWN';
     this.username = this.token.getUsername();
-    
    // tslint:disable-next-line:label-position
     this.add = '{"userName":"' + this.username + '"}';
-    console.log('masse:' + this.add);
     this.obj1  = JSON.parse(this.add);
-    console.log(this.obj1);
-
     this.add = '{"voteStatus":"' + this.vote + '"}';
-    console.log('masse:' + this.add);
     this.obj2  = JSON.parse(this.add);
-    console.log(this.obj2);
-
     const obj3 = Object.assign(this.obj2, this.obj1);
-     
     this.questionservice.sendVote(obj3).pipe(first()).subscribe(
       data => {
-        console.log('data is ', data);
         // this.alertService.success(data, true);
-        //alert(data);
+        alert('Successfull');
     },
     error => {
-      console.log('we are getting some errors');
-      //alert(error);
+      alert(error);
     }
     );
   }
