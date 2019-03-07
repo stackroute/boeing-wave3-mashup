@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Bell Bootstrap 4 Theme</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -43,13 +42,14 @@
   <!-- Page Content
     ================================================== -->
   <!-- Header -->
+
   <header id="header">
     <div class="container">
       <div *ngIf="info.token; else loggedOut">
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
           <li><a href="#">
-         <img id="logoimage" alt="Bell Logo" src="/assets/fire.png" class="logo">
+         <img id="logoimage" alt="Logo" src="/assets/fire.png" class="logo">
           </a></li>
           <li><a href="" [routerLink]="['/post', info.username]">Post Question</a></li>
           <li><a href="" [routerLink]="['/userprofile']">Profile</a></li>
@@ -65,9 +65,8 @@
         <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-envelope"></i></a>
       </nav>
     </div>
-
+    
     <ng-template #loggedOut>
-
       <nav id="nav-menu-container" class="">
         <ul class="nav-menu">
           <li><a href="#">
