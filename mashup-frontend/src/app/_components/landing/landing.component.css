@@ -1,16 +1,11 @@
 .navbar-fixed-top{
     background:black;
 }
-.hello{
-    
-    
-}
 .logo{
     width: 100px;
-
 }
 .hero::after{
-    height: 800px;
+    min-height: 800px;
     background: url("/assets/MASHUP-BACK.png");
     background-repeat: no-repeat;
     background-size: cover;

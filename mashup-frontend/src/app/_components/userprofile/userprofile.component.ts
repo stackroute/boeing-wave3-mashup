@@ -27,7 +27,7 @@ export class UserprofileComponent implements OnInit {
   profile;
   public uname: string;
 
-  // for getting data from scoreand badge service (added by pratima on 27th feb2019)
+  // for getting data from scoreand badge service 
   public userData = {};
 
   // tslint:disable-next-line:max-line-length
@@ -54,7 +54,6 @@ export class UserprofileComponent implements OnInit {
         // alert(error);
       }
     );
-
   }
 
   updateProfile() {

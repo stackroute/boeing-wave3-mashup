@@ -166,7 +166,7 @@ var autocomplete = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\" style=\"padding-left:5vw;padding-top:5vh;\">\n            <div class=\"row font-weight-bold \" >\n\n                <h5>{{questionTitle}}</h5>   <app-voting></app-voting>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{questionDescription}}\n                </p>\n                <br>\n                <mat-divider></mat-divider>\n            </div>\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Input</h5>\n                <div *ngFor=\"let inp of inputFormat\"> \n                    <li>{{inp}}</li>\n                </div>\n                <br>\n\n            </ul>\n            <mat-divider></mat-divider>\n\n\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Output</h5>\n                <div *ngFor=\"let out of outputFormat\"> \n                    <li>{{out}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n           \n\n        </div>\n        <div class=\"col-sm-7\" >\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n            <!-- <form class=\"form-inline my-2 my-lg-0 hello\" #createForm=\"ngForm\" (ngSubmit)=\"submit()\">\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\" id=\"button-addon2\">Compile </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=sendDataToSubmissionService()>Submit</button>\n              \n            </form> -->\n            <form class=\"form-inline my-2 my-lg-0 hello\" >\n                <button class=\"btn btn-outline-success my-2 my-sm-0\"(click)=submit()>Compile </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=sendDataToSubmissionService()>Submit</button>\n              \n            </form>\n           \n           \n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>"
+module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\" style=\"padding-left:5vw;padding-top:5vh;\">\n            <div class=\"row font-weight-bold \" >\n\n                <h5>{{questionTitle}}</h5>   <app-voting></app-voting>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{questionDescription}}\n                </p>\n                <br>\n                <mat-divider></mat-divider>\n            </div>\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Input</h5>\n                <div *ngFor=\"let inp of inputFormat\"> \n                    <li>{{inp}}</li>\n                </div>\n                <br>\n\n            </ul>\n            <mat-divider></mat-divider>\n\n\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Output</h5>\n                <div *ngFor=\"let out of outputFormat\"> \n                    <li>{{out}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n           \n\n        </div>\n        <div class=\"col-sm-7\" >\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n\n            <form class=\"form-inline my-2 my-lg-0 hello\" >\n                <button class=\"btn btn-outline-success my-2 my-sm-0\"(click)=submit()>Compile </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=sendDataToSubmissionService()>Submit</button>  \n            </form>\n                  \n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -269,20 +269,14 @@ var EditComponent = /** @class */ (function () {
         var line = editor.getPosition();
         var monaco = window['monaco'];
         monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-        console.log(line);
     };
     EditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.questionId = this._route.snapshot.paramMap.get('qid');
         this.uname = this.token.getUsername();
-        //  this.uname="rahul";
-        console.log(this.questionId);
-        console.log(this.uname);
         this.connect();
         this.quesservice.getQuestionById(this.questionId).subscribe(function (data) {
             _this.questionObj = data;
-            console.log("here it is");
-            console.log(data);
             _this.questionId = data['questionId'];
             _this.questionTitle = data['questionTitle'];
             _this.questionDescription = data['questionDescription'];
@@ -293,9 +287,6 @@ var EditComponent = /** @class */ (function () {
             _this.difficulty = data['difficulty'];
             _this.tags = data['tags'];
             _this.gitUrl = data['gitUrl'];
-            console.log(data);
-            console.log("calling to get data");
-            console.log(_this.gitUrl);
             _this.quesservice.getcode(_this.gitUrl, _this.uname).subscribe(function (data) {
                 _this.code = data['codeTemplate'];
             });
@@ -314,7 +305,6 @@ var EditComponent = /** @class */ (function () {
         var _this = this;
         this.stompClient.connect({}, function (frame) {
             _this.setConnected(true);
-            console.log('Connected: ' + frame);
             _this.stompClient.subscribe('/topic/hi', function (helo) {
                 _this.showGreeting(JSON.parse(helo.body).codeTemplate);
             });
@@ -325,15 +315,11 @@ var EditComponent = /** @class */ (function () {
             this.stompClient.disconnect();
         }
         this.setConnected(false);
-        console.log('Disconnected!');
     };
     EditComponent.prototype.submit = function () {
         //this.code=this.uname+"@#"+this.code;
-        console.log(this.questionObj);
-        //console.log(this.code);
         this.greetings = [];
         this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.uname + "@#" + this.code }));
-        console.log("sending data to submission service");
     };
     EditComponent.prototype.sendDataToSubmissionService = function () {
         this.quesservice.sendDatatoSubmission({ "code": this.code, "username": this.uname, "questionId": this.questionId,
@@ -350,8 +336,6 @@ var EditComponent = /** @class */ (function () {
         if (this.greetings[0] === "") {
             this.greetings[0] = 'Tests passed';
         }
-        console.log("from here j");
-        console.log(this.greetings);
         this.colorg = {
             color: "red"
         };
@@ -441,7 +425,7 @@ var autocomplete = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<meta\n  name=\"viewport\"\n  content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\"\n/>\n&nbsp;<br>&nbsp;<br>\n<div class=\"container-fluid\">\n  <!-- <button (click)=\"removeEditor()\">Remove Editor</button> -->\n  <div class=\"row\">\n    <div class=\"col-sm-7\" container-diff>\n      <ngx-monaco-editor\n        id=\"editor2\"\n        class=\"my-code-editor\"\n        [ngStyle]=\"styleb\"\n        [options]=\"editorOptions\"\n        [(ngModel)]=\"code\"\n        (onInit)=\"onInit($event)\"\n      ></ngx-monaco-editor>\n      <audio class=\"audiocss\" controls style=\"width: 100%;\" #audio>\n        <source src=\"{{ audiopath }}\" type=\"audio/mpeg\" />\n      </audio>\n      &nbsp;<br>\n      <form\n        class=\"form-inline my-2 my-lg-0 hello\"\n        #createForm=\"ngForm\"\n        (ngSubmit)=\"submit()\"\n      >\n        <button\n          class=\"btn btn-outline-success my-2 my-sm-0\"\n          type=\"submit\"\n          id=\"button-addon2\"\n        >\n          Run\n        </button>&nbsp;&nbsp;&nbsp;&nbsp;\n        <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=\"startTimer(audio)\">Start</button>\n      </form>\n      <br>&nbsp;<br>&nbsp;<br>\n    </div>\n    <div class=\"col-sm-5\">\n      <table\n        id=\"conversation\"\n        class=\"table table-striped\"\n        style=\"margin-top: 20px;\"\n      >\n        <thead>\n          <tr>\n            <th>Results</th>\n          </tr>\n        </thead>\n        <tbody *ngFor=\"let greeting of greetings\">\n          <tr>\n            <td [ngStyle]=\"colorg\" style=\"color:red\">{{ greeting }}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<meta\n  name=\"viewport\"\n  content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\"\n/>\n&nbsp;<br>&nbsp;<br>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-sm-7\" container-diff>\n      <ngx-monaco-editor\n        id=\"editor2\"\n        class=\"my-code-editor\"\n        [ngStyle]=\"styleb\"\n        [options]=\"editorOptions\"\n        [(ngModel)]=\"code\"\n        (onInit)=\"onInit($event)\"\n      ></ngx-monaco-editor>\n      <audio class=\"audiocss\" controls style=\"width: 100%;\" #audio>\n        <source src=\"{{ audiopath }}\" type=\"audio/mpeg\" />\n      </audio>\n      &nbsp;<br>\n      <form\n        class=\"form-inline my-2 my-lg-0 hello\"\n        #createForm=\"ngForm\"\n        (ngSubmit)=\"submit()\"\n      >\n        <button\n          class=\"btn btn-outline-success my-2 my-sm-0\"\n          type=\"submit\"\n          id=\"button-addon2\"\n        >\n          Run\n        </button>&nbsp;&nbsp;&nbsp;&nbsp;\n        <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=\"startTimer(audio)\">Start</button>\n      </form>\n      <br>&nbsp;<br>&nbsp;<br>\n    </div>\n    <div class=\"col-sm-5\">\n      <table\n        id=\"conversation\"\n        class=\"table table-striped\"\n        style=\"margin-top: 20px;\"\n      >\n        <thead>\n          <tr>\n            <th>Results</th>\n          </tr>\n        </thead>\n        <tbody *ngFor=\"let greeting of greetings\">\n          <tr>\n            <td [ngStyle]=\"colorg\" style=\"color:red\">{{ greeting }}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -483,7 +467,6 @@ var EditaudioComponent = /** @class */ (function () {
         this.description = 'Angular-WebSocket Demo';
         this.greetings = [];
         this.disabled = true;
-        // name: string;
         this.code = "public class Employee {\n    public  String addEmployeeEmailId(String emailId){\n\n        return null;\n    }\n}\n";
         this.readabilityTime = 20;
         this.stompClient = null;
@@ -525,10 +508,8 @@ var EditaudioComponent = /** @class */ (function () {
         var line = editor.getPosition();
         var monaco = window['monaco'];
         monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-        console.log(line);
     };
     EditaudioComponent.prototype.ngOnInit = function () {
-        console.log(this.code);
         this.connect();
     };
     // socket code
@@ -544,7 +525,6 @@ var EditaudioComponent = /** @class */ (function () {
         var _this = this;
         this.stompClient.connect({}, function (frame) {
             _this.setConnected(true);
-            console.log('Connected: ' + frame);
             this.connectedSocket = true;
             _this.stompClient.subscribe('/topic-js/hi', function (hello) {
                 if (_this.mvnDependencyDownload > 1) {
@@ -561,11 +541,8 @@ var EditaudioComponent = /** @class */ (function () {
             this.stompClient.disconnect();
         }
         this.setConnected(false);
-        console.log('Disconnected!');
     };
     EditaudioComponent.prototype.submit = function () {
-        console.log('submit button');
-        console.log(this.code);
         this.greetings = [];
         this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.code }));
     };
@@ -574,8 +551,6 @@ var EditaudioComponent = /** @class */ (function () {
         this.greetings = this.greetings[0].split('#*@');
         this.totaltest = this.greetings[0];
         this.passed = this.greetings[1];
-        console.log(this.totaltest);
-        console.log(this.passed);
         this.greetings = this.greetings[2].split('\n');
         this.colorg = {
             color: "red"
@@ -623,7 +598,7 @@ var EditaudioComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "li a {\n  font-size: 15px;\n}\n.copyright-text{\n  font-size: 20px;\n}\n.credits a{\n  font-size: 15px;\n}\n.footer{\n  position: absolute;\n  width:100%;\n}\n"
+module.exports = "li a {\n  font-size: 15px;\n}\n.copyright-text{\n  font-size: 20px;\n}\n.credits a{\n  font-size: 15px;\n}\n"
 
 /***/ }),
 
@@ -634,7 +609,7 @@ module.exports = "li a {\n  font-size: 15px;\n}\n.copyright-text{\n  font-size: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n    <footer class=\"site-footer\">\n      <div class=\"bottom\">\n        <div class=\"container\">\n          <div class=\"row\">\n\n            <div class=\"col-lg-6 col-xs-12 text-lg-left text-center\">\n              <p class=\"copyright-text\">\n                © MASHUP\n              </p>\n              <div class=\"credits\">\n               Designed by <a href=\"\">MASHUP</a>\n              </div>\n            </div>\n\n            <div class=\"col-lg-6 col-xs-12 text-lg-right text-center\">\n              <ul class=\"list-inline\">\n                <li class=\"list-inline-item\">\n                  <a href=\"#\">Home</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#about\">About Us</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#features\">Features</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#portfolio\">Portfolio</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#team\">Team</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#contact\">Contact</a>\n                </li>\n              </ul>\n            </div>\n\n          </div>\n        </div>\n      </div>\n    </footer>\n    <a class=\"scrolltop\" href=\"#\"><span class=\"fa fa-angle-up\"></span></a>\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n    <footer class=\"site-footer\">\n      <div class=\"bottom\">\n        <div class=\"container\">\n          <div class=\"row\">\n\n            <div class=\"col-lg-6 col-xs-12 text-lg-left text-center\">\n              <p class=\"copyright-text\">\n                © MASHUP\n              </p>\n              <div class=\"credits\">\n               Designed by <a href=\"\">MASHUP</a>\n              </div>\n            </div>\n\n            <div class=\"col-lg-6 col-xs-12 text-lg-right text-center\">\n              <ul class=\"list-inline\">\n                <li class=\"list-inline-item\">\n                  <a href=\"#\">About Us</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#\">Features</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#\">Portfolio</a>\n                </li>\n\n                <li class=\"list-inline-item\">\n                  <a href=\"#team\">Team</a>\n                </li>\n              </ul>\n            </div>\n\n          </div>\n        </div>\n      </div>\n    </footer>\n    <a class=\"scrolltop\" href=\"#\"><span class=\"fa fa-angle-up\"></span></a>\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -761,7 +736,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar-fixed-top{\n    background:black;\n}\n.hello{\n    \n    \n}\n.logo{\n    width: 100px;\n\n}\n.hero::after{\n    height: 800px;\n    background: url(\"/assets/MASHUP-BACK.png\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\np.tagline[_ngcontent-c3][_ngcontent-c3]{\n    margin-bottom: 20px;\n    margin-top: 20px;\n}\n.info p{\n    font-size: 15px;\n}\n#contact .form input, #contact .form textarea {\n    border-radius: 0;\n    box-shadow: none;\n    font-size: 15px;\n}"
+module.exports = ".navbar-fixed-top{\n    background:black;\n}\n.logo{\n    width: 100px;\n}\n.hero::after{\n    min-height: 800px;\n    background: url(\"/assets/MASHUP-BACK.png\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\np.tagline[_ngcontent-c3][_ngcontent-c3]{\n    margin-bottom: 20px;\n    margin-top: 20px;\n}\n.info p{\n    font-size: 15px;\n}\n#contact .form input, #contact .form textarea {\n    border-radius: 0;\n    box-shadow: none;\n    font-size: 15px;\n}"
 
 /***/ }),
 
@@ -929,7 +904,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".nav-wrapper{\n    background-color: skyblue;\n}\nli img{\n    width: 70px;\n    /* padding-bottom: 5px; */\n    \n}\n#logoimage{\n  width:30px;\n}\n.input-field{\n    margin: 0%;\n    height: 65px;\n    font-size: 30px;\n}\n/* .second-bar{\n    margin-left: 135px;\n    height: 60px;\n}\n.material-icons{\n    font-size: 40px;\n    color: skyblue;\n\n} */\n#search{\n    margin: 0%;\n    background-color: whitesmoke;\n    background-position: center top;\n}\n.flex-container{\n    display: flex;\n\n}\n.navhover:hover{\n    color: rgb(75, 44, 4);\n    text-decoration: none;\n    font-size: 20px;\n}\n.nav-menu a {\n  padding: 13px 13px 13px 13px;\n  text-decoration: none;\n  font-size: 15px;\n  display: inline-block;\n}\n@media (min-width: 1200px){\n.container {\n    max-width: 100%;\n    margin: 0;\n}}\n@media (min-width: 1200px)\n{\n.container[_ngcontent-c1] {\n    max-width: 100%;\n    padding-top: 3px;\n}}\nli a{\n    margin-top: 10px;\n}"
+module.exports = ".nav-wrapper{\n    background-color: skyblue;\n}\nli img{\n    width: 70px;\n}\n#logoimage{\n  width:30px;\n}\n.input-field{\n    margin: 0%;\n    height: 65px;\n    font-size: 30px;\n}\n#search{\n    margin: 0%;\n    background-color: whitesmoke;\n    background-position: center top;\n}\n.flex-container{\n    display: flex;\n\n}\n.navhover:hover{\n    color: rgb(75, 44, 4);\n    text-decoration: none;\n    font-size: 20px;\n}\n.nav-menu a {\n  padding: 13px 13px 13px 13px;\n  text-decoration: none;\n  font-size: 15px;\n  display: inline-block;\n}\n@media (min-width: 1200px){\n.container {\n    max-width: 100%;\n    margin: 0;\n}}\n@media (min-width: 1200px)\n{\n.container[_ngcontent-c1] {\n    max-width: 100%;\n    padding-top: 3px;\n}}\nli a{\n    margin-top: 10px;\n}"
 
 /***/ }),
 
@@ -940,7 +915,7 @@ module.exports = ".nav-wrapper{\n    background-color: skyblue;\n}\nli img{\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n  <!-- =======================================================\n    Theme Name: Bell\n    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/\n    Author: BootstrapMade.com\n    Author URL: https://bootstrapmade.com\n  ======================================================= -->\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n  <!-- Header -->\n  <header id=\"header\">\n    <div class=\"container\">\n      <div *ngIf=\"info.token; else loggedOut\">\n      <!-- <div id=\"logo\" class=\"pull-left\"> -->\n        <!-- <a href=\"landing.component.html\"><img src=\"/assets/img/logo-nav.png\"></img></a> -->\n        <!-- Uncomment below if you prefer to use a text image -->\n        <!--<h1><a href=\"#hero\">Bell</a></h1>-->\n      <!-- </div> -->\n\n      <nav id=\"nav-menu-container\" class=\"\">\n        <ul class=\"nav-menu\">\n          <li><a href=\"#\">\n         <img id=\"logoimage\" alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\">\n          </a></li>\n          <li><a href=\"\" [routerLink]=\"['/post', info.username]\">Post Question</a></li>\n          <li><a href=\"\" [routerLink]=\"['/userprofile']\">Profile</a></li>\n          <li><a href=\"\" [routerLink]=\"['/editaudio']\">Learn Coding</a></li>\n          <li><a href=\"\" (click)=\"logout()\">Logout</a></li>\n          <li><a href=\"#contact\">Contact Us</a></li>\n          <!-- <li><a href=\"\" [routerLink]=\"['/search']\">Search</a></li> -->\n          <li><app-searchservice [routerLink]=\"['/searchdisplay']\"></app-searchservice></li>\n        </ul>\n      </nav>\n      <!-- #nav-menu-container -->\n\n      <nav class=\"nav social-nav pull-right d-none d-lg-inline\">\n        <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> <a href=\"#\"><i class=\"fa fa-envelope\"></i></a>\n      </nav>\n    </div>\n\n    <ng-template #loggedOut>\n\n      <nav id=\"nav-menu-container\" class=\"\">\n        <ul class=\"nav-menu\">\n          <li><a href=\"#\">\n          <img id=\"logoimage\" alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\">\n          </a></li>\n          <li><a href=\"\" [routerLink]=\"['/fetch']\">Practice</a></li>\n          <li><a href=\"\" [routerLink]=\"['/editaudio']\">Learn Coding</a></li>\n          <li *ngIf=\"!authority\"><a href=\"\" [routerLink]=\"['/auth/login']\">Login/Signup</a></li>\n          <!-- <li><a href=\"\" (click)=\"logout()\">Logout</a></li> -->\n          <li><a href=\"#contact\">Contact Us</a></li>\n          <!-- <li><a href=\"\" [routerLink]=\"['/search']\">Search</a></li> -->\n          <li><app-searchservice [routerLink]=\"['/searchdisplay']\"></app-searchservice></li>\n        </ul>\n      </nav>\n      <!-- #nav-menu-container -->\n      <nav class=\"nav social-nav pull-right d-none d-lg-inline\">\n        <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> <a href=\"#\"><i class=\"fa fa-envelope\"></i></a>\n      </nav>\n    </ng-template>\n    </div>\n  </header>\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n  <meta charset=\"utf-8\">\n  <title>Bell Bootstrap 4 Theme</title>\n  <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">\n  <meta content=\"\" name=\"keywords\">\n  <meta content=\"\" name=\"description\">\n\n  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->\n  <meta property=\"og:title\" content=\"\">\n  <meta property=\"og:image\" content=\"\">\n  <meta property=\"og:url\" content=\"\">\n  <meta property=\"og:site_name\" content=\"\">\n  <meta property=\"og:description\" content=\"\">\n\n  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:site\" content=\"\">\n  <meta name=\"twitter:title\" content=\"\">\n  <meta name=\"twitter:description\" content=\"\">\n  <meta name=\"twitter:image\" content=\"\">\n\n  <!-- Favicon -->\n  <link href=\"/assets/img/favicon.ico\" rel=\"icon\">\n\n  <!-- Google Fonts -->\n  <link href=\"https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900\" rel=\"stylesheet\">\n\n  <!-- Bootstrap CSS File -->\n  <link href=\"/assets/lib/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n  <!-- Libraries CSS Files -->\n  <link href=\"/assets/lib/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n\n  <!-- Main Stylesheet File -->\n  <link href=\"/assets/css/style.css\" rel=\"stylesheet\">\n\n</head>\n\n<body>\n  <!-- Page Content\n    ================================================== -->\n  <!-- Header -->\n  <header id=\"header\">\n    <div class=\"container\">\n      <div *ngIf=\"info.token; else loggedOut\">\n      <nav id=\"nav-menu-container\" class=\"\">\n        <ul class=\"nav-menu\">\n          <li><a href=\"#\">\n         <img id=\"logoimage\" alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\">\n          </a></li>\n          <li><a href=\"\" [routerLink]=\"['/post', info.username]\">Post Question</a></li>\n          <li><a href=\"\" [routerLink]=\"['/userprofile']\">Profile</a></li>\n          <li><a href=\"\" [routerLink]=\"['/editaudio']\">Learn Coding</a></li>\n          <li><a href=\"\" (click)=\"logout()\">Logout</a></li>\n          <li><a href=\"#contact\">Contact Us</a></li>\n          <li><app-searchservice [routerLink]=\"['/searchdisplay']\"></app-searchservice></li>\n        </ul>\n      </nav>\n\n      <!-- #nav-menu-container -->\n      <nav class=\"nav social-nav pull-right d-none d-lg-inline\">\n        <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> <a href=\"#\"><i class=\"fa fa-envelope\"></i></a>\n      </nav>\n    </div>\n\n    <ng-template #loggedOut>\n\n      <nav id=\"nav-menu-container\" class=\"\">\n        <ul class=\"nav-menu\">\n          <li><a href=\"#\">\n          <img id=\"logoimage\" alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\">\n          </a></li>\n          <li><a href=\"\" [routerLink]=\"['/fetch']\">Practice</a></li>\n          <li><a href=\"\" [routerLink]=\"['/editaudio']\">Learn Coding</a></li>\n          <li *ngIf=\"!authority\"><a href=\"\" [routerLink]=\"['/auth/login']\">Login/Signup</a></li>\n          <li><a href=\"#contact\">Contact Us</a></li>\n          <li><app-searchservice [routerLink]=\"['/searchdisplay']\"></app-searchservice></li>\n        </ul>\n      </nav>\n      \n      <!-- #nav-menu-container -->\n      <nav class=\"nav social-nav pull-right d-none d-lg-inline\">\n        <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> <a href=\"#\"><i class=\"fa fa-envelope\"></i></a>\n      </nav>\n    </ng-template>\n    </div>\n  </header>\n\n  <!-- Required JavaScript Libraries -->\n  <script src=\"/assets/lib/jquery/jquery.min.js\"></script>\n  <script src=\"/assets/lib/jquery/jquery-migrate.min.js\"></script>\n  <script src=\"/assets/lib/superfish/hoverIntent.js\"></script>\n  <script src=\"/assets/lib/superfish/superfish.min.js\"></script>\n  <script src=\"/assets/lib/tether/js/tether.min.js\"></script>\n  <script src=\"/assets/lib/stellar/stellar.min.js\"></script>\n  <script src=\"/assets/lib/bootstrap/js/bootstrap.bundle.min.js\"></script>\n  <script src=\"/assets/lib/counterup/counterup.min.js\"></script>\n  <script src=\"/assets/lib/waypoints/waypoints.min.js\"></script>\n  <script src=\"/assets/lib/easing/easing.js\"></script>\n  <script src=\"/assets/lib/stickyjs/sticky.js\"></script>\n  <script src=\"/assets/lib/parallax/parallax.js\"></script>\n  <script src=\"/assets/lib/lockfixed/lockfixed.min.js\"></script>\n\n  <!-- Template Specisifc Custom Javascript File -->\n  <script src=\"/assets/js/custom.js\"></script>\n\n  <script src=\"/assets/contactform/contactform.js\"></script>\n\n\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -1008,7 +983,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "p{\n  font-size: 15px;\n}\n.col-md-4{\n  width: 500px;\n  height: auto;\n  background-color: rgb(25, 158, 184)\n}\n.btn{\n  justify-content: baseline;\n}\nh1{\n  margin: 40px;\n  color: rgb(25, 158, 184)\n}\n.card{\n  margin-top: 20px;\n  margin-bottom: 10px;\n  justify-content: center;\n\n\n}\n.card-body{\n  height: 300px;\n\n}\n.card-deck{\n  /* background-color: rgb(25, 158, 184) */\n  background-color: rgb(25, 158, 184)\n\n}\n.container:after{\n  height:1000px;\n}\n"
+module.exports = "p{\n  font-size: 15px;\n}\n.col-md-4{\n  width: 500px;\n  height: auto;\n  background-color: rgb(25, 158, 184)\n}\n.btn{\n  justify-content: baseline;\n}\nh1{\n  margin: 40px;\n  color: rgb(25, 158, 184)\n}\n.card{\n  margin-top: 20px;\n  margin-bottom: 10px;\n  justify-content: center;\n\n\n}\n.card-body{\n  height: 300px;\n\n}\n.card-deck{\n  background-color: rgb(25, 158, 184)\n}\n"
 
 /***/ }),
 
@@ -1069,7 +1044,6 @@ var RecommendComponent = /** @class */ (function () {
     };
     RecommendComponent.prototype.openEditor = function (questionId) {
         this.router.navigate(['/execution', questionId]);
-        // console.log(questionId);
     };
     RecommendComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1093,7 +1067,7 @@ var RecommendComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <h2 style=\"text-align:center\" style=\"color: #7373e5\">Registration</h2> -->\n<div class=\"container\">\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-3\">\n\n  </div>\n  <div class=\"col-lg-6\">\n    <mat-horizontal-stepper labelPosition=\"bottom\" #stepper>\n      <mat-step [stepControl]=\"firstFormGroup\">\n        <form [formGroup]=\"firstFormGroup\">\n          <ng-template matStepLabel style=\"color: pink\">Please provide details</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"First name\" formControlName=\"firstName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Last name\" formControlName=\"lastName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Email Id\" formControlName=\"emailId\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Username\" formControlName=\"username\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"password\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Interests\" formControlName=\"interest\" required>\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step [stepControl]=\"secondFormGroup\" optional>\n        <form [formGroup]=\"secondFormGroup\" (ngSubmit)=\"onSubmit()\">\n          <ng-template matStepLabel>Fill out optional stuffs</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"Gender\" formControlName=\"gender\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Age\" formControlName=\"age\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"College Name\" formControlName=\"college\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Discipline\" formControlName=\"discipline\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Course\" formControlName=\"course\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Current Company\" formControlName=\"company\">\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n            <!-- <button mat-raised-button color=\"primary\" routerLink=\"/auth/login\">Done</button> -->\n          </div>\n        </form>\n      </mat-step>\n      <!-- <mat-step>\n      <ng-template matStepLabel>Done</ng-template>\n      <div>\n          <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>&nbsp;&nbsp;\n          <button mat-raised-button color=\"warn\" (click)=\"stepper.reset()\">Reset</button>&nbsp;&nbsp;\n          <button mat-raised-button color=\"primary\" routerLink=\"/auth/login\">Proceed to Login</button>\n      </div>\n  </mat-step> -->\n    </mat-horizontal-stepper>\n  </div>\n  <div class=\"col-lg-3\">\n\n  </div>\n</div>\n</div>"
+module.exports = "<div id=\"maindiv\" class=\"container\">\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-3\">\n  </div>\n  <div class=\"col-lg-6\">\n    <mat-horizontal-stepper labelPosition=\"bottom\" #stepper>\n      <mat-step [stepControl]=\"firstFormGroup\">\n        <form [formGroup]=\"firstFormGroup\">\n          <ng-template matStepLabel style=\"color: pink\">Please provide details</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"First name\" formControlName=\"firstName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Last name\" formControlName=\"lastName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Email Id\" formControlName=\"emailId\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Username\" formControlName=\"username\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"password\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Interests\" formControlName=\"interest\" required>\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step [stepControl]=\"secondFormGroup\" optional>\n        <form [formGroup]=\"secondFormGroup\" (ngSubmit)=\"onSubmit()\">\n          <ng-template matStepLabel>Fill out optional stuffs</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"Gender\" formControlName=\"gender\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Age\" formControlName=\"age\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"College Name\" formControlName=\"college\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Discipline\" formControlName=\"discipline\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Course\" formControlName=\"course\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Current Company\" formControlName=\"company\">\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n  <div class=\"col-lg-3\">\n\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -1213,7 +1187,7 @@ module.exports = "form {\n    display: inline-block;\n    margin-left: 25%;\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div align = \"center\">\n  <h1>Post your {{ title }}!</h1>\n  <h1 *ngIf=\"isExist | async as value\" >data is : {{ xyz }}</h1>\n  <form [formGroup]=\"questionForm\" (ngSubmit)=\"submit()\">\n    <div class=\"form-group\">\n      <input\n        type=\"text\"\n        formControlName=\"questionTitle\"\n        class=\"form-control\"\n        id=\"questionTitle\"\n        placeholder=\"Write Title of Question..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.questionTitle.errors }\"\n      />\n      <div *ngIf=\"submitted && f.questionTitle.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.questionTitle.errors.required\">\n          Question Title is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <textarea\n        class=\"form-control\"\n        formControlName=\"questionDescription\"\n        id=\"questionDescription\"\n        rows=\"7\"\n        placeholder=\"Write Question Description here..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.questionDescription.errors }\"\n      ></textarea>\n      <div\n        *ngIf=\"submitted && f.questionDescription.errors\"\n        class=\"invalid-feedback\"\n      >\n        <div *ngIf=\"f.questionDescription.errors.required\">\n          Question Title is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <textarea\n        class=\"form-control\"\n        formControlName=\"inputFormat\"\n        id=\"inputFormat\"\n        rows=\"7\"\n        placeholder=\"Write input format here..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.inputFormat.errors }\"\n      ></textarea>\n      <div *ngIf=\"submitted && f.inputFormat.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.inputFormat.errors.required\">\n          input format is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <textarea\n        class=\"form-control\"\n        formControlName=\"outputFormat\"\n        id=\"outputFormat\"\n        rows=\"7\"\n        placeholder=\"Write output format here..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.outputFormat.errors }\"\n      ></textarea>\n      <div *ngIf=\"submitted && f.outputFormat.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.outputFormat.errors.required\">\n          output format is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <select\n        class=\"form-control\"\n        formControlName=\"difficulty\"\n        id=\"difficulty\"\n        placeholder=\"Select difficulty level...\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.difficulty.errors }\"\n      >\n        <option *ngFor=\"let level of levels\" [value]=\"level\">{{\n          level\n        }}</option>\n        <div *ngIf=\"submitted && f.difficulty.errors\" class=\"invalid-feedback\">\n          <div *ngIf=\"f.difficulty.errors.required\">\n            Question Title is required\n          </div>\n        </div>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <input\n        type=\"text\"\n        formControlName=\"tags\"\n        class=\"form-control\"\n        id=\"tags\"\n        placeholder=\"Write tags for Question like Core java,Collection\"\n      />\n    </div>\n    <div class=\"form-group\">\n      <input\n        type=\"text\"\n        formControlName=\"gitUrl\"\n        class=\"form-control\"\n        id=\"gitUrl\"\n        placeholder=\"Enter git Url of testcases..\"\n      />\n    </div>\n      {{username}}\n    <button type=\"submit\" class=\"btn btn-success\">Post Question</button>\n    <a routerLink=\"/home\" class=\"btn btn-link\">Cancel</a>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;\n\n  </form>\n</div>\n"
+module.exports = "<div align = \"center\">\n  <h1>Post your {{ title }}!</h1>\n  <h1 *ngIf=\"isExist | async as value\" >data is : {{ xyz }}</h1>\n  <form [formGroup]=\"questionForm\" (ngSubmit)=\"submit()\">\n    <div class=\"form-group\">\n      <input\n        type=\"text\"\n        formControlName=\"questionTitle\"\n        class=\"form-control\"\n        id=\"questionTitle\"\n        placeholder=\"Write Title of Question..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.questionTitle.errors }\"\n      />\n      <div *ngIf=\"submitted && f.questionTitle.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.questionTitle.errors.required\">\n          Question Title is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <textarea\n        class=\"form-control\"\n        formControlName=\"questionDescription\"\n        id=\"questionDescription\"\n        rows=\"7\"\n        placeholder=\"Write Question Description here..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.questionDescription.errors }\"\n      ></textarea>\n      <div\n        *ngIf=\"submitted && f.questionDescription.errors\"\n        class=\"invalid-feedback\"\n      >\n        <div *ngIf=\"f.questionDescription.errors.required\">\n          Question Title is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <textarea\n        class=\"form-control\"\n        formControlName=\"inputFormat\"\n        id=\"inputFormat\"\n        rows=\"7\"\n        placeholder=\"Write input format here..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.inputFormat.errors }\"\n      ></textarea>\n      <div *ngIf=\"submitted && f.inputFormat.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.inputFormat.errors.required\">\n          input format is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <textarea\n        class=\"form-control\"\n        formControlName=\"outputFormat\"\n        id=\"outputFormat\"\n        rows=\"7\"\n        placeholder=\"Write output format here..\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.outputFormat.errors }\"\n      ></textarea>\n      <div *ngIf=\"submitted && f.outputFormat.errors\" class=\"invalid-feedback\">\n        <div *ngIf=\"f.outputFormat.errors.required\">\n          output format is required\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <select\n        class=\"form-control\"\n        formControlName=\"difficulty\"\n        id=\"difficulty\"\n        placeholder=\"Select difficulty level...\"\n        [ngClass]=\"{ 'is-invalid': submitted && f.difficulty.errors }\"\n      >\n        <option *ngFor=\"let level of levels\" [value]=\"level\">{{\n          level\n        }}</option>\n        <div *ngIf=\"submitted && f.difficulty.errors\" class=\"invalid-feedback\">\n          <div *ngIf=\"f.difficulty.errors.required\">\n            Question Title is required\n          </div>\n        </div>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <input\n        type=\"text\"\n        formControlName=\"tags\"\n        class=\"form-control\"\n        id=\"tags\"\n        placeholder=\"Write tags for Question like Core java,Collection\"\n      />\n    </div>\n    <div class=\"form-group\">\n      <input\n        type=\"text\"\n        formControlName=\"gitUrl\"\n        class=\"form-control\"\n        id=\"gitUrl\"\n        placeholder=\"Enter git Url of testcases..\"\n      />\n    </div>\n      {{username}}\n    <button type=\"submit\" class=\"btn btn-success\">Post Question</button>\n    <a routerLink=\"/home\" class=\"btn btn-link\">Cancel</a>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;<br>\n    &nbsp;\n\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1397,7 +1371,7 @@ var ScoreandbadgeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n  .container:after {\n    height:10vh;\n  }\n  .col-lg-4{\n    width: 500px;\n    height: auto;\n    margin-bottom: 20px;\n    background-color: rgb(25, 158, 184)\n  }\n  .btn{\n    justify-content: center;\n  }\n  .card{\n    margin-top: 20px;\n    margin-bottom: 10px;\n    justify-content: center;\n  \n  \n  }\n  .card-body{\n    height: 300px;\n    \n  \n  }\n  .card-deck{\n    /* background-color: rgb(25, 158, 184) */\n    background-color: rgb(25, 158, 184)\n  \n  }\n  h2{\n    margin: 40px;\n    text-align: center;\n    color: rgb(25, 158, 184)\n  }\n  p{\n    font-size: 15px;\n    text-align: center;\n  }\n  h3{\n    text-align: center;\n  }\n  button{\n    align-content: center;\n  }"
+module.exports = "  .col-lg-4{\n    width: 500px;\n    height: auto;\n    margin-bottom: 20px;\n    background-color: rgb(25, 158, 184)\n  }\n\n  .btn{\n    justify-content: center;\n  }\n\n  .card{\n    margin-top: 20px;\n    margin-bottom: 10px;\n    justify-content: center;\n\n\n  }\n\n  .card-body{\n    height: 300px;\n\n\n  }\n\n  .card-deck{\n    /* background-color: rgb(25, 158, 184) */\n    background-color: rgb(25, 158, 184)\n\n  }\n\n  h2{\n    margin: 40px;\n    text-align: center;\n    color: rgb(25, 158, 184)\n  }\n\n  p{\n    font-size: 15px;\n    text-align: center;\n  }\n\n  h3{\n    text-align: center;\n  }\n\n  button{\n    align-content: center;\n  }\n"
 
 /***/ }),
 
@@ -1471,7 +1445,7 @@ var SearchdisplayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "@import url(https://fonts.googleapis.com/css?family=Open+Sans);\n\nbody{\n  background: #f2f2f2;\n  font-family: 'Open Sans', sans-serif;\n}\n\n.search {\n  width: 100%;\n  position: relative\n}\n\n.searchTerm {\n  float: left;\n  width: 100%;\n  border: 3px solid #00B4CC;\n  padding: 5px;\n  height: 40px;\n  border-radius: 5px;\n  outline: none;\n  color: #9DBFAF;\n  margin-top: 13px;\n  margin-left: 10px;\n  font-size: 15px;\n}\n\n.searchTerm:focus{\n  color: #00B4CC;\n}\n\n.searchButton {\n  position: absolute;  \n  right: -50px;\n  top: 15px;\n  width: 40px;\n  height: 35px;\n  border: 1px solid #00B4CC;\n  background: #00B4CC;\n  text-align: center;\n  color: #fff;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 20px;\n}\n\n/*Resize the wrap to see the search bar change!*/\n\n/* .wrap{\n  width: 30%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n} */"
+module.exports = "@import url(https://fonts.googleapis.com/css?family=Open+Sans);\n\nbody{\n  background: #f2f2f2;\n  font-family: 'Open Sans', sans-serif;\n}\n\n.search {\n  width: 100%;\n  position: relative\n}\n\n.searchTerm {\n  float: left;\n  width: 100%;\n  border: 3px solid #00B4CC;\n  padding: 5px;\n  height: 40px;\n  border-radius: 5px;\n  outline: none;\n  color: #9DBFAF;\n  margin-top: 13px;\n  margin-left: 10px;\n  font-size: 15px;\n}\n\n.searchTerm:focus{\n  color: #00B4CC;\n}\n\n.searchButton {\n  position: absolute;  \n  right: -50px;\n  top: 15px;\n  width: 40px;\n  height: 35px;\n  border: 1px solid #00B4CC;\n  background: #00B4CC;\n  text-align: center;\n  color: #fff;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 20px;\n}"
 
 /***/ }),
 
@@ -1482,7 +1456,7 @@ module.exports = "@import url(https://fonts.googleapis.com/css?family=Open+Sans)
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"wrap\"> -->\n<form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n  <div class=\"search\">\n     <input type=\"text\" class=\"searchTerm\" placeholder=\"Search\" name=\"tag\" [(ngModel)]=\"tag\">\n     <button type=\"submit\" class=\"searchButton\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </div>\n</form>  \n<!-- </div> -->"
+module.exports = "<form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n  <div class=\"search\">\n     <input type=\"text\" class=\"searchTerm\" placeholder=\"Search\" name=\"tag\" [(ngModel)]=\"tag\" >\n     <button type=\"submit\" class=\"searchButton\" onclick=\"location.reload()\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </div>\n</form>  "
 
 /***/ }),
 
@@ -1512,15 +1486,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var SearchserviceComponent = /** @class */ (function () {
-    // questionDescription: string;
-    // public go;
-    // public fetch: string;
     function SearchserviceComponent(_route, router, fetchservice) {
         this._route = _route;
         this.router = router;
         this.fetchservice = fetchservice;
     }
-    // public tags: string;
     SearchserviceComponent.prototype.ngOnInit = function () {
     };
     SearchserviceComponent.prototype.search = function () {
@@ -1642,9 +1612,6 @@ function createNewUser(id) {
         try1: try1
     };
 }
-/**  Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */ 
 
 
 /***/ }),
@@ -1667,7 +1634,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <h4>Content from Server</h4>\n{{board}}\n{{errorMessage}} -->"
+module.exports = ""
 
 /***/ }),
 
@@ -1776,7 +1743,7 @@ var UserprofileComponent = /** @class */ (function () {
         this.token = token;
         this.userService = userService;
         this.scorebadgeservice = scorebadgeservice;
-        // for getting data from scoreand badge service (added by pratima on 27th feb2019)
+        // for getting data from scoreand badge service 
         this.userData = {};
         this.tiles = [
             { text: 'One', cols: 1, rows: 5, color: 'white' },
@@ -2176,7 +2143,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container{\n    /* overflow-x: hidden;\n    overflow-y: hidden; */\n}\n"
+module.exports = ".Site {\n    display: flex;\n    min-height: 100vh;\n    flex-direction: column;\n  }\n  \n  .Site-content {\n    flex: 1;\n  }"
 
 /***/ }),
 
@@ -2187,7 +2154,7 @@ module.exports = ".container{\n    /* overflow-x: hidden;\n    overflow-y: hidde
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<router-outlet></router-outlet>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<app-footer></app-footer>"
+module.exports = "<body class=\"Site\">\n<app-navbar></app-navbar>\n<main class=\"Site-content\">\n<router-outlet></router-outlet>\n</main>\n<app-footer></app-footer>\n</body>"
 
 /***/ }),
 
@@ -2341,9 +2308,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-// import { EditoraudioComponent } from './editoraudio/editoraudio.component';
-// import { EditaudioComponent } from './_components/editaudio/editaudio.component'
-// import { EditaudioComponent } from './app/_components/editaudio/editaudio.component';
 var monacoConfig = {
     baseUrl: 'assets',
     defaultOptions: { scrollBeyondLastLine: false },
@@ -3086,15 +3050,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var UserprofileServiceService = /** @class */ (function () {
     function UserprofileServiceService(http) {
         this.http = http;
-        // acd = [ 'hffh', 'fgdgdg'];
         this.userProfileUrl = 'http://13.234.74.67:8092/userprofile-service/api/v1/';
     }
     UserprofileServiceService.prototype.getUserProfile = function (userName) {
         // tslint:disable-next-lin
         console.log('USERNAME : ', userName);
         var userProfile = this.http.get('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + userName);
-        console.log('hii');
-        // console.log(userProfile);
         return userProfile;
     };
     UserprofileServiceService.prototype.updateProfile = function (updatedProfile) {
