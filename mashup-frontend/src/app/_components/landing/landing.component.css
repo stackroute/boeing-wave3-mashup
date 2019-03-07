@@ -1,13 +1,8 @@
 .navbar-fixed-top{
     background:black;
 }
-.hello{
-    
-    
-}
 .logo{
     width: 100px;
-
 }
 .hero::after{
     min-height: 800px;

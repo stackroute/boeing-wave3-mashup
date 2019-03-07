@@ -44,6 +44,7 @@ export class SavequestionComponent implements OnInit {
   }
   // tslint:disable-next-line:member-ordering
   obj1: any;
+
   // tslint:disable-next-line:member-ordering
   add: string;
   submit(): any {
@@ -56,6 +57,7 @@ export class SavequestionComponent implements OnInit {
 
    console.log('questionForm: ', this.questionForm.value);
    this.uname = this.token.getUsername();
+
    // tslint:disable-next-line:label-position
    this.add = '{"username":"' + this.uname + '"}';
    console.log('masse:' + this.add);
@@ -67,6 +69,7 @@ export class SavequestionComponent implements OnInit {
     this.questionservice.saveQuestion(obj2).pipe(first()).subscribe(
       data => {
         console.log('data is ', data);
+        
         // this.alertService.success(data, true);
         alert(data);
         this.router.navigate(['home']);

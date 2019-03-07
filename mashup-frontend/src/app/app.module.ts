@@ -78,9 +78,7 @@ import { ScoreandbadgeComponent } from './_components/scoreandbadge/scoreandbadg
 import { LandingComponent } from './_components/landing/landing.component';
 import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
-// import { EditoraudioComponent } from './editoraudio/editoraudio.component';
-// import { EditaudioComponent } from './_components/editaudio/editaudio.component'
-// import { EditaudioComponent } from './app/_components/editaudio/editaudio.component';
+
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
   defaultOptions: { scrollBeyondLastLine: false },

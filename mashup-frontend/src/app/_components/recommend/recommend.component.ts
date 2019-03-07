@@ -30,7 +30,6 @@ export class RecommendComponent implements OnInit {
   }
   openEditor(questionId){
     this.router.navigate(['/execution',questionId]);
-   // console.log(questionId);
   }
 
 }
