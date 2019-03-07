@@ -79,7 +79,7 @@ export class EditComponent implements OnInit {
     const line = editor.getPosition();
     const monaco = window['monaco'];
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-    console.log(line);
+
   }
   constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute,private token: TokenStorageService) {
   }
@@ -87,15 +87,10 @@ export class EditComponent implements OnInit {
     this.questionId=this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
     //  this.uname="rahul";
-    console.log(this.questionId);
-    console.log(this.uname);
     this.connect();
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
-       this.questionObj = data;   
-       console.log("here it is");
-       console.log(data);
-       
+       this.questionObj = data; 
         this.questionId = data['questionId'];
         this.questionTitle = data['questionTitle'] ;
         this.questionDescription = data['questionDescription'] ;
@@ -106,9 +101,6 @@ export class EditComponent implements OnInit {
         this.difficulty = data['difficulty'] ;
         this.tags = data['tags'] ;
         this.gitUrl = data['gitUrl'] ;
-        console.log(data);
-        console.log("calling to get data");
-        console.log(this.gitUrl);
         this.quesservice.getcode(this.gitUrl,this.uname).subscribe(data=>{
           this.code=data['codeTemplate'];  });
         }
@@ -161,7 +153,6 @@ export class EditComponent implements OnInit {
     const _this = this;
     this.stompClient.connect({}, function (frame) {
       _this.setConnected(true);
-      console.log('Connected: ' + frame);
 
       _this.stompClient.subscribe('/topic/hi', function (helo) {
         _this.showGreeting(JSON.parse(helo.body).codeTemplate);
@@ -174,20 +165,16 @@ export class EditComponent implements OnInit {
     }
 
     this.setConnected(false);
-    console.log('Disconnected!');
   }
 
   submit() {
    //this.code=this.uname+"@#"+this.code;
-     console.log(this.questionObj);
-    //console.log(this.code);
     this.greetings = [];
     this.stompClient.send(
       '/gkz/hello',
       {},
       JSON.stringify({'name': this.uname+"@#"+this.code })
     );
-    console.log("sending data to submission service");
   }
 
  // tslint:disable-next-line:member-ordering
@@ -206,8 +193,6 @@ export class EditComponent implements OnInit {
     this.greetings = this.greetings[2].split('\n');
     if(this.greetings[0]===""){
     this.greetings[0]='Tests passed'  }
-    console.log("from here j");
-    console.log(this.greetings)
    
     this.colorg = {
       color: `red`

@@ -269,20 +269,15 @@ var EditComponent = /** @class */ (function () {
         var line = editor.getPosition();
         var monaco = window['monaco'];
         monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-        console.log(line);
     };
     EditComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.questionId = this._route.snapshot.paramMap.get('qid');
         this.uname = this.token.getUsername();
         //  this.uname="rahul";
-        console.log(this.questionId);
-        console.log(this.uname);
         this.connect();
         this.quesservice.getQuestionById(this.questionId).subscribe(function (data) {
             _this.questionObj = data;
-            console.log("here it is");
-            console.log(data);
             _this.questionId = data['questionId'];
             _this.questionTitle = data['questionTitle'];
             _this.questionDescription = data['questionDescription'];
@@ -293,9 +288,6 @@ var EditComponent = /** @class */ (function () {
             _this.difficulty = data['difficulty'];
             _this.tags = data['tags'];
             _this.gitUrl = data['gitUrl'];
-            console.log(data);
-            console.log("calling to get data");
-            console.log(_this.gitUrl);
             _this.quesservice.getcode(_this.gitUrl, _this.uname).subscribe(function (data) {
                 _this.code = data['codeTemplate'];
             });
@@ -314,7 +306,6 @@ var EditComponent = /** @class */ (function () {
         var _this = this;
         this.stompClient.connect({}, function (frame) {
             _this.setConnected(true);
-            console.log('Connected: ' + frame);
             _this.stompClient.subscribe('/topic/hi', function (helo) {
                 _this.showGreeting(JSON.parse(helo.body).codeTemplate);
             });
@@ -325,15 +316,11 @@ var EditComponent = /** @class */ (function () {
             this.stompClient.disconnect();
         }
         this.setConnected(false);
-        console.log('Disconnected!');
     };
     EditComponent.prototype.submit = function () {
         //this.code=this.uname+"@#"+this.code;
-        console.log(this.questionObj);
-        //console.log(this.code);
         this.greetings = [];
         this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.uname + "@#" + this.code }));
-        console.log("sending data to submission service");
     };
     EditComponent.prototype.sendDataToSubmissionService = function () {
         this.quesservice.sendDatatoSubmission({ "code": this.code, "username": this.uname, "questionId": this.questionId,
@@ -350,8 +337,6 @@ var EditComponent = /** @class */ (function () {
         if (this.greetings[0] === "") {
             this.greetings[0] = 'Tests passed';
         }
-        console.log("from here j");
-        console.log(this.greetings);
         this.colorg = {
             color: "red"
         };
@@ -525,10 +510,8 @@ var EditaudioComponent = /** @class */ (function () {
         var line = editor.getPosition();
         var monaco = window['monaco'];
         monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-        console.log(line);
     };
     EditaudioComponent.prototype.ngOnInit = function () {
-        console.log(this.code);
         this.connect();
     };
     // socket code
@@ -544,7 +527,6 @@ var EditaudioComponent = /** @class */ (function () {
         var _this = this;
         this.stompClient.connect({}, function (frame) {
             _this.setConnected(true);
-            console.log('Connected: ' + frame);
             this.connectedSocket = true;
             _this.stompClient.subscribe('/topic-js/hi', function (hello) {
                 if (_this.mvnDependencyDownload > 1) {
@@ -561,11 +543,8 @@ var EditaudioComponent = /** @class */ (function () {
             this.stompClient.disconnect();
         }
         this.setConnected(false);
-        console.log('Disconnected!');
     };
     EditaudioComponent.prototype.submit = function () {
-        console.log('submit button');
-        console.log(this.code);
         this.greetings = [];
         this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.code }));
     };
@@ -574,8 +553,6 @@ var EditaudioComponent = /** @class */ (function () {
         this.greetings = this.greetings[0].split('#*@');
         this.totaltest = this.greetings[0];
         this.passed = this.greetings[1];
-        console.log(this.totaltest);
-        console.log(this.passed);
         this.greetings = this.greetings[2].split('\n');
         this.colorg = {
             color: "red"
@@ -761,7 +738,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar-fixed-top{\n    background:black;\n}\n.hello{\n    \n    \n}\n.logo{\n    width: 100px;\n\n}\n.hero::after{\n    height: 800px;\n    background: url(\"/assets/MASHUP-BACK.png\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\np.tagline[_ngcontent-c3][_ngcontent-c3]{\n    margin-bottom: 20px;\n    margin-top: 20px;\n}\n.info p{\n    font-size: 15px;\n}\n#contact .form input, #contact .form textarea {\n    border-radius: 0;\n    box-shadow: none;\n    font-size: 15px;\n}"
+module.exports = ".navbar-fixed-top{\n    background:black;\n}\n.hello{\n    \n    \n}\n.logo{\n    width: 100px;\n\n}\n.hero::after{\n    min-height: 800px;\n    background: url(\"/assets/MASHUP-BACK.png\");\n    background-repeat: no-repeat;\n    background-size: cover;\n}\np.tagline[_ngcontent-c3][_ngcontent-c3]{\n    margin-bottom: 20px;\n    margin-top: 20px;\n}\n.info p{\n    font-size: 15px;\n}\n#contact .form input, #contact .form textarea {\n    border-radius: 0;\n    box-shadow: none;\n    font-size: 15px;\n}"
 
 /***/ }),
 
@@ -1008,7 +985,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "p{\n  font-size: 15px;\n}\n.col-md-4{\n  width: 500px;\n  height: auto;\n  background-color: rgb(25, 158, 184)\n}\n.btn{\n  justify-content: baseline;\n}\nh1{\n  margin: 40px;\n  color: rgb(25, 158, 184)\n}\n.card{\n  margin-top: 20px;\n  margin-bottom: 10px;\n  justify-content: center;\n\n\n}\n.card-body{\n  height: 300px;\n\n}\n.card-deck{\n  /* background-color: rgb(25, 158, 184) */\n  background-color: rgb(25, 158, 184)\n\n}\n.container:after{\n  height:1000px;\n}\n"
+module.exports = "p{\n  font-size: 15px;\n}\n.col-md-4{\n  width: 500px;\n  height: auto;\n  background-color: rgb(25, 158, 184)\n}\n.btn{\n  justify-content: baseline;\n}\nh1{\n  margin: 40px;\n  color: rgb(25, 158, 184)\n}\n.card{\n  margin-top: 20px;\n  margin-bottom: 10px;\n  justify-content: center;\n\n\n}\n.card-body{\n  height: 300px;\n\n}\n.card-deck{\n  /* background-color: rgb(25, 158, 184) */\n  background-color: rgb(25, 158, 184)\n\n}\n/* .container:after{\n  height:1000px;\n} */\n"
 
 /***/ }),
 
@@ -1397,7 +1374,7 @@ var ScoreandbadgeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container:after {\n    height:100vh;\n  }\n  .col-lg-4{\n    width: 500px;\n    height: auto;\n    margin-bottom: 20px;\n    background-color: rgb(25, 158, 184)\n  }\n  .btn{\n    justify-content: center;\n  }\n  .card{\n    margin-top: 20px;\n    margin-bottom: 10px;\n    justify-content: center;\n\n\n  }\n  .card-body{\n    height: 300px;\n\n\n  }\n  .card-deck{\n    /* background-color: rgb(25, 158, 184) */\n    background-color: rgb(25, 158, 184)\n\n  }\n  h2{\n    margin: 40px;\n    text-align: center;\n    color: rgb(25, 158, 184)\n  }\n  p{\n    font-size: 15px;\n    text-align: center;\n  }\n  h3{\n    text-align: center;\n  }\n  button{\n    align-content: center;\n  }\n"
+module.exports = "/* .container:after {\n    height:100vh;\n  } */\n  .col-lg-4{\n    width: 500px;\n    height: auto;\n    margin-bottom: 20px;\n    background-color: rgb(25, 158, 184)\n  }\n  .btn{\n    justify-content: center;\n  }\n  .card{\n    margin-top: 20px;\n    margin-bottom: 10px;\n    justify-content: center;\n\n\n  }\n  .card-body{\n    height: 300px;\n\n\n  }\n  .card-deck{\n    /* background-color: rgb(25, 158, 184) */\n    background-color: rgb(25, 158, 184)\n\n  }\n  h2{\n    margin: 40px;\n    text-align: center;\n    color: rgb(25, 158, 184)\n  }\n  p{\n    font-size: 15px;\n    text-align: center;\n  }\n  h3{\n    text-align: center;\n  }\n  button{\n    align-content: center;\n  }\n"
 
 /***/ }),
 
@@ -2176,7 +2153,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".Site {\n    display: flex;\n    min-height: 100vh;\n    flex-direction: column;\n  }\n  \n  .Site-content {\n    flex: 1;\n  }"
 
 /***/ }),
 
@@ -2187,7 +2164,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<router-outlet></router-outlet>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<app-footer></app-footer>"
+module.exports = "<body class=\"Site\">\n<app-navbar></app-navbar>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<main class=\"Site-content\">\n<router-outlet></router-outlet>\n</main>\n<!-- &nbsp;<br>\n&nbsp;<br>\n&nbsp;<br>\n&nbsp; -->\n<app-footer></app-footer>\n</body>"
 
 /***/ }),
 
