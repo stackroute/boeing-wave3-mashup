@@ -26,14 +26,16 @@ export class UserprofileComponent implements OnInit {
   profileState: string;
   profile;
   public uname: string;
+
   // for getting data from scoreand badge service (added by pratima on 27th feb2019)
   public userData = {};
+
   // tslint:disable-next-line:max-line-length
   constructor(private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 5, color: 'white'},
-    {text: 'Two', cols: 2, rows: 5, color: 'white'},
-    {text: 'three', cols: 2, rows: 1, color: 'grey'},
+    {text: 'Two', cols: 2, rows: 2.5, color: 'white'},
+    {text: 'three', cols: 2, rows: 2.5, color: 'grey'},
   ];
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class UserprofileComponent implements OnInit {
     this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
     console.log('User Profile : ', this.profile);
     this.profileState = 'currentProfile';
+
     // call score and badge service to get data(added by pratima on 27th feb2019)
     this.scorebadgeservice.getUserData(this.uname).subscribe(
       data => {

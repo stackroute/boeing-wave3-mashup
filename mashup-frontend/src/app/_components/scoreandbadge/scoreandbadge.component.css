@@ -2,9 +2,9 @@
 {
   font-weight: bold;
 }
-.card{
+.example-card{
 width: 220px;
-height: 230px;
+margin-bottom: 120px;
 }
 #cardtitle{
   font-size:18px;
