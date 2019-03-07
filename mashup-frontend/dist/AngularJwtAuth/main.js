@@ -1459,7 +1459,7 @@ module.exports = "@import url(https://fonts.googleapis.com/css?family=Open+Sans)
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div class=\"wrap\"> -->\n<form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n  <div class=\"search\">\n     <input type=\"text\" class=\"searchTerm\" placeholder=\"Search\" name=\"tag\" [(ngModel)]=\"tag\">\n     <button type=\"submit\" class=\"searchButton\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </div>\n</form>  \n<!-- </div> -->"
+module.exports = "<form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n  <div class=\"search\">\n     <input type=\"text\" class=\"searchTerm\" placeholder=\"Search\" name=\"tag\" [(ngModel)]=\"tag\" >\n     <button type=\"submit\" class=\"searchButton\" onclick=\"location.reload()\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </div>\n</form>  "
 
 /***/ }),
 

@@ -54,7 +54,6 @@ export class UserprofileComponent implements OnInit {
         // alert(error);
       }
     );
-
   }
 
   updateProfile() {
