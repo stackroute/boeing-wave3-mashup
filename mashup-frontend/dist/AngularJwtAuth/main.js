@@ -868,12 +868,12 @@ var LoginComponent = /** @class */ (function () {
             _this.isLoginFailed = false;
             _this.isLoggedIn = true;
             _this.roles = _this.tokenStorage.getAuthorities();
-            // this.reloadPage(); /*changed login routing */
+            _this.reloadPage();
         }, function (error) {
             _this.errorMessage = error.error.message;
             _this.isLoginFailed = true;
         });
-        this.router.navigate(['']);
+        this.router.navigate(['/home']);
     };
     LoginComponent.prototype.reloadPage = function () {
         window.location.reload();
@@ -3108,7 +3108,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/MashupRelease/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Pictures/Mashup_Product/UIChange/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
