@@ -42,14 +42,14 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-       // this.reloadPage(); /*changed login routing */
+        this.reloadPage();
       },
       error => {
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }
     );
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
   reloadPage() {
     window.location.reload();
