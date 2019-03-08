@@ -14,14 +14,13 @@ public class QuestionServiceImpl implements QuestionService{
     }
     public String finderror() throws Exception
     {
-        int total=0,error=0,failure=0;
+        int total=2,error=2,failure=2;
         Matcher matcher;
         File file;
         BufferedReader fr;
 
         String m="";
-        System.out.println("curr path" + System.getProperty("user.dir"));
-        String fileName= "/DB/js-boilerplate/compile.log";
+        String fileName="/DB/js-boilerplate/compile.log";
         file=new File(fileName);
         BufferedReader br=new BufferedReader(new FileReader(file));
         StringBuilder sb = new StringBuilder();
@@ -30,11 +29,13 @@ public class QuestionServiceImpl implements QuestionService{
         while((d=br.readLine())!=null)
             k+=d;
 
+//        file.delete();
+
         String r[]=k.split("\\[ERROR\\]");
 
         int mm=0;
         if(k.isEmpty()){
-            return "0#*@0#*@Tests passed";
+            return "Tests passed";
         }
         else
         if(k.contains("COMPILATION ERROR")){
@@ -60,31 +61,24 @@ public class QuestionServiceImpl implements QuestionService{
 
             String queryString=r[1];
 
-
-
-
             Pattern pattern = Pattern.compile("Failures");
             matcher = pattern.matcher(queryString);
             matcher.find();
             String  p = queryString.substring(matcher.start() + 10, matcher.start() + 11);
 
             int a=Integer.parseInt(p);
-            failure =a;
-            System.out.println("failure"+failure);
+            failure=a;
+            pattern = Pattern.compile("Errors");
+            matcher = pattern.matcher(queryString);
+            matcher.find();
+            p = queryString.substring(matcher.start() + 8, matcher.start() + 9);
+            error=Integer.parseInt(p);
+            a+=Integer.parseInt(p);
             pattern = Pattern.compile("run");
             matcher = pattern.matcher(queryString);
             matcher.find();
             p = queryString.substring(matcher.start() + 5, matcher.start() + 6);
             total=Integer.parseInt(p);
-            System.out.println("total"+total);
-
-            pattern = Pattern.compile("Errors");
-            matcher = pattern.matcher(queryString);
-            matcher.find();
-            p = queryString.substring(matcher.start() + 8, matcher.start() + 9);
-            error =Integer.parseInt(p);
-            System.out.println("error"+error);
-            a+=Integer.parseInt(p);
             Matcher matcher2;
             for(int i=2;i<2+a;i++) {
 
@@ -129,12 +123,16 @@ public class QuestionServiceImpl implements QuestionService{
                 }
 
             }
+
+
+
+
         }
         System.out.println("THis is log file\n"+m);
-        System.out.println(total+","+(total-error-failure)+","+m+"\n");
-        return total+"#*@"+(total-error-failure)+"#*@"+m;
-
+        return m;
     }
+
+
     public  String  run(String code)  {
 
         String filename=getfilename(code);
