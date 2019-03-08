@@ -1,5 +1,5 @@
 package com.stackroute.controller;
-
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import com.stackroute.domain.Code;
 import com.stackroute.domain.User;
 import com.stackroute.service.QuestionService;
@@ -19,6 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class WebController {
 
+
+
+
+    private void setTemplate(SimpMessagingTemplate template){
+        this.template=template;
+    }
+    @Autowired
+    private  SimpMessagingTemplate template;
+
     public ResultsService getResultsService() {
         return resultsService;
     }
@@ -31,11 +40,10 @@ public class WebController {
     private ResultsService resultsService;
 
     @MessageMapping("/hello")
-    @SendTo("/topic/hi")
     public Code greeting(User user) throws Exception {
         String response=this.resultsService.run(user.getName());
         System.out.println(response);
-
+        this.template.convertAndSend("/topic", new Code(response));
         return new Code(response);
     }
 }

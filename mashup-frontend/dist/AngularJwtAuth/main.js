@@ -244,8 +244,10 @@ var EditComponent = /** @class */ (function () {
             code: 'hello orlando!',
             language: 'text/plain'
         };
+        this.serverUrl = 'http://13.234.74.67:8025/gkz-stomp-endpoint';
         // tslint:disable-next-line:member-ordering
         this.colorg = {};
+        this.initializeWebSocketConnection();
     }
     EditComponent.prototype.selectChangeHandler = function (event) {
         // update the ui
@@ -273,7 +275,7 @@ var EditComponent = /** @class */ (function () {
         var _this = this;
         this.questionId = this._route.snapshot.paramMap.get('qid');
         this.uname = this.token.getUsername();
-        this.connect();
+        // this.initializeWebSocketConnection();
         this.quesservice.getQuestionById(this.questionId).subscribe(function (data) {
             _this.questionObj = data;
             _this.questionId = data['questionId'];
@@ -299,23 +301,36 @@ var EditComponent = /** @class */ (function () {
             this.greetings = [];
         }
     };
-    EditComponent.prototype.connect = function () {
-        var socket = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__('http://13.234.74.67:8025/gkz-stomp-endpoint');
-        this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](socket);
-        var _this = this;
+    EditComponent.prototype.initializeWebSocketConnection = function () {
+        var ws = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__(this.serverUrl);
+        this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](ws);
+        var that = this;
         this.stompClient.connect({}, function (frame) {
-            _this.setConnected(true);
-            _this.stompClient.subscribe('/topic/hi', function (helo) {
-                _this.showGreeting(JSON.parse(helo.body).codeTemplate);
+            that.stompClient.subscribe('/topic', function (message) {
+                that.showGreeting(JSON.parse(message.body).codeTemplate);
+                // if (message.body) {
+                //   that.data = message.body;
+                // }
             });
         });
     };
-    EditComponent.prototype.disconnect = function () {
-        if (this.stompClient != null) {
-            this.stompClient.disconnect();
-        }
-        this.setConnected(false);
-    };
+    // connect() {
+    //   const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
+    //   this.stompClient = Stomp.over(socket);
+    //   const _this = this;
+    //   this.stompClient.connect({}, function (frame) {
+    //     _this.setConnected(true);
+    //     _this.stompClient.subscribe('/topic/hi', function (helo) {
+    //       _this.showGreeting(JSON.parse(helo.body).codeTemplate);
+    //     });
+    //   });
+    // }
+    // disconnect() {
+    //   if (this.stompClient != null) {
+    //     this.stompClient.disconnect();
+    //   }
+    //   this.setConnected(false);
+    // }
     EditComponent.prototype.submit = function () {
         this.greetings = [];
         this.stompClient.send('/gkz/hello', {}, JSON.stringify({ 'name': this.uname + '@#' + this.code }));
