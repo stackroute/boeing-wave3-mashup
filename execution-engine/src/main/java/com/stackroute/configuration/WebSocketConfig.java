@@ -13,8 +13,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableSimpleBroker("/topic");
-        config.setApplicationDestinationPrefixes("/gkz");
+        config.setApplicationDestinationPrefixes("/gkz").enableSimpleBroker("/topic");
     }
 
     public void registerStompEndpoints(StompEndpointRegistry registry) {

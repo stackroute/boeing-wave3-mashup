@@ -20,8 +20,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 })
 export class EditComponent implements OnInit {
-
+    serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
+   // title='WebSockets demo';
   // wesocket
+ 
   title = 'grokonez';
   public difficulty: String;
   public uname: String;
@@ -75,11 +77,16 @@ export class EditComponent implements OnInit {
 
   }
   constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService) {
+ 
+            this.initializeWebSocketConnection();
   }
+
+
+
   ngOnInit() {
     this.questionId = this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
-    this.connect();
+    
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
        this.questionObj = data;
@@ -136,18 +143,33 @@ export class EditComponent implements OnInit {
       this.greetings = [];
     }
   }
-  connect() {
-    const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
-    this.stompClient = Stomp.over(socket);
-    const _this = this;
-    this.stompClient.connect({}, function (frame) {
-      _this.setConnected(true);
-
-      _this.stompClient.subscribe('/topic/hi', function (helo) {
-        _this.showGreeting(JSON.parse(helo.body).codeTemplate);
-      });
-    });
+  initializeWebSocketConnection() {
+    let ws = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(ws);
+    let that = this;
+ 
+    this.stompClient.connect(
+      {},
+      function(frame) {
+        that.stompClient.subscribe('/topic', message => {
+        that.showGreeting(JSON.parse(message.body).codeTemplate);
+        });
+      }
+    );
   }
+  // connect() {
+  //   const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
+  //   this.stompClient = Stomp.over(socket);
+  //   const _this = this;
+  //   this.stompClient.connect({}, function (frame) {
+  //     _this.setConnected(true);
+
+  //     _this.stompClient.subscribe('/topic/hi', function (helo) {
+
+  //       _this.showGreeting(JSON.parse(helo.body).codeTemplate);
+  //     });
+  //   });
+  // }
   disconnect() {
     if (this.stompClient != null) {
       this.stompClient.disconnect();
