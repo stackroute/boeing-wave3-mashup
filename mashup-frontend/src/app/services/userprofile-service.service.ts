@@ -23,4 +23,8 @@ export class UserprofileServiceService {
     console.log('hii');
      return newProfile;
   }
+  public deleteUserProfile(username): Observable <any> {
+    const deletedProfile = this.http.delete('http://13.234.74.67:8092/userprofile-service/api/v1/userprofile/' + username);
+    return deletedProfile;
+  }
 }

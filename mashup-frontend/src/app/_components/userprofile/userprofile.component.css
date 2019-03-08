@@ -26,3 +26,13 @@
 .profileimage{
   padding: 2vh 2vh 0vh 2vh;
 }
+
+.card[_ngcontent-c4] {
+  width: 100%;
+  padding: 5%;
+  font-size: 15px;
+}
+.button-update-profile{
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
