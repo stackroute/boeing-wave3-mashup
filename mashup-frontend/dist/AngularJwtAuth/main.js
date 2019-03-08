@@ -166,7 +166,7 @@ var autocomplete = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\" style=\"padding-left:5vw;padding-top:5vh;\">\n            <div class=\"row font-weight-bold \" >\n\n                <h5>{{questionTitle}}</h5>   <app-voting></app-voting>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{questionDescription}}\n                </p>\n                <br>\n                <mat-divider></mat-divider>\n            </div>\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Input</h5>\n                <div *ngFor=\"let inp of inputFormat\"> \n                    <li>{{inp}}</li>\n                </div>\n                <br>\n\n            </ul>\n            <mat-divider></mat-divider>\n\n\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Output</h5>\n                <div *ngFor=\"let out of outputFormat\"> \n                    <li>{{out}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n           \n\n        </div>\n        <div class=\"col-sm-7\" >\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n\n            <form class=\"form-inline my-2 my-lg-0 hello\" >\n                <button class=\"btn btn-outline-success my-2 my-sm-0\"(click)=submit()>Compile </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=sendDataToSubmissionService()>Submit</button>  \n            </form>\n                  \n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>"
+module.exports = "<app-navbar></app-navbar>\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">\n<div class=\"container-fluid \">\n    <div class=\"row\">\n        <div class=\"col-sm-5\" style=\"padding-left:5vw;padding-top:5vh;\">\n            <div class=\"row font-weight-bold \" >\n\n                <h5>{{questionTitle}}</h5>   <app-voting></app-voting>\n                <mat-divider></mat-divider>\n            </div>\n            <div class=\"row\">\n                <p class=\"text-justify \">\n                    {{questionDescription}}\n                </p>\n                <br>\n                <mat-divider></mat-divider>\n            </div>\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Input</h5>\n                <div *ngFor=\"let inp of inputFormat\"> \n                    <li>{{inp}}</li>\n                </div>\n                <br>\n\n            </ul>\n            <mat-divider></mat-divider>\n\n\n            <ul style=\"padding:0%; margin:0%\">\n                <h5>Output</h5>\n                <div *ngFor=\"let out of outputFormat\"> \n                    <li>{{out}}</li>\n\n                </div>\n                <br>\n\n\n            </ul>\n           \n\n        </div>\n        <div class=\"col-sm-7\" >\n            <select (change)=\"selectChangeHandler($event)\">\n                <option value=\"java\">Java</option>\n                <option value=\"python\">Python</option>\n                <option value=\"cpp\">C++</option>\n                <option value=\"c\">C</option>\n\n            </select>\n            <ngx-monaco-editor id=\"editor2\" class=\"my-code-editor\" [options]=\"editorOptions\" [(ngModel)]=\"code\"\n                (onInit)=\"onInit($event)\"></ngx-monaco-editor>\n\n            <form class=\"form-inline my-2 my-lg-0 hello\" >\n                <button class=\"btn btn-outline-success my-2 my-sm-0\"(click)=submit()>Compile </button>\n                <button class=\"btn btn-outline-success my-2 my-sm-0\" (click)=sendDataToSubmissionService()>Submit</button>  \n            </form>\n                  \n            <table id=\"conversation\" class=\"table table-striped\" style=\"margin-top: 20px;\">\n                <thead>\n                    <tr>\n                        <th>Results</th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let greeting of greetings\">\n                    <tr>\n                        <td [ngStyle]=\"colorg\" style=\"color:red\">{{greeting}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -2169,7 +2169,7 @@ module.exports = ".Site {\n    display: flex;\n    min-height: 100vh;\n    flex-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<body class=\"Site\">\n    \n<main [@routeAnimations]=\"prepareRoute(outlet)\" class=\"Site-content\">\n<!-- <div [@routeAnimations]=\"prepareRoute(outlet)\"> -->\n    <router-outlet #outlet=\"outlet\"></router-outlet>\n<!-- </div> -->\n</main>\n<app-footer></app-footer>\n</body>"
+module.exports = "\n<body class=\"Site\">\n    \n<main class=\"Site-content\">\n<!-- <div [@routeAnimations]=\"prepareRoute(outlet)\"> -->\n    <router-outlet></router-outlet>\n<!-- </div> -->\n</main>\n<app-footer></app-footer>\n</body>"
 
 /***/ }),
 
@@ -2211,15 +2211,11 @@ var AppComponent = /** @class */ (function () {
             });
         }
     };
-    AppComponent.prototype.prepareRoute = function (outlet) {
-        return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")],
-            animations: []
         }),
         __metadata("design:paramtypes", [_services_token_storage_service__WEBPACK_IMPORTED_MODULE_1__["TokenStorageService"]])
     ], AppComponent);
@@ -3165,7 +3161,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Videos/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

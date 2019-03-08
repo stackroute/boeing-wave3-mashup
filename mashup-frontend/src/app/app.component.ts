@@ -7,12 +7,6 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations:[
-    //fader,
-    //slider,
-    //transformer,
-    //stepper
-  ]
 })
 export class AppComponent implements OnInit {
   private roles: string[];
@@ -30,7 +24,4 @@ export class AppComponent implements OnInit {
     }
   }
 
-  prepareRoute(outlet: RouterOutlet){
-    return outlet &&  outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-  }
 }
