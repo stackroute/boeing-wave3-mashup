@@ -40,10 +40,10 @@ public class WebController {
     private ResultsService resultsService;
 
     @MessageMapping("/hello")
-    public Code greeting(User user) throws Exception {
+    public void greeting(User user) throws Exception {
         String response=this.resultsService.run(user.getName());
         System.out.println(response);
         this.template.convertAndSend("/topic", new Code(response));
-        return new Code(response);
+
     }
 }
