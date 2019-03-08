@@ -1,10 +1,14 @@
+<nav class="fixed-top">
+    <app-navbar></app-navbar>
+</nav>
+<br><br><br><br>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <div class="container-fluid ">
     <div class="row">
         <div class="col-sm-5" style="padding-left:5vw;padding-top:5vh;">
             <div class="row font-weight-bold " >
 
-                <h5>{{questionTitle}}</h5>   <app-voting></app-voting>
+                <h5>{{questionTitle}}</h5>   
                 <mat-divider></mat-divider>
             </div>
             <div class="row">
@@ -51,7 +55,9 @@
 
             <form class="form-inline my-2 my-lg-0 hello" >
                 <button class="btn btn-outline-success my-2 my-sm-0"(click)=submit()>Compile </button>
+                &nbsp;
                 <button class="btn btn-outline-success my-2 my-sm-0" (click)=sendDataToSubmissionService()>Submit</button>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h5>Vote this Question : </h5><app-voting></app-voting>
             </form>
                   
             <table id="conversation" class="table table-striped" style="margin-top: 20px;">
