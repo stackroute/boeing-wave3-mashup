@@ -68,4 +68,7 @@ export class UserprofileComponent implements OnInit {
     this.profileState = 'currentProfile';
   }
 
+  deleteUserProfile() {
+    this.userService.deleteUserProfile(this.profile.username).subscribe();
+  }
 }
