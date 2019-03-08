@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
+  interval;
+  timeStart  = 0;
+  // readabilityTime;
+  changeReadibility;
 
   constructor(private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
@@ -42,14 +46,22 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-       // this.reloadPage(); /*changed login routing */
+        // this.reloadPage();
       },
       error => {
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }
     );
-    this.router.navigate(['']);
+    this.interval = setInterval(() => {
+      if ( this.timeStart < 0.5) {
+        // clearInterval(this.interval);
+        this.timeStart++;
+      } else {
+        this.router.navigate(['']);
+        clearInterval(this.interval);
+      }
+    }, 1000);
   }
   reloadPage() {
     window.location.reload();
