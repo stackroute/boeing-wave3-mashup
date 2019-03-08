@@ -873,7 +873,7 @@ var LoginComponent = /** @class */ (function () {
             _this.errorMessage = error.error.message;
             _this.isLoginFailed = true;
         });
-        this.router.navigate(['/home']);
+        this.router.navigate(['']);
     };
     LoginComponent.prototype.reloadPage = function () {
         window.location.reload();
