@@ -9,6 +9,6 @@ then
     echo "not empty " >> compile.log
 else
     echo "output =>" >> compile.log
-    a="/DB/js-boilerplate/target/js-execution-engine-1.0.3-SNAPSHOT.jar"
+    a="/DB/js-boilerplate/target/execution-engine-1.0-SNAPSHOT.jar"
     java -jar $a >> compile.log 2>&1
 fi
