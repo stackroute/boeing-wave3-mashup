@@ -66,7 +66,7 @@ public class QuestionServiceImpl implements QuestionService{
             }
         }
         System.out.println("This is log file\n" + m);
-        file.delete();
+//        file.delete();
         return m;
     }
 
