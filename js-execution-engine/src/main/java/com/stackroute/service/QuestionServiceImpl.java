@@ -61,8 +61,10 @@ public class QuestionServiceImpl implements QuestionService{
                 m += "\n";
                 m += "[Exception] ";
                 m += k.substring(indexOfMain, indexOfAt);
+                System.out.println("m + Except: " + m);
             } else {
                 m = k.substring(9);
+                System.out.println("only m" + m);
             }
         }
         System.out.println("This is log file\n" + m);
