@@ -478,8 +478,13 @@ var EditaudioComponent = /** @class */ (function () {
         this.description = 'Angular-WebSocket Demo';
         this.greetings = [];
         this.disabled = true;
-        this.code = "public class Employee {\n    public  String addEmployeeEmailId(String emailId){\n\n        return null;\n    }\n}\n";
-        this.readabilityTime = 20;
+        //   code = `public class Employee {
+        //     public  String addEmployeeEmailId(String emailId){
+        //         return null;
+        //     }
+        // }
+        // `;
+        this.readabilityTime = 5;
         this.stompClient = null;
         this.audiopath = '/assets/audio.mp3';
         this.i = 0;
@@ -558,10 +563,11 @@ var EditaudioComponent = /** @class */ (function () {
     };
     EditaudioComponent.prototype.showResults = function (output) {
         this.greetings.push(output);
-        this.greetings = this.greetings[0].split('#*@');
-        this.totaltest = this.greetings[0];
-        this.passed = this.greetings[1];
-        this.greetings = this.greetings[2].split('\n');
+        console.log(this.greetings);
+        this.greetings = this.greetings[0].split('\n');
+        // this.totaltest = this.greetings[0];
+        // this.passed = this.greetings[1];
+        // this.greetings  = this.greetings[2].split('\n');
         this.colorg = {
             color: "red"
         };
@@ -3161,7 +3167,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Videos/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

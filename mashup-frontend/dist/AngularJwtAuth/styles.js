@@ -539,7 +539,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Videos/boeing-wave3-mashup/mashup-frontend/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/mashup-frontend/src/styles.css */"./src/styles.css");
 
 
 /***/ })
