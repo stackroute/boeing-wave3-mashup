@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableEurekaClient
 @SpringBootApplication
+@EnableConfigClient
 public class SearchServiceApplication {
 
 	public static void main(String[] args) {

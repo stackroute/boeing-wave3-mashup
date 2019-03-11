@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@EnableEurekaClient
 @SpringBootApplication
+@EnableConfigClient
 public class recommendApplication {
 
 	public static void main(String[] args) {

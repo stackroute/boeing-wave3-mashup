@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 //@RefreshScope
 @EnableEurekaClient
+@EnableConfigClient
 @SpringBootApplication
 public class ExecutionEngineApplication {
 
