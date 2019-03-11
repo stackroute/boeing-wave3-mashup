@@ -22,14 +22,15 @@ export class EditaudioComponent implements OnInit {
   description = 'Angular-WebSocket Demo';
   greetings: string[] = [];
   disabled = true;
-  code = `public class Employee {
-    public  String addEmployeeEmailId(String emailId){
+  code;
+//   code = `public class Employee {
+//     public  String addEmployeeEmailId(String emailId){
 
-        return null;
-    }
-}
-`;
-  readabilityTime = 20;
+//         return null;
+//     }
+// }
+// `;
+  readabilityTime = 5 ;
   private stompClient = null;
   editorLoadStatus;
   audiopath = '/assets/audio.mp3';
@@ -123,10 +124,11 @@ export class EditaudioComponent implements OnInit {
 
   showResults(output) {
     this.greetings.push(output);
-    this.greetings = this.greetings[0].split('#*@');
-    this.totaltest = this.greetings[0];
-    this.passed = this.greetings[1];
-    this.greetings  = this.greetings[2].split('\n');
+    console.log(this.greetings);
+    this.greetings = this.greetings[0].split('\n');
+    // this.totaltest = this.greetings[0];
+    // this.passed = this.greetings[1];
+    // this.greetings  = this.greetings[2].split('\n');
     this.colorg = {
       color: `red`
     };
