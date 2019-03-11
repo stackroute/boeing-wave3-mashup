@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: any = {};
+  interval;
+  timeStart=0;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -42,14 +44,24 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-       // this.reloadPage(); /*changed login routing */
+        // this.reloadPage();
+        // this.router.navigate(['']);
       },
       error => {
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }
     );
-    this.router.navigate(['']);
+    this.interval = setInterval(() => {
+      if ( this.timeStart < 0.5) {
+        // clearInterval(this.interval);
+        this.timeStart++;
+      } else {
+        this.router.navigate(['']);
+        clearInterval(this.interval);
+      }
+    }, 1000);
+    // this.router.navigate(['']);
   }
   reloadPage() {
     window.location.reload();

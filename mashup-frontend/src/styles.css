@@ -3,3 +3,6 @@
 /* #maindiv:after{
   height:40vh;
 } */
+main{
+  position: relative;
+}

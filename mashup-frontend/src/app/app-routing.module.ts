@@ -19,15 +19,18 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        data: { animation: 'isHome'}
     },
     {
         path: 'userprofile',
-        component: UserprofileComponent
+        component: UserprofileComponent,
+        data: { animation: 'isUserprofile'}
     },
     {
         path: 'execution',
-        component: EditComponent
+        component: EditComponent,
+        data: { animation: 'isExecution'}
     },
     {
         path: 'execution/:qid',  
@@ -43,7 +46,8 @@ const routes: Routes = [
     },
     {
         path: 'auth/login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: { animation: 'isAuth/login'}
     },
     {
         path: 'voting',

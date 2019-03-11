@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
@@ -191,6 +192,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
+    NgxSpinnerModule,
     MonacoEditorModule.forRoot(monacoConfig),
     RouterModule.forRoot([
       {path: 'fetch', component: RecommendComponent},

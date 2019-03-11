@@ -26,3 +26,7 @@ p.tagline[_ngcontent-c3][_ngcontent-c3]{
 .team-img{
     height: 300px;
 }
+
+ngx-spinner p{
+    font-size: 15px;
+}
