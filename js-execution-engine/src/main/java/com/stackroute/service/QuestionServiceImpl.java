@@ -1,44 +1,38 @@
 package com.stackroute.service;
 
 import org.springframework.stereotype.Service;
-
 import java.io.*;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Service
 public class QuestionServiceImpl implements QuestionService{
-    public String getfilename(String code)
-    {
-        return code.substring(code.indexOf("class")+6,code.indexOf("{")).trim()+".java";
-    }
+
+    // method for parsing the output.log file to send back the result
     public String finderror() throws Exception
     {
         int total=2,error=2,failure=2;
         Matcher matcher;
         File file;
         BufferedReader fr;
-
         String m="";
         String fileName="/DB/js-boilerplate/compile.log";
+//        String fileName = "/home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/js-boilerplate/compile.log";
         file=new File(fileName);
-        BufferedReader br=new BufferedReader(new FileReader(file));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         StringBuilder sb = new StringBuilder();
         String d;
-        String k="";
-        while((d=br.readLine())!=null)
-            k+=d;
-
+        String k = "";
+        while((d=br.readLine())!=null) {
+            k += d;
+            k += " ";
+        }
 //        file.delete();
-
         String r[]=k.split("\\[ERROR\\]");
-
         int mm=0;
         if(k.isEmpty()){
-            return "Tests passed";
+            return null;
         }
-        else
-        if(k.contains("COMPILATION ERROR")){
+        else if(k.contains("COMPILATION ERROR")){
             for(String queryString:r){
                 if(mm==0){
                     mm=1;
@@ -57,98 +51,51 @@ public class QuestionServiceImpl implements QuestionService{
                     break;
                 }
             }  }
-        else{
-
-            String queryString=r[1];
-
-            Pattern pattern = Pattern.compile("Failures");
-            matcher = pattern.matcher(queryString);
-            matcher.find();
-            String  p = queryString.substring(matcher.start() + 10, matcher.start() + 11);
-
-            int a=Integer.parseInt(p);
-            failure=a;
-            pattern = Pattern.compile("Errors");
-            matcher = pattern.matcher(queryString);
-            matcher.find();
-            p = queryString.substring(matcher.start() + 8, matcher.start() + 9);
-            error=Integer.parseInt(p);
-            a+=Integer.parseInt(p);
-            pattern = Pattern.compile("run");
-            matcher = pattern.matcher(queryString);
-            matcher.find();
-            p = queryString.substring(matcher.start() + 5, matcher.start() + 6);
-            total=Integer.parseInt(p);
-            Matcher matcher2;
-            for(int i=2;i<2+a;i++) {
-
-                if(r[i].contains("FAILURE")){
-                    int g;
-                    if(r[i].contains("ComparisonFailure:")){
-                        pattern = Pattern.compile("ComparisonFailure:");
-                        matcher2 = pattern.matcher(r[i]);
-                        g=18;
-                        matcher2.find();
-                    }
-                    else{
-                        pattern = Pattern.compile("AssertionError:");
-                        matcher2 = pattern.matcher(r[i]);
-                        g=15;
-                        matcher2.find();
-                    }
-
-                    pattern = Pattern.compile("expected.*but");
-                    matcher = pattern.matcher(r[i]);
-                    matcher.find();
-                    p=r[i].substring(matcher2.start() + g,matcher.start());
-                    m+=p+"\n";
-                    p = r[i].substring(matcher.start() + 10,matcher.end()-5);
-
-                    m+="expected: "+p+"\n";
-                    pattern = Pattern.compile("but was:.*>");
-                    matcher = pattern.matcher(r[i]);
-                    matcher.find();
-                    p = r[i].substring(matcher.start() + 9,matcher.end()-1);
-
-
-                    m+="actual: "+p+"\n";
-                }
-                else{
-                    pattern = Pattern.compile("ERROR.*at");
-                    matcher = pattern.matcher(r[i]);
-                    matcher.find();
-                    p = r[i].substring(matcher.start() +6,matcher.end()-2);
-
-                    m+=p+"\n";
-                }
-
+        else if(k.substring(0, 6).equals("output")) {
+            if (k.contains(" Exception ")) {
+                System.out.println(k);
+                int indexOfExecption = k.indexOf("Exception");
+                m += k.substring(9, indexOfExecption -1);
+                int indexOfMain = k.indexOf("main\"") + 6;
+                int indexOfAt = k.indexOf("\t");
+                m += "\n";
+                m += "[Exception] ";
+                m += k.substring(indexOfMain, indexOfAt);
+            } else {
+                m = k.substring(9);
             }
-
-
-
-
         }
-        System.out.println("THis is log file\n"+m);
+        System.out.println("This is log file\n" + m);
+        file.delete();
         return m;
     }
 
-
+// method to run the jsrun.sh script file on every run hit
     public  String  run(String code)  {
-
-        String filename=getfilename(code);
+//        String filename = getfilename(code);
+        System.out.println("code =>" + code);
+        String filename = "/DB/js-boilerplate/src/main/java/com/stackroute/JSComplete.java";
+//        String filename = "/home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/js-boilerplate/src/main/java/com/stackroute/JSComplete.java";
         try{
-            FileWriter fw=new FileWriter("/DB/js-boilerplate/src/main/java/com/stackroute/"+filename);
-
-            fw.write("package com.stackroute;"+"\n"+code);
+//            FileWriter fw=new FileWriter("/DB/js-boilerplate/src/main/java/com/stackroute/"+filename);
+            FileWriter fw=new FileWriter(filename);
+            fw.write("package com.stackroute;\n" +
+                    "public class JSComplete {\n" +
+                    "    public static void main(String[] arg){\n" +
+                    "        JSComplete jscomplete = new JSComplete();\n" +
+                    "        jscomplete.verifyCode();\n" +
+                    "    }\n" +
+                    "    public  void verifyCode(){\n" +
+                    code +
+                    "\n    }\n" +
+                    "}");
             fw.close();
         }catch(Exception e){System.out.println(e);}
         System.out.println("Success...");
-
-
         Process p;
         try {
-            ///home/user/Documents/Mashup/js_complete/executionengine
             String[] cmd = {"sh", "/DB/script/jsrun.sh"};
+//            String[] cmd = {"sh", "/home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/js-execution-engine/src/main/java/com/stackroute/script/jsrun.sh"};
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -162,25 +109,24 @@ public class QuestionServiceImpl implements QuestionService{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("curr path" + System.getProperty("user.dir"));
-        File file1=new File("/DB/js-boilerplate/src/main/java/com/stackroute/"+filename);
-        if(file1.exists()) {
-            System.out.println("file exists");
-        }
-        else {
-            System.out.println("file not exits");
-        }
-        if(file1.delete()){
-            System.out.println("file is deleted");
-        }
-        else{
-            System.out.println("not done your task");
-        }
-
+//        System.out.println("curr path" + System.getProperty("user.dir"));
+//        File file1=new File("/DB/js-boilerplate/src/main/java/com/stackroute/"+filename);
+//        File file1=new File("/home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/js-boilerplate/src/main/java/com/stackroute/"+filename);
+//        if(file1.exists()) {
+//            System.out.println("file exists");
+//        }
+//        else {
+//            System.out.println("file not exits");
+//        }
+//        if(file1.delete()){
+//            System.out.println("file is deleted");
+//        }
+//        else{
+//            System.out.println("not done your task");
+//        }
         try {
             String errorlogs = finderror();
             return errorlogs;
-
         }
         catch (Exception e){
 

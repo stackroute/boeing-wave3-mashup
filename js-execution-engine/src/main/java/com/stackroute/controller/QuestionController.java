@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/")
-@CrossOrigin(value = "http://13.234.74.67:8030")
+@CrossOrigin(value = "*")
 public class QuestionController {
     @Autowired
     private QuestionService questionService;
@@ -21,7 +21,7 @@ public class QuestionController {
         this.questionService = questionService;
     }
     @RequestMapping(value = "code", method = RequestMethod.POST)
-    public ResponseEntity<String> saveTrack(@RequestBody String code) {
+    public ResponseEntity<String> saveTrack(@RequestBody String code) throws Exception {
         ResponseEntity responseEntity;
         String code1= questionService.run(code);
         responseEntity=new ResponseEntity<String>(code1, HttpStatus.CREATED);

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@CrossOrigin(value = "http://13.234.74.67:8030")
+@CrossOrigin(value = "*")
 @Controller
 public class WebController {
 
