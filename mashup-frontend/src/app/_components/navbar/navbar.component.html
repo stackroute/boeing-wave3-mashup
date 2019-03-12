@@ -57,7 +57,7 @@
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li><a href="" (click)="logout()">Logout</a></li>
           <li><a href="#contact">Contact Us</a></li>
-          <li><app-searchservice [routerLink]="['/searchdisplay']"></app-searchservice></li>
+          <li><app-searchservice ></app-searchservice></li>
         </ul>
       </nav>
 
@@ -77,7 +77,7 @@
           <li><a href="" [routerLink]="['/editaudio']">Learn Coding</a></li>
           <li *ngIf="!authority"><a href="" [routerLink]="['/auth/login']">Login/Signup</a></li>
           <li><a href="#contact">Contact Us</a></li>
-          <li><app-searchservice [routerLink]="['/searchdisplay']"></app-searchservice></li>
+          <li><app-searchservice></app-searchservice></li>
         </ul>
       </nav>
 

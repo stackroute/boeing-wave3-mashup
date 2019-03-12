@@ -23,7 +23,8 @@ export class EditComponent implements OnInit {
     serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
- 
+  public flag=false;
+  public flag2=false;
   title = 'grokonez';
   public difficulty: String;
   public uname: String;
@@ -185,6 +186,7 @@ export class EditComponent implements OnInit {
       {},
       JSON.stringify({'name': this.uname + '@#' + this.code })
     );
+    this.flag=true;
   }
 
  // tslint:disable-next-line:member-ordering
@@ -196,6 +198,8 @@ export class EditComponent implements OnInit {
       'difficulty': this.difficulty});
  }
   showGreeting(message) {
+    this.flag2=true;
+    this.flag=false;
     this.greetings.push(message);
     this.greetings = this.greetings[0].split('@*#');
     this.totaltest = this.greetings[0];
