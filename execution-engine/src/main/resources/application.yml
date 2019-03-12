@@ -8,7 +8,7 @@ eureka:         #tells about the Eureka server details and its refresh time
   client:
 
     serviceUrl:
-      defaultZone: http://13.234.74.67:8093/eureka/
+      defaultZone: http://localhost:8093/eureka/
     healthcheck:
       enabled: true
 
