@@ -10,7 +10,7 @@ export class QuestioExeEngineService {
   private url3= 'http://13.234.74.67:8092/question-service/api/v1/question/';
   private url2 ='http://13.234.74.67:8023/rest/neo4j/questions/2';
   private url4 ='http://13.234.74.67:8029/api/v1/submission';
-  private url5 ='http://13.234.74.67:8092/execution-engine/api/v1/question';
+  private url5 ='http://13.234.74.67:8025/api/v1/question';
   private url6 ='http://13.234.74.67:8025/api/v1';
   
   constructor(private _http: HttpClient) { }
