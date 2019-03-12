@@ -44,7 +44,7 @@ public class FetchServiceImpl implements FetchService  {
     }
 
     public String fetchFilesAndSave() throws IOException, InterruptedException {
-
+      ///home/user/bhaak/boeing-wave3-mashup/execution-engine/src/main/java/com/stackroute/script/fetch.sh
 
         System.out.println("inside fetchFilesAndSave() ");
 //        System.out.println("bhaakbc"+System.getProperty("user.dir"));
@@ -69,10 +69,10 @@ public class FetchServiceImpl implements FetchService  {
         else{
             System.out.println("run file doesnot exist");
         }
-        String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/Ujjawala/execution-boilerplate.git",fetchService1.getUsername(),"/DB/users"};
+            String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/Ujjawala/js-boilerplate",fetchService1.getUsername(),"/DB/users"};
         Process procScript = Runtime.getRuntime().exec(cmdScript);
         procScript.waitFor();
-//        System.out.println("checking the user directory "+System.getProperty("user.dir"));
+
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(procScript.getInputStream()));
         BufferedReader errorReader = new BufferedReader(new InputStreamReader(procScript.getErrorStream()));
@@ -94,22 +94,28 @@ public class FetchServiceImpl implements FetchService  {
 
      reader = new BufferedReader(new InputStreamReader(procScript1.getInputStream()));
        errorReader = new BufferedReader(new InputStreamReader(procScript1.getErrorStream()));
-
+      //System.out.println("it not coming");
        line = "";
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
         }
-
+        System.out.println("it not coming");
         line = "";
         while ((line = errorReader.readLine()) != null) {
             System.out.println(line);
         }
-
+        System.out.println("it not coming 1");
          File file;
         BufferedReader fr;
 
        file=  finder("/DB/users/"+username+"/src/main/java/com/stackroute")[0];
+       if(file.exists()){
+           System.out.println("file is there");
 
+       }
+       else{
+           System.out.println("file is not there");
+       }
 
         BufferedReader br=new BufferedReader(new FileReader(file));
         String d;
@@ -117,7 +123,7 @@ public class FetchServiceImpl implements FetchService  {
         while((d=br.readLine())!=null)
             k+="\n"+d;
 
-
+             System.out.println(k);
           return k;
 
 

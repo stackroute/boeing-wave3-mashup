@@ -252,6 +252,10 @@ var EditComponent = /** @class */ (function () {
         this.colorg = {};
         this.initializeWebSocketConnection();
     }
+    EditComponent.prototype.ngOnDestroy = function () {
+        console.log("calling ngondestroy");
+        this.quesservice.removeNodemon(this.uname);
+    };
     EditComponent.prototype.selectChangeHandler = function (event) {
         // update the ui
         this.selectedLang = event.target.value;
@@ -2693,7 +2697,11 @@ var QuestioExeEngineService = /** @class */ (function () {
         this.url2 = 'http://13.234.74.67:8023/rest/neo4j/questions/2';
         this.url4 = 'http://13.234.74.67:8029/api/v1/submission';
         this.url5 = 'http://13.234.74.67:8092/execution-engine/api/v1/question';
+        this.url6 = 'http://13.234.74.67:8092/execution-engine/api/v1';
     }
+    QuestioExeEngineService.prototype.removeNodemon = function (username) {
+        this._http.post(this.url6 + "/" + username, {}).subscribe();
+    };
     QuestioExeEngineService.prototype.getcode = function (gitUrl, username) {
         return this._http.put(this.url5 + "/" + username, { "gitUrl": gitUrl });
     };
@@ -3170,7 +3178,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.4/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Desktop/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

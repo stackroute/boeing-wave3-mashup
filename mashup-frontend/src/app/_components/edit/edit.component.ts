@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DiffEditorModel, NgxEditorModel } from 'ngx-monaco-editor';
 import { QuestioExeEngineService } from '../../services/questio-exe-engine.service';
 import * as Stomp from 'stompjs';
@@ -19,7 +19,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 })
-export class EditComponent implements OnInit {
+export class EditComponent implements OnInit,OnDestroy {
+ 
     serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
@@ -54,6 +55,10 @@ export class EditComponent implements OnInit {
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
 
+  ngOnDestroy(){
+    console.log("calling ngondestroy");
+    this.quesservice.removeNodemon(this.uname);
+  }
   selectChangeHandler(event: any) {
     // update the ui
     this.selectedLang = event.target.value;
