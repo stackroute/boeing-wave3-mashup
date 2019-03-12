@@ -4,7 +4,7 @@ FROM maven:3.6.0-jdk-10
 FROM node:carbon
 RUN npm install -g nodemon
 WORKDIR /usr/src/app
-COPY package*.json /usr/src/app/
+COPY package.json /usr/src/app/
 RUN npm install && mv /usr/src/app/node_modules /node_modules
 COPY . /usr/src/app
 CMD [ "nodemon" ]
