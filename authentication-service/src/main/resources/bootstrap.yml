@@ -47,7 +47,7 @@ eureka:         #tells about the Eureka server details and its refresh time
     active: development
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://localhost:8032
  management:
     security:
       enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
