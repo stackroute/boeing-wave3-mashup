@@ -1,0 +1,15 @@
+<div *ngIf="info.token; else loggedOut">
+  <!-- <app-navbar></app-navbar> -->
+
+  <app-recommend>        
+  </app-recommend>
+</div>
+
+<ng-template #loggedOut>
+  <app-navbar></app-navbar>
+
+  <app-landing></app-landing>
+  <!-- -------------------------- -->
+  <div id="band" class="container text-center">
+  </div>
+</ng-template>

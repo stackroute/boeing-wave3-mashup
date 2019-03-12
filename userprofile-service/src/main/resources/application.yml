@@ -1,0 +1,31 @@
+server:
+  port: "8024"
+
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8093/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+spring:
+  application:
+    name: userprofile-service   #current service name to be used by the eureka server
+  data:
+    mongodb:
+      host: localhost
+      port: "27017"
+      uri: mongodb://localhost/userprofile
+
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+logging:
+  level:
+    com.stckroute.userprofile-service: DEBUG

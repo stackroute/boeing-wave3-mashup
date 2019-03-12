@@ -1,0 +1,45 @@
+server:
+  port: 8021    #default port where the service will be started
+
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8093/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+spring:
+  application:
+    name: authentication-service   #current service name to be used by the eureka server
+  datasource:
+    url: jdbc:mysql://localhost:3306/springbootdb?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+      hibernate:
+        ddl-auto: update
+        show-sql: "true"
+      generate-ddl: "true"
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5Dialect
+    main:
+      allow-bean-definition-overriding: "true"
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+logging:
+  level:
+    com.stckroute.authentication-service: DEBUG
+
+grokonez:
+  app:
+    jwtSecret: jwtStackrouteSecretKey
+    jwtExpiration: "86400"
