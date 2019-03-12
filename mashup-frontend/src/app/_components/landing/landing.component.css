@@ -30,3 +30,10 @@ p.tagline[_ngcontent-c3][_ngcontent-c3]{
 ngx-spinner p{
     font-size: 15px;
 }
+
+.feature-col p{
+    font-size: 1.8rem;
+}
+.portfolio p{
+    font-size: 1.6rem;
+}
