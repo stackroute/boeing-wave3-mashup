@@ -20,7 +20,7 @@ spring:
     name: search-service   #current service name to be used by the eureka server
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: http://localhost:8032
   profiles:
     active: development
 management:
