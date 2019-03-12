@@ -60,10 +60,10 @@ public class KafkaListenerService {
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")
     public void consumeSubmission(String message){
         String[] strMessage = message.split(",");
-        String userName = strMessage[0].split(":")[1].replace("\"","");
+        String userName = strMessage[1].split(":")[1].replace("\"","");
         Question question = new Question();
-        question.setQuestionId(Integer.parseInt(strMessage[1].split(":")[1].replace("\"","")));
-        question.setQuestionTitle(strMessage[2].split(":")[1].replace("\"",""));
+        question.setQuestionId(Integer.parseInt(strMessage[2].split(":")[1].replace("\"","")));
+        question.setQuestionTitle(strMessage[3].split(":")[1].replace("\"",""));
         UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
         userDBProfileService.updateQuestionAttempted(userName, question);
     }
