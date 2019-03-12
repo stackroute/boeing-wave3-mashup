@@ -31,7 +31,7 @@ public class QuestionController {
     }
 
     @PostMapping(value ="/codemon/{username}")
-    public  ResponseEntity<?> getQuestionObject(@PathVariable String username,@RequestBody Question question) {
+    public  ResponseEntity<?> getQuestionObjectCodemon(@PathVariable String username,@RequestBody Question question) {
         System.out.println("its comming hereeeeeeeeeeeeee");
         try {
 
