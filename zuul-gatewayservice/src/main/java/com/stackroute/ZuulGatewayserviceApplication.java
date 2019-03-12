@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin("*")
 @EnableDiscoveryClient
 @EnableZuulProxy
-@EnableConfigClient
 @SpringBootApplication
 public class ZuulGatewayserviceApplication {
 

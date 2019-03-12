@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 //@Component
 @CrossOrigin("*")
 @EnableEurekaClient
-@EnableConfigClient
+//@EnableConfigClient
 @SpringBootApplication
 public class QuestionsRest {
 

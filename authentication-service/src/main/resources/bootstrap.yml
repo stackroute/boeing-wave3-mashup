@@ -16,7 +16,7 @@
 #        dialect: org.hibernate.dialect.MySQL5Dialect
 
 
-    # App Properties
+# App Properties
 #grokonez:
 #  app:
 #   jwtSecret: jwtStackrouteSecretKey
@@ -47,10 +47,10 @@ spring:
     active: development
   cloud:
     config:
-        uri: http://localhost:8888
- management:
-  security:
-    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+      uri: http://localhost:8888
+  management:
+    security:
+      enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
 
 logging:
   level:

@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 //@Component
 @SpringBootApplication
-@EnableConfigClient
+//@EnableConfigClient
 public class ScoreAndBadgeRest {
 
 	public static void main(String[] args) {
