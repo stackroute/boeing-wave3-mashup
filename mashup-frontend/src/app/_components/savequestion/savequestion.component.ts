@@ -31,7 +31,6 @@ export class SavequestionComponent implements OnInit {
   constructor(private token: TokenStorageService, private _route: ActivatedRoute, public questionservice: QuestionserviceService, private router: Router, private formBuilder: FormBuilder, private alertService: AlertService) { }
 
   ngOnInit() {
-    console.log('USERNAME : ' + this.uname);
     this.questionForm = this.formBuilder.group({
       questionTitle: ['', Validators.required],
       questionDescription: ['', Validators.required],
@@ -44,35 +43,28 @@ export class SavequestionComponent implements OnInit {
   }
   // tslint:disable-next-line:member-ordering
   obj1: any;
+
   // tslint:disable-next-line:member-ordering
   add: string;
   submit(): any {
     this.submitted = true;
 
     if (this.questionForm.invalid) {
-      console.log('register form is invalid ');
+      alert('Question form is invalid ');
       return;
     }
-
-   console.log('questionForm: ', this.questionForm.value);
    this.uname = this.token.getUsername();
+
    // tslint:disable-next-line:label-position
    this.add = '{"username":"' + this.uname + '"}';
-   console.log('masse:' + this.add);
     this.obj1  = JSON.parse(this.add);
-    console.log(this.obj1);
     const obj2 = Object.assign(this.questionForm.value, this.obj1);
-
-    console.log(obj2);
     this.questionservice.saveQuestion(obj2).pipe(first()).subscribe(
       data => {
-        console.log('data is ', data);
-        // this.alertService.success(data, true);
         alert(data);
         this.router.navigate(['home']);
     },
     error => {
-      console.log('we are getting some errors');
       alert(error);
     }
     );

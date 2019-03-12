@@ -1,12 +1,11 @@
 package com.stackroute.controller;
-//import com.netflix.appinfo.InstanceInfo;
-//import com.netflix.discovery.EurekaClient;
-//import com.netflix.discovery.shared.Application;
+
+import com.stackroute.domain.Code;
 import com.stackroute.domain.Question;
+import com.stackroute.domain.User;
 import com.stackroute.service.FetchService;
 import com.stackroute.service.ResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,35 +20,37 @@ import java.io.IOException;
 public class QuestionController {
     @Autowired
     private ResultsService resultsService;
-    public ResultsService getResultsService() {
-        return resultsService;
-    }
     @Autowired
     public FetchService fetchService;
-
     @Autowired
     private RestTemplate restTemplate;
-//
-//    @Autowired
-//    private EurekaClient eurekaClient;
+    @Autowired
 
-    public void setResultsService(ResultsService resultsService) {
-        this.resultsService = resultsService;
+
+    public QuestionController() {
     }
-    public Question question;
 
-//    @RequestMapping(value="question/{id}", method = RequestMethod.GET)
-//    public Question getQuestionObject(@PathVariable int id) {
-//            Application application = eurekaClient.getApplication("QUESTION-SERVICE1");
-//        System.out.println("Application : " + application);
-//        InstanceInfo instanceInfo = application.getInstances().get(0);
-//        System.out.println("Inst : " + instanceInfo);
-//        String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "api/v1/question/" + id;
-//        System.out.println("URL" + url);
-//         question = restTemplate.getForObject(url, Question.class);
-//        System.out.println("RESPONSE " + question.questionTitle);
-//        fetchService.setGitURL(question.gitUrl);
-//        return question;
-//    }
+
+    @PutMapping(value="/question/{username}")
+    public  ResponseEntity<?> getQuestionObject(@PathVariable String username,@RequestBody Question question) {
+
+    System.out.println(question.gitUrl);
+
+
+
+        fetchService.setGiturl1(question.gitUrl);
+        fetchService.setUsername(username);
+            try{
+                   Code code=new Code();
+                   code.setCodeTemplate(fetchService.fetchFilesAndSave());
+          return new ResponseEntity<Code>(code,HttpStatus.CREATED);
+            }
+
+            catch(Exception e){
+
+            }
+
+    return null;
+    }
 
 }

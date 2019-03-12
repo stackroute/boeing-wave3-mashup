@@ -1,8 +1,10 @@
+import { EditaudioComponent } from './_components/editaudio/editaudio.component';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
@@ -24,7 +26,6 @@ import {SavequestionComponent} from './_components/savequestion/savequestion.com
 import { ResizableModule } from 'angular-resizable-element';
 import { OwlModule } from 'ngx-owl-carousel';
 import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
-
 import { httpInterceptorProviders } from './_components/auth/auth-interceptor';
 
 import {
@@ -74,7 +75,10 @@ import { SubmissionComponent } from './_components/submission/submission.compone
 import { VotingComponent } from './_components/voting/voting.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
-import { ScorebadgeComponent } from './_components/scorebadge/scorebadge.component';
+import { ScoreandbadgeComponent } from './_components/scoreandbadge/scoreandbadge.component';
+import { LandingComponent } from './_components/landing/landing.component';
+import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
+import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -129,7 +133,11 @@ const monacoConfig: NgxMonacoEditorConfig = {
     VotingComponent,
     NavbarComponent,
     FooterComponent,
-    ScorebadgeComponent,
+    ScoreandbadgeComponent,
+    LandingComponent,
+    SearchserviceComponent,
+    EditaudioComponent,
+    SearchdisplayComponent,
   ],
   imports: [
     BrowserModule,
@@ -184,6 +192,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
+    NgxSpinnerModule,
     MonacoEditorModule.forRoot(monacoConfig),
     RouterModule.forRoot([
       {path: 'fetch', component: RecommendComponent},

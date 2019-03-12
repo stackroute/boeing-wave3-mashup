@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
-mkdir namita
-cd namita
-repositoryBP="https://github.com/aroranamita09/mashupBoilerplate.git"
-git clone "$repositoryBP"
-cd mashupBoilerplate
-cd src
-cd main
+echo $1
+
 repository=$1
-echo "......................................."
-echo $repository
-git clone "$repository"
+username=$2
+
+mkdir $3/$2
+cd  $3/$2
+cd ../
+
+
+echo "printing in the fetch.sh file ...."
+
+git clone "$repository"  $2
+
+echo "running fetch.sh finished successfully"

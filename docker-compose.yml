@@ -226,6 +226,9 @@ services:
         condition: service_healthy
     ports:
       - 8025:8025
+    volumes:
+      - /DB/script:/DB/script
+      - /DB/users:/DB/users
     healthcheck:
       test: "exit 0"
 
@@ -240,8 +243,6 @@ services:
       apigateway:
         condition: service_healthy
       eurekaserver:
-        condition: service_healthy
-      kafka:
         condition: service_healthy
     ports:
       - 8026:8026
@@ -311,16 +312,48 @@ services:
     healthcheck:
       test: "exit 0"
 
-#  mashup-frontend:
-#    image: mashup-frontend
-#    build: ./mashup-frontend/
-#    container_name: frontend
-#    restart: always
-#    network_mode: host
-#    hostname: localhost
-#    ports:
-#      - 8030:8030
-#    expose:
-#      - 8030
-#    healthcheck:
-#      test: "exit 0"
+  mashup-frontend:
+    image: mashup-frontend
+    build: ./mashup-frontend/
+    container_name: frontend
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8030:8030
+    expose:
+      - 8030
+    healthcheck:
+      test: "exit 0"
+
+  js-execution-engine:
+    image: js-execution-engine
+    build: ./js-execution-engine/
+    container_name: js-execution
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+     - 8031:8031
+    volumes:
+      - /DB/script:/DB/script
+      - /DB/js-boilerplate:/DB/js-boilerplate
+    healthcheck:
+     test: "exit 0"
+
+
+  config-server:
+    image: config-server
+    build: ./config-server/
+    container_name: configserver
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8888:8033
+    expose:
+      - 8033
+    healthcheck:
+      test: "exit 0"
+
+

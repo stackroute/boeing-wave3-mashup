@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionRepositoryCustomImpl implements QuestionRepositoryCustom{
@@ -16,22 +15,17 @@ public class QuestionRepositoryCustomImpl implements QuestionRepositoryCustom{
         this.operations = operations;
     }
 
-
     @Override
     public Questions getById(int questionId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("questionId").is(questionId));
-        Questions questionObj= operations.findOne(query,Questions.class);
-        return questionObj;
+        return operations.findOne(query,Questions.class);
     }
 
     @Override
     public List<Questions> getByTag(String tag) {
-      //  System.out.println(tag+"tag given here");
         Query query = new Query();
         query.addCriteria(Criteria.where("tags").is(tag));
-        List<Questions> questions= operations.find(query,Questions.class);
-      //  System.out.println(questions.size()+"fshdfsdjhfjhdfjdsfjhsdfhsdfj");
-        return questions;
+        return operations.find(query,Questions.class);
     }
 }

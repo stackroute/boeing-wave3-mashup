@@ -1,3 +1,5 @@
+import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
+import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { VotingComponent } from './_components/voting/voting.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,22 +11,26 @@ import { SavequestionComponent} from './_components/savequestion/savequestion.co
 import { EditComponent } from './_components/edit/edit.component';
 import { UserprofileComponent } from './_components/userprofile/userprofile.component';
 import { SubmissionComponent } from './_components/submission/submission.component';
-
+import { EditaudioComponent } from './_components/editaudio/editaudio.component';
 
 const routes: Routes = [
-     { path: 'register', component: RegisterComponent },
-
+    { path: 'register',
+     component: RegisterComponent 
+    },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        data: { animation: 'isHome'}
     },
     {
         path: 'userprofile',
-        component: UserprofileComponent
+        component: UserprofileComponent,
+        data: { animation: 'isUserprofile'}
     },
     {
         path: 'execution',
-        component: EditComponent
+        component: EditComponent,
+        data: { animation: 'isExecution'}
     },
     {
         path: 'execution/:qid',  
@@ -40,7 +46,8 @@ const routes: Routes = [
     },
     {
         path: 'auth/login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: { animation: 'isAuth/login'}
     },
     {
         path: 'voting',
@@ -54,6 +61,18 @@ const routes: Routes = [
     {
         path: 'submission-component',
         component: SubmissionComponent
+    },
+    {
+        path: 'search',
+        component: SearchserviceComponent
+    },
+    {
+        path: 'editaudio',
+        component: EditaudioComponent
+    },
+    {
+        path: 'display/:tag',
+        component: SearchdisplayComponent
     }
 ];
 

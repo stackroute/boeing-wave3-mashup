@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "Submission")
 public class SubmissionData {
     @Id
+    private String _id;
+    @Field
     private String username;
     @Field
     private int questionId;
@@ -24,6 +26,14 @@ public class SubmissionData {
     private String solution;
     @Field
     private double score;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getUsername() {
         return username;
@@ -100,7 +110,8 @@ public class SubmissionData {
     @Override
     public String toString() {
         return "SubmissionData{" +
-                "username='" + username + '\'' +
+                "_id='" + _id + '\'' +
+                ", username='" + username + '\'' +
                 ", questionId=" + questionId +
                 ", questionTitle='" + questionTitle + '\'' +
                 ", result='" + result + '\'' +

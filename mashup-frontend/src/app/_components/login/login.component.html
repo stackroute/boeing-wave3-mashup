@@ -1,15 +1,11 @@
-<!-- <div *ngIf="isLoggedIn; else loggedOut">
-  <h4 style="color: purple">You are Logged in.</h4>
-  <h2 style="color: red" >Hey, Enjoy the Stackroute guyz</h2>
-</div>
+<app-navbar></app-navbar>
 
-<ng-template #loggedOut> -->
+<div class="bg-img">
 <div class="row col-lg-12">
   <div class="col-lg-4">
-
   </div>
   <div class="col-lg-4">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <form name="form" (ngSubmit) = "f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
@@ -39,8 +35,7 @@
     <a [routerLink]="['/register']" class="btn btn-success">Sign Up</a>
   </div>
   <div class="col-lg-4">
-
   </div>
 </div>
+</div>
 
-<!-- </ng-template> -->

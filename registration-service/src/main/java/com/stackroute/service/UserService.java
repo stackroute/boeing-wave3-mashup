@@ -13,6 +13,5 @@ public interface UserService {
         public User deleteUser(String userId) throws UserNotFoundException;
         public User updateUser(String userId, User user) throws UserNotFoundException;
         public User getUserByEmailid(String emailId);
-//        public String findByPassword(String id, String password) throws UserNotFoundException;
     }
 

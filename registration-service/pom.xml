@@ -5,17 +5,18 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>1.0.3-SNAPSHOT</version>
 <!-- 		<relativePath/> lookup parent from repository -->
 	</parent>
 	<artifactId>registration-service</artifactId>
+	<packaging>jar</packaging>
 	<name>registration-service</name>
 	<description>Registration Service</description>
 
-	<!--<properties>-->
-		<!--<java.version>10</java.version>-->
+	<properties>
+		<java.version>10</java.version>
 		<!--<spring-cloud.version>Greenwich.RC2</spring-cloud.version>-->
-	<!--</properties>-->
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -26,11 +27,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-			<!--<version>2.0.2.RELEASE</version>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version> 2.1.0.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -57,7 +58,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<version>2.1.2.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
@@ -84,15 +84,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-config</artifactId>-->
-		<!--</dependency>-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot</artifactId>
-			<version>2.1.2.RELEASE</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
@@ -102,11 +93,6 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-crypto</artifactId>
 			<version>5.1.4.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-			<version>2.0.2.RELEASE</version>
 		</dependency>
 	</dependencies>
 
@@ -118,5 +104,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

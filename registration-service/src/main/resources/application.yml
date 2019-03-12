@@ -1,0 +1,30 @@
+#server:
+#  port: 8098    #default port where the service will be started
+
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8093/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+spring:
+  application:
+    name: registration-service   #current service name to be used by the eureka server
+  profiles:
+    active: development
+  cloud:
+    config:
+      uri: http://localhost:8888
+management:
+  security:
+    enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+logging:
+  level:
+    com.stackroute.registration-service: DEBUG

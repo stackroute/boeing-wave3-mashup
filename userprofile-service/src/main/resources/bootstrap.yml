@@ -1,5 +1,5 @@
-#server:
-#  port: 8024
+server:
+  port: 8024
 # spring:
 #  data:
 #   mongodb:
@@ -27,9 +27,9 @@ spring:
     name: userprofile-service   #current service name to be used by the eureka server
   profiles:
     active: development
-  cloud:
-    config:
-      uri: http://localhost:8888
+    cloud:
+      config:
+        uri: http://localhost:8888
 management:
   security:
     enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.

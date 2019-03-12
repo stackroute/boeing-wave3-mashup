@@ -12,13 +12,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: any = {};
+  interval;
+  timeStart=0;
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
 
-  constructor(private router: Router,private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -28,7 +30,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
 
     this.loginInfo = new AuthLoginInfo(
       this.form.username,
@@ -43,15 +44,24 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.reloadPage();
-        this.router.navigate(['']);
+        // this.reloadPage();
+        // this.router.navigate(['']);
       },
       error => {
-        console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }
     );
+    this.interval = setInterval(() => {
+      if ( this.timeStart < 0.5) {
+        // clearInterval(this.interval);
+        this.timeStart++;
+      } else {
+        this.router.navigate(['']);
+        clearInterval(this.interval);
+      }
+    }, 1000);
+    // this.router.navigate(['']);
   }
   reloadPage() {
     window.location.reload();

@@ -14,13 +14,14 @@ export class QuestionserviceService {
   }
 
   public saveQuestion(questionObj): Observable<any> {
+    
     // tslint:disable-next-line:prefer-const
     console.log('QUESTION : ', questionObj);
     const savedQuestionObj = this._http.post(this.questionPopulatorApidUrl + 'question', questionObj, {responseType: 'text'});
     console.log(savedQuestionObj);
     return savedQuestionObj;
   }
-  public getallquestioninfo(): any {
+  public getallquestioninfo(): Observable<any>  {
     const allinfo = this._http.get(this.getallquestionUrl);
     console.log(allinfo);
     return allinfo;

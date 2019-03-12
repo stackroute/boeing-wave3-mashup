@@ -11,48 +11,43 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
 
   selector: 'app-edit',
-  styles: ['ngx-monaco-editor { height: 70vh; width:100%; display:block; }'],
+  styles: ['ngx-monaco-editor { height: 70vh; width:100%; display:block; }', `ul{
+    list-style-type: none;
+  }`],
   styleUrls: [],
   templateUrl: './edit.component.html'
 
 
 })
 export class EditComponent implements OnInit {
-
+    serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
+   // title='WebSockets demo';
   // wesocket
+ 
   title = 'grokonez';
-  public difficulty:String;
-  public uname:String;
-  public testpass:String;
-  public totaltest:String;
+  public difficulty: String;
+  public uname: String;
+  public testpass: String;
+  public totaltest: String;
   description = 'Angular-WebSocket Demo';
 
   greetings: string[] = [];
 
   disabled = true;
   // name: string;
-  code = `public class Employee {
-    public  String addEmployeeEmailId(String emailId){
-
-        return null;
-    }
-}
-`;
+ code: String;
   private stompClient = null;
   // socket ends here
-  questionObj:String;
-  result:String;
+  questionObj: String;
+  result: String;
   auto = new autocomplete;
-  // questitle: string;
-  // qid:string;
-  // quesstatement: string;
-  // questioninputs: string;
-  // questionout: string;
   questionId;
     questionTitle: String;
     questionDescription: String ;
-    inputFormat: String;
-    outputFormat: String;
+    inputFormat: String[];
+    outputFormat: String[];
+    inputFormat1: String;
+    outputFormat1: String;
     tags: String;
     gitUrl: String;
   selectedLang = 'java';
@@ -76,49 +71,43 @@ export class EditComponent implements OnInit {
   }
 
   onInit(editor) {
-    
     const line = editor.getPosition();
     const monaco = window['monaco'];
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
-    console.log(line);
+
   }
-  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute,private token: TokenStorageService) {
+  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService) {
+ 
+            this.initializeWebSocketConnection();
   }
+
+
+
   ngOnInit() {
-    this.questionId=this._route.snapshot.paramMap.get('qid');
+    this.questionId = this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
-      
-    console.log(this.questionId);
-    console.log(this.uname);
-    this.connect();
-    // tslint:disable-next-line:max-line-length
-    // {"questionId":1,"questionTitle":"Awesome1","questionDescription":"Question2","inputFormat":"input format","outputFormat":"output Format","difficulty":"Intermediate","tags":"java","gitUrl":"url","username":"def"}
+    
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
        this.questionObj = data;
-        // this.questitle = data['questionTitle'];
-        // this.quesstatement = data['questionDescription'];
-        // this.questioninputs = data['inputFormat'];
-        // this.questionout = data['outputFormat'];
-        // this.difficulty=data['difficulty'];
         this.questionId = data['questionId'];
         this.questionTitle = data['questionTitle'] ;
         this.questionDescription = data['questionDescription'] ;
-        this.inputFormat = data['inputFormat'] ;
-        this.outputFormat = data['outputFormat'] ;
+        this.inputFormat1 = data['inputFormat'] ;
+       this.inputFormat = this.inputFormat1.split('\n');
+       this.outputFormat1 = data['outputFormat'];
+        this.outputFormat = this.outputFormat1.split('\n');
         this.difficulty = data['difficulty'] ;
         this.tags = data['tags'] ;
         this.gitUrl = data['gitUrl'] ;
-        console.log(data);
-      });
+        // tslint:disable-next-line:no-shadowed-variable
+        this.quesservice.getcode(this.gitUrl, this.uname).subscribe(data => {
+          this.code = data['codeTemplate'];  });
+        }
+        );
   }
-    //  "username":this.uname,"questionId":this.qid,
-    //  "questionTitle":this.questitle,result:this.result,
-    //  "testCasePassed":this.testpass,"TotalTestCases":this.totaltest,
-    //  "difficulty":this.difficulty
-  options = {
-    theme: 'vs-dark'
-  };
+  // tslint:disable-next-line:member-ordering
+  options = {theme: 'vs-dark'};
   // tslint:disable-next-line:member-ordering
   jsonCode = [
     '{',
@@ -154,68 +143,77 @@ export class EditComponent implements OnInit {
       this.greetings = [];
     }
   }
-  connect() {
-    const socket = new SockJS('http://localhost:8025/gkz-stomp-endpoint');
-    this.stompClient = Stomp.over(socket);
-
-    const _this = this;
-    this.stompClient.connect({}, function (frame) {
-      _this.setConnected(true);
-      console.log('Connected: ' + frame);
-
-      _this.stompClient.subscribe('/topic/hi', function (helo) {
-        _this.showGreeting(JSON.parse(helo.body).codeTemplate);
-      });
-    });
+  initializeWebSocketConnection() {
+    let ws = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(ws);
+    let that = this;
+ 
+    this.stompClient.connect(
+      {},
+      function(frame) {
+        that.stompClient.subscribe('/topic', message => {
+        that.showGreeting(JSON.parse(message.body).codeTemplate);
+        });
+      }
+    );
   }
+  // connect() {
+  //   const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
+  //   this.stompClient = Stomp.over(socket);
+  //   const _this = this;
+  //   this.stompClient.connect({}, function (frame) {
+  //     _this.setConnected(true);
+
+  //     _this.stompClient.subscribe('/topic/hi', function (helo) {
+
+  //       _this.showGreeting(JSON.parse(helo.body).codeTemplate);
+  //     });
+  //   });
+  // }
   disconnect() {
     if (this.stompClient != null) {
       this.stompClient.disconnect();
     }
 
     this.setConnected(false);
-    console.log('Disconnected!');
   }
 
   submit() {
-    console.log("From here");
-     console.log(this.questionObj);
-    //console.log(this.code);
     this.greetings = [];
     this.stompClient.send(
       '/gkz/hello',
       {},
-      JSON.stringify({'codeWritten': this.code })
+      JSON.stringify({'name': this.uname + '@#' + this.code })
     );
-    console.log("sending data to submission service");
-    //this.sendDataToSubmissionService();
   }
+
  // tslint:disable-next-line:member-ordering
  public colorg: object = {};
- sendDataToSubmissionService(){
-   //console.log("ayhshd");
-      this.quesservice.sendDatatoSubmission({"code":this.code,"username":this.uname,"questionId":this.questionId,
-      "questionTitle":this.questionTitle,result:this.result,
-      "testCasePassed":this.testpass,"totalTestCases":this.totaltest,
-      "difficulty":this.difficulty})
+ sendDataToSubmissionService() {
+      this.quesservice.sendDatatoSubmission({'code': this.code, 'username': this.uname, 'questionId': this.questionId,
+      'questionTitle': this.questionTitle, result: this.result,
+      'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
+      'difficulty': this.difficulty});
  }
   showGreeting(message) {
     this.greetings.push(message);
-    this.greetings=this.greetings[0].split('@*#');
-    this.totaltest=this.greetings[0];
-    this.testpass=this.greetings[1];
+    this.greetings = this.greetings[0].split('@*#');
+    this.totaltest = this.greetings[0];
+    this.testpass = this.greetings[1];
     this.greetings = this.greetings[2].split('\n');
+    if (this.greetings[0] === '') {
+    this.greetings[0] = 'Tests passed';
+  }
     this.colorg = {
       color: `red`
     };
-    if ( this.greetings[0] === 'Tests passed' ) {
-      this.result="passed";
+    if ( this.greetings[0] === 'Tests passed') {
+      this.result = 'passed';
       this.colorg = {
         color: `green`
       };
-    }
-    else{
-      this.result="failed";
+    } else {
+      this.result = 'failed';
     }
   }
 

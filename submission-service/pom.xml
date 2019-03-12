@@ -5,8 +5,7 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>mashup</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-<!-- 		<relativePath/>  lookup parent from repository -->
+		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>submission-service</artifactId>
 	<name>submission-service</name>
@@ -36,13 +35,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-			<version>2.1.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
