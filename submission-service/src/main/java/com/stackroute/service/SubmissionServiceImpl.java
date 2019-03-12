@@ -22,10 +22,10 @@ public class SubmissionServiceImpl implements SubmissionService{
     @Override
     public SubmissionData saveSubmission(SubmissionData submissionData) {
         double level;
-        if(submissionData.getDifficulty().equals("easy")){
+        if(submissionData.getDifficulty().equals("Beginner")){
             level = 10;
         }
-        else if(submissionData.getDifficulty().equals("medium")){
+        else if(submissionData.getDifficulty().equals("Intermediate")){
             level = 20;
         }
         else{
