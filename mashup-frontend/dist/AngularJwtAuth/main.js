@@ -2696,8 +2696,8 @@ var QuestioExeEngineService = /** @class */ (function () {
         this.url3 = 'http://13.234.74.67:8092/question-service/api/v1/question/';
         this.url2 = 'http://13.234.74.67:8023/rest/neo4j/questions/2';
         this.url4 = 'http://13.234.74.67:8029/api/v1/submission';
-        this.url5 = 'http://13.234.74.67:8092/execution-engine/api/v1/question';
-        this.url6 = 'http://13.234.74.67:8092/execution-engine/api/v1';
+        this.url5 = 'http://13.234.74.67:8025/api/v1/question';
+        this.url6 = 'http://13.234.74.67:8025/api/v1';
     }
     QuestioExeEngineService.prototype.removeNodemon = function (username) {
         this._http.post(this.url6 + "/" + username, {}).subscribe();
@@ -3178,7 +3178,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Desktop/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Desktop/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
