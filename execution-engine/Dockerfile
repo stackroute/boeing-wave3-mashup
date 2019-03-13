@@ -5,7 +5,7 @@ FROM node:carbon
 RUN npm install -g nodemon
 WORKDIR /usr/src/app
 #COPY /DB/package/package.json /usr/src/app/
-RUN npm install && mv /usr/src/app/node_modules /DB/node_modules
+RUN npm install
 COPY . /usr/src/app
 CMD [ "nodemon" ]
 

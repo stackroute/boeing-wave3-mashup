@@ -230,6 +230,7 @@ services:
       - /DB/script:/DB/script
       - /DB/users:/DB/users
       - /DB/package:/DB/package
+      - /DB/node_modules:/DB/node_modules
     healthcheck:
       test: "exit 0"
 
