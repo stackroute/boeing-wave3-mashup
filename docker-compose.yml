@@ -231,7 +231,6 @@ services:
       - /DB/users:/DB/users
       - /DB/package:/DB/package
       - /DB/node_modules:/DB/node_modules
-      - /DB/backend:/usr/src/app
     healthcheck:
       test: "exit 0"
 
