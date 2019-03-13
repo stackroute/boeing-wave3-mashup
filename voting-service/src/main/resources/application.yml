@@ -15,7 +15,7 @@ eureka:         #tells about the Eureka server details and its refresh time
     lease:
       duration: 5
 
- spring:
+spring:
   application:
     name: voting-service   #current service name to be used by the eureka server
   profiles:
