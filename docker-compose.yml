@@ -229,6 +229,7 @@ services:
     volumes:
       - /DB/script:/DB/script
       - /DB/users:/DB/users
+      - /DB/package:/DB/package
     healthcheck:
       test: "exit 0"
 
