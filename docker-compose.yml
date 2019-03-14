@@ -229,7 +229,7 @@ services:
     volumes:
       - /DB/script:/DB/script
       - /DB/users:/DB/users
-      - /usr/local/lib/node_modules:/usr/local/lib/node_modules
+      - /usr/local/lib/node_modules:~/node_modules
     healthcheck:
       test: "exit 0"
 
