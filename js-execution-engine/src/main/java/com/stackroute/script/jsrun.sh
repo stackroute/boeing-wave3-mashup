@@ -8,7 +8,7 @@ if [ -s /DB/js-boilerplate/compile.log ]
 then
     echo "not empty " >> compile.log
 else
-    echo "output =>" >> compile.log
+    echo "output =>" > compile.log
     a="/DB/js-boilerplate/target/execution-engine-1.0-SNAPSHOT.jar"
     java -jar $a >> compile.log 2>&1
 fi

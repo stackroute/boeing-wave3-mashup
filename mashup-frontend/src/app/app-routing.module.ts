@@ -15,7 +15,7 @@ import { EditaudioComponent } from './_components/editaudio/editaudio.component'
 
 const routes: Routes = [
     { path: 'register',
-     component: RegisterComponent 
+     component: RegisterComponent
     },
     {
         path: 'home',
@@ -33,7 +33,7 @@ const routes: Routes = [
         data: { animation: 'isExecution'}
     },
     {
-        path: 'execution/:qid',  
+        path: 'execution/:qid',
         component: EditComponent
     },
     {
