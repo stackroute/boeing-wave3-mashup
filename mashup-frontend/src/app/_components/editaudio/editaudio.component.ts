@@ -22,18 +22,25 @@ export class EditaudioComponent implements OnInit {
   description = 'Angular-WebSocket Demo';
   greetings: string[] = [];
   disabled = true;
-  code;
-//   code = `public class Employee {
-//     public  String addEmployeeEmailId(String emailId){
-
-//         return null;
-//     }
-// }
-// `;
+  // code;
+  // code1 = `int bucky = {3,4,5,6,7};`;
+  // code2 = `int bucky = {3,4,5,6,7};
+  // int total = 0;`;
+  // code3 = `int bucky = {3,4,5,6,7};
+  // int total = 0;
+  // for(int x: bucky) {
+  //   total += x;
+  // }`;
+  code = `int bucky = {3,4,5,6,7};
+  int total = 0;
+  for(int x: bucky) {
+    total += x;
+  }
+  System.out.println("Total = " + total)`;
   readabilityTime = 5 ;
   private stompClient = null;
   editorLoadStatus;
-  audiopath = '/assets/audio.mp3';
+  audiopath = '/assets/audio1.mp3';
   i = 0;
   mvnDependencyDownload = 0;
   // socket ends here

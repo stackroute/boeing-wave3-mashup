@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ScorebadgeService {
 
-  public scoreBadgeApidUrl = 'http://13.234.74.67:8092/score-badge-service/api/v1/';
+  public scoreBadgeApidUrl = 'https://13.234.74.67:8092/score-badge-service/api/v1/';
 
   constructor(private _http: HttpClient) {
     console.log('http service got called');
