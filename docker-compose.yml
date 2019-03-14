@@ -233,7 +233,7 @@ services:
       - /DB/users:/DB/users
       - /usr/local/lib/node_modules:/DB/node_modules
       - /usr/local/lib/node_modules:/usr/local/lib/node_modules
-      - .:.
+      - pwd:pwd
     healthcheck:
       test: "exit 0"
 
