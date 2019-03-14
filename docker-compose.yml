@@ -12,6 +12,8 @@ services:
       - eurekaserver
     ports:
       - 8092:8092
+    volumes:
+      - /DB/resources:/DB/resources
     healthcheck:
       test: "exit 0"
 
