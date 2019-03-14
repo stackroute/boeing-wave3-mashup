@@ -18,7 +18,7 @@ eureka:         #tells about the Eureka server details and its refresh time
 spring:
   application:
     name: execution-engine   #current service name to be used by the eureka server
-management:
+ management:
   security:
     enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
 

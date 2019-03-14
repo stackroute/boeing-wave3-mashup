@@ -1,3 +1,5 @@
+server:
+    port: 8023
 eureka:         #tells about the Eureka server details and its refresh time
     instance:
         leaseRenewalIntervalInSeconds: 1
