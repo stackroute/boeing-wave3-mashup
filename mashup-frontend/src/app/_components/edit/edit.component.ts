@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DiffEditorModel, NgxEditorModel } from 'ngx-monaco-editor';
 import { QuestioExeEngineService } from '../../services/questio-exe-engine.service';
 import * as Stomp from 'stompjs';
@@ -19,11 +19,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 })
-export class EditComponent implements OnInit {
+export class EditComponent implements OnInit,OnDestroy {
+ 
     serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
- 
+  public flag=false;
+  public flag2=false;
   title = 'grokonez';
   public difficulty: String;
   public uname: String;
@@ -53,6 +55,10 @@ export class EditComponent implements OnInit {
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
 
+  ngOnDestroy(){
+    console.log("calling ngondestroy");
+    this.quesservice.removeNodemon(this.uname);
+  }
   selectChangeHandler(event: any) {
     // update the ui
     this.selectedLang = event.target.value;
@@ -185,6 +191,7 @@ export class EditComponent implements OnInit {
       {},
       JSON.stringify({'name': this.uname + '@#' + this.code })
     );
+    this.flag=true;
   }
 
  // tslint:disable-next-line:member-ordering
@@ -196,6 +203,8 @@ export class EditComponent implements OnInit {
       'difficulty': this.difficulty});
  }
   showGreeting(message) {
+    this.flag2=true;
+    this.flag=false;
     this.greetings.push(message);
     this.greetings = this.greetings[0].split('@*#');
     this.totaltest = this.greetings[0];

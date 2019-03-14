@@ -16,15 +16,15 @@ export class SearchserviceComponent implements OnInit {
   ngOnInit() {
   }
   search(): any {
-    this.interval = setInterval(() => {
-      if ( this.timeStart < 0.5) {
-        // clearInterval(this.interval);
-        this.timeStart++;
-      } else {
-        this.router.navigate(['/display', this.tag]);
-        clearInterval(this.interval);
-      }
-    }, 1000);    
+    // this.interval = setInterval(() => {
+    //   if ( this.timeStart < 0.5) {
+    //     // clearInterval(this.interval);
+    //     this.timeStart++;
+    //   } else {
+    this.router.navigate(['/display', this.tag]);
+    //     clearInterval(this.interval);
+    //   }
+    // }, 1000);    
   }
 
 }
