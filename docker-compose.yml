@@ -233,7 +233,6 @@ services:
       - /DB/users:/DB/users
       - /usr/local/lib/node_modules:/DB/node_modules
       - /usr/local/lib/node_modules:/usr/local/lib/node_modules
-      - $PWD:$PWD
     healthcheck:
       test: "exit 0"
 
