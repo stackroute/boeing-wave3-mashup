@@ -233,6 +233,8 @@ services:
       - /DB/users:/DB/users
       - /usr/local/lib/node_modules:/DB/node_modules
       - /usr/local/lib/node_modules:/usr/local/lib/node_modules
+      - /usr/local/lib/node_modules:/usr/src/app/node_modules
+      - /usr/src/app/node_modules:/usr/src/app/
     healthcheck:
       test: "exit 0"
 
