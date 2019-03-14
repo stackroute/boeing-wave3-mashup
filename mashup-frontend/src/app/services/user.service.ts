@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private userUrl = 'https://13.234.74.67:8092/authentication-service/api/test/user';
+  private userUrl = 'http://13.234.74.67:8092/authentication-service/api/test/user';
   constructor(private http: HttpClient) { }
 
   getUserBoard(): Observable<string> {

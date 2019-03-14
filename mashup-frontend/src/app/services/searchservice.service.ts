@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class SearchserviceService {
   public tag;
-  public fetchURL = 'https://13.234.74.67:8092/search-service/api/v1/question/';
-  public getinfo = 'https://13.234.74.67:8092/search-service/api/v1/searched';
+  public fetchURL = 'http://13.234.74.67:8092/search-service/api/v1/question/';
+  public getinfo = 'http://13.234.74.67:8092/search-service/api/v1/searched';
   constructor(private httpclient: HttpClient) { }
 
   public findQuestion(tag): Observable<any> {
