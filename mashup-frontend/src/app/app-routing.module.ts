@@ -59,7 +59,7 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'submission-component',
+        path: 'submission-component/:qid',
         component: SubmissionComponent
     },
     {

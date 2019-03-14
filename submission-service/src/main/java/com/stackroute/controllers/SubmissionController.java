@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/")
@@ -28,8 +30,8 @@ public class SubmissionController {
 
     //Method to fetch data(question) on the basis of username and questionId from database
     @GetMapping(value = "submission/{username}/{questionId}")
-    public ResponseEntity<SubmissionData> getSubmissions(@PathVariable("username") String username, @PathVariable("questionId") int questionId){
-        SubmissionData submissionData = submissionService.getSubmission(username,questionId);
+    public ResponseEntity<List<SubmissionData>> getSubmissions(@PathVariable("username") String username, @PathVariable("questionId") int questionId){
+        List<SubmissionData> submissionData = submissionService.getSubmission(username,questionId);
         return new ResponseEntity<>(submissionData,HttpStatus.OK);
     }
 }

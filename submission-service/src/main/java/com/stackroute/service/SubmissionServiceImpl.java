@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SubmissionServiceImpl implements SubmissionService{
 
@@ -39,7 +41,7 @@ public class SubmissionServiceImpl implements SubmissionService{
 
     //Method to fetch data on the basis of username and questionId from database
     @Override
-    public SubmissionData getSubmission(String username, int questionId) {
+    public List<SubmissionData> getSubmission(String username, int questionId) {
         return submissionRepository.getSubmissionDataByUsernameAndQuestionId(username,questionId);
     }
 }

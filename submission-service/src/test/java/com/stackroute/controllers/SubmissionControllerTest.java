@@ -1,4 +1,4 @@
-package com.stackroute.submission.controllers;
+package com.stackroute.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +18,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -36,6 +39,7 @@ public class SubmissionControllerTest {
     private SubmissionController submissionController;
 
     private SubmissionData submissionData;
+    private List<SubmissionData> submissionDataList = new ArrayList<>();
 
     @Before
     public void setUp() throws Exception {
@@ -49,6 +53,37 @@ public class SubmissionControllerTest {
         submissionData.setTestCasePassed(10);
         submissionData.setTotalTestCases(10);
         submissionData.setSolution("No Solution available");
+        submissionDataList.add(submissionData);
+        submissionData = new SubmissionData();
+        submissionData.setUsername("Admin");
+        submissionData.setQuestionId(1);
+        submissionData.setQuestionTitle("Second Question");
+        submissionData.setResult("Success");
+        submissionData.setDifficulty("easy");
+        submissionData.setTestCasePassed(10);
+        submissionData.setTotalTestCases(10);
+        submissionData.setSolution("No Solution available");
+        submissionDataList.add(submissionData);
+        submissionData = new SubmissionData();
+        submissionData.setUsername("Admin");
+        submissionData.setQuestionId(1);
+        submissionData.setQuestionTitle("Third Question");
+        submissionData.setResult("Success");
+        submissionData.setDifficulty("easy");
+        submissionData.setTestCasePassed(10);
+        submissionData.setTotalTestCases(10);
+        submissionData.setSolution("No Solution available");
+        submissionDataList.add(submissionData);
+        submissionData = new SubmissionData();
+        submissionData.setUsername("Admin");
+        submissionData.setQuestionId(1);
+        submissionData.setQuestionTitle("Fourth Question");
+        submissionData.setResult("Success");
+        submissionData.setDifficulty("easy");
+        submissionData.setTestCasePassed(10);
+        submissionData.setTotalTestCases(10);
+        submissionData.setSolution("No Solution available");
+        submissionDataList.add(submissionData);
         MockitoAnnotations.initMocks(this);
     }
 
@@ -64,7 +99,7 @@ public class SubmissionControllerTest {
 
     @Test
     public void getSubmissions() throws Exception{
-        when(submissionService.getSubmission("Kishlay",1)).thenReturn(submissionData);
+        when(submissionService.getSubmission("Kishlay",1)).thenReturn(submissionDataList);
         mockMvc.perform(get("/api/v1/submission/Kishlay/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
