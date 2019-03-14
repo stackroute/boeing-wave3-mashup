@@ -12,6 +12,8 @@ services:
       - eurekaserver
     ports:
       - 8092:8092
+    volumes:
+      - /DB/resources:/DB/resources
     healthcheck:
       test: "exit 0"
 
@@ -230,6 +232,9 @@ services:
       - /DB/script:/DB/script
       - /DB/users:/DB/users
       - /usr/local/lib/node_modules:/DB/node_modules
+      - /usr/local/lib/node_modules:/usr/local/lib/node_modules
+      - /usr/local/lib/node_modules:/usr/src/app/node_modules
+      - /usr/src/app/node_modules:/usr/src/app/
     healthcheck:
       test: "exit 0"
 
