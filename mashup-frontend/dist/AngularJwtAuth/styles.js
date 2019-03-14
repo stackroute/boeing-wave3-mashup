@@ -539,7 +539,11 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /home/user/Documents/Mashup/aws-v1.0.4/boeing-wave3-mashup/mashup-frontend/src/styles.css */"./src/styles.css");
+=======
+module.exports = __webpack_require__(/*! /home/user/mashupRelease3/boeing-wave3-mashup/mashup-frontend/src/styles.css */"./src/styles.css");
+>>>>>>> 2fae91df5bc35601119514b00d56714ebf3fad2c
 
 
 /***/ })
