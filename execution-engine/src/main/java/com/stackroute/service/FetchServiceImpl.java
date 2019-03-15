@@ -63,6 +63,9 @@ public class FetchServiceImpl implements FetchService  {
             System.out.println("run file doesnot exist");
         }
         file3=new File("/DB/script/question.sh");
+        file3.setExecutable(true);
+        file3.setReadable(true);
+        file3.setWritable(true);
         if(file3.exists()){
             System.out.println("run file exist");
         }
