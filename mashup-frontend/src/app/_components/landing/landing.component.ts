@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -10,6 +9,8 @@ export class LandingComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService) { }
 
+  
+ 
   ngOnInit() {
     /** spinner starts on init */
     this.spinner.show();
@@ -21,3 +22,4 @@ export class LandingComponent implements OnInit {
   }
 
 }
+
