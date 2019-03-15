@@ -42,6 +42,7 @@
             <div fxLayout="row" fxHide fxShow.gt-sm>            
                 <button mat-button [routerLink]="['/fetch']">Practice</button>
                 <button mat-button [routerLink]="['/editaudio']">Learn Coding</button>
+                <button mat-button><a href="#contact">Contact Us</a></button>
                 <div class="close">
                 <button *ngIf="!authority" mat-raised-button color="white"  [routerLink]="['/auth/login']">Login/Signup</button>
                 </div>
@@ -57,6 +58,7 @@
         <mat-menu x-position="before" #menu>        
             <button mat-menu-item [routerLink]="['/fetch']">Practice</button>
             <button mat-menu-item [routerLink]="['/editaudio']">Learn Coding</button>
+            <button mat-button><a href="#contact">Contact Us</a></button>
             <button *ngIf="!authority" mat-menu-item [routerLink]="['/auth/login']">Login/Signup</button>
           </mat-menu>
     </ng-template>
