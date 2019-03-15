@@ -232,6 +232,7 @@ services:
       - /DB/script:/DB/script
       - /DB/users:/DB/users
       - /usr/local/lib/node_modules/nodemon:/usr/local/lib/node_modules/nodemon
+      - /usr/local/bin/nodemon:/usr/local/bin/nodemon
     healthcheck:
       test: "exit 0"
 
