@@ -15,7 +15,7 @@ import { EditaudioComponent } from './_components/editaudio/editaudio.component'
 
 const routes: Routes = [
     { path: 'register',
-     component: RegisterComponent 
+     component: RegisterComponent
     },
     {
         path: 'home',
@@ -33,7 +33,7 @@ const routes: Routes = [
         data: { state : 'isExecution'}
     },
     {
-        path: 'execution/:qid',  
+        path: 'execution/:qid',
         component: EditComponent
     },
     {
@@ -59,7 +59,7 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'submission-component',
+        path: 'submission-component/:qid',
         component: SubmissionComponent
     },
     {
