@@ -10,6 +10,7 @@ services:
     hostname: localhost
     depends_on:
       - eurekaserver
+      - config-server
     ports:
       - 8092:8092
     healthcheck:
@@ -121,6 +122,8 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
     ports:
       - 8020:8020
     healthcheck:
@@ -185,6 +188,8 @@ services:
       eurekaserver:
         condition: service_healthy
       kafka:
+        condition: service_healthy
+      config-server:
         condition: service_healthy
     ports:
       - 8023:8023
