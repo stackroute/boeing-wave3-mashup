@@ -1,6 +1,6 @@
-FROM openjdk:11
+FROM openjdk:10
 
-ADD ./target/eureka-server-0.0.1-SNAPSHOT.jar /event/src/eureka-server-0.0.1-SNAPSHOT.jar
-EXPOSE 9091
+ADD ./target/eureka-server-1.0.3-SNAPSHOT.jar  /event/src/eureka-server-1.0.3-SNAPSHOT.jar
+EXPOSE 8093
 WORKDIR event/src
-ENTRYPOINT ["java","-jar","eureka-server-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","eureka-server-1.0.3-SNAPSHOT.jar"]

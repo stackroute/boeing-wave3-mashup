@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="container" style="text-align: center">
+  <h2>Are you looking for ...</h2>
+  <div class="card-deck">
+  <div *ngFor="let question of fetch" class="col-lg-4">
+      <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">{{question.questionTitle}}</h3>
+            <p class="card-text">Of level: {{question.difficulty}}</p>
+            <p class="card-text">Related to: {{question.tags}}</p>
+            <p class="card-text"><small class="text-muted"></small></p>
+            <button class="btn btn-primary" [routerLink]="['/execution',question.questionId]">ATTEMPT</button>
+          </div>
+    </div>    
+  </div>
+</div>

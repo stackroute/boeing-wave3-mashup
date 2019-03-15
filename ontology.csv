@@ -1,0 +1,812 @@
+node_id,name,parent_node_id,node_type,parent_relation,context,identifier,description
+JAVA:1,Abstract Class,JAVA:119,concept,subconcept of,Java software programming,Easy,Abstract Class: Java software programming: Web programming
+JAVA:2,Abstract Class,JAVA:579,concept,subconcept of,Java software programming,Easy,Abstract Class: Java software programming: Web programming
+JAVA:3,Abstract Factory,JAVA:212,concept,subconcept of,Java software programming,Easy,Abstract Factory: Java software programming: Web programming
+JAVA:4,Abstraction,JAVA:610,concept,subconcept of,Java software programming,Easy,Abstraction: Java software programming: Web programming
+JAVA:5,Activity Diagram,JAVA:78,concept,subconcept of,Java software programming,Easy,Activity Diagram: Java software programming: Web programming
+JAVA:6,Acyclic Dependency,JAVA:634,concept,subconcept of,Java software programming,Easy,Acyclic Dependency: Java software programming: Web programming
+JAVA:7,Acyclic Graph,JAVA:320,concept,subconcept of,Java software programming,Easy,Acyclic Graph: Java software programming: Web programming
+JAVA:8,Afferent Coupling,JAVA:202,concept,subconcept of,Java software programming,Easy,Afferent Coupling: Java software programming: Web programming
+JAVA:10,Aggregation,JAVA:722,concept,subconcept of,Java software programming,Easy,Aggregation: Java software programming: Web programming
+JAVA:11,Agile Development,JAVA:775,concept,subconcept of,Java software programming,Easy,Agile Development: Java software programming: Web programming
+JAVA:12,Ajax,JAVA:452,concept,subconcept of,Java software programming,Easy,Ajax: Java software programming: Web programming
+JAVA:13,Algorithm Complexity,JAVA:832,concept,related,Java software programming,Easy,Algorithm Complexity: Java software programming: Web programming
+JAVA:14,Amazon AWS,JAVA:372,concept,subconcept of,Java software programming,Easy,Amazon AWS: Java software programming: Web programming
+JAVA:15,Angular JS,JAVA:452,concept,subconcept of,Java software programming,Easy,Angular JS: Java software programming: Web programming
+JAVA:17,Anonymous Inner Class,JAVA:119,concept,subconcept of,Java software programming,Easy,Anonymous Inner Class: Java software programming: Web programming
+JAVA:18,Ant,JAVA:99,concept,subconcept of,Java software programming,Easy,Ant: Java software programming: Web programming
+JAVA:19,Ant Tasks,JAVA:18,concept,related,Java software programming,Easy,Ant Tasks: Java software programming: Web programming
+JAVA:21,AOP,JAVA:836,concept,related,Java software programming,Easy,AOP: Java software programming: Web programming
+JAVA:22,Apache Commons Collections,JAVA:523,concept,subconcept of,Java software programming,Easy,Apache Commons Collections: Java software programming: Web programming
+JAVA:27,Append,JAVA:618,concept,subconcept of,Java software programming,Easy,Append: Java software programming: Web programming
+JAVA:28,appengine archetype,JAVA:52,concept,subconcept of,Java software programming,Easy,appengine archetype: Java software programming: Web programming
+JAVA:50,Appletviewer,JAVA:431,concept,related,Java software programming,Easy,Appletviewer: Java software programming: Web programming
+JAVA:51,Appletviewer,JAVA:75,concept,subconcept of,Java software programming,Easy,Appletviewer: Java software programming: Web programming
+JAVA:53,Architecture Patterns,JAVA:993,concept,subconcept of,Java software programming,Easy,Architecture Patterns: Java software programming: Web programming
+JAVA:54,Array,JAVA:624,concept,subconcept of,Java software programming,Easy,Array: Java software programming: Web programming
+JAVA:55,Array List,JAVA:532,concept,subconcept of,Java software programming,Easy,Array List: Java software programming: Web programming
+JAVA:56,Aspect Oriented Programming,JAVA:682,concept,subconcept of,Java software programming,Medium,Aspect Oriented Programming: Java software programming: Web programming
+JAVA:57,Assert,JAVA:504,concept,subconcept of,Java software programming,Medium,Assert: Java software programming: Web programming
+JAVA:58,Association,JAVA:722,concept,subconcept of,Java software programming,Medium,Association: Java software programming: Web programming
+JAVA:61,Atomic Integer,JAVA:63,concept,subconcept of,Java software programming,Medium,Atomic Integer: Java software programming: Web programming
+JAVA:62,Atomic Long,JAVA:63,concept,subconcept of,Java software programming,Medium,Atomic Long: Java software programming: Web programming
+JAVA:63,Atomic Types,JAVA:565,concept,related,Java software programming,Medium,Atomic Types: Java software programming: Web programming
+JAVA:64,Attribute,JAVA:982,concept,subconcept of,Java software programming,Medium,Attribute: Java software programming: Web programming
+JAVA:66,Authentication,JAVA:957,concept,subconcept of,Java software programming,Medium,Authentication: Java software programming: Web programming
+JAVA:68,Authorization,JAVA:957,concept,subconcept of,Java software programming,Medium,Authorization: Java software programming: Web programming
+JAVA:69,Autoboxing,JAVA:642,concept,related,Java software programming,Medium,Autoboxing: Java software programming: Web programming
+JAVA:72,B-Tree,JAVA:83,concept,subconcept of,Java software programming,Medium,B-Tree: Java software programming: Web programming
+JAVA:73,B+ Tree,JAVA:83,concept,subconcept of,Java software programming,Medium,B+ Tree: Java software programming: Web programming
+JAVA:74,Bag,JAVA:937,concept,subconcept of,Java software programming,Medium,Bag: Java software programming: Web programming
+JAVA:75,Basic JDK Tools,JAVA:467,concept,subconcept of,Java software programming,Medium,Basic JDK Tools: Java software programming: Web programming
+JAVA:77,Bean Managed Persistence,JAVA:246,concept,related,Java software programming,Medium,Bean Managed Persistence: Java software programming: Web programming
+JAVA:78,Behavior Diagram,JAVA:932,concept,subconcept of,Java software programming,Medium,Behavior Diagram: Java software programming: Web programming
+JAVA:79,Best Practices,JAVA:828,concept,subconcept of,Java software programming,Medium,Best Practices: Java software programming: Web programming
+JAVA:81,Big-O Notation,JAVA:832,concept,related,Java software programming,Medium,Big-O Notation: Java software programming: Web programming
+JAVA:83,Binary Search,JAVA:831,concept,related,Java software programming,Medium,Binary Search: Java software programming: Web programming
+JAVA:84,Binary Search,JAVA:777,concept,subconcept of,Java software programming,Medium,Binary Search: Java software programming: Web programming
+JAVA:85,Binary Search Tree,JAVA:83,concept,subconcept of,Java software programming,Medium,Binary Search Tree: Java software programming: Web programming
+JAVA:86,Binding Compiler,JAVA:981,concept,related,Java software programming,Medium,Binding Compiler: Java software programming: Web programming
+JAVA:87,Bit Array,JAVA:808,concept,subconcept of,Java software programming,Medium,Bit Array: Java software programming: Web programming
+JAVA:88,Black Box Testing,JAVA:930,concept,subconcept of,Java software programming,Medium,Black Box Testing: Java software programming: Web programming
+JAVA:89,Blackbox Testing,JAVA:900,concept,subconcept of,Java software programming,Medium,Blackbox Testing: Java software programming: Web programming
+JAVA:90,Blocked,JAVA:907,concept,subconcept of,Java software programming,Medium,Blocked: Java software programming: Web programming
+JAVA:91,Bloom Filter,JAVA:808,concept,subconcept of,Java software programming,Medium,Bloom Filter: Java software programming: Web programming
+JAVA:93,Bubble Sort,JAVA:832,concept,subconcept of,Java software programming,Medium,Bubble Sort: Java software programming: Web programming
+JAVA:94,Bug Tracking,JAVA:902,concept,subconcept of,Java software programming,Medium,Bug Tracking: Java software programming: Web programming
+JAVA:95,Bug Tracking,JAVA:900,concept,related,Java software programming,Medium,Bug Tracking: Java software programming: Web programming
+JAVA:96,Bugfix,JAVA:826,concept,subconcept of,Java software programming,Medium,Bugfix: Java software programming: Web programming
+JAVA:97,Bugzilla,JAVA:94,concept,subconcept of,Java software programming,Medium,Bugzilla: Java software programming: Web programming
+JAVA:98,Build,JAVA:557,concept,subconcept of,Java software programming,Medium,Build: Java software programming: Web programming
+JAVA:99,Build and Deployment,JAVA:827,concept,subconcept of,Java software programming,Medium,Build and Deployment: Java software programming: Web programming
+JAVA:100,Build File,JAVA:18,concept,related,Java software programming,Medium,Build File: Java software programming: Web programming
+JAVA:102,Build Phases,JAVA:557,concept,subconcept of,Java software programming,Medium,Build Phases: Java software programming: Web programming
+JAVA:104,Build Profiles,JAVA:557,concept,subconcept of,Java software programming,Medium,Build Profiles: Java software programming: Web programming
+JAVA:106,Build Tools,JAVA:99,concept,subconcept of,Java software programming,Medium,Build Tools: Java software programming: Web programming
+JAVA:107,Builder,JAVA:212,concept,subconcept of,Java software programming,Medium,Builder: Java software programming: Web programming
+JAVA:109,Bytecode,JAVA:147,concept,subconcept of,Java software programming,Medium,Bytecode: Java software programming: Web programming
+JAVA:110,C Header Generator,JAVA:597,concept,related,Java software programming,Medium,C Header Generator: Java software programming: Web programming
+JAVA:111,C++,JAVA:903,concept,subconcept of,Java software programming,Medium,C++: Java software programming: Web programming
+JAVA:112,C++,JAVA:681,concept,subconcept of,Java software programming,Medium,C++: Java software programming: Web programming
+JAVA:113,C++,JAVA:388,concept,subconcept of,Java software programming,Medium,C++: Java software programming: Web programming
+JAVA:114,C++ STL,JAVA:523,concept,subconcept of,Java software programming,Medium,C++ STL: Java software programming: Web programming
+JAVA:115,C3PO,JAVA:158,concept,subconcept of,Java software programming,Medium,C3PO: Java software programming: Web programming
+JAVA:116,Cached Thread Pool,JAVA:910,concept,subconcept of,Java software programming,Medium,Cached Thread Pool: Java software programming: Web programming
+JAVA:119,Class,JAVA:433,concept,subconcept of,Java software programming,Medium,Class: Java software programming: Web programming
+JAVA:120,Class,JAVA:579,concept,subconcept of,Java software programming,Medium,Class: Java software programming: Web programming
+JAVA:121,Class Diagram,JAVA:859,concept,subconcept of,Java software programming,Medium,Class Diagram: Java software programming: Web programming
+JAVA:122,Class File,JAVA:147,concept,subconcept of,Java software programming,Medium,Class File: Java software programming: Web programming
+JAVA:124,Class Level Lock,JAVA:537,concept,subconcept of,Java software programming,Medium,Class Level Lock: Java software programming: Web programming
+JAVA:125,Classpath,JAVA:506,concept,related,Java software programming,Medium,Classpath: Java software programming: Web programming
+JAVA:126,Clojure,JAVA:512,concept,subconcept of,Java software programming,Medium,Clojure: Java software programming: Web programming
+JAVA:127,Cloud Computing,JAVA:993,concept,subconcept of,Java software programming,Medium,Cloud Computing: Java software programming: Web programming
+JAVA:128,Code Comments,JAVA:444,concept,related,Java software programming,Medium,Code Comments: Java software programming: Web programming
+JAVA:129,Coding Conventions,JAVA:79,concept,subconcept of,Java software programming,Medium,Coding Conventions: Java software programming: Web programming
+JAVA:130,Cohesion,JAVA:211,concept,subconcept of,Java software programming,Medium,Cohesion: Java software programming: Web programming
+JAVA:132,Collision,JAVA:329,concept,subconcept of,Java software programming,Medium,Collision: Java software programming: Web programming
+JAVA:134,Comments,JAVA:433,concept,subconcept of,Java software programming,Medium,Comments: Java software programming: Web programming
+JAVA:136,Common Closure,JAVA:633,concept,subconcept of,Java software programming,Medium,Common Closure: Java software programming: Web programming
+JAVA:137,Common Coupling,JAVA:542,concept,subconcept of,Java software programming,Medium,Common Coupling: Java software programming: Web programming
+JAVA:138,Common Reuse,JAVA:633,concept,subconcept of,Java software programming,Medium,Common Reuse: Java software programming: Web programming
+JAVA:139,Communication Diagram,JAVA:402,concept,subconcept of,Java software programming,Medium,Communication Diagram: Java software programming: Web programming
+JAVA:140,Comparable,JAVA:831,concept,subconcept of,Java software programming,Medium,Comparable: Java software programming: Web programming
+JAVA:141,Comparator,JAVA:831,concept,subconcept of,Java software programming,Medium,Comparator: Java software programming: Web programming
+JAVA:143,Compile,JAVA:102,concept,subconcept of,Java software programming,Medium,Compile: Java software programming: Web programming
+JAVA:147,Compiler,JAVA:681,concept,subconcept of,Java software programming,Medium,Compiler: Java software programming: Web programming
+JAVA:148,Compiler Plugin,JAVA:560,concept,subconcept of,Java software programming,Medium,Compiler Plugin: Java software programming: Web programming
+JAVA:149,Component Diagram,JAVA:859,concept,subconcept of,Java software programming,Medium,Component Diagram: Java software programming: Web programming
+JAVA:151,Composite Structure Diagram,JAVA:859,concept,subconcept of,Java software programming,Medium,Composite Structure Diagram: Java software programming: Web programming
+JAVA:152,Composition,JAVA:722,concept,subconcept of,Java software programming,Medium,Composition: Java software programming: Web programming
+JAVA:153,Concurrency,JAVA:591,concept,subconcept of,Java software programming,Hard,Concurrency: Java software programming: Web programming
+JAVA:154,Concurrent Mark Sweep GC,JAVA:283,concept,subconcept of,Java software programming,Hard,Concurrent Mark Sweep GC: Java software programming: Web programming
+JAVA:155,Concurrent Random Numbers,JAVA:565,concept,related,Java software programming,Hard,Concurrent Random Numbers: Java software programming: Web programming
+JAVA:158,Connection Pool,JAVA:189,concept,subconcept of,Java software programming,Hard,Connection Pool: Java software programming: Web programming
+JAVA:160,Constant,JAVA:13,concept,subconcept of,Java software programming,Hard,Constant: Java software programming: Web programming
+JAVA:161,Constructor,JAVA:119,concept,subconcept of,Java software programming,Hard,Constructor: Java software programming: Web programming
+JAVA:162,Constructor,JAVA:606,concept,related,Java software programming,Hard,Constructor: Java software programming: Web programming
+JAVA:163,Container,JAVA:415,concept,subconcept of,Java software programming,Hard,Container: Java software programming: Web programming
+JAVA:164,Container Managed Persistence,JAVA:237,concept,subconcept of,Java software programming,Hard,Container Managed Persistence: Java software programming: Web programming
+JAVA:165,Container Managed Persistence,JAVA:246,concept,related,Java software programming,Hard,Container Managed Persistence: Java software programming: Web programming
+JAVA:166,Container Managed Signon,JAVA:237,concept,subconcept of,Java software programming,Hard,Container Managed Signon: Java software programming: Web programming
+JAVA:167,Container Managed Transaction,JAVA:237,concept,subconcept of,Java software programming,Hard,Container Managed Transaction: Java software programming: Web programming
+JAVA:168,Container Managed Transaction,JAVA:503,concept,related,Java software programming,Hard,Container Managed Transaction: Java software programming: Web programming
+JAVA:169,Content Coupling,JAVA:542,concept,subconcept of,Java software programming,Hard,Content Coupling: Java software programming: Web programming
+JAVA:170,Contention,JAVA:153,concept,subconcept of,Java software programming,Hard,Contention: Java software programming: Web programming
+JAVA:171,Continuous Integration,JAVA:99,concept,subconcept of,Java software programming,Hard,Continuous Integration: Java software programming: Web programming
+JAVA:173,Control Coupling,JAVA:542,concept,subconcept of,Java software programming,Hard,Control Coupling: Java software programming: Web programming
+JAVA:174,CORBA,JAVA:379,concept,related,Java software programming,Hard,CORBA: Java software programming: Web programming
+JAVA:175,CORBA,JAVA:620,concept,related,Java software programming,Hard,CORBA: Java software programming: Web programming
+JAVA:176,CORBA,JAVA:795,concept,related,Java software programming,Hard,CORBA: Java software programming: Web programming
+JAVA:178,Cryptographic Hash,JAVA:329,concept,subconcept of,Java software programming,Hard,Cryptographic Hash: Java software programming: Web programming
+JAVA:179,Cuckoo Hash,JAVA:329,concept,subconcept of,Java software programming,Hard,Cuckoo Hash: Java software programming: Web programming
+JAVA:181,CVS,JAVA:944,concept,subconcept of,Java software programming,Hard,CVS: Java software programming: Web programming
+JAVA:182,Cyclic Graph,JAVA:320,concept,subconcept of,Java software programming,Hard,Cyclic Graph: Java software programming: Web programming
+JAVA:183,Daemon,JAVA:591,concept,subconcept of,Java software programming,Hard,Daemon: Java software programming: Web programming
+JAVA:184,Daemon Thread,JAVA:904,concept,subconcept of,Java software programming,Hard,Daemon Thread: Java software programming: Web programming
+JAVA:185,Data Access,JAVA:680,concept,subconcept of,Java software programming,Hard,Data Access: Java software programming: Web programming
+JAVA:186,Data Coupling,JAVA:542,concept,subconcept of,Java software programming,Hard,Data Coupling: Java software programming: Web programming
+JAVA:187,Data Structures,JAVA:680,concept,subconcept of,Java software programming,Hard,Data Structures: Java software programming: Web programming
+JAVA:188,Database,JAVA:185,concept,subconcept of,Java software programming,Hard,Database: Java software programming: Web programming
+JAVA:189,Database Connection,JAVA:188,concept,subconcept of,Java software programming,Hard,Database Connection: Java software programming: Web programming
+JAVA:190,Database Index,JAVA:73,concept,related,Java software programming,Hard,Database Index: Java software programming: Web programming
+JAVA:192,DBCP,JAVA:158,concept,subconcept of,Java software programming,Hard,DBCP: Java software programming: Web programming
+JAVA:193,Deadlock,JAVA:875,concept,subconcept of,Java software programming,Hard,Deadlock: Java software programming: Web programming
+JAVA:194,Debugger,JAVA:485,concept,related,Java software programming,Hard,Debugger: Java software programming: Web programming
+JAVA:195,Decorator,JAVA:212,concept,subconcept of,Java software programming,Hard,Decorator: Java software programming: Web programming
+JAVA:197,Degree of Coupling,JAVA:578,concept,subconcept of,Java software programming,Hard,Degree of Coupling: Java software programming: Web programming
+JAVA:198,Delete,JAVA:842,concept,subconcept of,Java software programming,Hard,Delete: Java software programming: Web programming
+JAVA:199,Dependency Injection,JAVA:212,concept,subconcept of,Java software programming,Hard,Dependency Injection: Java software programming: Web programming
+JAVA:200,Dependency Inversion,JAVA:830,concept,subconcept of,Java software programming,Hard,Dependency Inversion: Java software programming: Web programming
+JAVA:201,Dependency Management,JAVA:557,concept,subconcept of,Java software programming,Hard,Dependency Management: Java software programming: Web programming
+JAVA:202,Dependency Metrics,JAVA:578,concept,subconcept of,Java software programming,Hard,Dependency Metrics: Java software programming: Web programming
+JAVA:205,Deployment Descriptor,JAVA:416,concept,subconcept of,Java software programming,Hard,Deployment Descriptor: Java software programming: Web programming
+JAVA:206,Deployment Diagram,JAVA:859,concept,subconcept of,Java software programming,Hard,Deployment Diagram: Java software programming: Web programming
+JAVA:207,Deprecation,JAVA:581,concept,related,Java software programming,Hard,Deprecation: Java software programming: Web programming
+JAVA:208,Dequeue,JAVA:708,concept,subconcept of,Java software programming,Hard,Dequeue: Java software programming: Web programming
+JAVA:209,Deserialization,JAVA:794,concept,related,Java software programming,Hard,Deserialization: Java software programming: Web programming
+JAVA:210,Design By Contract,JAVA:211,concept,subconcept of,Java software programming,Hard,Design By Contract: Java software programming: Web programming
+JAVA:211,Design Guidelines,JAVA:611,concept,subconcept of,Java software programming,Hard,Design Guidelines: Java software programming: Web programming
+JAVA:212,Design Pattern,JAVA:993,concept,related,Java software programming,Hard,Design Pattern: Java software programming: Web programming
+JAVA:213,Design Principles,JAVA:611,concept,subconcept of,Java software programming,Hard,Design Principles: Java software programming: Web programming
+JAVA:215,DevOps,JAVA:828,concept,subconcept of,Java software programming,Hard,DevOps: Java software programming: Web programming
+JAVA:217,Dictionaries,JAVA:588,concept,same as,Java software programming,Hard,Dictionaries: Java software programming: Web programming
+JAVA:218,Directed Acyclic Graph,JAVA:320,concept,subconcept of,Java software programming,Hard,Directed Acyclic Graph: Java software programming: Web programming
+JAVA:219,Disassembler,JAVA:109,concept,related,Java software programming,Hard,Disassembler: Java software programming: Web programming
+JAVA:220,Disassembler,JAVA:472,concept,related,Java software programming,Hard,Disassembler: Java software programming: Web programming
+JAVA:221,Disassembler,JAVA:122,concept,related,Java software programming,Hard,Disassembler: Java software programming: Web programming
+JAVA:222,Distribution,JAVA:557,concept,subconcept of,Java software programming,Hard,Distribution: Java software programming: Web programming
+JAVA:223,Document,JAVA:102,concept,subconcept of,Java software programming,Hard,Document: Java software programming: Web programming
+JAVA:224,Documentation,JAVA:79,concept,subconcept of,Java software programming,Hard,Documentation: Java software programming: Web programming
+JAVA:225,Documentation,JAVA:557,concept,subconcept of,Java software programming,Hard,Documentation: Java software programming: Web programming
+JAVA:226,Double Hashing,JAVA:329,concept,subconcept of,Java software programming,Hard,Double Hashing: Java software programming: Web programming
+JAVA:227,Double Linked List,JAVA:529,concept,subconcept of,Java software programming,Hard,Double Linked List: Java software programming: Web programming
+JAVA:228,DTD,JAVA:982,concept,subconcept of,Java software programming,Hard,DTD: Java software programming: Web programming
+JAVA:229,Durable Subscriber,JAVA:917,concept,subconcept of,Java software programming,Hard,Durable Subscriber: Java software programming: Web programming
+JAVA:230,Dynamic Collection,JAVA:532,concept,related,Java software programming,Hard,Dynamic Collection: Java software programming: Web programming
+JAVA:231,Dynamic Collection,JAVA:54,concept,related,Java software programming,Hard,Dynamic Collection: Java software programming: Web programming
+JAVA:232,E-Commerce,JAVA:957,concept,subconcept of,Java software programming,Hard,E-Commerce: Java software programming: Web programming
+JAVA:233,Ear,JAVA:432,concept,subconcept of,Java software programming,Hard,Ear: Java software programming: Web programming
+JAVA:234,Ear,JAVA:205,concept,related,Java software programming,Hard,Ear: Java software programming: Web programming
+JAVA:235,Eclipse,JAVA:374,concept,subconcept of,Java software programming,Hard,Eclipse: Java software programming: Web programming
+JAVA:236,Efferent Coupling,JAVA:202,concept,subconcept of,Java software programming,Hard,Efferent Coupling: Java software programming: Web programming
+JAVA:237,EJB Container,JAVA:163,concept,subconcept of,Java software programming,Hard,EJB Container: Java software programming: Web programming
+JAVA:238,EJB Context,JAVA:240,concept,subconcept of,Java software programming,Hard,EJB Context: Java software programming: Web programming
+JAVA:239,EJB QL,JAVA:240,concept,subconcept of,Java software programming,Medium,EJB QL: Java software programming: Web programming
+JAVA:240,EJBs,JAVA:416,concept,subconcept of,Java software programming,Medium,EJBs: Java software programming: Web programming
+JAVA:241,Elastic Capacity,JAVA:127,concept,subconcept of,Java software programming,Medium,Elastic Capacity: Java software programming: Web programming
+JAVA:242,Element,JAVA:982,concept,subconcept of,Java software programming,Medium,Element: Java software programming: Web programming
+JAVA:243,Encapsulation,JAVA:610,concept,subconcept of,Java software programming,Medium,Encapsulation: Java software programming: Web programming
+JAVA:246,Entity Beans,JAVA:240,concept,subconcept of,Java software programming,Medium,Entity Beans: Java software programming: Web programming
+JAVA:247,Enum,JAVA:119,concept,subconcept of,Java software programming,Medium,Enum: Java software programming: Web programming
+JAVA:248,Enumerator,JAVA:413,concept,subconcept of,Java software programming,Medium,Enumerator: Java software programming: Web programming
+JAVA:249,Equals,JAVA:332,concept,related,Java software programming,Medium,Equals: Java software programming: Web programming
+JAVA:250,Erlang,JAVA:280,concept,subconcept of,Java software programming,Medium,Erlang: Java software programming: Web programming
+JAVA:251,ESB,JAVA:53,concept,subconcept of,Java software programming,Medium,ESB: Java software programming: Web programming
+JAVA:252,Estimation,JAVA:828,concept,subconcept of,Java software programming,Medium,Estimation: Java software programming: Web programming
+JAVA:253,Exception,JAVA:433,concept,subconcept of,Java software programming,Medium,Exception: Java software programming: Web programming
+JAVA:254,Exception Handler,JAVA:253,concept,subconcept of,Java software programming,Medium,Exception Handler: Java software programming: Web programming
+JAVA:255,Exponential,JAVA:13,concept,subconcept of,Java software programming,Medium,Exponential: Java software programming: Web programming
+JAVA:256,Extreme Programming,JAVA:11,concept,subconcept of,Java software programming,Medium,Extreme Programming: Java software programming: Web programming
+JAVA:261,Factory Method,JAVA:212,concept,subconcept of,Java software programming,Medium,Factory Method: Java software programming: Web programming
+JAVA:267,Fields,JAVA:119,concept,subconcept of,Java software programming,Medium,Fields: Java software programming: Web programming
+JAVA:268,Final,JAVA:581,concept,subconcept of,Java software programming,Medium,Final: Java software programming: Web programming
+JAVA:269,Finalizer,JAVA:283,concept,related,Java software programming,Medium,Finalizer: Java software programming: Web programming
+JAVA:270,Finalizer,JAVA:606,concept,related,Java software programming,Medium,Finalizer: Java software programming: Web programming
+JAVA:271,Finally,JAVA:929,concept,subconcept of,Java software programming,Medium,Finally: Java software programming: Web programming
+JAVA:272,Fixed Thread Pool,JAVA:910,concept,subconcept of,Java software programming,Medium,Fixed Thread Pool: Java software programming: Web programming
+JAVA:273,Force.com,JAVA:631,concept,subconcept of,Java software programming,Medium,Force.com: Java software programming: Web programming
+JAVA:274,Fourth Generation Language,JAVA:903,concept,related,Java software programming,Medium,Fourth Generation Language: Java software programming: Web programming
+JAVA:275,Framework,JAVA:440,concept,subconcept of,Java software programming,Medium,Framework: Java software programming: Web programming
+JAVA:280,Functional Programming,JAVA:682,concept,subconcept of,Java software programming,Medium,Functional Programming: Java software programming: Web programming
+JAVA:281,GAE SDK Plugin,JAVA:560,concept,subconcept of,Java software programming,Medium,GAE SDK Plugin: Java software programming: Web programming
+JAVA:282,GangOfFour,JAVA:212,concept,subconcept of,Java software programming,Medium,GangOfFour: Java software programming: Web programming
+JAVA:283,Garbage Collector,JAVA:566,concept,subconcept of,Java software programming,Medium,Garbage Collector: Java software programming: Web programming
+JAVA:284,Generalization,JAVA:722,concept,subconcept of,Java software programming,Medium,Generalization: Java software programming: Web programming
+JAVA:285,Generalization,JAVA:861,concept,subconcept of,Java software programming,Medium,Generalization: Java software programming: Web programming
+JAVA:286,Generational Garbage Collector,JAVA:283,concept,subconcept of,Java software programming,Medium,Generational Garbage Collector: Java software programming: Web programming
+JAVA:287,Generics,JAVA:680,concept,subconcept of,Java software programming,Medium,Generics: Java software programming: Web programming
+JAVA:288,Git,JAVA:944,concept,subconcept of,Java software programming,Medium,Git: Java software programming: Web programming
+JAVA:307,Gmail,JAVA:756,concept,subconcept of,Java software programming,Medium,Gmail: Java software programming: Web programming
+JAVA:308,Go,JAVA:388,concept,subconcept of,Java software programming,Medium,Go: Java software programming: Web programming
+JAVA:309,Go,JAVA:903,concept,subconcept of,Java software programming,Medium,Go: Java software programming: Web programming
+JAVA:310,Go,JAVA:681,concept,subconcept of,Java software programming,Medium,Go: Java software programming: Web programming
+JAVA:313,google appengine,JAVA:631,concept,subconcept of,Java software programming,Medium,google appengine: Java software programming: Web programming
+JAVA:317,Google Guava Collections,JAVA:523,concept,subconcept of,Java software programming,Medium,Google Guava Collections: Java software programming: Web programming
+JAVA:319,Governance,JAVA:711,concept,subconcept of,Java software programming,Medium,Governance: Java software programming: Web programming
+JAVA:320,Graph,JAVA:187,concept,subconcept of,Java software programming,Medium,Graph: Java software programming: Web programming
+JAVA:321,Graph Database,JAVA:320,concept,related,Java software programming,Medium,Graph Database: Java software programming: Web programming
+JAVA:322,Groovy,JAVA:681,concept,subconcept of,Java software programming,Medium,Groovy: Java software programming: Web programming
+JAVA:323,Groovy,JAVA:388,concept,subconcept of,Java software programming,Medium,Groovy: Java software programming: Web programming
+JAVA:324,Groovy,JAVA:903,concept,subconcept of,Java software programming,Medium,Groovy: Java software programming: Web programming
+JAVA:325,Groovy,JAVA:512,concept,subconcept of,Java software programming,Medium,Groovy: Java software programming: Web programming
+JAVA:328,Hard Reference,JAVA:719,concept,subconcept of,Java software programming,Medium,Hard Reference: Java software programming: Web programming
+JAVA:329,Hash Code,JAVA:332,concept,related,Java software programming,Medium,Hash Code: Java software programming: Web programming
+JAVA:330,Hash Set,JAVA:332,concept,related,Java software programming,Medium,Hash Set: Java software programming: Web programming
+JAVA:331,Hash Set,JAVA:808,concept,subconcept of,Java software programming,Medium,Hash Set: Java software programming: Web programming
+JAVA:332,HashMap,JAVA:588,concept,subconcept of,Java software programming,Medium,HashMap: Java software programming: Web programming
+JAVA:333,Hashtable,JAVA:588,concept,subconcept of,Java software programming,Medium,Hashtable: Java software programming: Web programming
+JAVA:334,Haskell,JAVA:540,concept,subconcept of,Java software programming,Medium,Haskell: Java software programming: Web programming
+JAVA:338,Heap,JAVA:708,concept,subconcept of,Java software programming,Medium,Heap: Java software programming: Web programming
+JAVA:339,Heap,JAVA:566,concept,subconcept of,Java software programming,Medium,Heap: Java software programming: Web programming
+JAVA:340,Heap Dump,JAVA:564,concept,related,Java software programming,Medium,Heap Dump: Java software programming: Web programming
+JAVA:341,HeapSpace,JAVA:338,concept,subconcept of,Java software programming,Medium,HeapSpace: Java software programming: Web programming
+JAVA:344,Hibernate,JAVA:625,concept,subconcept of,Java software programming,Medium,Hibernate: Java software programming: Web programming
+JAVA:363,Home Interface,JAVA:240,concept,subconcept of,Java software programming,Medium,Home Interface: Java software programming: Web programming
+JAVA:364,Hopscotch Hash,JAVA:329,concept,subconcept of,Java software programming,Medium,Hopscotch Hash: Java software programming: Web programming
+JAVA:365,Horizontal Scaling,JAVA:764,concept,subconcept of,Java software programming,Medium,Horizontal Scaling: Java software programming: Web programming
+JAVA:366,Hotfix,JAVA:826,concept,subconcept of,Java software programming,Medium,Hotfix: Java software programming: Web programming
+JAVA:367,HotSpot JVM,JAVA:506,concept,subconcept of,Java software programming,Medium,HotSpot JVM: Java software programming: Web programming
+JAVA:369,HTML,JAVA:959,concept,subconcept of,Java software programming,Medium,HTML: Java software programming: Web programming
+JAVA:370,HTTP,JAVA:959,concept,subconcept of,Java software programming,Medium,HTTP: Java software programming: Web programming
+JAVA:371,HTTPS,JAVA:959,concept,subconcept of,Java software programming,Medium,HTTPS: Java software programming: Web programming
+JAVA:372,IaaS,JAVA:127,concept,subconcept of,Java software programming,Medium,IaaS: Java software programming: Web programming
+JAVA:373,IBM J9,JAVA:465,concept,subconcept of,Java software programming,Medium,IBM J9: Java software programming: Web programming
+JAVA:374,IDE,JAVA:827,concept,subconcept of,Java software programming,Medium,IDE: Java software programming: Web programming
+JAVA:375,Identity,JAVA:332,concept,related,Java software programming,Medium,Identity: Java software programming: Web programming
+JAVA:377,IDL,JAVA:620,concept,related,Java software programming,Medium,IDL: Java software programming: Web programming
+JAVA:379,Idlj,JAVA:740,concept,subconcept of,Java software programming,Medium,Idlj: Java software programming: Web programming
+JAVA:380,Idlj,JAVA:377,concept,related,Java software programming,Medium,Idlj: Java software programming: Web programming
+JAVA:381,Idlj,JAVA:619,concept,related,Java software programming,Medium,Idlj: Java software programming: Web programming
+JAVA:382,Ignored Test Case,JAVA:504,concept,subconcept of,Java software programming,Medium,Ignored Test Case: Java software programming: Web programming
+JAVA:383,IIOP,JAVA:727,concept,related,Java software programming,Medium,IIOP: Java software programming: Web programming
+JAVA:385,Immutable,JAVA:386,concept,related,Java software programming,Medium,Immutable: Java software programming: Web programming
+JAVA:386,Immutable Objects,JAVA:565,concept,related,Java software programming,Medium,Immutable Objects: Java software programming: Web programming
+JAVA:388,Imperative Programming,JAVA:682,concept,subconcept of,Java software programming,Medium,Imperative Programming: Java software programming: Web programming
+JAVA:390,Inheritance,JAVA:284,concept,related,Java software programming,Medium,Inheritance: Java software programming: Web programming
+JAVA:391,Inheritance,JAVA:610,concept,subconcept of,Java software programming,Medium,Inheritance: Java software programming: Web programming
+JAVA:392,Inheritance,JAVA:268,concept,related,Java software programming,Medium,Inheritance: Java software programming: Web programming
+JAVA:393,",Number Theory,Permutations",JAVA:119,concept,subconcept of,Java software programming,Medium,Inner Class: Java software programming: Web programming
+JAVA:394,Insert,JAVA:842,concept,subconcept of,Java software programming,Medium,Insert: Java software programming: Web programming
+JAVA:395,Insert,JAVA:618,concept,subconcept of,Java software programming,Medium,Insert: Java software programming: Web programming
+JAVA:396,Instability,JAVA:202,concept,subconcept of,Java software programming,Easy,Instability: Java software programming: Web programming
+JAVA:398,Instance,JAVA:606,concept,same as,Java software programming,Easy,Instance: Java software programming: Web programming
+JAVA:401,Intellij Idea,JAVA:374,concept,subconcept of,Java software programming,Easy,Intellij Idea: Java software programming: Web programming
+JAVA:402,Interaction Diagram,JAVA:78,concept,subconcept of,Java software programming,Easy,Interaction Diagram: Java software programming: Web programming
+JAVA:403,Interface,JAVA:716,concept,related,Java software programming,Easy,Interface: Java software programming: Web programming
+JAVA:404,Interface,JAVA:579,concept,subconcept of,Java software programming,Easy,Interface: Java software programming: Web programming
+JAVA:405,Interface,JAVA:433,concept,subconcept of,Java software programming,Easy,Interface: Java software programming: Web programming
+JAVA:406,Interface Segregation,JAVA:830,concept,subconcept of,Java software programming,Easy,Interface Segregation: Java software programming: Web programming
+JAVA:407,Interpreted JVM Languages,JAVA:681,concept,subconcept of,Java software programming,Easy,Interpreted JVM Languages: Java software programming: Web programming
+JAVA:408,Interpreter,JAVA:407,concept,related,Java software programming,Easy,Interpreter: Java software programming: Web programming
+JAVA:409,Interrupt,JAVA:909,concept,subconcept of,Java software programming,Easy,Interrupt: Java software programming: Web programming
+JAVA:410,Intrinsic Lock,JAVA:537,concept,subconcept of,Java software programming,Easy,Intrinsic Lock: Java software programming: Web programming
+JAVA:411,iPlanet,JAVA:417,concept,subconcept of,Java software programming,Easy,iPlanet: Java software programming: Web programming
+JAVA:412,Issue Tracking,JAVA:902,concept,subconcept of,Java software programming,Easy,Issue Tracking: Java software programming: Web programming
+JAVA:413,Iterate,JAVA:618,concept,subconcept of,Java software programming,Easy,Iterate: Java software programming: Web programming
+JAVA:414,Iterator,JAVA:413,concept,subconcept of,Java software programming,Easy,Iterator: Java software programming: Web programming
+JAVA:415,J2EE,JAVA:993,concept,subconcept of,Java software programming,Easy,J2EE: Java software programming: Web programming
+JAVA:416,J2EE Application,JAVA:415,concept,subconcept of,Java software programming,Easy,J2EE Application: Java software programming: Web programming
+JAVA:417,J2EE Server,JAVA:163,concept,subconcept of,Java software programming,Easy,J2EE Server: Java software programming: Web programming
+JAVA:418,Jacl,JAVA:407,concept,subconcept of,Java software programming,Easy,Jacl: Java software programming: Web programming
+JAVA:419,Jacl,JAVA:884,concept,related,Java software programming,Easy,Jacl: Java software programming: Web programming
+JAVA:420,Jar,JAVA:432,concept,subconcept of,Java software programming,Easy,Jar: Java software programming: Web programming
+JAVA:421,Jar Signature,JAVA:422,concept,related,Java software programming,Easy,Jar Signature: Java software programming: Web programming
+JAVA:422,Jarsigner,JAVA:466,concept,subconcept of,Java software programming,Easy,Jarsigner: Java software programming: Web programming
+JAVA:423,Java,JAVA:834,concept,related,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:424,Java,JAVA:388,concept,subconcept of,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:425,Java,JAVA:489,concept,related,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:426,Java,JAVA:512,concept,subconcept of,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:427,Java,JAVA:903,concept,subconcept of,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:428,Java,JAVA:681,concept,subconcept of,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:429,Java,JAVA:506,concept,related,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:430,Java,JAVA:465,concept,related,Java software programming,Easy,Java: Java software programming: Web programming
+JAVA:431,Java Applets,JAVA:441,concept,related,Java software programming,Easy,Java Applets: Java software programming: Web programming
+JAVA:432,Java Archive,JAVA:415,concept,related,Java software programming,Easy,Java Archive: Java software programming: Web programming
+JAVA:433,Java Classes,JAVA:680,concept,subconcept of,Java software programming,Easy,Java Classes: Java software programming: Web programming
+JAVA:434,Java Collections Framework,JAVA:523,concept,subconcept of,Java software programming,Easy,Java Collections Framework: Java software programming: Web programming
+JAVA:435,Java Heap Dump Browser,JAVA:340,concept,related,Java software programming,Easy,Java Heap Dump Browser: Java software programming: Web programming
+JAVA:436,Java Policy Files,JAVA:663,concept,related,Java software programming,Easy,Java Policy Files: Java software programming: Web programming
+JAVA:437,Java Process Status,JAVA:367,concept,related,Java software programming,Easy,Java Process Status: Java software programming: Web programming
+JAVA:441,Java Web Start,JAVA:506,concept,subconcept of,Java software programming,Easy,Java Web Start: Java software programming: Web programming
+JAVA:442,Javac,JAVA:75,concept,subconcept of,Java software programming,Easy,Javac: Java software programming: Web programming
+JAVA:443,Javac,JAVA:147,concept,related,Java software programming,Easy,Javac: Java software programming: Web programming
+JAVA:444,Javadoc,JAVA:134,concept,related,Java software programming,Easy,Javadoc: Java software programming: Web programming
+JAVA:445,Javadoc,JAVA:224,concept,related,Java software programming,Easy,Javadoc: Java software programming: Web programming
+JAVA:446,Javadoc,JAVA:75,concept,subconcept of,Java software programming,Easy,Javadoc: Java software programming: Web programming
+JAVA:448,Javah,JAVA:75,concept,subconcept of,Java software programming,Easy,Javah: Java software programming: Web programming
+JAVA:449,Javah,JAVA:993,concept,related,Java software programming,Easy,Javah: Java software programming: Web programming
+JAVA:450,Javap,JAVA:219,concept,related,Java software programming,Easy,Javap: Java software programming: Web programming
+JAVA:451,Javap,JAVA:75,concept,subconcept of,Java software programming,Easy,Javap: Java software programming: Web programming
+JAVA:452,Javascript,JAVA:681,concept,subconcept of,Java software programming,Easy,Javascript: Java software programming: Web programming
+JAVA:453,JavaScript,JAVA:369,concept,subconcept of,Java software programming,Easy,JavaScript: Java software programming: Web programming
+JAVA:454,Javascript,JAVA:903,concept,subconcept of,Java software programming,Easy,Javascript: Java software programming: Web programming
+JAVA:455,Javascript,JAVA:388,concept,subconcept of,Java software programming,Easy,Javascript: Java software programming: Web programming
+JAVA:456,Javaws,JAVA:75,concept,subconcept of,Java software programming,Easy,Javaws: Java software programming: Web programming
+JAVA:457,Javaws,JAVA:441,concept,related,Java software programming,Easy,Javaws: Java software programming: Web programming
+JAVA:458,JAX-WS,JAVA:981,concept,subconcept of,Java software programming,Easy,JAX-WS: Java software programming: Web programming
+JAVA:459,JAXB,JAVA:981,concept,related,Java software programming,Easy,JAXB: Java software programming: Web programming
+JAVA:460,JBOSS,JAVA:417,concept,subconcept of,Java software programming,Easy,JBOSS: Java software programming: Web programming
+JAVA:461,JConsole,JAVA:583,concept,subconcept of,Java software programming,Easy,JConsole: Java software programming: Web programming
+JAVA:462,Jdb,JAVA:75,concept,subconcept of,Java software programming,Easy,Jdb: Java software programming: Web programming
+JAVA:463,Jdb,JAVA:194,concept,related,Java software programming,Easy,Jdb: Java software programming: Web programming
+JAVA:464,JDBC,JAVA:185,concept,subconcept of,Java software programming,Easy,JDBC: Java software programming: Web programming
+JAVA:465,JDK,JAVA:467,concept,related,Java software programming,Easy,JDK: Java software programming: Web programming
+JAVA:466,JDK Security Tools,JAVA:467,concept,subconcept of,Java software programming,Easy,JDK Security Tools: Java software programming: Web programming
+JAVA:467,JDK Tools,JAVA:993,concept,subconcept of,Java software programming,Easy,JDK Tools: Java software programming: Web programming
+JAVA:468,Jetty,JAVA:963,concept,subconcept of,Java software programming,Easy,Jetty: Java software programming: Web programming
+JAVA:469,Jhat,JAVA:927,concept,subconcept of,Java software programming,Easy,Jhat: Java software programming: Web programming
+JAVA:470,Jhat,JAVA:435,concept,same as,Java software programming,Easy,Jhat: Java software programming: Web programming
+JAVA:471,Jira,JAVA:94,concept,subconcept of,Java software programming,Easy,Jira: Java software programming: Web programming
+JAVA:472,JIT Compiler,JAVA:147,concept,related,Java software programming,Easy,JIT Compiler: Java software programming: Web programming
+JAVA:473,Jmap,JAVA:927,concept,subconcept of,Java software programming,Easy,Jmap: Java software programming: Web programming
+JAVA:474,Jmap,JAVA:568,concept,same as,Java software programming,Easy,Jmap: Java software programming: Web programming
+JAVA:475,JMS,JAVA:416,concept,subconcept of,Java software programming,Easy,JMS: Java software programming: Web programming
+JAVA:476,JMX,JAVA:461,concept,related,Java software programming,Easy,JMX: Java software programming: Web programming
+JAVA:477,JNDI,JAVA:416,concept,subconcept of,Java software programming,Easy,JNDI: Java software programming: Web programming
+JAVA:478,JNI,JAVA:110,concept,related,Java software programming,Easy,JNI: Java software programming: Web programming
+JAVA:479,Join,JAVA:842,concept,subconcept of,Java software programming,Easy,Join: Java software programming: Web programming
+JAVA:480,Join,JAVA:909,concept,subconcept of,Java software programming,Easy,Join: Java software programming: Web programming
+JAVA:481,JPA,JAVA:625,concept,subconcept of,Java software programming,Easy,JPA: Java software programming: Web programming
+JAVA:482,JPA,JAVA:834,concept,subconcept of,Java software programming,Easy,JPA: Java software programming: Web programming
+JAVA:483,JPA,JAVA:344,concept,related,Java software programming,Easy,JPA: Java software programming: Web programming
+JAVA:485,JPDA,JAVA:467,concept,subconcept of,Java software programming,Easy,JPDA: Java software programming: Web programming
+JAVA:486,Jps,JAVA:583,concept,subconcept of,Java software programming,Easy,Jps: Java software programming: Web programming
+JAVA:487,Jps,JAVA:437,concept,same as,Java software programming,Easy,Jps: Java software programming: Web programming
+JAVA:488,jQuery,JAVA:452,concept,subconcept of,Java software programming,Easy,jQuery: Java software programming: Web programming
+JAVA:489,JRE,JAVA:506,concept,related,Java software programming,Hard,JRE: Java software programming: Web programming
+JAVA:490,JRockit,JAVA:465,concept,subconcept of,Java software programming,Hard,JRockit: Java software programming: Web programming
+JAVA:491,JRuby,JAVA:407,concept,subconcept of,Java software programming,Hard,JRuby: Java software programming: Web programming
+JAVA:492,JRuby,JAVA:751,concept,related,Java software programming,Hard,JRuby: Java software programming: Web programming
+JAVA:493,JSF,JAVA:958,concept,subconcept of,Java software programming,Hard,JSF: Java software programming: Web programming
+JAVA:494,JSP,JAVA:958,concept,subconcept of,Java software programming,Hard,JSP: Java software programming: Web programming
+JAVA:495,JSP,JAVA:369,concept,subconcept of,Java software programming,Hard,JSP: Java software programming: Web programming
+JAVA:496,Jstack,JAVA:927,concept,subconcept of,Java software programming,Hard,Jstack: Java software programming: Web programming
+JAVA:497,Jstack,JAVA:906,concept,related,Java software programming,Hard,Jstack: Java software programming: Web programming
+JAVA:498,Jstat,JAVA:583,concept,subconcept of,Java software programming,Hard,Jstat: Java software programming: Web programming
+JAVA:499,Jstat,JAVA:514,concept,same as,Java software programming,Hard,Jstat: Java software programming: Web programming
+JAVA:500,JstatD,JAVA:514,concept,related,Java software programming,Hard,JstatD: Java software programming: Web programming
+JAVA:501,JstatD,JAVA:583,concept,subconcept of,Java software programming,Hard,JstatD: Java software programming: Web programming
+JAVA:502,JstatD,JAVA:511,concept,same as,Java software programming,Hard,JstatD: Java software programming: Web programming
+JAVA:503,JTA,JAVA:467,concept,subconcept of,Java software programming,Hard,JTA: Java software programming: Web programming
+JAVA:504,Junit,JAVA:935,concept,subconcept of,Java software programming,Hard,Junit: Java software programming: Web programming
+JAVA:505,JUNIT,JAVA:935,concept,subconcept of,Java software programming,Hard,JUNIT: Java software programming: Web programming
+JAVA:506,JVM,JAVA:408,concept,related,Java software programming,Hard,JVM: Java software programming: Web programming
+JAVA:507,JVM,JAVA:367,concept,related,Java software programming,Hard,JVM: Java software programming: Web programming
+JAVA:508,JVM,JAVA:512,concept,related,Java software programming,Hard,JVM: Java software programming: Web programming
+JAVA:509,JVM,JAVA:109,concept,related,Java software programming,Hard,JVM: Java software programming: Web programming
+JAVA:510,JVM,JAVA:946,concept,related,Java software programming,Hard,JVM: Java software programming: Web programming
+JAVA:511,JVM Jstat Daemon,JAVA:467,concept,subconcept of,Java software programming,Hard,JVM Jstat Daemon: Java software programming: Web programming
+JAVA:512,JVM Languages,JAVA:407,concept,related,Java software programming,Hard,JVM Languages: Java software programming: Web programming
+JAVA:513,JVM Languages,JAVA:109,concept,related,Java software programming,Hard,JVM Languages: Java software programming: Web programming
+JAVA:514,JVM Statistics,JAVA:367,concept,related,Java software programming,Hard,JVM Statistics: Java software programming: Web programming
+JAVA:515,Jython,JAVA:699,concept,related,Java software programming,Hard,Jython: Java software programming: Web programming
+JAVA:516,Jython,JAVA:407,concept,subconcept of,Java software programming,Hard,Jython: Java software programming: Web programming
+JAVA:517,Keygen,JAVA:466,concept,subconcept of,Java software programming,Hard,Keygen: Java software programming: Web programming
+JAVA:518,Keystore,JAVA:517,concept,related,Java software programming,Hard,Keystore: Java software programming: Web programming
+JAVA:523,Libraries,JAVA:187,concept,subconcept of,Java software programming,Hard,Libraries: Java software programming: Web programming
+JAVA:524,Licence Plugin,JAVA:560,concept,subconcept of,Java software programming,Hard,Licence Plugin: Java software programming: Web programming
+JAVA:525,Lightweight Process,JAVA:591,concept,subconcept of,Java software programming,Hard,Lightweight Process: Java software programming: Web programming
+JAVA:526,Linear,JAVA:13,concept,subconcept of,Java software programming,Hard,Linear: Java software programming: Web programming
+JAVA:527,Linear Probing,JAVA:329,concept,subconcept of,Java software programming,Hard,Linear Probing: Java software programming: Web programming
+JAVA:528,Linear Search,JAVA:777,concept,subconcept of,Java software programming,Hard,Linear Search: Java software programming: Web programming
+JAVA:529,Linked List,JAVA:532,concept,subconcept of,Java software programming,Hard,Linked List: Java software programming: Web programming
+JAVA:530,Liskov Substituion Principle,JAVA:830,concept,subconcept of,Java software programming,Hard,Liskov Substituion Principle: Java software programming: Web programming
+JAVA:531,Lisp,JAVA:280,concept,subconcept of,Java software programming,Hard,Lisp: Java software programming: Web programming
+JAVA:532,List,JAVA:624,concept,subconcept of,Java software programming,Hard,List: Java software programming: Web programming
+JAVA:537,Lock,JAVA:875,concept,subconcept of,Java software programming,Hard,Lock: Java software programming: Web programming
+JAVA:538,Lock Objects,JAVA:537,concept,subconcept of,Java software programming,Hard,Lock Objects: Java software programming: Web programming
+JAVA:539,Logarithmic,JAVA:13,concept,subconcept of,Java software programming,Hard,Logarithmic: Java software programming: Web programming
+JAVA:540,Logic Programming,JAVA:274,concept,subconcept of,Java software programming,Hard,Logic Programming: Java software programming: Web programming
+JAVA:541,Logic Programming,JAVA:682,concept,subconcept of,Java software programming,Hard,Logic Programming: Java software programming: Web programming
+JAVA:542,Loose Coupling,JAVA:211,concept,subconcept of,Java software programming,Hard,Loose Coupling: Java software programming: Web programming
+JAVA:545,Managed Operations,JAVA:127,concept,subconcept of,Java software programming,Hard,Managed Operations: Java software programming: Web programming
+JAVA:546,Management Automation,JAVA:127,concept,subconcept of,Java software programming,Hard,Management Automation: Java software programming: Web programming
+JAVA:547,Manifest File,JAVA:432,concept,related,Java software programming,Hard,Manifest File: Java software programming: Web programming
+JAVA:551,Map,JAVA:588,concept,subconcept of,Java software programming,Hard,Map: Java software programming: Web programming
+JAVA:552,Markup Language,JAVA:903,concept,subconcept of,Java software programming,Hard,Markup Language: Java software programming: Web programming
+JAVA:553,Markup Language,JAVA:681,concept,subconcept of,Java software programming,Hard,Markup Language: Java software programming: Web programming
+JAVA:554,Markup Language,JAVA:982,concept,related,Java software programming,Hard,Markup Language: Java software programming: Web programming
+JAVA:555,Markup Language,JAVA:388,concept,subconcept of,Java software programming,Hard,Markup Language: Java software programming: Web programming
+JAVA:557,Maven,JAVA:99,concept,subconcept of,Java software programming,Hard,Maven: Java software programming: Web programming
+JAVA:558,Maven,JAVA:669,concept,related,Java software programming,Hard,Maven: Java software programming: Web programming
+JAVA:559,Maven Junit Plugin,JAVA:504,concept,subconcept of,Java software programming,Hard,Maven Junit Plugin: Java software programming: Web programming
+JAVA:560,Maven Plugins,JAVA:557,concept,subconcept of,Java software programming,Hard,Maven Plugins: Java software programming: Web programming
+JAVA:561,Maven Repository,JAVA:557,concept,related,Java software programming,Hard,Maven Repository: Java software programming: Web programming
+JAVA:564,Memory,JAVA:506,concept,subconcept of,Java software programming,Hard,Memory: Java software programming: Web programming
+JAVA:565,Memory Consistency Errors,JAVA:170,concept,subconcept of,Java software programming,Hard,Memory Consistency Errors: Java software programming: Web programming
+JAVA:566,Memory Management,JAVA:904,concept,subconcept of,Java software programming,Hard,Memory Management: Java software programming: Web programming
+JAVA:567,Memory Management,JAVA:680,concept,subconcept of,Java software programming,Hard,Memory Management: Java software programming: Web programming
+JAVA:568,Memory Map,JAVA:340,concept,related,Java software programming,Hard,Memory Map: Java software programming: Web programming
+JAVA:569,Mercurial,JAVA:944,concept,subconcept of,Java software programming,Hard,Mercurial: Java software programming: Web programming
+JAVA:570,Mercury,JAVA:540,concept,subconcept of,Java software programming,Hard,Mercury: Java software programming: Web programming
+JAVA:572,Merge Sort,JAVA:832,concept,subconcept of,Java software programming,Hard,Merge Sort: Java software programming: Web programming
+JAVA:573,Message Driven Beans,JAVA:240,concept,subconcept of,Java software programming,Hard,Message Driven Beans: Java software programming: Web programming
+JAVA:574,Message Driven Beans,JAVA:475,concept,related,Java software programming,Hard,Message Driven Beans: Java software programming: Web programming
+JAVA:575,Messaging,JAVA:53,concept,subconcept of,Java software programming,Hard,Messaging: Java software programming: Web programming
+JAVA:576,Metering,JAVA:711,concept,subconcept of,Java software programming,Hard,Metering: Java software programming: Web programming
+JAVA:577,Methods,JAVA:119,concept,subconcept of,Java software programming,Hard,Methods: Java software programming: Web programming
+JAVA:578,Metrics,JAVA:542,concept,subconcept of,Java software programming,Hard,Metrics: Java software programming: Web programming
+JAVA:579,Modeling,JAVA:611,concept,subconcept of,Java software programming,Hard,Modeling: Java software programming: Web programming
+JAVA:580,Modeling,JAVA:931,concept,related,Java software programming,Hard,Modeling: Java software programming: Web programming
+JAVA:581,Modifier,JAVA:577,concept,related,Java software programming,Hard,Modifier: Java software programming: Web programming
+JAVA:582,Modifier,JAVA:267,concept,related,Java software programming,Hard,Modifier: Java software programming: Web programming
+JAVA:583,Monitoring Tools,JAVA:927,concept,related,Java software programming,Hard,Monitoring Tools: Java software programming: Web programming
+JAVA:584,Monitoring Tools,JAVA:467,concept,subconcept of,Java software programming,Hard,Monitoring Tools: Java software programming: Web programming
+JAVA:585,Multi Processing,JAVA:591,concept,related,Java software programming,Hard,Multi Processing: Java software programming: Web programming
+JAVA:586,Multi Tasking,JAVA:591,concept,related,Java software programming,Hard,Multi Tasking: Java software programming: Web programming
+JAVA:587,MultiDimensional Array,JAVA:54,concept,subconcept of,Java software programming,Hard,MultiDimensional Array: Java software programming: Web programming
+JAVA:588,Multidimensional Collection,JAVA:187,concept,subconcept of,Java software programming,Hard,Multidimensional Collection: Java software programming: Web programming
+JAVA:589,MultiMap,JAVA:551,concept,subconcept of,Java software programming,Hard,MultiMap: Java software programming: Web programming
+JAVA:590,MultiSet,JAVA:808,concept,subconcept of,Java software programming,Hard,MultiSet: Java software programming: Web programming
+JAVA:591,MultiThreading,JAVA:680,concept,subconcept of,Java software programming,Hard,MultiThreading: Java software programming: Web programming
+JAVA:592,Mutable,JAVA:386,concept,related,Java software programming,Hard,Mutable: Java software programming: Web programming
+JAVA:593,Mutex,JAVA:875,concept,subconcept of,Java software programming,Hard,Mutex: Java software programming: Web programming
+JAVA:594,MVC,JAVA:53,concept,subconcept of,Java software programming,Hard,MVC: Java software programming: Web programming
+JAVA:595,N Log N,JAVA:13,concept,subconcept of,Java software programming,Hard,N Log N: Java software programming: Web programming
+JAVA:597,Native Programming,JAVA:478,concept,subconcept of,Java software programming,Hard,Native Programming: Java software programming: Web programming
+JAVA:598,Natural Sort Order,JAVA:831,concept,subconcept of,Java software programming,Hard,Natural Sort Order: Java software programming: Web programming
+JAVA:599,Netbeans,JAVA:374,concept,subconcept of,Java software programming,Hard,Netbeans: Java software programming: Web programming
+JAVA:600,Nightly Builds,JAVA:99,concept,subconcept of,Java software programming,Hard,Nightly Builds: Java software programming: Web programming
+JAVA:602,Normalization,JAVA:211,concept,subconcept of,Java software programming,Hard,Normalization: Java software programming: Web programming
+JAVA:603,Notify,JAVA:909,concept,subconcept of,Java software programming,Hard,Notify: Java software programming: Web programming
+JAVA:604,NUNIT,JAVA:935,concept,subconcept of,Java software programming,Hard,NUNIT: Java software programming: Web programming
+JAVA:605,OAuth,JAVA:66,concept,subconcept of,Java software programming,Hard,OAuth: Java software programming: Web programming
+JAVA:606,Object,JAVA:579,concept,subconcept of,Java software programming,Hard,Object: Java software programming: Web programming
+JAVA:607,Object,JAVA:433,concept,subconcept of,Java software programming,Hard,Object: Java software programming: Web programming
+JAVA:609,Object Diagram,JAVA:859,concept,subconcept of,Java software programming,Hard,Object Diagram: Java software programming: Web programming
+JAVA:610,Object Orientation Concepts,JAVA:611,concept,subconcept of,Java software programming,Hard,Object Orientation Concepts: Java software programming: Web programming
+JAVA:611,Object Oriented Design,JAVA:993,concept,subconcept of,Java software programming,Hard,Object Oriented Design: Java software programming: Web programming
+JAVA:612,Old Generation,JAVA:286,concept,subconcept of,Java software programming,Hard,Old Generation: Java software programming: Web programming
+JAVA:615,Open Close Principle,JAVA:830,concept,subconcept of,Java software programming,Hard,Open Close Principle: Java software programming: Web programming
+JAVA:616,Open Source Components,JAVA:827,concept,subconcept of,Java software programming,Hard,Open Source Components: Java software programming: Web programming
+JAVA:617,OpenJDK,JAVA:465,concept,subconcept of,Java software programming,Hard,OpenJDK: Java software programming: Web programming
+JAVA:618,Operations on Collections,JAVA:532,concept,subconcept of,Java software programming,Hard,Operations on Collections: Java software programming: Web programming
+JAVA:619,ORB,JAVA:729,concept,subconcept of,Java software programming,Hard,ORB: Java software programming: Web programming
+JAVA:620,orbd,JAVA:740,concept,subconcept of,Java software programming,Hard,orbd: Java software programming: Web programming
+JAVA:621,orbd,JAVA:619,concept,related,Java software programming,Hard,orbd: Java software programming: Web programming
+JAVA:624,Ordered Collection,JAVA:187,concept,subconcept of,Java software programming,Hard,Ordered Collection: Java software programming: Web programming
+JAVA:625,ORM,JAVA:464,concept,related,Java software programming,Hard,ORM: Java software programming: Web programming
+JAVA:626,ORM,JAVA:185,concept,related,Java software programming,Hard,ORM: Java software programming: Web programming
+JAVA:629,Out Of Memory Error,JAVA:341,concept,subconcept of,Java software programming,Hard,Out Of Memory Error: Java software programming: Web programming
+JAVA:630,Out Of Memory Error,JAVA:848,concept,related,Java software programming,Hard,Out Of Memory Error: Java software programming: Web programming
+JAVA:631,PaaS,JAVA:127,concept,subconcept of,Java software programming,Hard,PaaS: Java software programming: Web programming
+JAVA:633,Package Cohesion Principle,JAVA:213,concept,subconcept of,Java software programming,Hard,Package Cohesion Principle: Java software programming: Web programming
+JAVA:634,Package Coupling Principle,JAVA:213,concept,subconcept of,Java software programming,Hard,Package Coupling Principle: Java software programming: Web programming
+JAVA:635,Package Diagram,JAVA:859,concept,subconcept of,Java software programming,Hard,Package Diagram: Java software programming: Web programming
+JAVA:637,Parallel GC,JAVA:283,concept,subconcept of,Java software programming,Hard,Parallel GC: Java software programming: Web programming
+JAVA:638,Parameterized Test,JAVA:504,concept,subconcept of,Java software programming,Hard,Parameterized Test: Java software programming: Web programming
+JAVA:639,Parameters,JAVA:267,concept,related,Java software programming,Hard,Parameters: Java software programming: Web programming
+JAVA:640,Parameters,JAVA:207,concept,related,Java software programming,Hard,Parameters: Java software programming: Web programming
+JAVA:641,Parameters,JAVA:577,concept,related,Java software programming,Hard,Parameters: Java software programming: Web programming
+JAVA:642,Pass By Reference,JAVA:639,concept,subconcept of,Java software programming,Easy,Pass By Reference: Java software programming: Web programming
+JAVA:643,Pass By Reference,JAVA:719,concept,related,Java software programming,Easy,Pass By Reference: Java software programming: Web programming
+JAVA:644,Pass By Value,JAVA:639,concept,subconcept of,Java software programming,Easy,Pass By Value: Java software programming: Web programming
+JAVA:645,Patch,JAVA:826,concept,subconcept of,Java software programming,Easy,Patch: Java software programming: Web programming
+JAVA:646,Pay Per Use,JAVA:127,concept,subconcept of,Java software programming,Easy,Pay Per Use: Java software programming: Web programming
+JAVA:647,Peek,JAVA:708,concept,related,Java software programming,Easy,Peek: Java software programming: Web programming
+JAVA:648,Peek,JAVA:618,concept,related,Java software programming,Easy,Peek: Java software programming: Web programming
+JAVA:649,Peek,JAVA:845,concept,related,Java software programming,Easy,Peek: Java software programming: Web programming
+JAVA:651,Perfect Hash Function,JAVA:329,concept,subconcept of,Java software programming,Easy,Perfect Hash Function: Java software programming: Web programming
+JAVA:652,Permanent Generation,JAVA:286,concept,subconcept of,Java software programming,Easy,Permanent Generation: Java software programming: Web programming
+JAVA:653,PermGenSpace,JAVA:652,concept,related,Java software programming,Easy,PermGenSpace: Java software programming: Web programming
+JAVA:654,PermGenSpace,JAVA:341,concept,subconcept of,Java software programming,Easy,PermGenSpace: Java software programming: Web programming
+JAVA:656,PHP,JAVA:681,concept,subconcept of,Java software programming,Easy,PHP: Java software programming: Web programming
+JAVA:657,PHP,JAVA:388,concept,subconcept of,Java software programming,Easy,PHP: Java software programming: Web programming
+JAVA:658,PHP,JAVA:903,concept,subconcept of,Java software programming,Easy,PHP: Java software programming: Web programming
+JAVA:660,Pipes and Filter,JAVA:53,concept,subconcept of,Java software programming,Easy,Pipes and Filter: Java software programming: Web programming
+JAVA:662,Pointer,JAVA:719,concept,related,Java software programming,Easy,Pointer: Java software programming: Web programming
+JAVA:663,Policytool,JAVA:466,concept,subconcept of,Java software programming,Easy,Policytool: Java software programming: Web programming
+JAVA:664,Polylogarithmic,JAVA:526,concept,subconcept of,Java software programming,Easy,Polylogarithmic: Java software programming: Web programming
+JAVA:666,Polymorphism,JAVA:284,concept,related,Java software programming,Easy,Polymorphism: Java software programming: Web programming
+JAVA:667,Polymorphism,JAVA:610,concept,subconcept of,Java software programming,Easy,Polymorphism: Java software programming: Web programming
+JAVA:668,Polynomial,JAVA:13,concept,subconcept of,Java software programming,Easy,Polynomial: Java software programming: Web programming
+JAVA:669,POM,JAVA:557,concept,subconcept of,Java software programming,Easy,POM: Java software programming: Web programming
+JAVA:670,POM,JAVA:557,concept,subconcept of,Java software programming,Easy,POM: Java software programming: Web programming
+JAVA:671,Pop,JAVA:618,concept,related,Java software programming,Easy,Pop: Java software programming: Web programming
+JAVA:672,Pop,JAVA:845,concept,related,Java software programming,Easy,Pop: Java software programming: Web programming
+JAVA:673,Pop,JAVA:708,concept,related,Java software programming,Easy,Pop: Java software programming: Web programming
+JAVA:675,Primitive Types,JAVA:644,concept,related,Java software programming,Easy,Primitive Types: Java software programming: Web programming
+JAVA:676,Primitive Types,JAVA:69,concept,related,Java software programming,Easy,Primitive Types: Java software programming: Web programming
+JAVA:677,Primitive Types,JAVA:433,concept,subconcept of,Java software programming,Easy,Primitive Types: Java software programming: Web programming
+JAVA:678,Priority Queue,JAVA:708,concept,subconcept of,Java software programming,Easy,Priority Queue: Java software programming: Web programming
+JAVA:679,Private,JAVA:581,concept,subconcept of,Java software programming,Easy,Private: Java software programming: Web programming
+JAVA:680,Programming in Java,JAVA:993,concept,subconcept of,Java software programming,Easy,Programming in Java: Java software programming: Web programming
+JAVA:681,Programming Language,JAVA:993,concept,subconcept of,Java software programming,Easy,Programming Language: Java software programming: Web programming
+JAVA:682,Programming Paradigm,JAVA:993,concept,subconcept of,Java software programming,Easy,Programming Paradigm: Java software programming: Web programming
+JAVA:684,Project Object Model,JAVA:557,concept,subconcept of,Java software programming,Easy,Project Object Model: Java software programming: Web programming
+JAVA:686,Prolog,JAVA:540,concept,subconcept of,Java software programming,Easy,Prolog: Java software programming: Web programming
+JAVA:687,Properties,JAVA:588,concept,subconcept of,Java software programming,Easy,Properties: Java software programming: Web programming
+JAVA:688,Property Graph,JAVA:320,concept,related,Java software programming,Easy,Property Graph: Java software programming: Web programming
+JAVA:689,Protected,JAVA:581,concept,subconcept of,Java software programming,Easy,Protected: Java software programming: Web programming
+JAVA:691,Provisioning,JAVA:127,concept,subconcept of,Java software programming,Easy,Provisioning: Java software programming: Web programming
+JAVA:692,Proxy,JAVA:212,concept,subconcept of,Java software programming,Easy,Proxy: Java software programming: Web programming
+JAVA:693,Pub Sub,JAVA:53,concept,subconcept of,Java software programming,Easy,Pub Sub: Java software programming: Web programming
+JAVA:694,Public,JAVA:581,concept,subconcept of,Java software programming,Easy,Public: Java software programming: Web programming
+JAVA:695,Publisher,JAVA:917,concept,subconcept of,Java software programming,Easy,Publisher: Java software programming: Web programming
+JAVA:696,Push,JAVA:618,concept,related,Java software programming,Easy,Push: Java software programming: Web programming
+JAVA:697,Push,JAVA:845,concept,related,Java software programming,Easy,Push: Java software programming: Web programming
+JAVA:698,Push,JAVA:708,concept,related,Java software programming,Easy,Push: Java software programming: Web programming
+JAVA:699,Python,JAVA:388,concept,subconcept of,Java software programming,Easy,Python: Java software programming: Web programming
+JAVA:700,Python,JAVA:903,concept,subconcept of,Java software programming,Easy,Python: Java software programming: Web programming
+JAVA:701,Python,JAVA:681,concept,subconcept of,Java software programming,Easy,Python: Java software programming: Web programming
+JAVA:703,Quadratic,JAVA:13,concept,subconcept of,Java software programming,Easy,Quadratic: Java software programming: Web programming
+JAVA:704,Quadratic Probing,JAVA:329,concept,subconcept of,Java software programming,Easy,Quadratic Probing: Java software programming: Web programming
+JAVA:705,Quality Engineering,JAVA:828,concept,subconcept of,Java software programming,Easy,Quality Engineering: Java software programming: Web programming
+JAVA:708,Queue,JAVA:475,concept,subconcept of,Java software programming,Easy,Queue: Java software programming: Web programming
+JAVA:709,Queue,JAVA:624,concept,subconcept of,Java software programming,Easy,Queue: Java software programming: Web programming
+JAVA:710,Quick Sort,JAVA:832,concept,subconcept of,Java software programming,Easy,Quick Sort: Java software programming: Web programming
+JAVA:711,Quota,JAVA:127,concept,subconcept of,Java software programming,Easy,Quota: Java software programming: Web programming
+JAVA:713,Race Condition,JAVA:153,concept,subconcept of,Java software programming,Easy,Race Condition: Java software programming: Web programming
+JAVA:714,Rackspace,JAVA:372,concept,subconcept of,Java software programming,Easy,Rackspace: Java software programming: Web programming
+JAVA:715,Radix Tree,JAVA:777,concept,subconcept of,Java software programming,Easy,Radix Tree: Java software programming: Web programming
+JAVA:716,Realization,JAVA:722,concept,subconcept of,Java software programming,Easy,Realization: Java software programming: Web programming
+JAVA:717,Receiver,JAVA:708,concept,subconcept of,Java software programming,Easy,Receiver: Java software programming: Web programming
+JAVA:718,Refactoring,JAVA:211,concept,subconcept of,Java software programming,Easy,Refactoring: Java software programming: Web programming
+JAVA:719,Reference,JAVA:566,concept,subconcept of,Java software programming,Easy,Reference: Java software programming: Web programming
+JAVA:720,Regression Testing,JAVA:900,concept,subconcept of,Java software programming,Easy,Regression Testing: Java software programming: Web programming
+JAVA:721,Regression Testing,JAVA:930,concept,subconcept of,Java software programming,Easy,Regression Testing: Java software programming: Web programming
+JAVA:722,Relationships,JAVA:579,concept,subconcept of,Java software programming,Easy,Relationships: Java software programming: Web programming
+JAVA:723,Release Management,JAVA:557,concept,subconcept of,Java software programming,Easy,Release Management: Java software programming: Web programming
+JAVA:727,Remote Interface,JAVA:240,concept,subconcept of,Java software programming,Easy,Remote Interface: Java software programming: Web programming
+JAVA:728,Remote Object Registry,JAVA:746,concept,related,Java software programming,Easy,Remote Object Registry: Java software programming: Web programming
+JAVA:729,Remote Procedure Call,JAVA:680,concept,subconcept of,Java software programming,Easy,Remote Procedure Call: Java software programming: Web programming
+JAVA:730,Remove,JAVA:618,concept,subconcept of,Java software programming,Easy,Remove: Java software programming: Web programming
+JAVA:731,Reporting,JAVA:557,concept,subconcept of,Java software programming,Easy,Reporting: Java software programming: Web programming
+JAVA:732,Repository,JAVA:944,concept,subconcept of,Java software programming,Easy,Repository: Java software programming: Web programming
+JAVA:733,REST,JAVA:967,concept,subconcept of,Java software programming,Easy,REST: Java software programming: Web programming
+JAVA:734,Return,JAVA:639,concept,subconcept of,Java software programming,Easy,Return: Java software programming: Web programming
+JAVA:735,Reuse/Release Equivalence,JAVA:633,concept,subconcept of,Java software programming,Easy,Reuse/Release Equivalence: Java software programming: Web programming
+JAVA:736,Rhino,JAVA:452,concept,related,Java software programming,Easy,Rhino: Java software programming: Web programming
+JAVA:737,Rhino,JAVA:407,concept,subconcept of,Java software programming,Hard,Rhino: Java software programming: Web programming
+JAVA:738,RMI,JAVA:727,concept,related,Java software programming,Hard,RMI: Java software programming: Web programming
+JAVA:739,RMI Daemon,JAVA:183,concept,subconcept of,Java software programming,Hard,RMI Daemon: Java software programming: Web programming
+JAVA:740,RMI Tools,JAVA:467,concept,subconcept of,Java software programming,Hard,RMI Tools: Java software programming: Web programming
+JAVA:741,Rmic,JAVA:738,concept,related,Java software programming,Hard,Rmic: Java software programming: Web programming
+JAVA:742,Rmic,JAVA:740,concept,subconcept of,Java software programming,Hard,Rmic: Java software programming: Web programming
+JAVA:743,Rmic,JAVA:860,concept,related,Java software programming,Hard,Rmic: Java software programming: Web programming
+JAVA:744,Rmid,JAVA:740,concept,subconcept of,Java software programming,Hard,Rmid: Java software programming: Web programming
+JAVA:745,Rmid,JAVA:739,concept,related,Java software programming,Hard,Rmid: Java software programming: Web programming
+JAVA:746,Rmiregistry,JAVA:740,concept,subconcept of,Java software programming,Hard,Rmiregistry: Java software programming: Web programming
+JAVA:751,Ruby,JAVA:681,concept,subconcept of,Java software programming,Hard,Ruby: Java software programming: Web programming
+JAVA:752,Ruby,JAVA:388,concept,subconcept of,Java software programming,Hard,Ruby: Java software programming: Web programming
+JAVA:753,Ruby,JAVA:903,concept,subconcept of,Java software programming,Hard,Ruby: Java software programming: Web programming
+JAVA:754,Runnable,JAVA:904,concept,subconcept of,Java software programming,Hard,Runnable: Java software programming: Web programming
+JAVA:755,Runnable State,JAVA:907,concept,subconcept of,Java software programming,Hard,Runnable State: Java software programming: Web programming
+JAVA:756,SaaS,JAVA:127,concept,subconcept of,Java software programming,Hard,SaaS: Java software programming: Web programming
+JAVA:758,Salesforce.com,JAVA:273,concept,related,Java software programming,Hard,Salesforce.com: Java software programming: Web programming
+JAVA:759,Salesforce.com,JAVA:756,concept,subconcept of,Java software programming,Hard,Salesforce.com: Java software programming: Web programming
+JAVA:760,Sar,JAVA:432,concept,subconcept of,Java software programming,Hard,Sar: Java software programming: Web programming
+JAVA:761,Sar,JAVA:205,concept,related,Java software programming,Hard,Sar: Java software programming: Web programming
+JAVA:762,Scala,JAVA:280,concept,subconcept of,Java software programming,Hard,Scala: Java software programming: Web programming
+JAVA:763,Scala,JAVA:512,concept,subconcept of,Java software programming,Hard,Scala: Java software programming: Web programming
+JAVA:764,Scale Out,JAVA:947,concept,related,Java software programming,Hard,Scale Out: Java software programming: Web programming
+JAVA:765,Scale Up,JAVA:947,concept,related,Java software programming,Hard,Scale Up: Java software programming: Web programming
+JAVA:766,Scheduled Thread Pool,JAVA:910,concept,subconcept of,Java software programming,Hard,Scheduled Thread Pool: Java software programming: Web programming
+JAVA:767,Schema Generator,JAVA:459,concept,related,Java software programming,Hard,Schema Generator: Java software programming: Web programming
+JAVA:768,Schema Generator,JAVA:986,concept,related,Java software programming,Hard,Schema Generator: Java software programming: Web programming
+JAVA:769,Schemagen,JAVA:966,concept,subconcept of,Java software programming,Hard,Schemagen: Java software programming: Web programming
+JAVA:770,Schemagen,JAVA:767,concept,same as,Java software programming,Hard,Schemagen: Java software programming: Web programming
+JAVA:772,Scheme,JAVA:280,concept,subconcept of,Java software programming,Hard,Scheme: Java software programming: Web programming
+JAVA:773,SCM,JAVA:557,concept,subconcept of,Java software programming,Hard,SCM: Java software programming: Web programming
+JAVA:774,Scrum,JAVA:11,concept,subconcept of,Java software programming,Hard,Scrum: Java software programming: Web programming
+JAVA:775,SDLC,JAVA:828,concept,subconcept of,Java software programming,Hard,SDLC: Java software programming: Web programming
+JAVA:776,Search,JAVA:618,concept,subconcept of,Java software programming,Hard,Search: Java software programming: Web programming
+JAVA:777,Search Algorithms,JAVA:776,concept,subconcept of,Java software programming,Hard,Search Algorithms: Java software programming: Web programming
+JAVA:778,Security,JAVA:957,concept,subconcept of,Java software programming,Hard,Security: Java software programming: Web programming
+JAVA:779,Security Certificate,JAVA:517,concept,related,Java software programming,Hard,Security Certificate: Java software programming: Web programming
+JAVA:780,Select,JAVA:842,concept,subconcept of,Java software programming,Hard,Select: Java software programming: Web programming
+JAVA:781,Selection Sort,JAVA:832,concept,subconcept of,Java software programming,Hard,Selection Sort: Java software programming: Web programming
+JAVA:782,Self Balancing Binary Search Tree,JAVA:83,concept,subconcept of,Java software programming,Hard,Self Balancing Binary Search Tree: Java software programming: Web programming
+JAVA:783,Self Service Provisioning,JAVA:127,concept,subconcept of,Java software programming,Hard,Self Service Provisioning: Java software programming: Web programming
+JAVA:784,Semaphore,JAVA:875,concept,subconcept of,Java software programming,Hard,Semaphore: Java software programming: Web programming
+JAVA:785,Sender,JAVA:708,concept,subconcept of,Java software programming,Hard,Sender: Java software programming: Web programming
+JAVA:786,Sequence Diagram,JAVA:402,concept,subconcept of,Java software programming,Hard,Sequence Diagram: Java software programming: Web programming
+JAVA:788,Sequences,JAVA:624,concept,same as,Java software programming,Hard,Sequences: Java software programming: Web programming
+JAVA:789,Serial GC,JAVA:283,concept,subconcept of,Java software programming,Hard,Serial GC: Java software programming: Web programming
+JAVA:790,Serializable,JAVA:729,concept,subconcept of,Java software programming,Hard,Serializable: Java software programming: Web programming
+JAVA:791,Serialization,JAVA:794,concept,related,Java software programming,Hard,Serialization: Java software programming: Web programming
+JAVA:792,Serialver,JAVA:794,concept,related,Java software programming,Hard,Serialver: Java software programming: Web programming
+JAVA:793,Serialver,JAVA:740,concept,subconcept of,Java software programming,Hard,Serialver: Java software programming: Web programming
+JAVA:794,SerialVersionUID,JAVA:790,concept,related,Java software programming,Hard,SerialVersionUID: Java software programming: Web programming
+JAVA:795,servertool,JAVA:619,concept,related,Java software programming,Hard,servertool: Java software programming: Web programming
+JAVA:796,servertool,JAVA:740,concept,subconcept of,Java software programming,Hard,servertool: Java software programming: Web programming
+JAVA:797,servertool,JAVA:377,concept,related,Java software programming,Hard,servertool: Java software programming: Web programming
+JAVA:798,Servlet,JAVA:369,concept,subconcept of,Java software programming,Hard,Servlet: Java software programming: Web programming
+JAVA:799,Servlet,JAVA:958,concept,subconcept of,Java software programming,Hard,Servlet: Java software programming: Web programming
+JAVA:800,Servlet Container,JAVA:163,concept,subconcept of,Java software programming,Hard,Servlet Container: Java software programming: Web programming
+JAVA:801,Session Beans,JAVA:240,concept,subconcept of,Java software programming,Hard,Session Beans: Java software programming: Web programming
+JAVA:803,Session Facade Design Pattern,JAVA:853,concept,related,Java software programming,Hard,Session Facade Design Pattern: Java software programming: Web programming
+JAVA:804,Session Facade Design Pattern,JAVA:854,concept,related,Java software programming,Hard,Session Facade Design Pattern: Java software programming: Web programming
+JAVA:808,Set,JAVA:937,concept,subconcept of,Java software programming,Hard,Set: Java software programming: Web programming
+JAVA:810,Shared Memory,JAVA:568,concept,related,Java software programming,Hard,Shared Memory: Java software programming: Web programming
+JAVA:813,Simplicity,JAVA:211,concept,subconcept of,Java software programming,Hard,Simplicity: Java software programming: Web programming
+JAVA:814,Single Dimensional Array,JAVA:54,concept,subconcept of,Java software programming,Medium,Single Dimensional Array: Java software programming: Web programming
+JAVA:815,Single Responsibility,JAVA:830,concept,subconcept of,Java software programming,Medium,Single Responsibility: Java software programming: Web programming
+JAVA:817,Single Thread Executor,JAVA:910,concept,subconcept of,Java software programming,Medium,Single Thread Executor: Java software programming: Web programming
+JAVA:818,Singleton,JAVA:212,concept,subconcept of,Java software programming,Medium,Singleton: Java software programming: Web programming
+JAVA:821,Skeleton Class,JAVA:741,concept,related,Java software programming,Medium,Skeleton Class: Java software programming: Web programming
+JAVA:823,SOA,JAVA:53,concept,subconcept of,Java software programming,Medium,SOA: Java software programming: Web programming
+JAVA:824,SOAP,JAVA:967,concept,subconcept of,Java software programming,Medium,SOAP: Java software programming: Web programming
+JAVA:825,Soft Reference,JAVA:719,concept,subconcept of,Java software programming,Medium,Soft Reference: Java software programming: Web programming
+JAVA:826,Software Bug,JAVA:829,concept,subconcept of,Java software programming,Medium,Software Bug: Java software programming: Web programming
+JAVA:827,Software Development,JAVA:828,concept,subconcept of,Java software programming,Medium,Software Development: Java software programming: Web programming
+JAVA:828,Software Engineering,JAVA:993,concept,subconcept of,Java software programming,Medium,Software Engineering: Java software programming: Web programming
+JAVA:829,Software Testing,JAVA:993,concept,subconcept of,Java software programming,Medium,Software Testing: Java software programming: Web programming
+JAVA:830,SOLID Principle,JAVA:213,concept,subconcept of,Java software programming,Medium,SOLID Principle: Java software programming: Web programming
+JAVA:831,Sort,JAVA:618,concept,subconcept of,Java software programming,Medium,Sort: Java software programming: Web programming
+JAVA:832,Sort Algorithms,JAVA:831,concept,subconcept of,Java software programming,Medium,Sort Algorithms: Java software programming: Web programming
+JAVA:833,Sorted Set,JAVA:808,concept,subconcept of,Java software programming,Medium,Sorted Set: Java software programming: Web programming
+JAVA:834,Specification,JAVA:415,concept,subconcept of,Java software programming,Medium,Specification: Java software programming: Web programming
+JAVA:835,Spring Batch,JAVA:836,concept,subconcept of,Java software programming,Medium,Spring Batch: Java software programming: Web programming
+JAVA:836,Spring Framework,JAVA:199,concept,related,Java software programming,Medium,Spring Framework: Java software programming: Web programming
+JAVA:837,Spring Framework,JAVA:993,concept,subconcept of,Java software programming,Medium,Spring Framework: Java software programming: Web programming
+JAVA:838,Spring Framework,JAVA:56,concept,related,Java software programming,Medium,Spring Framework: Java software programming: Web programming
+JAVA:839,Spring JDBC Template,JAVA:836,concept,subconcept of,Java software programming,Medium,Spring JDBC Template: Java software programming: Web programming
+JAVA:840,Spring MVC,JAVA:836,concept,subconcept of,Java software programming,Medium,Spring MVC: Java software programming: Web programming
+JAVA:841,SQL,JAVA:185,concept,subconcept of,Java software programming,Medium,SQL: Java software programming: Web programming
+JAVA:842,SQL Query,JAVA:841,concept,subconcept of,Java software programming,Medium,SQL Query: Java software programming: Web programming
+JAVA:843,Stable Abstraction,JAVA:634,concept,subconcept of,Java software programming,Medium,Stable Abstraction: Java software programming: Web programming
+JAVA:844,Stable Dependency,JAVA:634,concept,subconcept of,Java software programming,Medium,Stable Dependency: Java software programming: Web programming
+JAVA:845,Stack,JAVA:624,concept,subconcept of,Java software programming,Medium,Stack: Java software programming: Web programming
+JAVA:846,Stack,JAVA:566,concept,subconcept of,Java software programming,Medium,Stack: Java software programming: Web programming
+JAVA:847,Stack Trace,JAVA:496,concept,related,Java software programming,Medium,Stack Trace: Java software programming: Web programming
+JAVA:848,StackOverflowError,JAVA:845,concept,related,Java software programming,Medium,StackOverflowError: Java software programming: Web programming
+JAVA:849,Stamp Coupling,JAVA:542,concept,subconcept of,Java software programming,Medium,Stamp Coupling: Java software programming: Web programming
+JAVA:851,Starvation,JAVA:170,concept,subconcept of,Java software programming,Medium,Starvation: Java software programming: Web programming
+JAVA:852,State,JAVA:386,concept,related,Java software programming,Medium,State: Java software programming: Web programming
+JAVA:853,Stateful Session Beans,JAVA:801,concept,subconcept of,Java software programming,Medium,Stateful Session Beans: Java software programming: Web programming
+JAVA:854,Stateless Session Beans,JAVA:801,concept,subconcept of,Java software programming,Medium,Stateless Session Beans: Java software programming: Web programming
+JAVA:855,Statemachine Diagram,JAVA:78,concept,subconcept of,Java software programming,Medium,Statemachine Diagram: Java software programming: Web programming
+JAVA:856,Static,JAVA:581,concept,subconcept of,Java software programming,Medium,Static: Java software programming: Web programming
+JAVA:857,Static Collection,JAVA:54,concept,related,Java software programming,Medium,Static Collection: Java software programming: Web programming
+JAVA:858,Static Collection,JAVA:532,concept,related,Java software programming,Medium,Static Collection: Java software programming: Web programming
+JAVA:859,Structural Diagram,JAVA:932,concept,subconcept of,Java software programming,Medium,Structural Diagram: Java software programming: Web programming
+JAVA:860,Stubs,JAVA:741,concept,subconcept of,Java software programming,Medium,Stubs: Java software programming: Web programming
+JAVA:861,Subclass,JAVA:284,concept,subconcept of,Java software programming,Medium,Subclass: Java software programming: Web programming
+JAVA:863,Subscriber,JAVA:917,concept,subconcept of,Java software programming,Medium,Subscriber: Java software programming: Web programming
+JAVA:866,Superclass,JAVA:284,concept,subconcept of,Java software programming,Medium,Superclass: Java software programming: Web programming
+JAVA:868,Survivor Generation,JAVA:286,concept,subconcept of,Java software programming,Medium,Survivor Generation: Java software programming: Web programming
+JAVA:869,SVN,JAVA:944,concept,subconcept of,Java software programming,Medium,SVN: Java software programming: Web programming
+JAVA:875,Synchronization,JAVA:591,concept,subconcept of,Java software programming,Medium,Synchronization: Java software programming: Web programming
+JAVA:876,Synchronized,JAVA:333,concept,related,Java software programming,Medium,Synchronized: Java software programming: Web programming
+JAVA:877,Synchronized,JAVA:943,concept,related,Java software programming,Medium,Synchronized: Java software programming: Web programming
+JAVA:882,Task Queue,JAVA:910,concept,subconcept of,Java software programming,Medium,Task Queue: Java software programming: Web programming
+JAVA:884,Tcl,JAVA:681,concept,subconcept of,Java software programming,Medium,Tcl: Java software programming: Web programming
+JAVA:885,Tenured Generation,JAVA:286,concept,subconcept of,Java software programming,Medium,Tenured Generation: Java software programming: Web programming
+JAVA:886,Terminated,JAVA:907,concept,subconcept of,Java software programming,Medium,Terminated: Java software programming: Web programming
+JAVA:888,Test Case,JAVA:898,concept,subconcept of,Java software programming,Medium,Test Case: Java software programming: Web programming
+JAVA:889,Test Case Setup,JAVA:504,concept,subconcept of,Java software programming,Medium,Test Case Setup: Java software programming: Web programming
+JAVA:890,Test Case TearDown,JAVA:504,concept,subconcept of,Java software programming,Medium,Test Case TearDown: Java software programming: Web programming
+JAVA:892,Test Driven Development,JAVA:935,concept,subconcept of,Java software programming,Medium,Test Driven Development: Java software programming: Web programming
+JAVA:893,Test Driven Development,JAVA:79,concept,subconcept of,Java software programming,Medium,Test Driven Development: Java software programming: Web programming
+JAVA:894,Test NG,JAVA:935,concept,subconcept of,Java software programming,Medium,Test NG: Java software programming: Web programming
+JAVA:895,Test Plan,JAVA:902,concept,subconcept of,Java software programming,Medium,Test Plan: Java software programming: Web programming
+JAVA:896,Test Result,JAVA:902,concept,subconcept of,Java software programming,Medium,Test Result: Java software programming: Web programming
+JAVA:897,Test Runner,JAVA:504,concept,subconcept of,Java software programming,Medium,Test Runner: Java software programming: Web programming
+JAVA:898,Test Scenario,JAVA:902,concept,subconcept of,Java software programming,Medium,Test Scenario: Java software programming: Web programming
+JAVA:899,Test Suite,JAVA:935,concept,subconcept of,Java software programming,Medium,Test Suite: Java software programming: Web programming
+JAVA:900,Testing,JAVA:827,concept,subconcept of,Java software programming,Medium,Testing: Java software programming: Web programming
+JAVA:901,Testing,JAVA:705,concept,related,Java software programming,Medium,Testing: Java software programming: Web programming
+JAVA:902,Testing Process,JAVA:829,concept,subconcept of,Java software programming,Medium,Testing Process: Java software programming: Web programming
+JAVA:903,Third Generation Language,JAVA:681,concept,subconcept of,Java software programming,Medium,Third Generation Language: Java software programming: Web programming
+JAVA:904,Thread,JAVA:591,concept,subconcept of,Java software programming,Medium,Thread: Java software programming: Web programming
+JAVA:905,Thread,JAVA:525,concept,same as,Java software programming,Medium,Thread: Java software programming: Web programming
+JAVA:906,Thread Dump,JAVA:253,concept,subconcept of,Java software programming,Medium,Thread Dump: Java software programming: Web programming
+JAVA:907,Thread Lifecycle,JAVA:904,concept,subconcept of,Java software programming,Medium,Thread Lifecycle: Java software programming: Web programming
+JAVA:908,Thread Local Storage,JAVA:566,concept,subconcept of,Java software programming,Medium,Thread Local Storage: Java software programming: Web programming
+JAVA:909,Thread Operations,JAVA:904,concept,subconcept of,Java software programming,Medium,Thread Operations: Java software programming: Web programming
+JAVA:910,Thread Pool,JAVA:591,concept,subconcept of,Java software programming,Medium,Thread Pool: Java software programming: Web programming
+JAVA:911,Thread Priority,JAVA:904,concept,subconcept of,Java software programming,Medium,Thread Priority: Java software programming: Web programming
+JAVA:912,Thread Safety,JAVA:943,concept,related,Java software programming,Medium,Thread Safety: Java software programming: Web programming
+JAVA:913,Timed Waiting,JAVA:907,concept,subconcept of,Java software programming,Medium,Timed Waiting: Java software programming: Web programming
+JAVA:914,Timer Task,JAVA:904,concept,subconcept of,Java software programming,Medium,Timer Task: Java software programming: Web programming
+JAVA:915,Timing Diagram,JAVA:402,concept,subconcept of,Java software programming,Medium,Timing Diagram: Java software programming: Web programming
+JAVA:916,Tomcat,JAVA:963,concept,subconcept of,Java software programming,Medium,Tomcat: Java software programming: Web programming
+JAVA:917,Topic,JAVA:475,concept,subconcept of,Java software programming,Medium,Topic: Java software programming: Web programming
+JAVA:918,TopLink,JAVA:625,concept,subconcept of,Java software programming,Medium,TopLink: Java software programming: Web programming
+JAVA:920,Transaction,JAVA:167,concept,related,Java software programming,Medium,Transaction: Java software programming: Web programming
+JAVA:921,Transaction Isolation Level,JAVA:167,concept,related,Java software programming,Medium,Transaction Isolation Level: Java software programming: Web programming
+JAVA:925,Tree Set,JAVA:833,concept,subconcept of,Java software programming,Medium,Tree Set: Java software programming: Web programming
+JAVA:926,Trie,JAVA:777,concept,subconcept of,Java software programming,Medium,Trie: Java software programming: Web programming
+JAVA:927,Troubleshooting Tools,JAVA:467,concept,subconcept of,Java software programming,Medium,Troubleshooting Tools: Java software programming: Web programming
+JAVA:929,Try Catch,JAVA:253,concept,subconcept of,Java software programming,Easy,Try Catch: Java software programming: Web programming
+JAVA:930,Types of Testing,JAVA:829,concept,subconcept of,Java software programming,Easy,Types of Testing: Java software programming: Web programming
+JAVA:931,UML,JAVA:993,concept,subconcept of,Java software programming,Easy,UML: Java software programming: Web programming
+JAVA:932,UML Diagram,JAVA:931,concept,subconcept of,Java software programming,Easy,UML Diagram: Java software programming: Web programming
+JAVA:934,Unit Test Case,JAVA:935,concept,subconcept of,Java software programming,Easy,Unit Test Case: Java software programming: Web programming
+JAVA:935,Unit Testing,JAVA:900,concept,subconcept of,Java software programming,Easy,Unit Testing: Java software programming: Web programming
+JAVA:936,Unit Testing,JAVA:930,concept,subconcept of,Java software programming,Easy,Unit Testing: Java software programming: Web programming
+JAVA:937,Unordered Collection,JAVA:187,concept,subconcept of,Java software programming,Easy,Unordered Collection: Java software programming: Web programming
+JAVA:938,Update,JAVA:842,concept,subconcept of,Java software programming,Easy,Update: Java software programming: Web programming
+JAVA:941,Use Case Diagram,JAVA:78,concept,subconcept of,Java software programming,Easy,Use Case Diagram: Java software programming: Web programming
+JAVA:942,Utility Pricing,JAVA:646,concept,subconcept of,Java software programming,Easy,Utility Pricing: Java software programming: Web programming
+JAVA:943,Vector,JAVA:532,concept,subconcept of,Java software programming,Easy,Vector: Java software programming: Web programming
+JAVA:944,Version Control,JAVA:827,concept,subconcept of,Java software programming,Easy,Version Control: Java software programming: Web programming
+JAVA:945,Vertical Scaling,JAVA:765,concept,subconcept of,Java software programming,Easy,Vertical Scaling: Java software programming: Web programming
+JAVA:946,Virtual Machine,JAVA:506,concept,subconcept of,Java software programming,Easy,Virtual Machine: Java software programming: Web programming
+JAVA:947,Virtualization,JAVA:241,concept,related,Java software programming,Easy,Virtualization: Java software programming: Web programming
+JAVA:948,VMWare,JAVA:372,concept,subconcept of,Java software programming,Easy,VMWare: Java software programming: Web programming
+JAVA:949,Volatile,JAVA:566,concept,subconcept of,Java software programming,Easy,Volatile: Java software programming: Web programming
+JAVA:950,Volatile,JAVA:565,concept,related,Java software programming,Easy,Volatile: Java software programming: Web programming
+JAVA:951,Wait,JAVA:909,concept,subconcept of,Java software programming,Easy,Wait: Java software programming: Web programming
+JAVA:952,Waiting,JAVA:907,concept,subconcept of,Java software programming,Easy,Waiting: Java software programming: Web programming
+JAVA:953,War,JAVA:432,concept,subconcept of,Java software programming,Easy,War: Java software programming: Web programming
+JAVA:954,War,JAVA:205,concept,related,Java software programming,Easy,War: Java software programming: Web programming
+JAVA:955,Waterfall,JAVA:775,concept,subconcept of,Java software programming,Easy,Waterfall: Java software programming: Web programming
+JAVA:956,Weak Reference,JAVA:719,concept,subconcept of,Java software programming,Easy,Weak Reference: Java software programming: Web programming
+JAVA:957,Web App,JAVA:959,concept,subconcept of,Java software programming,Easy,Web App: Java software programming: Web programming
+JAVA:958,Web Application,JAVA:415,concept,subconcept of,Java software programming,Easy,Web Application: Java software programming: Web programming
+JAVA:959,Web Application Development,JAVA:993,concept,subconcept of,Java software programming,Easy,Web Application Development: Java software programming: Web programming
+JAVA:961,Web Container,JAVA:957,concept,related,Java software programming,Easy,Web Container: Java software programming: Web programming
+JAVA:962,Web Container,JAVA:163,concept,subconcept of,Java software programming,Easy,Web Container: Java software programming: Web programming
+JAVA:963,Web Server,JAVA:163,concept,subconcept of,Java software programming,Easy,Web Server: Java software programming: Web programming
+JAVA:964,Web Server,JAVA:957,concept,related,Java software programming,Easy,Web Server: Java software programming: Web programming
+JAVA:965,Web Service,JAVA:958,concept,subconcept of,Java software programming,Easy,Web Service: Java software programming: Web programming
+JAVA:966,Web Service Tools,JAVA:467,concept,subconcept of,Java software programming,Easy,Web Service Tools: Java software programming: Web programming
+JAVA:967,Web Services,JAVA:959,concept,subconcept of,Java software programming,Easy,Web Services: Java software programming: Web programming
+JAVA:968,Weblogic,JAVA:417,concept,subconcept of,Java software programming,Easy,Weblogic: Java software programming: Web programming
+JAVA:969,Websphere,JAVA:417,concept,subconcept of,Java software programming,Easy,Websphere: Java software programming: Web programming
+JAVA:970,White Box Testing,JAVA:930,concept,subconcept of,Java software programming,Easy,White Box Testing: Java software programming: Web programming
+JAVA:971,Whitebox Testing,JAVA:900,concept,subconcept of,Java software programming,Easy,Whitebox Testing: Java software programming: Web programming
+JAVA:972,Windows Azure,JAVA:631,concept,subconcept of,Java software programming,Easy,Windows Azure: Java software programming: Web programming
+JAVA:975,WSDL,JAVA:967,concept,subconcept of,Java software programming,Easy,WSDL: Java software programming: Web programming
+JAVA:976,WSDL Generator,JAVA:458,concept,related,Java software programming,Easy,WSDL Generator: Java software programming: Web programming
+JAVA:977,Wsgen,JAVA:966,concept,subconcept of,Java software programming,Easy,Wsgen: Java software programming: Web programming
+JAVA:978,Wsgen,JAVA:976,concept,same as,Java software programming,Easy,Wsgen: Java software programming: Web programming
+JAVA:979,Wsimport,JAVA:458,concept,related,Java software programming,Easy,Wsimport: Java software programming: Web programming
+JAVA:980,Wsimport,JAVA:966,concept,subconcept of,Java software programming,Easy,Wsimport: Java software programming: Web programming
+JAVA:981,Xjc,JAVA:966,concept,subconcept of,Java software programming,Easy,Xjc: Java software programming: Web programming
+JAVA:982,XML,JAVA:681,concept,subconcept of,Java software programming,Easy,XML: Java software programming: Web programming
+JAVA:983,XML Binding,JAVA:981,concept,related,Java software programming,Easy,XML Binding: Java software programming: Web programming
+JAVA:984,XML Schema,JAVA:982,concept,subconcept of,Java software programming,Easy,XML Schema: Java software programming: Web programming
+JAVA:985,XPath,JAVA:984,concept,subconcept of,Java software programming,Easy,XPath: Java software programming: Web programming
+JAVA:986,XSD,JAVA:984,concept,subconcept of,Java software programming,Easy,XSD: Java software programming: Web programming
+JAVA:987,XSL,JAVA:984,concept,subconcept of,Java software programming,Easy,XSL: Java software programming: Web programming
+JAVA:988,XSLT,JAVA:984,concept,subconcept of,Java software programming,Easy,XSLT: Java software programming: Web programming
+JAVA:989,Yahoo Mail,JAVA:756,concept,subconcept of,Java software programming,Easy,Yahoo Mail: Java software programming: Web programming
+JAVA:990,Yield,JAVA:909,concept,subconcept of,Java software programming,Easy,Yield: Java software programming: Web programming
+JAVA:991,Young Generation,JAVA:286,concept,subconcept of,Java software programming,Easy,Young Generation: Java software programming: Web programming
+JAVA:992,Zoho,JAVA:756,concept,subconcept of,Java software programming,Easy,Zoho: Java software programming: Web programming
+JAVA:993,Java,JAVA:440,concept,subconcept of,Java software programming,Easy,Java
+JAVA:994,Sets,JAVA:443,concept,subconcept of,Java software programming,Easy,Set in Java. Set is an interface which extends Collection.
+JAVA:995,Lists,JAVA:443,concept,subconcept of,Java software programming,Easy,The Java.util.List is a child interface of Collection.
+JAVA:996,Maps,JAVA:443,concept,subconcept of,Java software programming,Easy,"The Java Map interface, java.util.Map , represents a mapping between a key and a value."
+JAVA:997,LinkedHashSet,JAVA:994,concept,subconcept of,Java software programming,Easy,A LinkedHashSet is an ordered version of HashSet that maintains a doubly-linked List across all elements.
+JAVA:998,SortedSet,JAVA:994,concept,subconcept of,Java software programming,Easy,A sorted set is a set with ordering on its elements. SortedSet interface represents a sorted set in Java Collection Framework.
+JAVA:999,Tree Set,JAVA:994,concept,subconcept of,Java software programming,Easy,"Java TreeSet class is part of Java's collections framework. It implements the NavigableSet interface, which in turn extends the SortedSet interface. "
+JAVA:1000,EnumSet,JAVA:994,concept,subconcept of,Java software programming,Easy,EnumSet is one of the specialized implementation of Set interface for use with the enumeration type. 
+JAVA:1001,HashSet,JAVA:994,concept,subconcept of,Java software programming,Easy,"The HashSet class implements the Set interface, backed by a hash table which is actually a HashMap instance."
+JAVA:1002,Comparable,JAVA:995,concept,subconcept of,Java software programming,Easy,Java Comparable interface. Java Comparable interface is used to order the objects of the user-defined class.
+JAVA:1003,Comparator,JAVA:995,concept,subconcept of,Java software programming,Easy,Comparator Interface in Java with Examples. Comparator interface is used to order the objects of user-defined classes.
+JAVA:1004,Vector,JAVA:995,concept,subconcept of,Java software programming,Easy,Vector implements a dynamic array that means it can grow or shrink as required.
+JAVA:1005,ArrayList,JAVA:995,concept,subconcept of,Java software programming,Easy,ArrayList is a part of collection framework and is present in java.util package. It provides us dynamic arrays in Java.
+JAVA:1006,LinkedList,JAVA:995,concept,subconcept of,Java software programming,Easy,Java LinkedList class uses a doubly linked list to store the elements. It provides a linked-list data structure.
+JAVA:1007,Stack,JAVA:995,concept,subconcept of,Java software programming,Easy,Java Collection framework provides a Stack class which models and implements Stack data structure. 
+JAVA:1008,HashMap,JAVA:996,concept,subconcept of,Java software programming,Easy,Java HashMap is a hash table based implementation of Java's Map interface.
+JAVA:1009,TreeMap,JAVA:996,concept,subconcept of,Java software programming,Easy,The TreeMap in Java is used to implement Map interface and NavigableMap along with the Abstract Class.
+JAVA:1010,LinkedHashMap,JAVA:996,concept,subconcept of,Java software programming,Easy,A LinkedHashMap contains values based on the key. It contains only unique elements
+JAVA:1011,hashtable,JAVA:996,concept,subconcept of,Java software programming,Easy,"Hashtable in Java. This class implements a hash table, which maps keys to values. Any non-null object can be used as a key or as a value."
+JAVA:1012,EnumMap,JAVA:996,concept,subconcept of,Java software programming,Easy, EnumMap class is a member of the Java Collections Framework & is not synchronized.
+JAVA:1013,IdentityHashMap,JAVA:996,concept,subconcept of,Java software programming,Easy," IdentityHashMap implements Map, Serializable and Clonable interfaces and extends AbstractMap class."
+JAVA:1014,WeakHashMap,JAVA:996,concept,subconcept of,Java software programming,Easy,WeakHashMap is an implementation of the Map interface that stores only weak references to its keys.
+JAVA:1015,NavigableMap,JAVA:996,concept,subconcept of,Java software programming,Easy,"NavigableMap is an extension of SortedMap which provides convenient navigation method like lowerKey, floorKey, ceilingKey and higherKey"
+JAVA:1016,Language Basics,JAVA:993,concept,subconcept of,Java software programming,Easy,"Java is a case-sensitive programming language, like C++. Java is an Object Oriented Programming (OOP) structure."
+JAVA:1017,Arrays,JAVA:1016,concept,subconcept of,Java software programming,Easy,An array is a group of like-typed variables that are referred to by a common name.
+JAVA:1018,DataTypes,JAVA:1016,concept,subconcept of,Java software programming,Easy,Data types specify the different sizes and values that can be stored in the variable.
+JAVA:1019,Operators,JAVA:1016,concept,subconcept of,Java software programming,Easy, Operators are used to perform operations on variables and values. 
+JAVA:1020,Loops,JAVA:1016,concept,subconcept of,Java software programming,Easy,Loop is used in programming to repeat a specific block of code.
+JAVA:1021,Conditional Statements,JAVA:1016,concept,subconcept of,Java software programming,Easy,"Java, like all other programming languages, is equipped with specific statements that allow us to check a condition and execute certain parts of code depending on whether the condition is true or false. Such statements are called conditional, and are a form of composite statement."
+JAVA:1022,Single Dimensional,JAVA:1017,concept,subconcept of,Java software programming,Easy,"A one-dimensional array is, essentially, a list of like-typed variables."
+JAVA:1023,Multi Dimensional,JAVA:1017,concept,subconcept of,Java software programming,Easy,Java Multidimensional Arrays can be defined in simple words as array of arrays. 
+JAVA:1024,Boolean,JAVA:1018,concept,subconcept of,Java software programming,Easy,Java provides a wrapper class Boolean in java.lang package. The Boolean class wraps a value of the primitive type boolean in an object.
+JAVA:1025,Interger,JAVA:1018,concept,subconcept of,Java software programming,Easy,"An integer is a whole number � that is, a number with no fractional or decimal portion. "
+JAVA:1026,Floating Points,JAVA:1018,concept,subconcept of,Java software programming,Easy,Floating-point numbers are numbers that have fractional parts
+JAVA:1027,Char,JAVA:1018,concept,subconcept of,Java software programming,Easy,char is a primitive type that represents a single 16 bit Unicode
+JAVA:1028,String,JAVA:1018,concept,subconcept of,Java software programming,Easy,String is immutable object which means that it cannot be changed once it is created.
+JAVA:1029,Bitwise,JAVA:1019,concept,subconcept of,Java software programming,Easy,Bitwise operators are used to perform manipulation of individual bits of a number.
+JAVA:1030,Relational,JAVA:1019,concept,subconcept of,Java software programming,Easy,Relational operators also known as comparison operators are used to check the relation between two operands.
+JAVA:1031,Arithmetic,JAVA:1019,concept,subconcept of,Java software programming,Easy,The Java programming language supports various arithmetic operators for all floating-point and integer numbers.
+JAVA:1032,Assignment,JAVA:1019,concept,subconcept of,Java software programming,Easy,Assignment operators are used in Java to assign values to variables.
+JAVA:1033,Unary,JAVA:1019,concept,subconcept of,Java software programming,Easy,The unary operators require only one operand
+JAVA:1034,Equality,JAVA:1019,concept,subconcept of,Java software programming,Easy,Equality operators in java
+JAVA:1035,Conditional,JAVA:1019,concept,subconcept of,Java software programming,Easy,"The Java Conditional Operator selects one of two expressions for evaluation, which is based on the value of the first operands."
+JAVA:1036,Bit Shift,JAVA:1019,concept,subconcept of,Java software programming,Easy,Bitwise right shift operator in Java. Java supports two type of right shift operator. The>> operator is a signed right shift operator and >>> is an unsigned right shift operator.
+JAVA:1037,For Loop,JAVA:1020,concept,subconcept of,Java software programming,Easy,The for loop loops through a block of code a number of times.
+JAVA:1038,Do While,JAVA:1020,concept,subconcept of,Java software programming,Easy,Java do while loop is used to execute a block of statements continuously until the given condition is true. 
+JAVA:1039,Enhanced For Loop,JAVA:1020,concept,subconcept of,Java software programming,Easy,The so-called enhanced for loop is a simpler way to do this same thing.
+JAVA:1040,While,JAVA:1020,concept,subconcept of,Java software programming,Easy,The while and do-while Statements. The while statement continually executes a block of statements while a particular condition is true .
+JAVA:1041,If-else Statement,JAVA:1021,concept,subconcept of,Java software programming,Easy,Java if...else (if-then-else) Statement. The if statement executes a certain section of code if the test expression is evaluated to true.
+JAVA:1042,If Statement,JAVA:1021,concept,subconcept of,Java software programming,Easy,If statement is the most simple decision making statement. 
+JAVA:1043,Switch Statement,JAVA:1021,concept,subconcept of,Java software programming,Easy,The switch statement is a multi-way branch statement.
+JAVA:1044,Nested Ifs,JAVA:1021,concept,subconcept of,Java software programming,Easy,A nested if is an if statement that is the target of another if or else. 
+JAVA:1045,For Statement,JAVA:1021,concept,subconcept of,Java software programming,Easy,The Java for loop is a control flow statement that iterates a part of the programs multiple times.

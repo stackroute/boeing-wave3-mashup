@@ -1,0 +1,38 @@
+.tile1{
+  height: 100%;
+  width: 80%;
+}
+
+.card {
+  width: 100%;
+  padding: 5%;
+  
+}
+.tile2{
+  height: 100%;
+  width: 50%;
+  margin-left: 50px;
+}
+.box{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: stretch;
+  width: 60%;
+}
+.box>*:first-child {
+  align-self: stretch;
+}
+.profileimage{
+  padding: 2vh 2vh 0vh 2vh;
+}
+
+.card[_ngcontent-c4] {
+  width: 100%;
+  padding: 5%;
+  font-size: 15px;
+}
+.button-update-profile{
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
