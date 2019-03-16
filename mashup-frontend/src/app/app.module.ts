@@ -80,6 +80,7 @@ import { ScoreandbadgeComponent } from './_components/scoreandbadge/scoreandbadg
 import { LandingComponent } from './_components/landing/landing.component';
 import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
+import { MatdialogComponent } from './_components/matdialog/matdialog.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -139,6 +140,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     SearchserviceComponent,
     EditaudioComponent,
     SearchdisplayComponent,
+    MatdialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -209,6 +211,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     httpInterceptorProviders,
     UserprofileServiceService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MatdialogComponent]
 })
 export class AppModule { }

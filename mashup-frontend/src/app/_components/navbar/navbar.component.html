@@ -14,7 +14,7 @@
             <button mat-raised-button color="white" href="" (click)="logout()">Logout</button>
             </div>
         </div>
-        <app-searchservice class="searc" [routerLink]="['/searchdisplay']"></app-searchservice>
+        <app-searchservice class="searc"></app-searchservice>
         <span class="fill-remaining-space"></span> 
        
         <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
@@ -47,7 +47,7 @@
                 <button *ngIf="!authority" mat-raised-button color="white"  [routerLink]="['/auth/login']">Login/Signup</button>
                 </div>
               </div>
-              <app-searchservice class="searc" [routerLink]="['/searchdisplay']"></app-searchservice>
+              <app-searchservice class="searc"></app-searchservice>
                 <span class="fill-remaining-space"></span>
               
             <button mat-icon-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>

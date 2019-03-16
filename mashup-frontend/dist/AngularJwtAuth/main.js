@@ -189,6 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _autocomplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./autocomplete */ "./src/app/_components/edit/autocomplete.ts");
 /* harmony import */ var _services_token_storage_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/token-storage.service */ "./src/app/services/token-storage.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_dialog_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/dialog.service */ "./src/app/services/dialog.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -205,11 +206,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var EditComponent = /** @class */ (function () {
-    function EditComponent(quesservice, _route, token) {
+    function EditComponent(quesservice, _route, token, dialogService, router) {
         this.quesservice = quesservice;
         this._route = _route;
         this.token = token;
+        this.dialogService = dialogService;
+        this.router = router;
         this.serverUrl = 'http://13.234.74.67:8025/gkz-stomp-endpoint';
         // title='WebSockets demo';
         // wesocket
@@ -340,10 +344,17 @@ var EditComponent = /** @class */ (function () {
         this.flag = true;
     };
     EditComponent.prototype.sendDataToSubmissionService = function () {
-        this.quesservice.sendDatatoSubmission({ 'code': this.code, 'username': this.uname, 'questionId': this.questionId,
-            'questionTitle': this.questionTitle, result: this.result,
-            'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
-            'difficulty': this.difficulty });
+        var _this = this;
+        this.dialogService.openConfirmDialog("Are you sure ?")
+            .afterClosed().subscribe(function (res) {
+            if (res) {
+                _this.quesservice.sendDatatoSubmission({ 'code': _this.code, 'username': _this.uname, 'questionId': _this.questionId,
+                    'questionTitle': _this.questionTitle, result: _this.result,
+                    'testCasePassed': _this.testpass, 'totalTestCases': _this.totaltest,
+                    'difficulty': _this.difficulty });
+                _this.router.navigate(['']);
+            }
+        });
     };
     EditComponent.prototype.showGreeting = function (message) {
         this.flag2 = true;
@@ -376,7 +387,7 @@ var EditComponent = /** @class */ (function () {
             styleUrls: [],
             template: __webpack_require__(/*! ./edit.component.html */ "./src/app/_components/edit/edit.component.html")
         }),
-        __metadata("design:paramtypes", [_services_questio_exe_engine_service__WEBPACK_IMPORTED_MODULE_1__["QuestioExeEngineService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _services_token_storage_service__WEBPACK_IMPORTED_MODULE_5__["TokenStorageService"]])
+        __metadata("design:paramtypes", [_services_questio_exe_engine_service__WEBPACK_IMPORTED_MODULE_1__["QuestioExeEngineService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _services_token_storage_service__WEBPACK_IMPORTED_MODULE_5__["TokenStorageService"], src_app_services_dialog_service__WEBPACK_IMPORTED_MODULE_7__["DialogService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])
     ], EditComponent);
     return EditComponent;
 }());
@@ -946,6 +957,80 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/_components/matdialog/matdialog.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/_components/matdialog/matdialog.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#close-icon{\n    float: right;\n}\n.content-span{\n    font-size: 1.8rem;\n}"
+
+/***/ }),
+
+/***/ "./src/app/_components/matdialog/matdialog.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/_components/matdialog/matdialog.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div mat-dialog-content>\n    <mat-icon id=\"close-icon\" (click)=\"closeDialog()\">close</mat-icon>\n    <p><span class=\"content-span full-width\">{{data.message}}</span></p>\n  </div>\n  <div mat-dialog-actions>\n    <button mat-flat-button id=\"no-button\" [mat-dialog-close]=\"false\">NO</button>\n    <button mat-flat-button id=\"yes-button\" [mat-dialog-close]=\"true\">YES</button>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/_components/matdialog/matdialog.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/_components/matdialog/matdialog.component.ts ***!
+  \**************************************************************/
+/*! exports provided: MatdialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatdialogComponent", function() { return MatdialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var MatdialogComponent = /** @class */ (function () {
+    function MatdialogComponent(data, dialogRef) {
+        this.data = data;
+        this.dialogRef = dialogRef;
+    }
+    MatdialogComponent.prototype.ngOnInit = function () {
+    };
+    MatdialogComponent.prototype.closeDialog = function () {
+        this.dialogRef.close(false);
+    };
+    MatdialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-matdialog',
+            template: __webpack_require__(/*! ./matdialog.component.html */ "./src/app/_components/matdialog/matdialog.component.html"),
+            styles: [__webpack_require__(/*! ./matdialog.component.css */ "./src/app/_components/matdialog/matdialog.component.css")]
+        }),
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [Object, _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"]])
+    ], MatdialogComponent);
+    return MatdialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/_components/navbar/navbar.component.css":
 /*!*********************************************************!*\
   !*** ./src/app/_components/navbar/navbar.component.css ***!
@@ -964,7 +1049,7 @@ module.exports = ".fill-remaining-space {\n    /*This fills the remaining space,
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"info.token; else loggedOut\">\n    <mat-toolbar color=\"primary\">\n        <button mat-button routerLink=\"/\">\n            <mat-icon><a href=\"#\">\n                <img id=\"logoimage\" alt=\"fire logo\" src=\"/assets/fire.png\" class=\"logo\">\n                 </a></mat-icon> \n        </button>\n        <!-- <span class=\"fill-remaining-space\"></span> -->\n        <div fxLayout=\"row\" fxHide fxShow.gt-sm>\n            <button mat-button [routerLink]=\"['/post', info.username]\">Post Question</button>\n            <button mat-button routerLink=\"/editaudio\">Learn Coding</button>\n            <button mat-button routerLink=\"/userprofile\">Profile</button>\n            <div  class=\"close\">\n            <button mat-raised-button color=\"white\" href=\"\" (click)=\"logout()\">Logout</button>\n            </div>\n        </div>\n        <app-searchservice class=\"searc\" [routerLink]=\"['/searchdisplay']\"></app-searchservice>\n        <span class=\"fill-remaining-space\"></span> \n       \n        <button mat-button [mat-menu-trigger-for]=\"menu\" fxShow fxHide.gt-sm>\n         <mat-icon>menu</mat-icon>\n        </button>\n       \n    </mat-toolbar>\n    <mat-menu x-position=\"before\" #menu>\n        <button mat-menu-item [routerLink]=\"['/post', info.username]\">Post Question</button>\n        <button mat-menu-item routerLink=\"/editaudio\">Learn Coding</button>\n        <button mat-menu-item routerLink=\"/userprofile\">Profile</button>\n        <button mat-menu-item href=\"\" (click)=\"logout()\">Logout</button>\n    </mat-menu>\n    </div>\n    <ng-template #loggedOut>\n        <mat-toolbar color=\"primary\">\n            <button mat-button routerLink=\"/\">\n                <mat-icon><a href=\"#\">\n                    <img id=\"logoimage\" alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\">\n                     </a></mat-icon> \n            </button>\n        \n            <!-- <span class=\"fill-remaining-space\"></span> -->\n        \n            <div fxLayout=\"row\" fxHide fxShow.gt-sm>            \n                <button mat-button [routerLink]=\"['/fetch']\">Practice</button>\n                <button mat-button [routerLink]=\"['/editaudio']\">Learn Coding</button>\n                <button mat-button><a href=\"#contact\">Contact Us</a></button>\n                <div class=\"close\">\n                <button *ngIf=\"!authority\" mat-raised-button color=\"white\"  [routerLink]=\"['/auth/login']\">Login/Signup</button>\n                </div>\n              </div>\n              <app-searchservice class=\"searc\" [routerLink]=\"['/searchdisplay']\"></app-searchservice>\n                <span class=\"fill-remaining-space\"></span>\n              \n            <button mat-icon-button [mat-menu-trigger-for]=\"menu\" fxShow fxHide.gt-sm>\n             <mat-icon>menu</mat-icon>\n            </button>\n        \n        </mat-toolbar>\n        <mat-menu x-position=\"before\" #menu>        \n            <button mat-menu-item [routerLink]=\"['/fetch']\">Practice</button>\n            <button mat-menu-item [routerLink]=\"['/editaudio']\">Learn Coding</button>\n            <button mat-button><a href=\"#contact\">Contact Us</a></button>\n            <button *ngIf=\"!authority\" mat-menu-item [routerLink]=\"['/auth/login']\">Login/Signup</button>\n          </mat-menu>\n    </ng-template>"
+module.exports = "<div *ngIf=\"info.token; else loggedOut\">\n    <mat-toolbar color=\"primary\">\n        <button mat-button routerLink=\"/\">\n            <mat-icon><a href=\"#\">\n                <img id=\"logoimage\" alt=\"fire logo\" src=\"/assets/fire.png\" class=\"logo\">\n                 </a></mat-icon> \n        </button>\n        <!-- <span class=\"fill-remaining-space\"></span> -->\n        <div fxLayout=\"row\" fxHide fxShow.gt-sm>\n            <button mat-button [routerLink]=\"['/post', info.username]\">Post Question</button>\n            <button mat-button routerLink=\"/editaudio\">Learn Coding</button>\n            <button mat-button routerLink=\"/userprofile\">Profile</button>\n            <div  class=\"close\">\n            <button mat-raised-button color=\"white\" href=\"\" (click)=\"logout()\">Logout</button>\n            </div>\n        </div>\n        <app-searchservice class=\"searc\"></app-searchservice>\n        <span class=\"fill-remaining-space\"></span> \n       \n        <button mat-button [mat-menu-trigger-for]=\"menu\" fxShow fxHide.gt-sm>\n         <mat-icon>menu</mat-icon>\n        </button>\n       \n    </mat-toolbar>\n    <mat-menu x-position=\"before\" #menu>\n        <button mat-menu-item [routerLink]=\"['/post', info.username]\">Post Question</button>\n        <button mat-menu-item routerLink=\"/editaudio\">Learn Coding</button>\n        <button mat-menu-item routerLink=\"/userprofile\">Profile</button>\n        <button mat-menu-item href=\"\" (click)=\"logout()\">Logout</button>\n    </mat-menu>\n    </div>\n    <ng-template #loggedOut>\n        <mat-toolbar color=\"primary\">\n            <button mat-button routerLink=\"/\">\n                <mat-icon><a href=\"#\">\n                    <img id=\"logoimage\" alt=\"Bell Logo\" src=\"/assets/fire.png\" class=\"logo\">\n                     </a></mat-icon> \n            </button>\n        \n            <!-- <span class=\"fill-remaining-space\"></span> -->\n        \n            <div fxLayout=\"row\" fxHide fxShow.gt-sm>            \n                <button mat-button [routerLink]=\"['/fetch']\">Practice</button>\n                <button mat-button [routerLink]=\"['/editaudio']\">Learn Coding</button>\n                <button mat-button><a href=\"#contact\">Contact Us</a></button>\n                <div class=\"close\">\n                <button *ngIf=\"!authority\" mat-raised-button color=\"white\"  [routerLink]=\"['/auth/login']\">Login/Signup</button>\n                </div>\n              </div>\n              <app-searchservice class=\"searc\"></app-searchservice>\n                <span class=\"fill-remaining-space\"></span>\n              \n            <button mat-icon-button [mat-menu-trigger-for]=\"menu\" fxShow fxHide.gt-sm>\n             <mat-icon>menu</mat-icon>\n            </button>\n        \n        </mat-toolbar>\n        <mat-menu x-position=\"before\" #menu>        \n            <button mat-menu-item [routerLink]=\"['/fetch']\">Practice</button>\n            <button mat-menu-item [routerLink]=\"['/editaudio']\">Learn Coding</button>\n            <button mat-button><a href=\"#contact\">Contact Us</a></button>\n            <button *ngIf=\"!authority\" mat-menu-item [routerLink]=\"['/auth/login']\">Login/Signup</button>\n          </mat-menu>\n    </ng-template>"
 
 /***/ }),
 
@@ -1111,7 +1196,7 @@ var RecommendComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"fixed-top\">\n  <app-navbar></app-navbar>\n</nav>\n<br>\n<br> \n<br>\n<br> \n<br>\n<div id=\"maindiv\" class=\"container\">\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-3\">\n  </div>\n  <div class=\"col-lg-6\" style=\"font-size:1.6rem\">\n    <mat-horizontal-stepper labelPosition=\"bottom\" #stepper>\n      <mat-step [stepControl]=\"firstFormGroup\">\n        <form [formGroup]=\"firstFormGroup\">\n          <ng-template matStepLabel style=\"color: pink\">Please provide details</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"First name\" formControlName=\"firstName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Last name\" formControlName=\"lastName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Email Id\" formControlName=\"emailId\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Username\" formControlName=\"username\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"password\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Interests\" formControlName=\"interest\" required>\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step [stepControl]=\"secondFormGroup\" optional>\n        <form [formGroup]=\"secondFormGroup\" (ngSubmit)=\"onSubmit()\">\n          <ng-template matStepLabel>Fill out optional stuffs</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"Gender\" formControlName=\"gender\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Age\" formControlName=\"age\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"College Name\" formControlName=\"college\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Discipline\" formControlName=\"discipline\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Course\" formControlName=\"course\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Current Company\" formControlName=\"company\">\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n  <div class=\"col-lg-3\">\n\n  </div>\n</div>\n</div>\n"
+module.exports = "<nav class=\"fixed-top\">\n  <app-navbar></app-navbar>\n</nav>\n<br>\n<br> \n<br>\n<br> \n<br>\n<div id=\"maindiv\" class=\"container\">\n<div class=\"row col-lg-12\">\n  <div class=\"col-lg-3\">\n  </div>\n  <div class=\"col-lg-6\" style=\"font-size:1.6rem\">\n    <mat-horizontal-stepper labelPosition=\"bottom\" #stepper>\n      <mat-step [stepControl]=\"firstFormGroup\">\n        <form [formGroup]=\"firstFormGroup\">\n          <ng-template matStepLabel style=\"color: pink\">Please provide details</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"First name\" formControlName=\"firstName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Last name\" formControlName=\"lastName\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Email Id\" formControlName=\"emailId\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Username\" formControlName=\"username\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input type=\"password\" matInput placeholder=\"Password\" formControlName=\"password\" required>\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Interests\" formControlName=\"interest\" required>\n          </mat-form-field>\n          <br>\n          <div>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step [stepControl]=\"secondFormGroup\" optional>\n        <form [formGroup]=\"secondFormGroup\" (ngSubmit)=\"onSubmit()\">\n          <ng-template matStepLabel>Fill out optional stuffs</ng-template>\n          <mat-form-field>\n            <input matInput placeholder=\"Gender\" formControlName=\"gender\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Age\" formControlName=\"age\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"College Name\" formControlName=\"college\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Discipline\" formControlName=\"discipline\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Course\" formControlName=\"course\">\n          </mat-form-field>\n          <br>\n          <mat-form-field>\n            <input matInput placeholder=\"Current Company\" formControlName=\"company\">\n          </mat-form-field>\n          <br>\n          <div>\n            <button style=\"margin-right:20px\" mat-raised-button color=\"accent\" matStepperPrevious>Back</button>\n            <button mat-raised-button color=\"primary\" matStepperNext>Next</button>\n          </div>\n        </form>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n  <div class=\"col-lg-3\">\n\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -1404,7 +1489,7 @@ var ScoreandbadgeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  .col-md-4{\n    width: 500px;\n    height: auto;\n    margin-bottom: 20px;\n    background-color: rgb(25, 158, 184)\n  }\n\n  .btn{\n    justify-content: center;\n  }\n\n  .card{\n    margin-top: 20px;\n    margin-bottom: 10px;\n    justify-content: center;\n\n\n  }\n\n  .card-body{\n    height: 300px;\n\n\n  }\n\n  .card-deck{\n    /* background-color: rgb(25, 158, 184) */\n    background-color: rgb(25, 158, 184)\n\n  }\n\n  h2{\n    margin: 40px;\n    text-align: center;\n    color: rgb(25, 158, 184)\n  }\n\n  p{\n    font-size: 15px;\n    text-align: center;\n  }\n\n  h3{\n    text-align: center;\n  }\n\n  button{\n    align-content: center;\n  }\n\n  footer{\n  width: 100%;\n}\n\n"
+module.exports = "  .col-md-4{\n    width: 500px;\n    height: auto;\n    margin-bottom: 20px;\n    background-color: rgb(25, 158, 184)\n  }\n\n  .btn{\n    justify-content: center;\n  }\n\n  .card{\n    margin-top: 20px;\n    margin-bottom: 10px;\n    justify-content: center;\n\n\n  }\n\n  .card-body{\n    height: 300px;\n\n\n  }\n\n  .card-deck{\n    /* background-color: rgb(25, 158, 184) */\n    background-color: rgb(25, 158, 184)\n\n  }\n\n  h2{\n    margin: 40px;\n    text-align: center;\n    color: rgb(25, 158, 184)\n  }\n\n  p{\n    font-size: 15px;\n    text-align: center;\n  }\n\n  h3{\n    text-align: center;\n  }\n\n  button{\n    align-content: center;\n  }\n\n  footer{\n  width: 100%;\n}\n\n  .card-title{\n  height: 140px;\n}\n"
 
 /***/ }),
 
@@ -1523,20 +1608,11 @@ var SearchserviceComponent = /** @class */ (function () {
         this._route = _route;
         this.router = router;
         this.fetchservice = fetchservice;
-        this.timeStart = 0;
     }
     SearchserviceComponent.prototype.ngOnInit = function () {
     };
     SearchserviceComponent.prototype.search = function () {
-        // this.interval = setInterval(() => {
-        //   if ( this.timeStart < 0.5) {
-        //     // clearInterval(this.interval);
-        //     this.timeStart++;
-        //   } else {
         this.router.navigate(['/display', this.tag]);
-        //     clearInterval(this.interval);
-        //   }
-        // }, 1000);    
     };
     SearchserviceComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2283,12 +2359,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_landing_landing_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./_components/landing/landing.component */ "./src/app/_components/landing/landing.component.ts");
 /* harmony import */ var _components_searchservice_searchservice_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./_components/searchservice/searchservice.component */ "./src/app/_components/searchservice/searchservice.component.ts");
 /* harmony import */ var _components_searchdisplay_searchdisplay_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./_components/searchdisplay/searchdisplay.component */ "./src/app/_components/searchdisplay/searchdisplay.component.ts");
+/* harmony import */ var _components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./_components/matdialog/matdialog.component */ "./src/app/_components/matdialog/matdialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2395,6 +2473,7 @@ var AppModule = /** @class */ (function () {
                 _components_searchservice_searchservice_component__WEBPACK_IMPORTED_MODULE_42__["SearchserviceComponent"],
                 _components_editaudio_editaudio_component__WEBPACK_IMPORTED_MODULE_0__["EditaudioComponent"],
                 _components_searchdisplay_searchdisplay_component__WEBPACK_IMPORTED_MODULE_43__["SearchdisplayComponent"],
+                _components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_44__["MatdialogComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
@@ -2465,7 +2544,8 @@ var AppModule = /** @class */ (function () {
                 _components_auth_auth_interceptor__WEBPACK_IMPORTED_MODULE_29__["httpInterceptorProviders"],
                 _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_33__["UserprofileServiceService"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
+            entryComponents: [_components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_44__["MatdialogComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -2658,6 +2738,59 @@ var AuthenticationService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], AuthenticationService);
     return AuthenticationService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/dialog.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/services/dialog.service.ts ***!
+  \********************************************/
+/*! exports provided: DialogService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogService", function() { return DialogService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_components/matdialog/matdialog.component */ "./src/app/_components/matdialog/matdialog.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DialogService = /** @class */ (function () {
+    function DialogService(dialog) {
+        this.dialog = dialog;
+    }
+    DialogService.prototype.openConfirmDialog = function (msg) {
+        return this.dialog.open(_components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_2__["MatdialogComponent"], {
+            width: '400px',
+            height: '150px',
+            panelClass: 'confirm-dialog-container',
+            disableClose: true,
+            data: {
+                message: msg
+            }
+        });
+    };
+    DialogService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+    ], DialogService);
+    return DialogService;
 }());
 
 
