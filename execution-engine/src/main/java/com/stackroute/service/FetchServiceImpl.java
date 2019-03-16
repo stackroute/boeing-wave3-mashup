@@ -84,7 +84,7 @@ public class FetchServiceImpl implements FetchService  {
             System.out.println(line);
         }
         //System.out.println(System.getProperty("user.dir"));
-    System.out.println("its here to call question.sh"+this.getGiturl1()+this.getUsername());
+    //System.out.println("its here to call question.sh"+this.getGiturl1()+this.getUsername());
         String[] cmdScript1 = new String[]{"sh","/DB/script/question.sh",this.getGiturl1(),this.getUsername(),"/DB/users"};
          Process procScript1 = Runtime.getRuntime().exec(cmdScript1);
         procScript1.waitFor();
@@ -105,7 +105,7 @@ public class FetchServiceImpl implements FetchService  {
          File file;
         BufferedReader fr;
 
-       file=  finder("/DB/users/"+username+"/src/main/java/com/stackroute")[0];
+       file=  finder("/DB/users/"+this.getUsername()+"/src/main/java/com/stackroute")[0];
        if(file.exists()){
            System.out.println("file is there");
 
@@ -120,7 +120,7 @@ public class FetchServiceImpl implements FetchService  {
         while((d=br.readLine())!=null)
             k+="\n"+d;
 
-             System.out.println(k);
+           //  System.out.println(k);
           return k;
 
 
