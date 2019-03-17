@@ -11,7 +11,7 @@
             <button mat-button routerLink="/editaudio">Learn Coding</button>
             <button mat-button routerLink="/userprofile">Profile</button>
             <div  class="close">
-            <button mat-raised-button color="white" href="" (click)="logout()">Logout</button>
+            <button mat-raised-button color="white" href="#" (click)="logout()">Logout</button>
             </div>
         </div>
         <app-searchservice class="searc"></app-searchservice>
@@ -26,7 +26,7 @@
         <button mat-menu-item [routerLink]="['/post', info.username]">Post Question</button>
         <button mat-menu-item routerLink="/editaudio">Learn Coding</button>
         <button mat-menu-item routerLink="/userprofile">Profile</button>
-        <button mat-menu-item href="" (click)="logout()">Logout</button>
+        <button mat-menu-item href="#" (click)="logout()">Logout</button>
     </mat-menu>
     </div>
     <ng-template #loggedOut>
