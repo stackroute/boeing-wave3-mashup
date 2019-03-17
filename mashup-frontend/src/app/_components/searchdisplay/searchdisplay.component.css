@@ -1,4 +1,4 @@
-  .col-lg-4{
+  .col-md-4{
     width: 500px;
     height: auto;
     margin-bottom: 20px;
@@ -41,3 +41,9 @@
   button{
     align-content: center;
   }
+footer{
+  width: 100%;
+}
+.card-title{
+  height: 140px;
+}

@@ -1,4 +1,4 @@
-//package com.stackroute.zuulgatewayservice;
+package com.stackroute;//package com.stackroute.zuulgatewayservice;
 //
 //import org.junit.Test;
 //import org.junit.runner.RunWith;

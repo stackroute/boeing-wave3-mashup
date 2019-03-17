@@ -6,6 +6,7 @@ import * as SockJS from 'sockjs-client';
 import { autocomplete } from './autocomplete';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DialogService } from 'src/app/services/dialog.service';
 
 
 @Component({
@@ -82,7 +83,7 @@ export class EditComponent implements OnInit,OnDestroy {
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
 
   }
-  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService) {
+  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService, private dialogService: DialogService, private router: Router) {
  
             this.initializeWebSocketConnection();
   }
@@ -197,10 +198,17 @@ export class EditComponent implements OnInit,OnDestroy {
  // tslint:disable-next-line:member-ordering
  public colorg: object = {};
  sendDataToSubmissionService() {
-      this.quesservice.sendDatatoSubmission({'code': this.code, 'username': this.uname, 'questionId': this.questionId,
-      'questionTitle': this.questionTitle, result: this.result,
-      'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
-      'difficulty': this.difficulty});
+      this.dialogService.openConfirmDialog("Are you sure ?")
+      .afterClosed().subscribe(res =>{
+        if(res){
+          this.quesservice.sendDatatoSubmission({'code': this.code, 'username': this.uname, 'questionId': this.questionId,
+          'questionTitle': this.questionTitle, result: this.result,
+          'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
+          'difficulty': this.difficulty});
+          this.router.navigate(['']);
+        }
+      });
+      
  }
   showGreeting(message) {
     this.flag2=true;

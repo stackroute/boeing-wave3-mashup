@@ -156,18 +156,43 @@ public class ResultsServiceImpl implements ResultsService{
             fw.close();
         }catch(Exception e){System.out.println(e);}
         System.out.println("Success...");
-
-
         try {
-            Thread.sleep(5000);
-            String errorlogs = finderror(username);
-            return errorlogs;
+            String[] cmdScript = new String[]{"sh", "/DB/script/run.sh", username, "/DB/users"};
+            Process procScript = Runtime.getRuntime().exec(cmdScript);
+            procScript.waitFor();
+
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(procScript.getInputStream()));
+            BufferedReader errorReader = new BufferedReader(new InputStreamReader(procScript.getErrorStream()));
+
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            line = "";
+            while ((line = errorReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            String errorlogs=finderror(username);
+            return  errorlogs;
+        }
+        catch(Exception e){
 
         }
-        catch (Exception e){
 
-        }
-        return  null;
+
+//        try {
+//            Thread.sleep(5000);
+//            String errorlogs = finderror(username);
+//            return errorlogs;
+//
+//        }
+//        catch (Exception e){
+//
+//        }
+
+       return null;
 
     }
 

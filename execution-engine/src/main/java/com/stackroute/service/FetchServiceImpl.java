@@ -8,12 +8,9 @@ import java.io.*;
 
 @Service
 public class FetchServiceImpl implements FetchService  {
-
-
     private String giturl1;
     private String username;
-    @Autowired
-    private FetchServiceImpl fetchService1;
+
 
 
 
@@ -69,7 +66,7 @@ public class FetchServiceImpl implements FetchService  {
         else{
             System.out.println("run file doesnot exist");
         }
-            String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/Ujjawala/js-boilerplate",fetchService1.getUsername(),"/DB/users"};
+            String[] cmdScript = new String[]{"sh", "/DB/script/fetch.sh","https://github.com/Ujjawala/js-boilerplate",this.getUsername(),"/DB/users"};
         Process procScript = Runtime.getRuntime().exec(cmdScript);
         procScript.waitFor();
 
@@ -87,8 +84,8 @@ public class FetchServiceImpl implements FetchService  {
             System.out.println(line);
         }
         //System.out.println(System.getProperty("user.dir"));
-    System.out.println("its here to call question.sh"+fetchService1.getGiturl1()+fetchService1.getUsername());
-        String[] cmdScript1 = new String[]{"sh","/DB/script/question.sh",fetchService1.getGiturl1(),fetchService1.getUsername(),"/DB/users"};
+    //System.out.println("its here to call question.sh"+this.getGiturl1()+this.getUsername());
+        String[] cmdScript1 = new String[]{"sh","/DB/script/question.sh",this.getGiturl1(),this.getUsername(),"/DB/users"};
          Process procScript1 = Runtime.getRuntime().exec(cmdScript1);
         procScript1.waitFor();
 
@@ -108,7 +105,7 @@ public class FetchServiceImpl implements FetchService  {
          File file;
         BufferedReader fr;
 
-       file=  finder("/DB/users/"+username+"/src/main/java/com/stackroute")[0];
+       file=  finder("/DB/users/"+this.getUsername()+"/src/main/java/com/stackroute")[0];
        if(file.exists()){
            System.out.println("file is there");
 
@@ -123,7 +120,7 @@ public class FetchServiceImpl implements FetchService  {
         while((d=br.readLine())!=null)
             k+="\n"+d;
 
-             System.out.println(k);
+           //  System.out.println(k);
           return k;
 
 

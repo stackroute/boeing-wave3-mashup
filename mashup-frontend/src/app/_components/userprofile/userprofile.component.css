@@ -2,7 +2,6 @@
   height: 100%;
   width: 80%;
 }
-
 .card {
   width: 100%;
   padding: 5%;
@@ -26,7 +25,6 @@
 .profileimage{
   padding: 2vh 2vh 0vh 2vh;
 }
-
 .card[_ngcontent-c4] {
   width: 100%;
   padding: 5%;
@@ -41,4 +39,17 @@
 }
 .card2 p{
   font-size: 1.6rem;
+}
+.mat-grid-tile .mat-figure {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100rem;
+  padding: 0;
+  margin: 0;
 }
