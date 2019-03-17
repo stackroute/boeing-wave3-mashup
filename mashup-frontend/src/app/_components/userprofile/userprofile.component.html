@@ -78,7 +78,7 @@
       <mat-tab-group class="tile1" style="height:100%">
         <mat-tab label="Question Attempted">
           <mat-list role="list">
-            <mat-list-item role="listitem" *ngFor="let questionA of profile?.attemptedQuestion | slice:1" [routerLink]="['/submission-component']">
+            <mat-list-item role="listitem" *ngFor="let questionA of profile?.attemptedQuestion | slice:1" [routerLink]="['/submission-component', questionA.questionId]">
               <i class="fab fa-quora"></i> &nbsp;
               {{ questionA.questionTitle }}
             </mat-list-item>

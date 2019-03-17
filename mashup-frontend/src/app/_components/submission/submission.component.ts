@@ -1,8 +1,20 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
-import { SubmissionService } from '../../services/submission.service';
+// import { SubmissionService } from '../../services/submission.service';
+export interface UserData {
+  id: string;
+  title: string;
+  level: string;
+  tag: string;
+  try1: string;
+}
+
+/** Constants used to fill up our data base. */
+const COLORS: string[] = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
+  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
+const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
+  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
+  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
 
 @Component({
   selector: 'app-submission',
@@ -10,25 +22,52 @@ import { SubmissionService } from '../../services/submission.service';
   styleUrls: ['./submission.component.css']
 })
 export class SubmissionComponent implements OnInit {
-  // displayedColumns: string[] = ['title', 'difficulty', 'tag', 'testpassed', 'totaltest', 'solution'];
-  questionId;
-  username;
+  displayedColumns: string[] = ['id', 'title', 'level', 'tag', 'try1'];
+  dataSource: MatTableDataSource<UserData>;
   submissionData;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private submission: SubmissionService,private _route: ActivatedRoute, private token: TokenStorageService) {}
+  constructor(){
+    // Create 100 users
+    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource(users);
+  }
 
   ngOnInit() {
-    this.questionId = this._route.snapshot.paramMap.get('qid');
-    this.username = this.token.getUsername();
-    this.submission.getSubmission(this.username,this.questionId).subscribe(
-      data => {
-       this.submissionData = data;
-    },
-      error => {
-        // alert(error);
-      }
-    );
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    // this.submission
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
+
+/** Builds and returns a new User. */
+function createNewUser(id: number): UserData {
+  const title =
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+  const try1 = 'HELLO';
+
+  return {
+    id: id.toString(),
+    title: title,
+    level: Math.round(Math.random() * 100).toString(),
+    tag: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
+    try1: try1
+  };
+}
+
+
+/**  Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license */
