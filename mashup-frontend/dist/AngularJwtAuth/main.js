@@ -254,7 +254,7 @@ var EditComponent = /** @class */ (function () {
         };
         // tslint:disable-next-line:member-ordering
         this.colorg = {};
-        this.initializeWebSocketConnection();
+        // this.initializeWebSocketConnection();
     }
     EditComponent.prototype.ngOnDestroy = function () {
         console.log("calling ngondestroy");
@@ -288,6 +288,7 @@ var EditComponent = /** @class */ (function () {
         this.uname = this.token.getUsername();
         this.quesservice.getQuestionById(this.questionId).subscribe(function (data) {
             _this.questionObj = data;
+            _this.initializeWebSocketConnection();
             _this.questionId = data['questionId'];
             _this.questionTitle = data['questionTitle'];
             _this.questionDescription = data['questionDescription'];
@@ -1574,7 +1575,7 @@ module.exports = "@import url(https://fonts.googleapis.com/css?family=Open+Sans)
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n  <div class=\"search\">\n     <input type=\"text\" class=\"searchTerm\" placeholder=\"Search\" name=\"tag\" [(ngModel)]=\"tag\" >\n     <button type=\"submit\" class=\"searchButton\" onclick=\"location.reload()\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </div>\n</form>\n"
+module.exports = "<form class=\"\" #createForm=\"ngForm\" (ngSubmit)=\"search()\">\n  <div class=\"search\">\n     <input type=\"text\" class=\"searchTerm\" placeholder=\"Search\" name=\"tag\" [(ngModel)]=\"tag\" >\n     <button type=\"submit\" class=\"searchButton\">\n      <i class=\"fa fa-search\"></i>\n    </button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -3363,7 +3364,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/Mashup/v1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
