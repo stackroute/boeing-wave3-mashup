@@ -34,8 +34,8 @@ export class UserprofileComponent implements OnInit {
   constructor(private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 5, color: 'white'},
-    {text: 'Two', cols: 2, rows: 2.5, color: 'white'},
-    {text: 'three', cols: 2, rows: 2.5, color: 'grey'},
+    {text: 'Two', cols: 2, rows: 1, color: 'white'},
+    {text: 'three', cols: 2, rows: 4, color: 'grey'},
   ];
 
   ngOnInit() {

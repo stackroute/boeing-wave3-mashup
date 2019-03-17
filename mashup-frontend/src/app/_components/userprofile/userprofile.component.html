@@ -70,11 +70,11 @@
       </div>
     </mat-grid-tile>
     
-    <mat-grid-tile [colspan]="tiles[2].cols" [rowspan]="tiles[2].rows" [style.background]="tiles[2]">
+    <mat-grid-tile [colspan]="tiles[1].cols" [rowspan]="tiles[1].rows">
       <app-scoreandbadge></app-scoreandbadge>
     </mat-grid-tile>
   
-    <mat-grid-tile [colspan]="tiles[1].cols" [rowspan]="tiles[1].rows" [style.background]="tiles[1].color">
+    <mat-grid-tile [colspan]="tiles[2].cols" [rowspan]="tiles[2].rows" style="margin-top:3vh;">
       <mat-tab-group class="tile1" style="height:100%">
         <mat-tab label="Question Attempted">
           <mat-list role="list" *ngFor="let questionA of (profile.attemptedQuestion | slice: 1)">
