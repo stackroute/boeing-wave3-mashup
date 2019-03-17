@@ -16,7 +16,7 @@ export class SubmissionService {
   public getSubmission(username,questionId): Observable<any> {
     console.log('username:',username);
     console.log('questionId:',questionId);
-    const submissionData = this.httpclient.get(this.getSub + 'submission/' + this.username + '/' + this.questionId);
+    const submissionData = this.httpclient.get(this.getSub + 'submission/' + username + '/' + questionId);
     console.log('submissionData:',submissionData);
     return submissionData;
   }

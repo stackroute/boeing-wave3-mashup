@@ -1648,7 +1648,7 @@ module.exports = "table {\n    width: 100%;\n  }\n  \n  .mat-form-field {\n    f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br><br><br>\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"id\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question ID </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.id}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"title\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Title </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.title}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"level\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Level </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.level}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"tag\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Tag </th>\n      <td mat-cell *matCellDef=\"let row\" [style.color]=\"row.tag\"> {{row.tag}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"try1\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Solution </th>\n      <td mat-cell *matCellDef=\"let row\"><a mat-raised-button routerLink=\".\">Solution</a></td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
+module.exports = "<nav class=\"fixed-top\">\n  <app-navbar></app-navbar>\n</nav>\n<br><br><br><br><br>\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"questionId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question ID </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.questionId}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"questionTitle\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Title </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.questionTitle}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"testCasePassed\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Test CasePassed </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.testCasePassed}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"totalTestCases\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total TestCases </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.totalTestCases}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"difficulty\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Difficulty </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.difficulty}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"score\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Score </th>\n      <!-- <td mat-cell *matCellDef=\"let row\"><a mat-raised-button routerLink=\".\">Solution</a></td> -->\n      <td mat-cell *matCellDef=\"let row\"> {{row.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -1664,6 +1664,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubmissionComponent", function() { return SubmissionComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/token-storage.service */ "./src/app/services/token-storage.service.ts");
+/* harmony import */ var src_app_services_submission_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/submission.service */ "./src/app/services/submission.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1675,6 +1678,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
 /** Constants used to fill up our data base. */
 var COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
     'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
@@ -1682,17 +1688,29 @@ var NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
     'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
     'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
 var SubmissionComponent = /** @class */ (function () {
-    function SubmissionComponent() {
-        this.displayedColumns = ['id', 'title', 'level', 'tag', 'try1'];
+    function SubmissionComponent(submission, _route, token) {
         // Create 100 users
-        var users = Array.from({ length: 100 }, function (_, k) { return createNewUser(k + 1); });
+        // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+        this.submission = submission;
+        this._route = _route;
+        this.token = token;
+        this.displayedColumns = ['questionId', 'questionTitle', 'testCasePassed', 'totalTestCases', 'difficulty', 'score'];
         // Assign the data to the data source for the table to render
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](users);
     }
     SubmissionComponent.prototype.ngOnInit = function () {
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        var _this = this;
         // this.submission
+        this.questionId = this._route.snapshot.paramMap.get('qid');
+        this.username = this.token.getUsername();
+        this.submission.getSubmission(this.username, this.questionId).subscribe(function (data) {
+            _this.submissionData = data;
+            console.log('Submissiondata:', _this.submissionData);
+            _this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](_this.submissionData);
+            _this.dataSource.paginator = _this.paginator;
+            _this.dataSource.sort = _this.sort;
+        }, function (error) {
+            // alert(error);
+        });
     };
     SubmissionComponent.prototype.applyFilter = function (filterValue) {
         this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -1714,24 +1732,25 @@ var SubmissionComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./submission.component.html */ "./src/app/_components/submission/submission.component.html"),
             styles: [__webpack_require__(/*! ./submission.component.css */ "./src/app/_components/submission/submission.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_app_services_submission_service__WEBPACK_IMPORTED_MODULE_4__["SubmissionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__["TokenStorageService"]])
     ], SubmissionComponent);
     return SubmissionComponent;
 }());
 
 /** Builds and returns a new User. */
-function createNewUser(id) {
-    var title = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-        NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-    var try1 = 'HELLO';
-    return {
-        id: id.toString(),
-        title: title,
-        level: Math.round(Math.random() * 100).toString(),
-        tag: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
-        try1: try1
-    };
-}
+// function createNewUser(id: number): SubmissionData {
+//   const title =
+//       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+//   const try1 = 'HELLO';
+//   return {
+//     id: id.toString(),
+//     title: title,
+//     level: Math.round(Math.random() * 100).toString(),
+//     tag: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
+//     try1: try1
+//   };
+// }
 /**  Copyright 2018 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license */ 
@@ -3098,6 +3117,54 @@ var SearchserviceService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/submission.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/submission.service.ts ***!
+  \************************************************/
+/*! exports provided: SubmissionService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubmissionService", function() { return SubmissionService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SubmissionService = /** @class */ (function () {
+    function SubmissionService(httpclient) {
+        this.httpclient = httpclient;
+        this.getSub = 'http://13.234.74.67:8092/submission-service/api/v1/';
+    }
+    SubmissionService.prototype.getSubmission = function (username, questionId) {
+        console.log('username:', username);
+        console.log('questionId:', questionId);
+        var submissionData = this.httpclient.get(this.getSub + 'submission/' + username + '/' + questionId);
+        console.log('submissionData:', submissionData);
+        return submissionData;
+    };
+    SubmissionService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], SubmissionService);
+    return SubmissionService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/token-storage.service.ts":
 /*!***************************************************!*\
   !*** ./src/app/services/token-storage.service.ts ***!
@@ -3335,7 +3402,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/Mashup/v1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

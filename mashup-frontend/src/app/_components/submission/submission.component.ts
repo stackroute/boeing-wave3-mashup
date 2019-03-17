@@ -1,12 +1,16 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-// import { SubmissionService } from '../../services/submission.service';
-export interface UserData {
-  id: string;
-  title: string;
-  level: string;
-  tag: string;
-  try1: string;
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { SubmissionService } from 'src/app/services/submission.service';
+
+export interface SubmissionData {
+  questionId;
+  questionTitle: string;
+  testCasePassed: string;
+  totalTestCases: string;
+  difficulty: string;
+  score;
 }
 
 /** Constants used to fill up our data base. */
@@ -22,24 +26,40 @@ const NAMES: string[] = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
   styleUrls: ['./submission.component.css']
 })
 export class SubmissionComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'title', 'level', 'tag', 'try1'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['questionId', 'questionTitle', 'testCasePassed', 'totalTestCases', 'difficulty', 'score'];
+  dataSource: MatTableDataSource<SubmissionData>;
+  questionId;
+  username;
   submissionData;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(){
+  constructor(private submission: SubmissionService, private _route: ActivatedRoute, private token: TokenStorageService) {
     // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
     // this.submission
+    this.questionId = this._route.snapshot.paramMap.get('qid');
+    this.username = this.token.getUsername();
+    this.submission.getSubmission(this.username, this.questionId).subscribe(
+      data => {
+        this.submissionData = data;
+        console.log('Submissiondata:', this.submissionData);
+        this.dataSource = new MatTableDataSource(this.submissionData);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error => {
+        // alert(error);
+      }
+    );
+
   }
 
   applyFilter(filterValue: string) {
@@ -52,20 +72,20 @@ export class SubmissionComponent implements OnInit {
 }
 
 /** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const title =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-  const try1 = 'HELLO';
+// function createNewUser(id: number): SubmissionData {
+//   const title =
+//       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+//   const try1 = 'HELLO';
 
-  return {
-    id: id.toString(),
-    title: title,
-    level: Math.round(Math.random() * 100).toString(),
-    tag: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
-    try1: try1
-  };
-}
+//   return {
+//     id: id.toString(),
+//     title: title,
+//     level: Math.round(Math.random() * 100).toString(),
+//     tag: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
+//     try1: try1
+//   };
+// }
 
 
 /**  Copyright 2018 Google Inc. All Rights Reserved.
