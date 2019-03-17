@@ -85,7 +85,7 @@ export class EditComponent implements OnInit,OnDestroy {
   }
   constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService, private dialogService: DialogService, private router: Router) {
  
-            this.initializeWebSocketConnection();
+            // this.initializeWebSocketConnection();
   }
 
 
@@ -97,6 +97,7 @@ export class EditComponent implements OnInit,OnDestroy {
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
        this.questionObj = data;
+       this.initializeWebSocketConnection();
         this.questionId = data['questionId'];
         this.questionTitle = data['questionTitle'] ;
         this.questionDescription = data['questionDescription'] ;
