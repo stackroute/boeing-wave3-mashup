@@ -64,6 +64,7 @@ public class KafkaListenerService {
         Question question = new Question();
         question.setQuestionId(Integer.parseInt(strMessage[2].split(":")[1].replace("\"","")));
         question.setQuestionTitle(strMessage[3].split(":")[1].replace("\"",""));
+
         UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
         userDBProfileService.updateQuestionAttempted(userName, question);
     }

@@ -97,8 +97,15 @@ public class UserDBProfileServiceImpl implements UserProfileService {
     @Override
     public UserProfile updateQuestionAttempted(String userName, Question questionAttempted) {
         Optional<UserProfile> temp = userProfileRepository.findById(userName);
+        List<Question> questionAttempedList;
         if (temp.isPresent()) {
-            temp.get().getAttemptedQuestion().add(questionAttempted);
+            questionAttempedList = temp.get().getAttemptedQuestion();
+            boolean state = false;
+            for (Question quesAttempt: questionAttempedList) {
+                if (quesAttempt.getQuestionId() != questionAttempted.getQuestionId()) {
+                    temp.get().getAttemptedQuestion().add(questionAttempted);
+                }
+            }
             return userProfileRepository.save(temp.get());
         }
         return null;
