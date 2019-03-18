@@ -5,6 +5,7 @@ import { Token } from '@angular/compiler';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { ScorebadgeService } from 'src/app/services/scorebadge.service';
 import { Profile } from 'selenium-webdriver/firefox';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -30,7 +31,7 @@ export class UserprofileComponent implements OnInit {
   public userData = {};
 
   // tslint:disable-next-line:max-line-length
-  constructor(private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
+  constructor( private _route: ActivatedRoute,private router: Router,private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 5, color: 'white'},
     {text: 'Two', cols: 2, rows: 1, color: 'white'},
@@ -60,6 +61,9 @@ export class UserprofileComponent implements OnInit {
   }
 
   deleteUserProfile() {
-    this.userService.deleteUserProfile(this.uname).subscribe();
+    this.token.signOut();
+    this.userService.deleteUserProfile(this.profile.username).subscribe();
+    location.assign("http://13.234.74.67:8030/");
+
   }
 }
