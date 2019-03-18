@@ -20,8 +20,8 @@ export class QuestionserviceService {
     console.log(savedQuestionObj);
     return savedQuestionObj;
   }
-  public getallquestioninfo(): Observable<any>  {
-    const allinfo = this._http.get(this.getallquestionUrl);
+  public getallquestioninfo(uname): Observable<any>  {
+    const allinfo = this._http.get(this.getallquestionUrl+"/"+uname);
     console.log(allinfo);
     return allinfo;
   }
