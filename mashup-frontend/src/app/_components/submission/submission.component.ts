@@ -34,12 +34,7 @@ export class SubmissionComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private submission: SubmissionService, private _route: ActivatedRoute, private token: TokenStorageService) {
-    // Create 100 users
-    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-
+  constructor(private submission: SubmissionService, private _route: ActivatedRoute, private token: TokenStorageService) { 
   }
 
   ngOnInit() {
@@ -70,24 +65,3 @@ export class SubmissionComponent implements OnInit {
     }
   }
 }
-
-/** Builds and returns a new User. */
-// function createNewUser(id: number): SubmissionData {
-//   const title =
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-//   const try1 = 'HELLO';
-
-//   return {
-//     id: id.toString(),
-//     title: title,
-//     level: Math.round(Math.random() * 100).toString(),
-//     tag: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
-//     try1: try1
-//   };
-// }
-
-
-/**  Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */

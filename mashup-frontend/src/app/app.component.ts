@@ -1,8 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './services/token-storage.service';
-import { RouterOutlet } from '@angular/router';
-// import { slider } from './route-animations';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

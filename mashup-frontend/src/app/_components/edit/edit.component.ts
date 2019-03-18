@@ -38,9 +38,9 @@ export class EditComponent implements OnInit,OnDestroy {
   greetings: string[] = [];
 
   disabled = true;
-  // name: string;
  code: String;
   private stompClient = null;
+
   // socket ends here
   questionObj: String;
   result: String;
@@ -88,9 +88,6 @@ export class EditComponent implements OnInit,OnDestroy {
  
             // this.initializeWebSocketConnection();
   }
-
-
-
   ngOnInit() {
     this.questionId = this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
