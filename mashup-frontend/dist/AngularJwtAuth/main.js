@@ -1223,6 +1223,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/alert.service */ "./src/app/services/alert.service.ts");
 /* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var src_app_services_dialog_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/dialog.service */ "./src/app/services/dialog.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1238,9 +1239,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(formBuilder, router, authenticationService, registerService, alertService) {
+    function RegisterComponent(formBuilder, dialogService, router, authenticationService, registerService, alertService) {
         this.formBuilder = formBuilder;
+        this.dialogService = dialogService;
         this.router = router;
         this.authenticationService = authenticationService;
         this.registerService = registerService;
@@ -1278,18 +1281,24 @@ var RegisterComponent = /** @class */ (function () {
             return;
         }
         var object = Object.assign(this.firstFormGroup.value, this.secondFormGroup.value);
-        this.registerService.register(object).subscribe(function (data) {
-            _this.alertService.success(data, true);
-            alert(data);
-            _this.router.navigate(['/auth/login']);
-        }, function (error) {
-            _this.alertService.error('user already exists');
-            alert('error');
+        this.dialogService.openConfirmDialog("Are you sure ?")
+            .afterClosed().subscribe(function (res) {
+            if (res) {
+                _this.registerService.register(object).subscribe(function (data) {
+                    _this.alertService.success(data, true);
+                    alert(data);
+                    _this.router.navigate(['/auth/login']);
+                }, function (error) {
+                    _this.alertService.error('user already exists');
+                    alert('error');
+                });
+            }
         });
     };
     RegisterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({ template: __webpack_require__(/*! ./register.component.html */ "./src/app/_components/register/register.component.html") }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
+            src_app_services_dialog_service__WEBPACK_IMPORTED_MODULE_6__["DialogService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"],
             _services_register_service__WEBPACK_IMPORTED_MODULE_0__["RegisterService"],
@@ -1872,6 +1881,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/userprofile-service.service */ "./src/app/services/userprofile-service.service.ts");
 /* harmony import */ var src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/token-storage.service */ "./src/app/services/token-storage.service.ts");
 /* harmony import */ var src_app_services_scorebadge_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/scorebadge.service */ "./src/app/services/scorebadge.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1885,9 +1895,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var UserprofileComponent = /** @class */ (function () {
     // tslint:disable-next-line:max-line-length
-    function UserprofileComponent(token, userService, scorebadgeservice) {
+    function UserprofileComponent(_route, router, token, userService, scorebadgeservice) {
+        this._route = _route;
+        this.router = router;
         this.token = token;
         this.userService = userService;
         this.scorebadgeservice = scorebadgeservice;
@@ -1921,7 +1934,9 @@ var UserprofileComponent = /** @class */ (function () {
         this.profileState = 'currentProfile';
     };
     UserprofileComponent.prototype.deleteUserProfile = function () {
+        this.token.signOut();
         this.userService.deleteUserProfile(this.profile.username).subscribe();
+        location.assign("http://13.234.74.67:8030/");
     };
     UserprofileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1929,7 +1944,7 @@ var UserprofileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./userprofile.component.html */ "./src/app/_components/userprofile/userprofile.component.html"),
             styles: [__webpack_require__(/*! ./userprofile.component.css */ "./src/app/_components/userprofile/userprofile.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_2__["TokenStorageService"], _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_1__["UserprofileServiceService"], src_app_services_scorebadge_service__WEBPACK_IMPORTED_MODULE_3__["ScorebadgeService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_2__["TokenStorageService"], _services_userprofile_service_service__WEBPACK_IMPORTED_MODULE_1__["UserprofileServiceService"], src_app_services_scorebadge_service__WEBPACK_IMPORTED_MODULE_3__["ScorebadgeService"]])
     ], UserprofileComponent);
     return UserprofileComponent;
 }());
@@ -3403,7 +3418,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Videos/version1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
