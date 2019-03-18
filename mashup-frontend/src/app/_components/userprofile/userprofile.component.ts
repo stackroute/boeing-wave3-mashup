@@ -42,14 +42,7 @@ export class UserprofileComponent implements OnInit {
     this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
     this.profileState = 'currentProfile';
     // call score and badge service to get data(added by pratima on 27th feb2019)
-    // this.scorebadgeservice.getUserData(this.uname).subscribe(
-    //   data => {
-    //    this.userData = data;
-    // },
-    //   error => {
-    //     // alert(error);
-    //   }
-    // );
+    this.scorebadgeservice.getUserData(this.uname).subscribe(data => this.userData = data);
   }
 
   updateProfile() {
@@ -67,6 +60,6 @@ export class UserprofileComponent implements OnInit {
   }
 
   deleteUserProfile() {
-    this.userService.deleteUserProfile(this.profile.username).subscribe();
+    this.userService.deleteUserProfile(this.uname).subscribe();
   }
 }
