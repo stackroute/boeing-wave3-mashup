@@ -89,9 +89,13 @@ public class UserResourcecontroller {
         return responseEntity;
     }
 
-    @GetMapping(value = "questions")
-    public List<Question> getAllQuestions() {
-        return userService.getAllQuestions();
+    @GetMapping(value = "questions/{username}")
+    public List<Question> getAllQuestions(@PathVariable String username) {
+        if(username==null || username.equals("null")){
+            return userService.getAllQuestions();
+        }
+        else
+            return tagInfoService.getUserQuestions(username);
     }
 
 }
