@@ -9,11 +9,11 @@ export class RegisterService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<User[]>(`http://localhost:8096/api/v1/users`);
+    return this.http.get<User[]>(`http://13.234.74.67:8096/api/v1/users`);
   }
 
   getById(id: number) {
-    return this.http.get(`http://localhost:8096/api/v1/users/${id}`);
+    return this.http.get(`http://13.234.74.67:8096/api/v1/users/${id}`);
   }
 
   register(user: User): Observable<any> {
@@ -22,7 +22,7 @@ export class RegisterService {
   }
 
   update(user: User) {
-    return this.http.put(`http://localhost:8096/api/v1/users/${user.id}`, user);
+    return this.http.put(`http://13.234.74.67:8096/api/v1/users/${user.id}`, user);
   }
 
   delete(id: number) {
