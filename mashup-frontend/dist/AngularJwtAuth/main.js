@@ -23,6 +23,79 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/_components/alert/alert.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/_components/alert/alert.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/_components/alert/alert.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/_components/alert/alert.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"message\" [ngClass]=\"{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }\">{{message.text}}</div>"
+
+/***/ }),
+
+/***/ "./src/app/_components/alert/alert.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/_components/alert/alert.component.ts ***!
+  \******************************************************/
+/*! exports provided: AlertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
+/* harmony import */ var _services_alert_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../services/alert.service */ "./src/app/services/alert.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AlertComponent = /** @class */ (function () {
+    function AlertComponent(alertService) {
+        this.alertService = alertService;
+    }
+    AlertComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = this.alertService.getMessage().subscribe(function (message) {
+            _this.message = message;
+        });
+    };
+    AlertComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
+    };
+    AlertComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-alert',
+            template: __webpack_require__(/*! ./alert.component.html */ "./src/app/_components/alert/alert.component.html"),
+            styles: [__webpack_require__(/*! ./alert.component.css */ "./src/app/_components/alert/alert.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_alert_service__WEBPACK_IMPORTED_MODULE_0__["AlertService"]])
+    ], AlertComponent);
+    return AlertComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/_components/auth/auth-interceptor.ts":
 /*!******************************************************!*\
   !*** ./src/app/_components/auth/auth-interceptor.ts ***!
@@ -1268,7 +1341,7 @@ var RegisterComponent = /** @class */ (function () {
             if (res) {
                 _this.registerService.register(object).subscribe(function (data) {
                     _this.alertService.success(data, true);
-                    alert(data);
+                    // alert(data);
                     _this.router.navigate(['/auth/login']);
                 }, function (error) {
                     _this.alertService.error('user already exists');
@@ -1432,7 +1505,7 @@ module.exports = "#header\n{\n  font-weight: bold;\n}\n.example-card{\nwidth: 15
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p id=\"totalscore\">Your Total Score is : {{userData['totalScore']}}</p>\n<mat-card class=\"example-card\">\n  <mat-card-content>\n      <img mat-card-image src=\"../../../assets/badge.jpg\" alt=\"Badge-image\">\n  </mat-card-content>\n</mat-card>\n<!-- <p id=\"cardtitle\">Your Total Score is : {{userData['totalScore']}}</p> -->"
+module.exports = "<br>\n<br>\n<br>\n<p id=\"totalscore\">Your Total Score is : {{userData['totalScore']}}</p>\n<mat-card class=\"example-card\">\n  <mat-card-content>\n      <img mat-card-image src=\"../../../assets/badge.jpg\" alt=\"Badge-image\">\n  </mat-card-content>\n</mat-card>\n<!-- <p id=\"cardtitle\">Your Total Score is : {{userData['totalScore']}}</p> -->"
 
 /***/ }),
 
@@ -2347,7 +2420,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".Site {\n    display: flex;\n    min-height: 100vh;\n    flex-direction: column;\n    position: relative;\n  }\n  \n  .Site-content {\n    flex: 1;\n    /* padding-top: 70px; */\n  }\n "
+module.exports = ".Site {\n    display: flex;\n    min-height: 100vh;\n    flex-direction: column;\n    position: relative;\n  }\n  \n  .Site-content {\n    flex: 1;\n    /* padding-top: 70px; */\n  }\n  \n  .alert{\n    margin: 0;\n    font-size: 0.8rem;\n  }"
 
 /***/ }),
 
@@ -2358,7 +2431,7 @@ module.exports = ".Site {\n    display: flex;\n    min-height: 100vh;\n    flex-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<body class=\"Site\">\n    \n<main class=\"Site-content\">\n<!-- <div [@routeAnimations]=\"prepareRoute(outlet)\"> -->\n    <router-outlet></router-outlet>\n<!-- </div> -->\n</main>\n<app-footer></app-footer>\n</body>"
+module.exports = "\n<body class=\"Site\">\n<main class=\"Site-content\">\n<!-- <div [@routeAnimations]=\"prepareRoute(outlet)\"> -->\n    <router-outlet></router-outlet>\n<!-- </div> -->\n</main>\n<app-footer></app-footer>\n</body>"
 
 /***/ }),
 
@@ -2472,12 +2545,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_searchdisplay_searchdisplay_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./_components/searchdisplay/searchdisplay.component */ "./src/app/_components/searchdisplay/searchdisplay.component.ts");
 /* harmony import */ var _components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./_components/matdialog/matdialog.component */ "./src/app/_components/matdialog/matdialog.component.ts");
 /* harmony import */ var _components_socialbar_socialbar_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./_components/socialbar/socialbar.component */ "./src/app/_components/socialbar/socialbar.component.ts");
+/* harmony import */ var _components_alert_alert_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./_components/alert/alert.component */ "./src/app/_components/alert/alert.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2588,6 +2663,7 @@ var AppModule = /** @class */ (function () {
                 _components_searchdisplay_searchdisplay_component__WEBPACK_IMPORTED_MODULE_43__["SearchdisplayComponent"],
                 _components_matdialog_matdialog_component__WEBPACK_IMPORTED_MODULE_44__["MatdialogComponent"],
                 _components_socialbar_socialbar_component__WEBPACK_IMPORTED_MODULE_45__["SocialbarComponent"],
+                _components_alert_alert_component__WEBPACK_IMPORTED_MODULE_46__["AlertComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
