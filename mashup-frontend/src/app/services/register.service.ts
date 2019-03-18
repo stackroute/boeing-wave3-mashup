@@ -26,6 +26,6 @@ export class RegisterService {
   }
 
   delete(id: number) {
-    return this.http.delete(`http://localhost:8096/api/v1/users/${id}`);
+    return this.http.delete(`http://13.234.74.67:8096/api/v1/users/${id}`);
   }
 }
