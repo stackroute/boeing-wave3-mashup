@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../../services/alert.service';
 import { AuthenticationService } from '../../services/authentication.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
@@ -14,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
       private formBuilder: FormBuilder,
+      private dialogService: DialogService,
       private router: Router,
       private authenticationService: AuthenticationService,
       private registerService: RegisterService,
@@ -53,16 +55,22 @@ export class RegisterComponent implements OnInit {
         return;
       }
       const object = Object.assign(this.firstFormGroup.value, this.secondFormGroup.value);
-      this.registerService.register(object).subscribe(
-        data => {
-           this.alertService.success(data, true);
-           alert(data);
-           this.router.navigate(['/auth/login']);
-        },
-        error => {
-          this.alertService.error('user already exists');
-          alert('error');
+      
+      this.dialogService.openConfirmDialog("Are you sure ?")
+      .afterClosed().subscribe(res =>{
+        if(res){
+          this.registerService.register(object).subscribe(
+             data => {
+              this.alertService.success(data, true);
+              alert(data);  
+              this.router.navigate(['/auth/login']);
+            },
+          error => {
+            this.alertService.error('user already exists');
+            alert('error');
         }
       );
+        }
+      });
     }
   }
