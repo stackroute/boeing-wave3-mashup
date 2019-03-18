@@ -16,7 +16,6 @@ public class SignUpForm {
 
     @NotBlank
     @Size(max = 50)
-    @Email
     private String email;
     
     private Set<String> role;
