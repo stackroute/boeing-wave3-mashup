@@ -33,6 +33,8 @@ public class QuestionServiceImpl implements QuestionService {
         if(questionRepository.existsById((int)(question.getQuestionId()))) {
             throw new QuestionAlreadyExistsException("This Question already exists");
         }
+        String tag=question.getTags().toLowerCase();
+        question.setTags(tag);
         //save call of repository
         return questionRepository.save(question);
     }
