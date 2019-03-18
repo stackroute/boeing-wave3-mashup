@@ -6,12 +6,21 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin("*")
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
+@RestController
+@RequestMapping("/api/v1/")
 @EnableZuulProxy
 @SpringBootApplication
 public class ZuulGatewayserviceApplication {
+	@GetMapping(value = "zuul")
+	public String message() {
+		return "Zuul working";
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ZuulGatewayserviceApplication.class, args);
