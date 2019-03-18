@@ -1,4 +1,4 @@
-package com.stackroute.recommendation.model;
+package com.stackroute.model;
 
 public class SubmissionScoreDetails {
 
