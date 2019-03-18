@@ -25,6 +25,7 @@ export class EditComponent implements OnInit,OnDestroy {
     serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
+  public statement=false;
   public flag=false;
   public flag2=false;
   title = 'grokonez';
@@ -165,19 +166,7 @@ export class EditComponent implements OnInit,OnDestroy {
       }
     );
   }
-  // connect() {
-  //   const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
-  //   this.stompClient = Stomp.over(socket);
-  //   const _this = this;
-  //   this.stompClient.connect({}, function (frame) {
-  //     _this.setConnected(true);
-
-  //     _this.stompClient.subscribe('/topic/hi', function (helo) {
-
-  //       _this.showGreeting(JSON.parse(helo.body).codeTemplate);
-  //     });
-  //   });
-  // }
+  
   disconnect() {
     if (this.stompClient != null) {
       this.stompClient.disconnect();
@@ -212,9 +201,14 @@ export class EditComponent implements OnInit,OnDestroy {
       
  }
   showGreeting(message) {
+    this.statement=false;
     this.flag2=true;
     this.flag=false;
     this.greetings.push(message);
+    if(!this.greetings[0].includes("["))
+    {
+      this.statement=true;
+    }
     this.greetings = this.greetings[0].split('@*#');
     this.totaltest = this.greetings[0];
     this.testpass = this.greetings[1];

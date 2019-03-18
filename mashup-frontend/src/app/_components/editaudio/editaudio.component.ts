@@ -22,15 +22,6 @@ export class EditaudioComponent implements OnInit {
   description = 'Angular-WebSocket Demo';
   greetings: string[] = [];
   disabled = true;
-  // code;
-  // code1 = `int bucky = {3,4,5,6,7};`;
-  // code2 = `int bucky = {3,4,5,6,7};
-  // int total = 0;`;
-  // code3 = `int bucky = {3,4,5,6,7};
-  // int total = 0;
-  // for(int x: bucky) {
-  //   total += x;
-  // }`;
   code = `int bucky = {3,4,5,6,7};
   int total = 0;
   for(int x: bucky) {
@@ -133,9 +124,6 @@ export class EditaudioComponent implements OnInit {
     this.greetings.push(output);
     console.log(this.greetings);
     this.greetings = this.greetings[0].split('\n');
-    // this.totaltest = this.greetings[0];
-    // this.passed = this.greetings[1];
-    // this.greetings  = this.greetings[2].split('\n');
     this.colorg = {
       color: `red`
     };

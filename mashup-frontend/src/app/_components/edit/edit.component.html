@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--Navbar-->
 <nav class="fixed-top">
 <app-navbar></app-navbar>
 </nav>
+<!--Navbar-->
 <br>
 <br>
 <br>
@@ -13,7 +15,7 @@
         <div class="col-sm-5" style="padding-left:5vw;padding-top:5vh;">
             <div class="row font-weight-bold " >
 
-                <h2 style="margin-bottom:2rem">{{questionTitle}}</h2>   <app-voting></app-voting>
+                <h2 style="margin-bottom:2rem">{{questionTitle}}</h2><app-voting [question]=questionId></app-voting>
                 <mat-divider></mat-divider>
             </div>
             <div class="row">
@@ -55,16 +57,19 @@
                 <option value="c">C</option>
 
             </select>
+            <!-- Editor-->
             <ngx-monaco-editor id="editor2" class="my-code-editor" [options]="editorOptions" [(ngModel)]="code"
                 (onInit)="onInit($event)"></ngx-monaco-editor>
 
             <div class="container" style="display:flex;flex-direction:column">
             <form class="form-inline my-2 my-lg-0 hello" >
                 <button type="button" class="btn btn-outline-success my-2 my-sm-0"(click)=submit() style="margin:20px;">Compile </button>
+                <div *ngIf="statement">
                 <button class="btn btn-outline-success my-2 my-sm-0" (click)=sendDataToSubmissionService() >Submit</button>  
+                </div>
             </form>
                   
-           
+            <!-- Results -->
             <table id="conversation" class="table" style="margin-top: 20px;">                   
                 <div *ngIf="flag" class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
                         <span class="sr-only">Loading...</span>

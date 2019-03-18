@@ -10,3 +10,8 @@ width: 150px;
   /* font-size:18px; */
   font-weight: bold;
 }
+#totalscore{
+  font-size: 20px;
+  /* font-display: bold; */
+  font-weight: bold;
+}

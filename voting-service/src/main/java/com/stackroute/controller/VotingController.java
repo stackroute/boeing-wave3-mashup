@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/h/")
+@RequestMapping(value = "api/v1/")
 @CrossOrigin("*")
 public class VotingController {
 
@@ -57,6 +57,14 @@ public class VotingController {
         List<Vote> downVotes=votingService.voteStatusOfQuestionByUser(a,userName);
         responseEntity=new ResponseEntity<List<Vote>>(downVotes, HttpStatus.OK);
 
+        return responseEntity;
+    }
+
+    @PostMapping(value = "vote")
+    public ResponseEntity<?> saveVoted(@RequestBody Vote vote){
+        ResponseEntity responseEntity;
+        Vote status = votingService.saveVoteForQuestion(vote);
+        responseEntity = new ResponseEntity<Vote>(status,HttpStatus.ACCEPTED);
         return responseEntity;
     }
 

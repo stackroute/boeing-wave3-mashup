@@ -51,4 +51,11 @@ public class VoteRepositoryImpl implements VoteRepositoryCustom {
         List<Vote> people = operations.find(query,Vote.class);
         return people;
     }
+
+    @Override
+    public Vote saveVoteStatus(Vote vote){
+        operations.save(vote);
+        return vote;
+    }
+
 }

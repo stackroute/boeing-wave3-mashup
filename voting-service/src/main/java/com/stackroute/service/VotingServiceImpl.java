@@ -36,5 +36,10 @@ public class VotingServiceImpl implements VotingService{
     public List<Vote> voteStatusOfQuestionByUser(int questionId,String userName){
         return voteRepository.fetchQuestionVoteStatus(questionId, userName);
     }
+    @Override
+    public Vote saveVoteForQuestion(Vote vote){
+        return voteRepository.saveVoteStatus(vote);
+    }
+
 
 }

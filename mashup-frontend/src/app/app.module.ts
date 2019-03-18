@@ -81,6 +81,7 @@ import { LandingComponent } from './_components/landing/landing.component';
 import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
 import { MatdialogComponent } from './_components/matdialog/matdialog.component';
+import { SocialbarComponent } from './_components/socialbar/socialbar.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -141,6 +142,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     EditaudioComponent,
     SearchdisplayComponent,
     MatdialogComponent,
+    SocialbarComponent,
   ],
   imports: [
     BrowserModule,

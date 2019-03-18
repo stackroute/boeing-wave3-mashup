@@ -27,11 +27,9 @@ export class UserprofileComponent implements OnInit {
   profileState: string;
   public profile;
   public uname: string;
-  // for getting data from scoreand badge service
-  public userData = {};
 
   // tslint:disable-next-line:max-line-length
-  constructor( private _route: ActivatedRoute,private router: Router,private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
+  constructor( private _route: ActivatedRoute,private router: Router,private token: TokenStorageService, private userService: UserprofileServiceService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 5, color: 'white'},
     {text: 'Two', cols: 2, rows: 1, color: 'white'},
@@ -42,8 +40,6 @@ export class UserprofileComponent implements OnInit {
     this.uname = this.token.getUsername();
     this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
     this.profileState = 'currentProfile';
-    // call score and badge service to get data(added by pratima on 27th feb2019)
-    this.scorebadgeservice.getUserData(this.uname).subscribe(data => this.userData = data);
   }
 
   updateProfile() {
