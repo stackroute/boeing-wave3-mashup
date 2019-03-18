@@ -1545,8 +1545,8 @@ var SearchdisplayComponent = /** @class */ (function () {
     SearchdisplayComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.tag = this._route.snapshot.paramMap.get('tag');
-        this.fetchservice.findQuestion(this.tag.toLowerCase).subscribe(function (data) { return _this.fetch = data; });
-        console.log(this.fetchservice.findQuestion(this.tag.toLowerCase).subscribe(function (data) { return _this.fetch = data; }));
+        this.fetchservice.findQuestion(this.tag.toLowerCase()).subscribe(function (data) { return _this.fetch = data; });
+        console.log(this.fetchservice.findQuestion(this.tag.toLowerCase()).subscribe(function (data) { return _this.fetch = data; }));
     };
     SearchdisplayComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1619,7 +1619,7 @@ var SearchserviceComponent = /** @class */ (function () {
     SearchserviceComponent.prototype.ngOnInit = function () {
     };
     SearchserviceComponent.prototype.search = function () {
-        this.router.navigate(['/display', this.tag.toLowerCase]);
+        this.router.navigate(['/display', this.tag.toLowerCase()]);
     };
     SearchserviceComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3410,7 +3410,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

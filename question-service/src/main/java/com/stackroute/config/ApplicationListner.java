@@ -55,7 +55,7 @@ public class ApplicationListner implements ApplicationListener<ApplicationReadyE
                 question.setInputFormat(record[3]);
                 question.setOutputFormat(record[4]);
                 question.setDifficulty(record[5]);
-                question.setTags(record[6]);
+                question.setTags(record[6].toLowerCase());
                 question.setGitUrl(record[7]);
                 question.setUsername("admin");
                 if (!questionRepository.existsById(Integer.parseInt(record[0]))) {
