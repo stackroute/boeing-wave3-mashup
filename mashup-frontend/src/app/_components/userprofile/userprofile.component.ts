@@ -60,6 +60,6 @@ export class UserprofileComponent implements OnInit {
   }
 
   deleteUserProfile() {
-    this.userService.deleteUserProfile(this.profile.username).subscribe();
+    this.userService.deleteUserProfile(this.uname).subscribe();
   }
 }
