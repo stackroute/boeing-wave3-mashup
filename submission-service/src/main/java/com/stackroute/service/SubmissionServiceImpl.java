@@ -33,7 +33,13 @@ public class SubmissionServiceImpl implements SubmissionService{
         else{
             level = 30;
         }
-        Double score1 = ((double)submissionData.getTestCasePassed()/(double)submissionData.getTotalTestCases())*level;
+        Double score1;
+        if(submissionData.getTestCasePassed() == 0 || submissionData.getTotalTestCases() == 0){
+            score1 = 0.0;
+        }
+        else{
+            score1 = ((double)submissionData.getTestCasePassed()/(double)submissionData.getTotalTestCases())*level;
+        }
         submissionData.setScore(score1);
         kafkaTemplate.send("SubmissionMessage",submissionData);
         return submissionRepository.save(submissionData);
