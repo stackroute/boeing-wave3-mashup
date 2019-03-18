@@ -7,12 +7,13 @@ import com.stackroute.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+@CrossOrigin("*")
 @Service
 public class KafkaListenerService {
 

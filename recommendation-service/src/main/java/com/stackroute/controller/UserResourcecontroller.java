@@ -89,10 +89,7 @@ public class UserResourcecontroller {
         return responseEntity;
     }
 
-
-
-
-    @GetMapping(value = "practiceQuestions")
+    @GetMapping(value = "questions")
     public List<Question> getAllQuestions() {
         return userService.getAllQuestions();
     }
