@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaListenerService {
 
-    ScoreAndBadgeService scoreAndBadgeService;
+    public ScoreAndBadgeService scoreAndBadgeService;
 
     @Autowired
     public KafkaListenerService(ScoreAndBadgeService scoreAndBadgeService) {
