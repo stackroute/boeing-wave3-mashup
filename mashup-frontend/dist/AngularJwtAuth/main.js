@@ -1147,6 +1147,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_questionservice_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../services/questionservice.service */ "./src/app/services/questionservice.service.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/token-storage.service */ "./src/app/services/token-storage.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1159,15 +1160,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var RecommendComponent = /** @class */ (function () {
-    function RecommendComponent(_route, router, fetchservice) {
+    function RecommendComponent(token, _route, router, fetchservice) {
+        this.token = token;
         this._route = _route;
         this.router = router;
         this.fetchservice = fetchservice;
     }
     RecommendComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.fetchservice.getallquestioninfo().subscribe(function (data) {
+        this.uname = this.token.getUsername();
+        console.log(this.uname);
+        this.fetchservice.getallquestioninfo(this.uname).subscribe(function (data) {
             _this.fetch = data;
         }, function (error) {
             console.log(error.errorMessage);
@@ -1182,7 +1187,7 @@ var RecommendComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./recommend.component.html */ "./src/app/_components/recommend/recommend.component.html"),
             styles: [__webpack_require__(/*! ./recommend.component.css */ "./src/app/_components/recommend/recommend.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_questionservice_service__WEBPACK_IMPORTED_MODULE_0__["QuestionserviceService"]])
+        __metadata("design:paramtypes", [src_app_services_token_storage_service__WEBPACK_IMPORTED_MODULE_3__["TokenStorageService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_questionservice_service__WEBPACK_IMPORTED_MODULE_0__["QuestionserviceService"]])
     ], RecommendComponent);
     return RecommendComponent;
 }());
@@ -1649,7 +1654,7 @@ module.exports = "table {\n    width: 100%;\n  }\n  \n  .mat-form-field {\n    f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"fixed-top\">\n  <app-navbar></app-navbar>\n</nav>\n<br><br><br><br><br>\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"questionId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question ID </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.questionId}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"questionTitle\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Title </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.questionTitle}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"testCasePassed\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Test CasePassed </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.testCasePassed}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"totalTestCases\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total TestCases </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.totalTestCases}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"difficulty\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Difficulty </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.difficulty}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"score\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Score </th>\n      <!-- <td mat-cell *matCellDef=\"let row\"><a mat-raised-button routerLink=\".\">Solution</a></td> -->\n      <td mat-cell *matCellDef=\"let row\"> {{row.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
+module.exports = "<nav class=\"fixed-top\">\n  <app-navbar></app-navbar>\n</nav>\n<br><br><br><br><br><br><br><br>\n<mat-form-field>\n  <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n</mat-form-field>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\" matSort>\n\n    <!-- ID Column -->\n    <ng-container matColumnDef=\"questionId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question ID </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.questionId}} </td>\n    </ng-container>\n\n    <!-- Progress Column -->\n    <ng-container matColumnDef=\"questionTitle\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Question Title </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.questionTitle}} </td>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"testCasePassed\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Test CasePassed </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.testCasePassed}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"totalTestCases\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total TestCases </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.totalTestCases}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"difficulty\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Difficulty </th>\n      <td mat-cell *matCellDef=\"let row\"> {{row.difficulty}} </td>\n    </ng-container>\n\n    <!-- Color Column -->\n    <ng-container matColumnDef=\"score\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Score </th>\n      <!-- <td mat-cell *matCellDef=\"let row\"><a mat-raised-button routerLink=\".\">Solution</a></td> -->\n      <td mat-cell *matCellDef=\"let row\"> {{row.score}} </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -2944,8 +2949,10 @@ var QuestionserviceService = /** @class */ (function () {
         console.log(savedQuestionObj);
         return savedQuestionObj;
     };
-    QuestionserviceService.prototype.getallquestioninfo = function () {
-        var allinfo = this._http.get(this.getallquestionUrl);
+    QuestionserviceService.prototype.getallquestioninfo = function (uname) {
+        console.log('Inside recommendation service & URL : ', this.getallquestionUrl + "/" + uname);
+        console.log('uname : ', uname);
+        var allinfo = this._http.get(this.getallquestionUrl + "/" + uname);
         console.log(allinfo);
         return allinfo;
     };
@@ -3403,7 +3410,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/v1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Documents/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
