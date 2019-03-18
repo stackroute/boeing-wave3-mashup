@@ -19,6 +19,9 @@ public class KafkaListenerService {
     @KafkaListener(topics = "AuthMessage", groupId = "group_id_up")
     public void consume(String message){
         String [] strMessage = message.split(",");
+        for(String str:strMessage){
+            System.out.println(strMessage);
+        }
         UserProfile userProfile = new UserProfile();
         userProfile.setFirstName(strMessage[6].split(":")[1].replace("\"",""));
         userProfile.setLastName(strMessage[7].split(":")[1].replace("\"",""));
@@ -48,6 +51,9 @@ public class KafkaListenerService {
     @KafkaListener(topics = "QuestionMessage", groupId = "group_id_up")
     public void consumeQuestion(String message){
         String[] strMessage = message.split(",\"");
+        for(String str:strMessage){
+            System.out.println(strMessage);
+        }
         String userName = strMessage[8].split(":")[1].replace("\"","").replace("}","");
         Question question = new Question();
         question.setQuestionId(Integer.parseInt(strMessage[0].split(":")[1].replace("\"","")));
@@ -60,6 +66,9 @@ public class KafkaListenerService {
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_up")
     public void consumeSubmission(String message){
         String[] strMessage = message.split(",");
+        for(String str:strMessage){
+            System.out.println(strMessage);
+        }
         String userName = strMessage[1].split(":")[1].replace("\"","");
         Question question = new Question();
         question.setQuestionId(Integer.parseInt(strMessage[2].split(":")[1].replace("\"","")));

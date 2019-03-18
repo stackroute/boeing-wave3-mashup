@@ -330,10 +330,10 @@ var EditComponent = /** @class */ (function () {
         this.colorg = {};
         // this.initializeWebSocketConnection();
     }
-    EditComponent.prototype.ngOnDestroy = function () {
-        console.log("calling ngondestroy");
-        this.quesservice.removeNodemon(this.uname);
-    };
+    // ngOnDestroy(){
+    //   console.log("calling ngondestroy");
+    //   this.quesservice.removeNodemon(this.uname);
+    // }
     EditComponent.prototype.selectChangeHandler = function (event) {
         // update the ui
         this.selectedLang = event.target.value;

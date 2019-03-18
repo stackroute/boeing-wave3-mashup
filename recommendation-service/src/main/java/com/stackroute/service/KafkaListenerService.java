@@ -61,7 +61,7 @@ public class KafkaListenerService {
         SubmissionDetails submissionDetails = new SubmissionDetails();
         submissionDetails.setUsername(strMessage[1].split(":")[1].replace("\"",""));
         submissionDetails.setQuestionId(strMessage[2].split(":")[1].replace("\"",""));
-        submissionDetails.setScore(Double.parseDouble(strMessage[9].split(":")[1].replace("\"","")));
+        submissionDetails.setScore(Double.parseDouble(strMessage[9].split(":")[1].replace("}\"","")));
 
         System.out.println(submissionDetails.getQuestionId()+submissionDetails.getUsername()+submissionDetails.getScore());
         if(submissionDetails==null||submissionDetails.getScore()==null||submissionDetails.getUsername()==null)
