@@ -34,7 +34,7 @@ public class KafkaListenerService {
         user.setUsername(strMessage[0].split(":")[1].replace("\"",""));
         List<String> interest = new ArrayList<String>();
         interest.add(strMessage[8].split(":")[1].replace("\"",""));
-        user.setTags((String[]) interest.toArray());
+        user.setTags((interest.toArray(new String[interest.size()])));
         System.out.println(user.getUsername());
         for(String k:user.getTags()){
             System.out.println(k);
