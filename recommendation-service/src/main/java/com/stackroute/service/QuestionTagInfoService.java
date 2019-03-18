@@ -155,7 +155,9 @@ public class QuestionTagInfoService {
             index++;
 
         }
-
+        for(Question ques: questionList){
+            System.out.println("QUESTION : " + ques);
+        }
         return questionList;
 
     }
