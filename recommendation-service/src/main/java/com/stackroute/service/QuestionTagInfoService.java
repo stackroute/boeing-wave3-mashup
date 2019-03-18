@@ -80,6 +80,8 @@ public class QuestionTagInfoService {
     public List<Question> getUserQuestions(String uname){
 
         List<QuestionTagInfo> tagList=tagInfoRepository.getByUsername(uname);
+        if(tagList==null||tagList.size()==0)
+            return null;
         Date date=new Date();
         tagList.sort(new Comparator<QuestionTagInfo>() {
 
