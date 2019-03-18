@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("*")
-//@EnableDiscoveryClient
 @EnableZuulProxy
 @SpringBootApplication
 public class  ZuulGatewayserviceApplication {
