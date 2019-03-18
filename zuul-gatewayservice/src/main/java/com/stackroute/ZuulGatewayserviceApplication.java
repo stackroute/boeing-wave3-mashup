@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin("*")
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @RestController
 @RequestMapping("/api/v1/")
 @EnableZuulProxy
