@@ -14,7 +14,7 @@ export class SearchserviceComponent implements OnInit {
   ngOnInit() {
   }
   search(): any {
-    this.router.navigate(['/display', this.tag]);   
+    this.router.navigate(['/display', this.tag.toLowerCase]);   
   }
 
 }

@@ -10,12 +10,14 @@
             <button mat-button [routerLink]="['/post', info.username]">Post Question</button>
             <button mat-button routerLink="/editaudio">Learn Coding</button>
             <button mat-button routerLink="/userprofile">Profile</button>
-            <div  class="close">
-            <button mat-raised-button color="white" href="#" (click)="logout()">Logout</button>
-            </div>
+            
         </div>
         <app-searchservice class="searc"></app-searchservice>
         <span class="fill-remaining-space"></span> 
+
+        <div class="close" fxLayout="row" fxHide fxShow.gt-sm>
+            <button mat-raised-button color="white" href="#" (click)="logout()">Logout</button>
+            </div>
        
         <button mat-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
          <mat-icon>menu</mat-icon>
@@ -43,12 +45,14 @@
                 <button mat-button [routerLink]="['/fetch']">Practice</button>
                 <button mat-button [routerLink]="['/editaudio']">Learn Coding</button>
                 <button mat-button><a href="#contact">Contact Us</a></button>
-                <div class="close">
-                <button *ngIf="!authority" mat-raised-button color="white"  [routerLink]="['/auth/login']">Login/Signup</button>
-                </div>
+                
               </div>
               <app-searchservice class="searc"></app-searchservice>
                 <span class="fill-remaining-space"></span>
+
+                <div class="close" fxLayout="row" fxHide fxShow.gt-sm>
+                    <button *ngIf="!authority" mat-raised-button color="white"  [routerLink]="['/auth/login']">Login/Signup</button>
+                    </div>
               
             <button mat-icon-button [mat-menu-trigger-for]="menu" fxShow fxHide.gt-sm>
              <mat-icon>menu</mat-icon>
@@ -58,7 +62,7 @@
         <mat-menu x-position="before" #menu>        
             <button mat-menu-item [routerLink]="['/fetch']">Practice</button>
             <button mat-menu-item [routerLink]="['/editaudio']">Learn Coding</button>
-            <button mat-button><a href="#contact">Contact Us</a></button>
+            <button mat-button><a class="con" href="#contact">Contact Us</a></button>
             <button *ngIf="!authority" mat-menu-item [routerLink]="['/auth/login']">Login/Signup</button>
           </mat-menu>
     </ng-template>
