@@ -1,5 +1,7 @@
 package com.stackroute.service;
 
+import com.stackroute.domain.Score;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -7,18 +9,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaListenerService {
 
+    public ScoreAndBadgeService scoreAndBadgeService;
+
+    @Autowired
+    public KafkaListenerService(ScoreAndBadgeService scoreAndBadgeService) {
+        this.scoreAndBadgeService = scoreAndBadgeService;
+    }
+
     @KafkaListener(topics = "SubmissionMessage", groupId = "group_id_score")
-    public String consume(String message)
+    public void consume(String message)
     {
-      //  message="{\"username\":\"Pratibha\",\"questionId\":2,\"questionTitle\":\"Second One\",\"result\":\"Success\",\"testCasePassed\":10,\"totalTestCases\":10,\"difficulty\":\"medium\",\"solution\":\"This is the solution\",\"score\":30.0}";
         System.out.println("Consumed msg : " + message);
-        return message;
+        Score score=new Score();
+        String submitValues[] = message.trim().split(",");
+        String submittedusername[] = submitValues[0].trim().split(":");
+        String scoreVal[] = submitValues[8].trim().split(":");
+        String userName =submittedusername[1].trim().split("\"")[1];
+        score.setUserName(userName);
+        double scoreOfQuestion=Double.parseDouble(scoreVal[1].trim().split("}")[0]);
+        //method to store username and calculate total score
+        scoreAndBadgeService.calcAndUpdateTotalScore(score,scoreOfQuestion);
     }
     @KafkaListener(topics = "AuthMessage", groupId = "group_id_score")
-    public String consume1(String message1)
+    public void consume1(String message1)
     {
-      //  message1 = "{\"username\":\"Pratibha\",\"age\":22}";
         System.out.println("Consumed msg : " + message1);
-        return message1;
+        Score score=new Score();
+        String splittedData[] =  message1.trim().split(",");
+        String submitteduserdata[] = splittedData[0].trim().split(":");
+        String registeredUserName = submitteduserdata[1].trim().split("\"")[1];
+        score.setUserName(registeredUserName);
+        score.setTotalScore(0.0);
+        scoreAndBadgeService.saveTotalScore(score);
     }
 }
