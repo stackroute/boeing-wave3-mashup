@@ -4,14 +4,13 @@
 }
 .example-card{
 width: 150px;
-/* margin-bottom: 90px; */
 }
+
 #cardtitle{
-  /* font-size:18px; */
   font-weight: bold;
 }
+
 #totalscore{
   font-size: 20px;
-  /* font-display: bold; */
   font-weight: bold;
 }

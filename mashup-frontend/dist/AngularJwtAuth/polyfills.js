@@ -5474,7 +5474,11 @@ window.global = window;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /home/user/Videos/v1.0.7_push/boeing-wave3-mashup/mashup-frontend/src/polyfills.ts */"./src/polyfills.ts");
+=======
+module.exports = __webpack_require__(/*! /home/user/Desktop/boeing-wave3-mashup/mashup-frontend/src/polyfills.ts */"./src/polyfills.ts");
+>>>>>>> f6f2e623531b97deeee89df2170696cf8d431ece
 
 
 /***/ })

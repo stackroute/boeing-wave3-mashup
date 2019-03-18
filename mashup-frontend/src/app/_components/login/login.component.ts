@@ -44,8 +44,6 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        // this.reloadPage();
-        // this.router.navigate(['']);
       },
       error => {
         this.errorMessage = error.error.message;
@@ -54,14 +52,12 @@ export class LoginComponent implements OnInit {
     );
     this.interval = setInterval(() => {
       if ( this.timeStart < 0.5) {
-        // clearInterval(this.interval);
         this.timeStart++;
       } else {
         this.router.navigate(['']);
         clearInterval(this.interval);
       }
     }, 1000);
-    // this.router.navigate(['']);
   }
   reloadPage() {
     window.location.reload();

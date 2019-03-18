@@ -20,7 +20,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 
 
 })
-export class EditComponent implements OnInit,OnDestroy {
+export class EditComponent implements OnInit {
  
     serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
@@ -38,9 +38,9 @@ export class EditComponent implements OnInit,OnDestroy {
   greetings: string[] = [];
 
   disabled = true;
-  // name: string;
  code: String;
   private stompClient = null;
+
   // socket ends here
   questionObj: String;
   result: String;
@@ -57,10 +57,10 @@ export class EditComponent implements OnInit,OnDestroy {
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
 
-  ngOnDestroy(){
-    console.log("calling ngondestroy");
-    this.quesservice.removeNodemon(this.uname);
-  }
+  // ngOnDestroy(){
+  //   console.log("calling ngondestroy");
+  //   this.quesservice.removeNodemon(this.uname);
+  // }
   selectChangeHandler(event: any) {
     // update the ui
     this.selectedLang = event.target.value;
@@ -88,9 +88,6 @@ export class EditComponent implements OnInit,OnDestroy {
  
             // this.initializeWebSocketConnection();
   }
-
-
-
   ngOnInit() {
     this.questionId = this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();

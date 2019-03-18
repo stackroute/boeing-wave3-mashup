@@ -22,7 +22,5 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.token.signOut();
     location.assign("http://13.234.74.67:8030/");
-    // window.location.reload();
-    // this.router.navigate(['']);
   }
 }

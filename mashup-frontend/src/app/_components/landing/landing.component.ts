@@ -8,8 +8,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class LandingComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService) { }
-
-  
  
   ngOnInit() {
     /** spinner starts on init */

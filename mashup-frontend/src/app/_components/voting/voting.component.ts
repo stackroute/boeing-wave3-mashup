@@ -43,7 +43,6 @@ export class VotingComponent implements OnInit {
     const obj4 = Object.assign(this.obj3, this.obj1);
     this.questionservice.sendVote(obj4).pipe(first()).subscribe(
       data => {
-        // this.alertService.success(data, true);
         alert('Voting Successfull');
     },
     error => {
@@ -55,6 +54,7 @@ export class VotingComponent implements OnInit {
   myFunction2(): any {
     this.vote = 'DOWN';
     this.username = this.token.getUsername();
+
    // tslint:disable-next-line:label-position
     this.add = '{"userName":"' + this.username + '"}';
     this.obj1  = JSON.parse(this.add);
@@ -68,7 +68,6 @@ export class VotingComponent implements OnInit {
     const obj4 = Object.assign(this.obj3, this.obj1);
     this.questionservice.sendVote(obj4).pipe(first()).subscribe(
       data => {
-        // this.alertService.success(data, true);
         alert('Successfull');
     },
     error => {
