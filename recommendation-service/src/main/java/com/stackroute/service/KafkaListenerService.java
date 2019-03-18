@@ -43,11 +43,11 @@ public class KafkaListenerService {
             System.out.println(k);
         }
 
-//        if(!(user==null||user.getUsername()==null))
-//        {
-//
-//        User user1 = userService.createUserNode(user);
-//        tagInfoService.addTags(user.getTags(),user.getUsername());  }
+        if(!(user==null||user.getUsername()==null))
+        {
+
+        User user1 = userService.createUserNode(user);
+        tagInfoService.addTags(user.getTags(),user.getUsername());  }
 
         }
 
@@ -64,9 +64,9 @@ public class KafkaListenerService {
         submissionDetails.setScore(Double.parseDouble(strMessage[8].split(":")[1].replace("\"","")));
 
         System.out.println(submissionDetails.getQuestionId()+submissionDetails.getUsername()+submissionDetails.getScore());
-//        if(submissionDetails==null||submissionDetails.getScore()==null||submissionDetails.getUsername()==null)
-//            return ;
-//        tagInfoService.addOrUpdateTag(submissionDetails.getQuestionId(),submissionDetails.getScore(),submissionDetails.getUsername());
+        if(submissionDetails==null||submissionDetails.getScore()==null||submissionDetails.getUsername()==null)
+            return ;
+        tagInfoService.addOrUpdateTag(submissionDetails.getQuestionId(),submissionDetails.getScore(),submissionDetails.getUsername());
 
     }
 
@@ -83,6 +83,6 @@ public class KafkaListenerService {
         question.setDifficulty(strMessage[5].split(":")[1].replace("\"",""));
         question.setTags(strMessage[6].split(":")[1].replace("\"",""));
         System.out.println(question.getQuestionId()+question.getQuestionTitle()+question.getDifficulty()+question.getTags());
-       // tagInfoService.saveQuestion(question);
+        tagInfoService.saveQuestion(question);
     }
 }

@@ -16,6 +16,7 @@ export class RecommendComponent implements OnInit {
   public uname:String;
   ngOnInit(): any {
     this.uname = this.token.getUsername();
+    console.log(this.uname);
     this.fetchservice.getallquestioninfo(this.uname).subscribe(
       data => {
         this.fetch = data;
