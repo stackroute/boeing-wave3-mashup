@@ -45,7 +45,6 @@ public class User{
     @NaturalId
     @NotBlank
     @Size(max = 50)
-    @Email
     private String email;
 
     @NotBlank
