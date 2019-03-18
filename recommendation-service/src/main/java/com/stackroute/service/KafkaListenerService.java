@@ -30,6 +30,9 @@ public class KafkaListenerService {
     public void consume(String message){
         System.out.println("Consumed msg : " + message);
         String [] strMessage = message.split(",");
+        for(String str:strMessage){
+            System.out.println("String : " + str);
+        }
         User  user = new User();
         user.setUsername(strMessage[0].split(":")[1].replace("\"",""));
         List<String> interest = new ArrayList<String>();
@@ -52,6 +55,9 @@ public class KafkaListenerService {
     public void consumeSubmission(String message){
         System.out.println("Consumed msg : " + message);
         String [] strMessage = message.split(",");
+        for(String str:strMessage){
+            System.out.println("String : " + str);
+        }
         SubmissionDetails submissionDetails = new SubmissionDetails();
         submissionDetails.setUsername(strMessage[1].split(":")[1].replace("\"",""));
         submissionDetails.setQuestionId(strMessage[2].split(":")[1].replace("\"",""));
@@ -68,6 +74,9 @@ public class KafkaListenerService {
     public void consumeQuestion(String message){
         System.out.println("Consumed msg : " + message);
         String [] strMessage = message.split(",");
+        for(String str:strMessage){
+            System.out.println("String : " + str);
+        }
         Question question = new Question();
         question.setQuestionId(strMessage[0].split(":")[1].replace("\"",""));
         question.setQuestionTitle(strMessage[1].split(":")[1].replace("\"",""));
