@@ -22,7 +22,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 })
 export class EditComponent implements OnInit {
  
-    serverUrl='http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint';
+    serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
   public statement=false;

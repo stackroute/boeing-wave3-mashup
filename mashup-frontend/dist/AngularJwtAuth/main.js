@@ -332,7 +332,7 @@ var EditComponent = /** @class */ (function () {
         this.token = token;
         this.dialogService = dialogService;
         this.router = router;
-        this.serverUrl = 'http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint';
+        this.serverUrl = 'http://13.234.74.67:8025/gkz-stomp-endpoint';
         // title='WebSockets demo';
         // wesocket
         this.statement = false;
