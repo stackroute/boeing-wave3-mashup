@@ -37,7 +37,7 @@ public class KafkaListenerService {
         Score score=new Score();
         String splittedData[] =  message1.trim().split(",");
         String submitteduserdata[] = splittedData[0].trim().split(":");
-        String registeredUserName = submitteduserdata[1].trim().split("\"")[1];
+        String registeredUserName = submitteduserdata[1].trim().replace("\"","");
         score.setUserName(registeredUserName);
         score.setTotalScore(0.0);
         scoreAndBadgeService.saveTotalScore(score);
