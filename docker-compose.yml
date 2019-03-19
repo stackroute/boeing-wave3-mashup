@@ -9,7 +9,10 @@ services:
     network_mode: host
     hostname: localhost
     depends_on:
-      - eurekaserver
+      eurekaserver:
+        condition: service_healthy
+      config-server:
+        condition: service_healthy
     ports:
       - 8092:8092
     volumes:
@@ -26,6 +29,20 @@ services:
     hostname: localhost
     ports:
       - 8093:8093
+    healthcheck:
+      test: "exit 0"
+
+  config-server:
+    image: config-server
+    build: ./config-server/
+    container_name: configserver
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8032:8032
+    expose:
+      - 8032
     healthcheck:
       test: "exit 0"
 
@@ -117,6 +134,8 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -138,6 +157,8 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -158,6 +179,8 @@ services:
     hostname: localhost
     depends_on:
       mongo:
+        condition: service_healthy
+      config-server:
         condition: service_healthy
       apigateway:
         condition: service_healthy
@@ -182,6 +205,8 @@ services:
     depends_on:
       neo4j:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -203,6 +228,8 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -222,6 +249,8 @@ services:
     network_mode: host
     hostname: localhost
     depends_on:
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -243,6 +272,8 @@ services:
     network_mode: host
     hostname: localhost
     depends_on:
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -261,6 +292,8 @@ services:
     hostname: localhost
     depends_on:
       mongo:
+        condition: service_healthy
+      config-server:
         condition: service_healthy
       apigateway:
         condition: service_healthy
@@ -283,6 +316,8 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -304,6 +339,8 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
+      config-server:
+        condition: service_healthy
       apigateway:
         condition: service_healthy
       eurekaserver:
@@ -312,6 +349,24 @@ services:
         condition: service_healthy
     ports:
       - 8029:8029
+    healthcheck:
+      test: "exit 0"
+
+  js-execution-engine:
+    image: js-execution-engine
+    build: ./js-execution-engine/
+    container_name: js-execution
+    restart: always
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 8031:8031
+    depends_on:
+      config-server:
+        condition: service_healthy
+    volumes:
+      - /DB/script:/DB/script
+      - /DB/js-boilerplate:/DB/js-boilerplate
     healthcheck:
       test: "exit 0"
 
@@ -328,18 +383,3 @@ services:
       - 8030
     healthcheck:
       test: "exit 0"
-
-  js-execution-engine:
-    image: js-execution-engine
-    build: ./js-execution-engine/
-    container_name: js-execution
-    restart: always
-    network_mode: host
-    hostname: localhost
-    ports:
-     - 8031:8031
-    volumes:
-      - /DB/script:/DB/script
-      - /DB/js-boilerplate:/DB/js-boilerplate
-    healthcheck:
-     test: "exit 0"

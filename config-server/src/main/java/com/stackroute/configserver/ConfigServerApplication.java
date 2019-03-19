@@ -6,9 +6,9 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@CrossOrigin("*")
 @EnableConfigServer
 @SpringBootApplication
+@CrossOrigin("*")
 public class ConfigServerApplication {
 
 	public static void main(String[] args) {
