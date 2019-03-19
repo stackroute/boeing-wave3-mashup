@@ -22,7 +22,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 })
 export class EditComponent implements OnInit {
  
-    serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
+    serverUrl='http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
   public statement=false;
@@ -153,7 +153,7 @@ export class EditComponent implements OnInit {
     let ws = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(ws);
     let that = this;
- 
+    that.setConnected(true);
     this.stompClient.connect(
       {},
       function(frame) {

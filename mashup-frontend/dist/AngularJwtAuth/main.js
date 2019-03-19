@@ -220,7 +220,52 @@ var autocomplete = /** @class */ (function () {
         return {
             provideCompletionItems: function (model, position) {
                 // tslint:disable-next-line:max-line-length
-                var completionItems = [{ label: 'Integer', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'SQL', documentation: 'sql selector.' }];
+                var completionItems = [{ label: 'Integer', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'abstract', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'return', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'short', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'static', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'super', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'switch', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'this', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'throw', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'throws', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'try', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'void', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'int', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'while', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'if', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'else', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'elseif', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'assert', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'boolean', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'break', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'byte', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'case', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'catch', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'char', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'class', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'continue', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'default', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'do', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'extends', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'final', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'finally', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'float', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'interface', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'long', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'module', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'package', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'private', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'protected', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'public', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'short', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'null', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'true', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'false', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'double', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                    { label: 'Map', kind: monaco.languages.CompletionItemKind.Keyword, detail: 'java', documentation: 'sql selector.' },
+                ];
                 return completionItems;
             }
         };
@@ -287,7 +332,7 @@ var EditComponent = /** @class */ (function () {
         this.token = token;
         this.dialogService = dialogService;
         this.router = router;
-        this.serverUrl = 'http://13.234.74.67:8025/gkz-stomp-endpoint';
+        this.serverUrl = 'http://13.234.74.67:8092/execution-engine/gkz-stomp-endpoint';
         // title='WebSockets demo';
         // wesocket
         this.statement = false;
@@ -390,6 +435,7 @@ var EditComponent = /** @class */ (function () {
         var ws = new sockjs_client__WEBPACK_IMPORTED_MODULE_3__(this.serverUrl);
         this.stompClient = stompjs__WEBPACK_IMPORTED_MODULE_2__["over"](ws);
         var that = this;
+        that.setConnected(true);
         this.stompClient.connect({}, function (frame) {
             that.stompClient.subscribe('/topic', function (message) {
                 that.showGreeting(JSON.parse(message.body).codeTemplate);
@@ -3523,7 +3569,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Videos/last/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Desktop/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
