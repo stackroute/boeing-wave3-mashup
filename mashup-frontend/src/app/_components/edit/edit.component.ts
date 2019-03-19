@@ -201,7 +201,7 @@ export class EditComponent implements OnInit {
     this.flag2 = true;
     this.flag = false;
     this.greetings.push(message);
-    if (!this.greetings[0].includes('[') && ( this.greetings[0].includes('statement') || this.greetings[0].includes('expected'))
+    if (!this.greetings[0].includes('[') && ( this.greetings[0].includes('statement') || this.greetings[0].includes('expected')))
     {
       this.statement = true;
     }
