@@ -1,6 +1,6 @@
-FROM openjdk:11
+FROM openjdk:10
 
-ADD ./target/config-server-0.0.1-SNAPSHOT.jar /event/src/config-server-0.0.1-SNAPSHOT.jar
-EXPOSE 8888
+ADD ./target/config-server-1.0.3-SNAPSHOT.jar /event/src/config-server-1.0.3-SNAPSHOT.jar
+EXPOSE 8032
 WORKDIR event/src
-ENTRYPOINT ["java","-jar","config-server-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","config-server-1.0.3-SNAPSHOT.jar"]
