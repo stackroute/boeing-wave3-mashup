@@ -43,13 +43,13 @@ public class UserService {
 
         for(int i=0;i<10;i++)
         {
-           int rand_int1 =1+rand.nextInt(45);
+           int rand_int1 =1+rand.nextInt(50);
            int  j=0;
-           while(j<i)
+           while(j<=i)
            {
                if(arr[i]==rand_int1)
                {
-                   rand_int1=1+rand.nextInt(45);
+                   rand_int1=1+rand.nextInt(50);
                    j=0;
                }
                j++;
