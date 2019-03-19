@@ -106,8 +106,11 @@ public class UserDBProfileServiceImpl implements UserProfileService {
             } else {
                 for (Question quesAttempt : questionAttempedList) {
                     if (quesAttempt.getQuestionId() != questionAttempted.getQuestionId()) {
-                        temp.get().getAttemptedQuestion().add(questionAttempted);
+                        state = true;
                     }
+                }
+                if (state == false) {
+                    temp.get().getAttemptedQuestion().add(questionAttempted);
                 }
             }
             return userProfileRepository.save(temp.get());
