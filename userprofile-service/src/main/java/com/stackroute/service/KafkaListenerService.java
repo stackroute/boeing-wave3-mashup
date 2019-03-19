@@ -73,7 +73,9 @@ public class KafkaListenerService {
         Question question = new Question();
         question.setQuestionId(Integer.parseInt(strMessage[2].split(":")[1].replace("\"","")));
         question.setQuestionTitle(strMessage[3].split(":")[1].replace("\"",""));
-
+        System.out.println("username: " + userName);
+        System.out.println("qID: " + question.getQuestionId());
+        System.out.println("qtitle: " + question.getQuestionTitle());
         UserDBProfileServiceImpl userDBProfileService = new UserDBProfileServiceImpl(userRepository);
         userDBProfileService.updateQuestionAttempted(userName, question);
     }
