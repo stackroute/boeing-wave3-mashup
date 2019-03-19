@@ -425,7 +425,7 @@ var EditComponent = /** @class */ (function () {
         this.flag2 = true;
         this.flag = false;
         this.greetings.push(message);
-        if (!this.greetings[0].includes('[') && (this.greetings[0].includes('statement') || this.greetings[0].includes('expected'))) {
+        if (!this.greetings[0].includes('statement') && !this.greetings[0].includes(';') && !this.greetings[0].includes('missing') && !this.greetings[0].includes('cannot')) {
             this.statement = true;
         }
         this.greetings = this.greetings[0].split('@*#');
@@ -3523,7 +3523,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/user/Pictures/Mashup/v1.0.7/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Pictures/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
