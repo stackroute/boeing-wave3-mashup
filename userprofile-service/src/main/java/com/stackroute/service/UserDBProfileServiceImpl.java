@@ -100,16 +100,16 @@ public class UserDBProfileServiceImpl implements UserProfileService {
         System.out.println("status : " + temp.isPresent());
         List<Question> questionAttempedList;
         if (temp.isPresent()) {
-//            questionAttempedList = temp.get().getAttemptedQuestion();
-//            boolean state = false;
-//            for (Question quesAttempt : questionAttempedList) {
-//                if (quesAttempt.getQuestionId() != questionAttempted.getQuestionId()) {
-//                        state = true;
-//                }
-//            }
-//            if (state == false) {
+            questionAttempedList = temp.get().getAttemptedQuestion();
+            boolean state = false;
+            for (Question quesAttempt : questionAttempedList) {
+                if (quesAttempt.getQuestionId() == questionAttempted.getQuestionId()) {
+                    state = true;
+                }
+            }
+            if (state == false) {
                 temp.get().getAttemptedQuestion().add(questionAttempted);
-//            }
+            }
             return userProfileRepository.save(temp.get());
         }
         return null;
