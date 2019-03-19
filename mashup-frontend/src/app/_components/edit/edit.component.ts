@@ -195,16 +195,15 @@ export class EditComponent implements OnInit {
           this.router.navigate(['']);
         }
       });
-      
  }
   showGreeting(message) {
-    this.statement=false;
-    this.flag2=true;
-    this.flag=false;
+    this.statement = false;
+    this.flag2 = true;
+    this.flag = false;
     this.greetings.push(message);
-    if(!this.greetings[0].includes("["))
+    if (!this.greetings[0].includes('[') && ( this.greetings[0].includes('statement') || this.greetings[0].includes('expected'))
     {
-      this.statement=true;
+      this.statement = true;
     }
     this.greetings = this.greetings[0].split('@*#');
     this.totaltest = this.greetings[0];
