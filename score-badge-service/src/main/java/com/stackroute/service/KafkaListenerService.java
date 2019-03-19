@@ -23,7 +23,7 @@ public class KafkaListenerService {
         Score score=new Score();
         String submitValues[] = message.trim().split(",");
         String submittedusername[] = submitValues[0].trim().split(":");
-        String scoreVal[] = submitValues[8].trim().split(":");
+        String scoreVal[] = submitValues[9].trim().split(":");
         String userName =submittedusername[1].trim().split("\"")[1];
         score.setUserName(userName);
         double scoreOfQuestion=Double.parseDouble(scoreVal[1].trim().split("}")[0]);
