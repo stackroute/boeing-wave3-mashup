@@ -3098,7 +3098,7 @@ var QuestionserviceService = /** @class */ (function () {
     function QuestionserviceService(_http) {
         this._http = _http;
         this.questionPopulatorApidUrl = 'http://13.234.74.67:8092/question-service/api/v1/';
-        this.getallquestionUrl = 'http://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
+        this.getallquestionUrl = 'https://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
         console.log('http service got called');
     }
     QuestionserviceService.prototype.saveQuestion = function (questionObj) {
