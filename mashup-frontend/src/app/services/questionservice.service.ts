@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class QuestionserviceService {
 
-  public questionPopulatorApidUrl = 'https://13.234.74.67:8092/question-service/api/v1/';
-  public getallquestionUrl = 'https://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
+  public questionPopulatorApidUrl = 'http://13.234.74.67:8092/question-service/api/v1/';
+  public getallquestionUrl = 'http://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
   constructor(private _http: HttpClient) {
     console.log('http service got called');
   }
@@ -20,8 +20,10 @@ export class QuestionserviceService {
     console.log(savedQuestionObj);
     return savedQuestionObj;
   }
-  public getallquestioninfo(): Observable<any>  {
-    const allinfo = this._http.get(this.getallquestionUrl);
+  public getallquestioninfo(uname): Observable<any>  {
+    console.log('Inside recommendation service & URL : ',this.getallquestionUrl+"/"+uname);
+    console.log('uname : ',uname);
+    const allinfo = this._http.get(this.getallquestionUrl+"/"+uname);
     console.log(allinfo);
     return allinfo;
   }
@@ -29,7 +31,7 @@ export class QuestionserviceService {
   public sendVote(questionObj): Observable<any> {
     // tslint:disable-next-line:prefer-const
     console.log('QUESTION : ', questionObj);
-    const savedQuestionObj = this._http.post('http://172.23.239.122:8058/vote', questionObj, {responseType: 'text'});
+    const savedQuestionObj = this._http.post('http://13.234.74.67:8092/voting-service/api/v1/vote', questionObj, {responseType: 'text'});
     console.log(savedQuestionObj);
     return savedQuestionObj;
   }

@@ -20,17 +20,17 @@ const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        data: { animation: 'isHome'}
+        data: { state: 'isHome'}
     },
     {
         path: 'userprofile',
         component: UserprofileComponent,
-        data: { animation: 'isUserprofile'}
+        data: { state : 'isUserprofile'}
     },
     {
         path: 'execution',
         component: EditComponent,
-        data: { animation: 'isExecution'}
+        data: { state : 'isExecution'}
     },
     {
         path: 'execution/:qid',
@@ -47,7 +47,7 @@ const routes: Routes = [
     {
         path: 'auth/login',
         component: LoginComponent,
-        data: { animation: 'isAuth/login'}
+        data: { state : 'isAuth/login'}
     },
     {
         path: 'voting',
@@ -59,7 +59,7 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'submission-component',
+        path: 'submission-component/:qid',
         component: SubmissionComponent
     },
     {

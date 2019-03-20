@@ -9,23 +9,23 @@ export class RegisterService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<User[]>(`http://13.234.74.67:8096/api/v1/users`);
+    return this.http.get<User[]>(`http://localhost:8096/api/v1/users`);
   }
 
   getById(id: number) {
-    return this.http.get(`http://13.234.74.67:8096/api/v1/users/${id}`);
+    return this.http.get(`http://localhost:8096/api/v1/users/${id}`);
   }
 
   register(user: User): Observable<any> {
     console.log('user details are  : ', user);
-    return this.http.post(`https://13.234.74.67:8092/registration-service/api/v1/register`, user, {responseType: 'text'});
+    return this.http.post(`http://13.234.74.67:8092/registration-service/api/v1/register`, user, {responseType: 'text'});
   }
 
   update(user: User) {
-    return this.http.put(`http://13.234.74.67:8096/api/v1/users/${user.id}`, user);
+    return this.http.put(`http://localhost:8096/api/v1/users/${user.id}`, user);
   }
 
   delete(id: number) {
-    return this.http.delete(`http://13.234.74.67:8096/api/v1/users/${id}`);
+    return this.http.delete(`http://localhost:8096/api/v1/users/${id}`);
   }
 }

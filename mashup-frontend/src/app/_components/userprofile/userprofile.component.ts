@@ -5,6 +5,7 @@ import { Token } from '@angular/compiler';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { ScorebadgeService } from 'src/app/services/scorebadge.service';
 import { Profile } from 'selenium-webdriver/firefox';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -24,34 +25,21 @@ export interface PeriodicElement {
 })
 export class UserprofileComponent implements OnInit {
   profileState: string;
-  profile;
+  public profile;
   public uname: string;
 
-  // for getting data from scoreand badge service
-  public userData = {};
-
   // tslint:disable-next-line:max-line-length
-  constructor(private token: TokenStorageService, private userService: UserprofileServiceService, private scorebadgeservice: ScorebadgeService) { }
+  constructor( private _route: ActivatedRoute,private router: Router,private token: TokenStorageService, private userService: UserprofileServiceService) { }
   tiles: Tile[] = [
     {text: 'One', cols: 1, rows: 5, color: 'white'},
-    {text: 'Two', cols: 2, rows: 2.5, color: 'white'},
-    {text: 'three', cols: 2, rows: 2.5, color: 'grey'},
+    {text: 'Two', cols: 2, rows: 1, color: 'white'},
+    {text: 'three', cols: 2, rows: 4, color: 'grey'},
   ];
 
   ngOnInit() {
     this.uname = this.token.getUsername();
     this.userService.getUserProfile(this.uname).subscribe(data => this.profile = data);
     this.profileState = 'currentProfile';
-
-    // call score and badge service to get data(added by pratima on 27th feb2019)
-    this.scorebadgeservice.getUserData(this.uname).subscribe(
-      data => {
-       this.userData = data;
-    },
-      error => {
-        // alert(error);
-      }
-    );
   }
 
   updateProfile() {
@@ -69,6 +57,9 @@ export class UserprofileComponent implements OnInit {
   }
 
   deleteUserProfile() {
+    this.token.signOut();
     this.userService.deleteUserProfile(this.profile.username).subscribe();
+    location.assign("http://13.234.74.67:8030/");
+
   }
 }

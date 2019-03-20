@@ -22,11 +22,11 @@ public class KafkaListenerService {
         System.out.println("Consumed msg : " + message);
         Score score=new Score();
         String submitValues[] = message.trim().split(",");
-        String submittedusername[] = submitValues[0].trim().split(":");
-        String scoreVal[] = submitValues[8].trim().split(":");
-        String userName =submittedusername[1].trim().split("\"")[1];
+        String submittedusername[] = submitValues[1].trim().split(":");
+        String scoreVal[] = submitValues[9].trim().split(":");
+        String userName =submittedusername[1].trim().replace("\"", "");
         score.setUserName(userName);
-        double scoreOfQuestion=Double.parseDouble(scoreVal[1].trim().split("}")[0]);
+        double scoreOfQuestion=Double.parseDouble(scoreVal[1].trim().replace("}",""));
         //method to store username and calculate total score
         scoreAndBadgeService.calcAndUpdateTotalScore(score,scoreOfQuestion);
     }
@@ -37,7 +37,7 @@ public class KafkaListenerService {
         Score score=new Score();
         String splittedData[] =  message1.trim().split(",");
         String submitteduserdata[] = splittedData[0].trim().split(":");
-        String registeredUserName = submitteduserdata[1].trim().split("\"")[1];
+        String registeredUserName = submitteduserdata[1].trim().replace("\"","");
         score.setUserName(registeredUserName);
         score.setTotalScore(0.0);
         scoreAndBadgeService.saveTotalScore(score);

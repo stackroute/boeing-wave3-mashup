@@ -7,6 +7,9 @@
   
   .Site-content {
     flex: 1;
-    /* padding-top: 70px; */
   }
  
+  .alert{
+    margin: 0;
+    font-size: 0.8rem;
+  }

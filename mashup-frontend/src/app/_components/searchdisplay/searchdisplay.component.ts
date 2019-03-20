@@ -19,8 +19,8 @@ export class SearchdisplayComponent implements OnInit {
 
   ngOnInit() {
     this.tag = this._route.snapshot.paramMap.get('tag');
-    this.fetchservice.findQuestion(this.tag).subscribe(data => this.fetch = data);
-    console.log(this.fetchservice.findQuestion(this.tag).subscribe(data => this.fetch = data));
+    this.fetchservice.findQuestion(this.tag.toLowerCase()).subscribe(data => this.fetch = data);
+    console.log(this.fetchservice.findQuestion(this.tag.toLowerCase()).subscribe(data => this.fetch = data));
   }
 
 }

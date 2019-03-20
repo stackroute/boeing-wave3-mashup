@@ -6,6 +6,7 @@ import * as SockJS from 'sockjs-client';
 import { autocomplete } from './autocomplete';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DialogService } from 'src/app/services/dialog.service';
 
 
 @Component({
@@ -19,11 +20,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 })
-export class EditComponent implements OnInit,OnDestroy {
+export class EditComponent implements OnInit {
  
     serverUrl='http://13.234.74.67:8025/gkz-stomp-endpoint';
    // title='WebSockets demo';
   // wesocket
+  public statement=false;
   public flag=false;
   public flag2=false;
   title = 'grokonez';
@@ -36,9 +38,9 @@ export class EditComponent implements OnInit,OnDestroy {
   greetings: string[] = [];
 
   disabled = true;
-  // name: string;
  code: String;
   private stompClient = null;
+
   // socket ends here
   questionObj: String;
   result: String;
@@ -55,10 +57,10 @@ export class EditComponent implements OnInit,OnDestroy {
   selectedLang = 'java';
   editorOptions = { theme: 'vs-dark', language: 'java' };
 
-  ngOnDestroy(){
-    console.log("calling ngondestroy");
-    this.quesservice.removeNodemon(this.uname);
-  }
+  // ngOnDestroy(){
+  //   console.log("calling ngondestroy");
+  //   this.quesservice.removeNodemon(this.uname);
+  // }
   selectChangeHandler(event: any) {
     // update the ui
     this.selectedLang = event.target.value;
@@ -82,13 +84,10 @@ export class EditComponent implements OnInit,OnDestroy {
     monaco.languages.registerCompletionItemProvider(this.selectedLang, this.auto.getJavaCompletionProvider(monaco));
 
   }
-  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService) {
+  constructor(public quesservice: QuestioExeEngineService, private _route: ActivatedRoute, private token: TokenStorageService, private dialogService: DialogService, private router: Router) {
  
-            this.initializeWebSocketConnection();
+            // this.initializeWebSocketConnection();
   }
-
-
-
   ngOnInit() {
     this.questionId = this._route.snapshot.paramMap.get('qid');
     this.uname = this.token.getUsername();
@@ -96,6 +95,7 @@ export class EditComponent implements OnInit,OnDestroy {
      this.quesservice.getQuestionById(this.questionId).subscribe(
       data => {
        this.questionObj = data;
+       this.initializeWebSocketConnection();
         this.questionId = data['questionId'];
         this.questionTitle = data['questionTitle'] ;
         this.questionDescription = data['questionDescription'] ;
@@ -153,7 +153,7 @@ export class EditComponent implements OnInit,OnDestroy {
     let ws = new SockJS(this.serverUrl);
     this.stompClient = Stomp.over(ws);
     let that = this;
- 
+    that.setConnected(true);
     this.stompClient.connect(
       {},
       function(frame) {
@@ -163,19 +163,7 @@ export class EditComponent implements OnInit,OnDestroy {
       }
     );
   }
-  // connect() {
-  //   const socket = new SockJS('http://13.234.74.67:8025/gkz-stomp-endpoint');
-  //   this.stompClient = Stomp.over(socket);
-  //   const _this = this;
-  //   this.stompClient.connect({}, function (frame) {
-  //     _this.setConnected(true);
-
-  //     _this.stompClient.subscribe('/topic/hi', function (helo) {
-
-  //       _this.showGreeting(JSON.parse(helo.body).codeTemplate);
-  //     });
-  //   });
-  // }
+  
   disconnect() {
     if (this.stompClient != null) {
       this.stompClient.disconnect();
@@ -197,15 +185,26 @@ export class EditComponent implements OnInit,OnDestroy {
  // tslint:disable-next-line:member-ordering
  public colorg: object = {};
  sendDataToSubmissionService() {
-      this.quesservice.sendDatatoSubmission({'code': this.code, 'username': this.uname, 'questionId': this.questionId,
-      'questionTitle': this.questionTitle, result: this.result,
-      'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
-      'difficulty': this.difficulty});
+      this.dialogService.openConfirmDialog("Are you sure ?")
+      .afterClosed().subscribe(res =>{
+        if(res){
+          this.quesservice.sendDatatoSubmission({'code': this.code, 'username': this.uname, 'questionId': this.questionId,
+          'questionTitle': this.questionTitle, result: this.result,
+          'testCasePassed': this.testpass, 'totalTestCases': this.totaltest,
+          'difficulty': this.difficulty});
+          this.router.navigate(['']);
+        }
+      });
  }
   showGreeting(message) {
-    this.flag2=true;
-    this.flag=false;
+    this.statement = false;
+    this.flag2 = true;
+    this.flag = false;
     this.greetings.push(message);
+    if ( !this.greetings[0].includes('statement') && !this.greetings[0].includes(';') && !this.greetings[0].includes('missing') && !this.greetings[0].includes('cannot'))
+    {
+      this.statement = true;
+    }
     this.greetings = this.greetings[0].split('@*#');
     this.totaltest = this.greetings[0];
     this.testpass = this.greetings[1];

@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
 import { UserComponent } from './_components/user/user.component';
@@ -16,6 +16,8 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor  } from './_helpers/jwt.interceptor';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './_components/register/register.component';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import {A11yModule} from '@angular/cdk/a11y';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -27,7 +29,6 @@ import { ResizableModule } from 'angular-resizable-element';
 import { OwlModule } from 'ngx-owl-carousel';
 import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { httpInterceptorProviders } from './_components/auth/auth-interceptor';
-
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -79,6 +80,9 @@ import { ScoreandbadgeComponent } from './_components/scoreandbadge/scoreandbadg
 import { LandingComponent } from './_components/landing/landing.component';
 import { SearchserviceComponent } from './_components/searchservice/searchservice.component';
 import { SearchdisplayComponent } from './_components/searchdisplay/searchdisplay.component';
+import { MatdialogComponent } from './_components/matdialog/matdialog.component';
+import { SocialbarComponent } from './_components/socialbar/socialbar.component';
+import { AlertComponent } from './_components/alert/alert.component';
 
 const monacoConfig: NgxMonacoEditorConfig = {
   baseUrl: 'assets',         // configure base path for monaco editor
@@ -138,10 +142,15 @@ const monacoConfig: NgxMonacoEditorConfig = {
     SearchserviceComponent,
     EditaudioComponent,
     SearchdisplayComponent,
+    MatdialogComponent,
+    SocialbarComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     OwlModule,
+    NgxPageScrollModule,
+    NgxPageScrollCoreModule,
     AppRoutingModule,
     ResizableModule,
     FormsModule,
@@ -193,6 +202,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     HttpClientModule,
     HttpModule,
     NgxSpinnerModule,
+    FlexLayoutModule,
     MonacoEditorModule.forRoot(monacoConfig),
     RouterModule.forRoot([
       {path: 'fetch', component: RecommendComponent},
@@ -205,6 +215,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
     httpInterceptorProviders,
     UserprofileServiceService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MatdialogComponent]
 })
 export class AppModule { }

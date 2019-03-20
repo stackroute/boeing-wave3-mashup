@@ -2,6 +2,7 @@ import { QuestionserviceService } from './../../services/questionservice.service
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-recommend',
@@ -10,10 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class RecommendComponent implements OnInit {
 
-  constructor(public _route: ActivatedRoute, private router: Router, public fetchservice: QuestionserviceService) { }
+  constructor(private token: TokenStorageService,public _route: ActivatedRoute, private router: Router, public fetchservice: QuestionserviceService) { }
   public fetch: any;
+  public uname:String;
   ngOnInit(): any {
-    this.fetchservice.getallquestioninfo().subscribe(
+    this.uname = this.token.getUsername();
+    console.log(this.uname);
+    this.fetchservice.getallquestioninfo(this.uname).subscribe(
       data => {
         this.fetch = data;
       },
