@@ -42,4 +42,4 @@ RUN npm run build
 # Stage 2
 FROM node
 RUN npm install http-server -g
-CMD ["http-server","-p","8030", "dist/AngularJwtAuth","-S","--cert","ssl/cert.pem","--key","ssl/key.pem"]
+CMD ["http-server","-p","8030", "dist/AngularJwtAuth","-S","--cert","/DB/ssl/cert.pem","--key","/DB/ssl/key.pem"]
