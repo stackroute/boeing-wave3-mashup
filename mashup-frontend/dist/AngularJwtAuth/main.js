@@ -3098,7 +3098,7 @@ var QuestionserviceService = /** @class */ (function () {
     function QuestionserviceService(_http) {
         this._http = _http;
         this.questionPopulatorApidUrl = 'http://13.234.74.67:8092/question-service/api/v1/';
-        this.getallquestionUrl = 'http://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
+        this.getallquestionUrl = 'https://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
         console.log('http service got called');
     }
     QuestionserviceService.prototype.saveQuestion = function (questionObj) {
@@ -3569,7 +3569,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Desktop/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/boeingwave3-kishlay/Music/boeing-wave3-mashup/mashup-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })

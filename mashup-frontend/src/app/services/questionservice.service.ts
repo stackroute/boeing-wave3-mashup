@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class QuestionserviceService {
 
   public questionPopulatorApidUrl = 'http://13.234.74.67:8092/question-service/api/v1/';
-  public getallquestionUrl = 'http://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
+  public getallquestionUrl = 'https://13.234.74.67:8092/recommendation-service/rest/neo4j/questions';
   constructor(private _http: HttpClient) {
     console.log('http service got called');
   }
