@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DiffEditorModel } from 'ngx-monaco-editor';
 import { NgxEditorModel } from 'ngx-monaco-editor';
 import { autocomplete } from './autocomplete';
-import * as Stomp from 'stompjs';
+import * as Stomp from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
 
 @Component({

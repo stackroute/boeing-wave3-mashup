@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DiffEditorModel, NgxEditorModel } from 'ngx-monaco-editor';
 import { QuestioExeEngineService } from '../../services/questio-exe-engine.service';
-import * as Stomp from 'stompjs';
+import * as Stomp from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
 import { autocomplete } from './autocomplete';
 import { TokenStorageService } from '../../services/token-storage.service';
