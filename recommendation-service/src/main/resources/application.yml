@@ -1,0 +1,31 @@
+#server:
+#    port: 8023
+
+spring:
+    data:
+        mongodb:
+            database: recommend
+            host: localhost
+            port: 27017
+    application:
+        name: recommendation-service   #current service name to be used by the eureka server
+
+eureka:         #tells about the Eureka server details and its refresh time
+    instance:
+        leaseRenewalIntervalInSeconds: 1
+        leaseExpirationDurationInSeconds: 2
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8093/eureka/
+        healthcheck:
+            enabled: true
+        lease:
+            duration: 5
+
+management:
+    security:
+        enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+logging:
+    level:
+        com.stackroute.recommendation-service: DEBUG
